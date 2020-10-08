@@ -39,28 +39,28 @@
 #include "units_fwd.h"
 #include "value_ptr.h"
 
-static const quality_id qual_SHEAR( "SHEAR" );
+static const quality_id qual_SHEAR( "SHEAR"_id );
 
-static const efftype_id effect_sheared( "sheared" );
+static const efftype_id effect_sheared( "sheared"_id );
 
-static const activity_id ACT_MILK( "ACT_MILK" );
-static const activity_id ACT_PLAY_WITH_PET( "ACT_PLAY_WITH_PET" );
+static const activity_id ACT_MILK( "ACT_MILK"_id );
+static const activity_id ACT_PLAY_WITH_PET( "ACT_PLAY_WITH_PET"_id );
 
-static const efftype_id effect_controlled( "controlled" );
-static const efftype_id effect_harnessed( "harnessed" );
-static const efftype_id effect_has_bag( "has_bag" );
-static const efftype_id effect_monster_armor( "monster_armor" );
-static const efftype_id effect_paid( "paid" );
-static const efftype_id effect_pet( "pet" );
-static const efftype_id effect_ridden( "ridden" );
-static const efftype_id effect_monster_saddled( "monster_saddled" );
-static const efftype_id effect_tied( "tied" );
+static const efftype_id effect_controlled( "controlled"_id );
+static const efftype_id effect_harnessed( "harnessed"_id );
+static const efftype_id effect_has_bag( "has_bag"_id );
+static const efftype_id effect_monster_armor( "monster_armor"_id );
+static const efftype_id effect_paid( "paid"_id );
+static const efftype_id effect_pet( "pet"_id );
+static const efftype_id effect_ridden( "ridden"_id );
+static const efftype_id effect_monster_saddled( "monster_saddled"_id );
+static const efftype_id effect_tied( "tied"_id );
 
-static const itype_id itype_cash_card( "cash_card" );
-static const itype_id itype_id_military( "id_military" );
+static const itype_id itype_cash_card( "cash_card"_id );
+static const itype_id itype_id_military( "id_military"_id );
 
-static const skill_id skill_survival( "survival" );
-static const species_id species_ZOMBIE( "ZOMBIE" );
+static const skill_id skill_survival( "survival"_id );
+static const species_id species_ZOMBIE( "ZOMBIE"_id );
 
 bool monexamine::pet_menu( monster &z )
 {
@@ -296,7 +296,7 @@ void monexamine::shear_animal( monster &z )
     const int moves = to_moves<int>( time_duration::from_minutes( 30 / player_character.max_quality(
                                          qual_SHEAR ) ) );
 
-    player_character.assign_activity( activity_id( "ACT_SHEAR" ), moves, -1 );
+    player_character.assign_activity( activity_id( "ACT_SHEAR"_id ), moves, -1 );
     player_character.activity.coords.push_back( get_map().getabs( z.pos() ) );
     // pin the sheep in place if it isn't already
     if( !z.has_effect( effect_tied ) ) {
@@ -692,7 +692,7 @@ void monexamine::play_with( monster &z )
 void monexamine::kill_zslave( monster &z )
 {
     avatar &player_character = get_avatar();
-    z.apply_damage( &player_character, bodypart_id( "torso" ),
+    z.apply_damage( &player_character, bodypart_id( "torso"_id ),
                     100 ); // damage the monster (and its corpse)
     z.die( &player_character ); // and make sure it's really dead
 

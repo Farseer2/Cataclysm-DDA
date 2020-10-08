@@ -81,113 +81,113 @@
 #include "weather.h"
 #include "weather_gen.h"
 
-static const activity_id ACT_OPERATION( "ACT_OPERATION" );
+static const activity_id ACT_OPERATION( "ACT_OPERATION"_id );
 
-static const efftype_id effect_adrenaline( "adrenaline" );
-static const efftype_id effect_antifungal( "antifungal" );
-static const efftype_id effect_assisted( "assisted" );
-static const efftype_id effect_asthma( "asthma" );
-static const efftype_id effect_bleed( "bleed" );
-static const efftype_id effect_bloodworms( "bloodworms" );
-static const efftype_id effect_cig( "cig" );
-static const efftype_id effect_datura( "datura" );
-static const efftype_id effect_dermatik( "dermatik" );
-static const efftype_id effect_drunk( "drunk" );
-static const efftype_id effect_fungus( "fungus" );
-static const efftype_id effect_hallu( "hallu" );
-static const efftype_id effect_heating_bionic( "heating_bionic" );
-static const efftype_id effect_high( "high" );
-static const efftype_id effect_iodine( "iodine" );
-static const efftype_id effect_meth( "meth" );
-static const efftype_id effect_narcosis( "narcosis" );
-static const efftype_id effect_operating( "operating" );
-static const efftype_id effect_pblue( "pblue" );
-static const efftype_id effect_pkill_l( "pkill_l" );
+static const efftype_id effect_adrenaline( "adrenaline"_id );
+static const efftype_id effect_antifungal( "antifungal"_id );
+static const efftype_id effect_assisted( "assisted"_id );
+static const efftype_id effect_asthma( "asthma"_id );
+static const efftype_id effect_bleed( "bleed"_id );
+static const efftype_id effect_bloodworms( "bloodworms"_id );
+static const efftype_id effect_cig( "cig"_id );
+static const efftype_id effect_datura( "datura"_id );
+static const efftype_id effect_dermatik( "dermatik"_id );
+static const efftype_id effect_drunk( "drunk"_id );
+static const efftype_id effect_fungus( "fungus"_id );
+static const efftype_id effect_hallu( "hallu"_id );
+static const efftype_id effect_heating_bionic( "heating_bionic"_id );
+static const efftype_id effect_high( "high"_id );
+static const efftype_id effect_iodine( "iodine"_id );
+static const efftype_id effect_meth( "meth"_id );
+static const efftype_id effect_narcosis( "narcosis"_id );
+static const efftype_id effect_operating( "operating"_id );
+static const efftype_id effect_pblue( "pblue"_id );
+static const efftype_id effect_pkill_l( "pkill_l"_id );
 static const efftype_id effect_pkill1( "pkill1" );
 static const efftype_id effect_pkill2( "pkill2" );
 static const efftype_id effect_pkill3( "pkill3" );
-static const efftype_id effect_poison( "poison" );
-static const efftype_id effect_sleep( "sleep" );
-static const efftype_id effect_stung( "stung" );
-static const efftype_id effect_teleglow( "teleglow" );
-static const efftype_id effect_tetanus( "tetanus" );
-static const efftype_id effect_took_flumed( "took_flumed" );
-static const efftype_id effect_took_prozac( "took_prozac" );
-static const efftype_id effect_took_prozac_bad( "took_prozac_bad" );
-static const efftype_id effect_took_xanax( "took_xanax" );
-static const efftype_id effect_under_operation( "under_operation" );
-static const efftype_id effect_visuals( "visuals" );
+static const efftype_id effect_poison( "poison"_id );
+static const efftype_id effect_sleep( "sleep"_id );
+static const efftype_id effect_stung( "stung"_id );
+static const efftype_id effect_teleglow( "teleglow"_id );
+static const efftype_id effect_tetanus( "tetanus"_id );
+static const efftype_id effect_took_flumed( "took_flumed"_id );
+static const efftype_id effect_took_prozac( "took_prozac"_id );
+static const efftype_id effect_took_prozac_bad( "took_prozac_bad"_id );
+static const efftype_id effect_took_xanax( "took_xanax"_id );
+static const efftype_id effect_under_operation( "under_operation"_id );
+static const efftype_id effect_visuals( "visuals"_id );
 
-static const itype_id fuel_type_battery( "battery" );
-static const itype_id fuel_type_metabolism( "metabolism" );
-static const itype_id fuel_type_muscle( "muscle" );
-static const itype_id fuel_type_sun_light( "sunlight" );
-static const itype_id fuel_type_wind( "wind" );
+static const itype_id fuel_type_battery( "battery"_id );
+static const itype_id fuel_type_metabolism( "metabolism"_id );
+static const itype_id fuel_type_muscle( "muscle"_id );
+static const itype_id fuel_type_sun_light( "sunlight"_id );
+static const itype_id fuel_type_wind( "wind"_id );
 
-static const itype_id itype_adv_UPS_off( "adv_UPS_off" );
-static const itype_id itype_anesthetic( "anesthetic" );
-static const itype_id itype_radiocontrol( "radiocontrol" );
-static const itype_id itype_remotevehcontrol( "remotevehcontrol" );
-static const itype_id itype_UPS( "UPS" );
-static const itype_id itype_UPS_off( "UPS_off" );
-static const itype_id itype_water_clean( "water_clean" );
+static const itype_id itype_adv_UPS_off( "adv_UPS_off"_id );
+static const itype_id itype_anesthetic( "anesthetic"_id );
+static const itype_id itype_radiocontrol( "radiocontrol"_id );
+static const itype_id itype_remotevehcontrol( "remotevehcontrol"_id );
+static const itype_id itype_UPS( "UPS"_id );
+static const itype_id itype_UPS_off( "UPS_off"_id );
+static const itype_id itype_water_clean( "water_clean"_id );
 
-static const fault_id fault_bionic_salvaged( "fault_bionic_salvaged" );
+static const fault_id fault_bionic_salvaged( "fault_bionic_salvaged"_id );
 
-static const skill_id skill_computer( "computer" );
-static const skill_id skill_electronics( "electronics" );
-static const skill_id skill_firstaid( "firstaid" );
-static const skill_id skill_mechanics( "mechanics" );
+static const skill_id skill_computer( "computer"_id );
+static const skill_id skill_electronics( "electronics"_id );
+static const skill_id skill_firstaid( "firstaid"_id );
+static const skill_id skill_mechanics( "mechanics"_id );
 
-static const bionic_id bio_adrenaline( "bio_adrenaline" );
-static const bionic_id bio_advreactor( "bio_advreactor" );
-static const bionic_id bio_blade_weapon( "bio_blade_weapon" );
-static const bionic_id bio_blaster( "bio_blaster" );
-static const bionic_id bio_blood_anal( "bio_blood_anal" );
-static const bionic_id bio_blood_filter( "bio_blood_filter" );
-static const bionic_id bio_claws_weapon( "bio_claws_weapon" );
-static const bionic_id bio_cqb( "bio_cqb" );
-static const bionic_id bio_earplugs( "bio_earplugs" );
-static const bionic_id bio_ears( "bio_ears" );
-static const bionic_id bio_emp( "bio_emp" );
-static const bionic_id bio_evap( "bio_evap" );
-static const bionic_id bio_eye_optic( "bio_eye_optic" );
-static const bionic_id bio_flashbang( "bio_flashbang" );
-static const bionic_id bio_geiger( "bio_geiger" );
-static const bionic_id bio_gills( "bio_gills" );
-static const bionic_id bio_hydraulics( "bio_hydraulics" );
-static const bionic_id bio_jointservo( "bio_jointservo" );
-static const bionic_id bio_lighter( "bio_lighter" );
-static const bionic_id bio_lockpick( "bio_lockpick" );
-static const bionic_id bio_magnet( "bio_magnet" );
-static const bionic_id bio_meteorologist( "bio_meteorologist" );
-static const bionic_id bio_nanobots( "bio_nanobots" );
-static const bionic_id bio_painkiller( "bio_painkiller" );
-static const bionic_id bio_plutdump( "bio_plutdump" );
-static const bionic_id bio_power_storage( "bio_power_storage" );
-static const bionic_id bio_power_storage_mkII( "bio_power_storage_mkII" );
-static const bionic_id bio_radscrubber( "bio_radscrubber" );
-static const bionic_id bio_reactor( "bio_reactor" );
-static const bionic_id bio_remote( "bio_remote" );
-static const bionic_id bio_resonator( "bio_resonator" );
-static const bionic_id bio_shockwave( "bio_shockwave" );
-static const bionic_id bio_teleport( "bio_teleport" );
-static const bionic_id bio_time_freeze( "bio_time_freeze" );
-static const bionic_id bio_tools( "bio_tools" );
-static const bionic_id bio_torsionratchet( "bio_torsionratchet" );
-static const bionic_id bio_water_extractor( "bio_water_extractor" );
-static const bionic_id bio_tools_extend( "bio_tools_extend" );
+static const bionic_id bio_adrenaline( "bio_adrenaline"_id );
+static const bionic_id bio_advreactor( "bio_advreactor"_id );
+static const bionic_id bio_blade_weapon( "bio_blade_weapon"_id );
+static const bionic_id bio_blaster( "bio_blaster"_id );
+static const bionic_id bio_blood_anal( "bio_blood_anal"_id );
+static const bionic_id bio_blood_filter( "bio_blood_filter"_id );
+static const bionic_id bio_claws_weapon( "bio_claws_weapon"_id );
+static const bionic_id bio_cqb( "bio_cqb"_id );
+static const bionic_id bio_earplugs( "bio_earplugs"_id );
+static const bionic_id bio_ears( "bio_ears"_id );
+static const bionic_id bio_emp( "bio_emp"_id );
+static const bionic_id bio_evap( "bio_evap"_id );
+static const bionic_id bio_eye_optic( "bio_eye_optic"_id );
+static const bionic_id bio_flashbang( "bio_flashbang"_id );
+static const bionic_id bio_geiger( "bio_geiger"_id );
+static const bionic_id bio_gills( "bio_gills"_id );
+static const bionic_id bio_hydraulics( "bio_hydraulics"_id );
+static const bionic_id bio_jointservo( "bio_jointservo"_id );
+static const bionic_id bio_lighter( "bio_lighter"_id );
+static const bionic_id bio_lockpick( "bio_lockpick"_id );
+static const bionic_id bio_magnet( "bio_magnet"_id );
+static const bionic_id bio_meteorologist( "bio_meteorologist"_id );
+static const bionic_id bio_nanobots( "bio_nanobots"_id );
+static const bionic_id bio_painkiller( "bio_painkiller"_id );
+static const bionic_id bio_plutdump( "bio_plutdump"_id );
+static const bionic_id bio_power_storage( "bio_power_storage"_id );
+static const bionic_id bio_power_storage_mkII( "bio_power_storage_mkII"_id );
+static const bionic_id bio_radscrubber( "bio_radscrubber"_id );
+static const bionic_id bio_reactor( "bio_reactor"_id );
+static const bionic_id bio_remote( "bio_remote"_id );
+static const bionic_id bio_resonator( "bio_resonator"_id );
+static const bionic_id bio_shockwave( "bio_shockwave"_id );
+static const bionic_id bio_teleport( "bio_teleport"_id );
+static const bionic_id bio_time_freeze( "bio_time_freeze"_id );
+static const bionic_id bio_tools( "bio_tools"_id );
+static const bionic_id bio_torsionratchet( "bio_torsionratchet"_id );
+static const bionic_id bio_water_extractor( "bio_water_extractor"_id );
+static const bionic_id bio_tools_extend( "bio_tools_extend"_id );
 // Aftershock stuff!
-static const bionic_id afs_bio_dopamine_stimulators( "afs_bio_dopamine_stimulators" );
+static const bionic_id afs_bio_dopamine_stimulators( "afs_bio_dopamine_stimulators"_id );
 
-static const trait_id trait_CENOBITE( "CENOBITE" );
-static const trait_id trait_DEBUG_BIONICS( "DEBUG_BIONICS" );
-static const trait_id trait_MASOCHIST( "MASOCHIST" );
-static const trait_id trait_MASOCHIST_MED( "MASOCHIST_MED" );
-static const trait_id trait_NOPAIN( "NOPAIN" );
-static const trait_id trait_PROF_AUTODOC( "PROF_AUTODOC" );
-static const trait_id trait_PROF_MED( "PROF_MED" );
-static const trait_id trait_THRESH_MEDICAL( "THRESH_MEDICAL" );
+static const trait_id trait_CENOBITE( "CENOBITE"_id );
+static const trait_id trait_DEBUG_BIONICS( "DEBUG_BIONICS"_id );
+static const trait_id trait_MASOCHIST( "MASOCHIST"_id );
+static const trait_id trait_MASOCHIST_MED( "MASOCHIST_MED"_id );
+static const trait_id trait_NOPAIN( "NOPAIN"_id );
+static const trait_id trait_PROF_AUTODOC( "PROF_AUTODOC"_id );
+static const trait_id trait_PROF_MED( "PROF_MED"_id );
+static const trait_id trait_THRESH_MEDICAL( "THRESH_MEDICAL"_id );
 
 static const std::string flag_ALLOWS_NATURAL_ATTACKS( "ALLOWS_NATURAL_ATTACKS" );
 static const std::string flag_AURA( "AURA" );
@@ -715,11 +715,11 @@ bool Character::activate_bionic( int b, bool eff_only, bool *close_bionics_ui )
         add_msg_if_player( m_good, _( "Your speed suddenly increases!" ) );
         if( one_in( 3 ) ) {
             add_msg_if_player( m_bad, _( "Your muscles tear with the strain." ) );
-            apply_damage( nullptr, bodypart_id( "arm_l" ), rng( 5, 10 ) );
-            apply_damage( nullptr, bodypart_id( "arm_r" ), rng( 5, 10 ) );
-            apply_damage( nullptr, bodypart_id( "leg_l" ), rng( 7, 12 ) );
-            apply_damage( nullptr, bodypart_id( "leg_r" ), rng( 7, 12 ) );
-            apply_damage( nullptr, bodypart_id( "torso" ), rng( 5, 15 ) );
+            apply_damage( nullptr, bodypart_id( "arm_l"_id ), rng( 5, 10 ) );
+            apply_damage( nullptr, bodypart_id( "arm_r"_id ), rng( 5, 10 ) );
+            apply_damage( nullptr, bodypart_id( "leg_l"_id ), rng( 7, 12 ) );
+            apply_damage( nullptr, bodypart_id( "leg_r"_id ), rng( 7, 12 ) );
+            apply_damage( nullptr, bodypart_id( "torso"_id ), rng( 5, 15 ) );
         }
         if( one_in( 5 ) ) {
             add_effect( effect_teleglow, rng( 5_minutes, 40_minutes ) );
@@ -845,7 +845,7 @@ bool Character::activate_bionic( int b, bool eff_only, bool *close_bionics_ui )
     } else if( bio.id == bio_magnet ) {
         add_msg_activate();
         static const std::set<material_id> affected_materials =
-        { material_id( "iron" ), material_id( "steel" ) };
+        { material_id( "iron"_id ), material_id( "steel"_id ) };
         // Remember all items that will be affected, then affect them
         // Don't "snowball" by affecting some items multiple times
         std::vector<std::pair<item, tripoint>> affected;
@@ -1943,7 +1943,7 @@ bool Character::has_enough_anesth( const itype &cbm, player &patient )
     }
 
     const int weight = units::to_kilogram( patient.bodyweight() ) / 10;
-    const requirement_data req_anesth = *requirement_id( "anesthetic" ) *
+    const requirement_data req_anesth = *requirement_id( "anesthetic"_id ) *
                                         cbm.bionic->difficulty * 2 * weight;
 
     return req_anesth.can_make_with_inventory( crafting_inventory(), is_crafting_component );
@@ -1956,7 +1956,7 @@ bool Character::has_enough_anesth( const itype &cbm )
         return true;
     }
     const int weight = units::to_kilogram( bodyweight() ) / 10;
-    const requirement_data req_anesth = *requirement_id( "anesthetic" ) *
+    const requirement_data req_anesth = *requirement_id( "anesthetic"_id ) *
                                         cbm.bionic->difficulty * 2 * weight;
     if( !req_anesth.can_make_with_inventory( crafting_inventory(),
             is_crafting_component ) ) {
@@ -1972,7 +1972,7 @@ bool Character::has_enough_anesth( const itype &cbm )
 void Character::consume_anesth_requirment( const itype &cbm, player &patient )
 {
     const int weight = units::to_kilogram( patient.bodyweight() ) / 10;
-    const requirement_data req_anesth = *requirement_id( "anesthetic" ) *
+    const requirement_data req_anesth = *requirement_id( "anesthetic"_id ) *
                                         cbm.bionic->difficulty * 2 * weight;
     for( const auto &e : req_anesth.get_components() ) {
         as_player()->consume_items( e, 1, is_crafting_component );
@@ -2460,7 +2460,7 @@ void Character::perform_install( const bionic_id &bid, const bionic_id &upbid, i
 {
     if( success > 0 ) {
         get_event_bus().send<event_type::installs_cbm>( getID(), bid );
-        if( upbid != bionic_id( "" ) ) {
+        if( upbid != bionic_id( ""_id ) ) {
             remove_bionic( upbid );
             //~ %1$s - name of the bionic to be upgraded (inferior), %2$s - name of the upgraded bionic (superior).
             add_msg( m_good, _( "Successfully upgraded %1$s to %2$s." ),
@@ -2683,7 +2683,7 @@ void Character::add_bionic( const bionic_id &b )
 
     for( const std::pair<const spell_id, int> &spell_pair : b->learned_spells ) {
         const spell_id learned_spell = spell_pair.first;
-        if( learned_spell->spell_class != trait_id( "NONE" ) ) {
+        if( learned_spell->spell_class != trait_id( "NONE"_id ) ) {
             const trait_id spell_class = learned_spell->spell_class;
             // spells you learn from a bionic overwrite the opposite spell class.
             // for best UX, include those spell classes in "canceled_mutations"

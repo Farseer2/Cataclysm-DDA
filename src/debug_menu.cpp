@@ -100,12 +100,12 @@
 #include "weather_type.h"
 #include "weighted_list.h"
 
-static const efftype_id effect_asthma( "asthma" );
-static const efftype_id effect_flu( "flu" );
+static const efftype_id effect_asthma( "asthma"_id );
+static const efftype_id effect_flu( "flu"_id );
 
-static const mtype_id mon_generator( "mon_generator" );
+static const mtype_id mon_generator( "mon_generator"_id );
 
-static const trait_id trait_ASTHMA( "ASTHMA" );
+static const trait_id trait_ASTHMA( "ASTHMA"_id );
 
 #if defined(TILES)
 #include "sdl_wrappers.h"
@@ -666,12 +666,12 @@ void character_edit_menu()
         }
         break;
         case D_HP: {
-            const int torso_hp = p.get_part_hp_cur( bodypart_id( "torso" ) );
-            const int head_hp = p.get_part_hp_cur( bodypart_id( "head" ) );
-            const int arm_l_hp = p.get_part_hp_cur( bodypart_id( "arm_l" ) );
-            const int arm_r_hp = p.get_part_hp_cur( bodypart_id( "arm_r" ) );
-            const int leg_l_hp = p.get_part_hp_cur( bodypart_id( "leg_l" ) );
-            const int leg_r_hp = p.get_part_hp_cur( bodypart_id( "leg_r" ) );
+            const int torso_hp = p.get_part_hp_cur( bodypart_id( "torso"_id ) );
+            const int head_hp = p.get_part_hp_cur( bodypart_id( "head"_id ) );
+            const int arm_l_hp = p.get_part_hp_cur( bodypart_id( "arm_l"_id ) );
+            const int arm_r_hp = p.get_part_hp_cur( bodypart_id( "arm_r"_id ) );
+            const int leg_l_hp = p.get_part_hp_cur( bodypart_id( "leg_l"_id ) );
+            const int leg_r_hp = p.get_part_hp_cur( bodypart_id( "leg_r"_id ) );
             uilist smenu;
             smenu.addentry( 0, true, 'q', "%s: %d", _( "Torso" ), torso_hp );
             smenu.addentry( 1, true, 'w', "%s: %d", _( "Head" ), head_hp );
@@ -681,33 +681,33 @@ void character_edit_menu()
             smenu.addentry( 5, true, 'x', "%s: %d", _( "Right leg" ), leg_r_hp );
             smenu.addentry( 6, true, 'e', "%s: %d", _( "All" ), p.get_lowest_hp() );
             smenu.query();
-            bodypart_str_id bp = bodypart_str_id( "no_a_real_part" );
+            bodypart_str_id bp = bodypart_str_id( "no_a_real_part"_id );
             int bp_ptr = -1;
             bool all_select = false;
 
             switch( smenu.ret ) {
                 case 0:
-                    bp = bodypart_str_id( "torso" );
+                    bp = bodypart_str_id( "torso"_id );
                     bp_ptr = torso_hp;
                     break;
                 case 1:
-                    bp = bodypart_str_id( "head" );
+                    bp = bodypart_str_id( "head"_id );
                     bp_ptr = head_hp;
                     break;
                 case 2:
-                    bp = bodypart_str_id( "arm_l" );
+                    bp = bodypart_str_id( "arm_l"_id );
                     bp_ptr = arm_l_hp;
                     break;
                 case 3:
-                    bp = bodypart_str_id( "arm_r" );
+                    bp = bodypart_str_id( "arm_r"_id );
                     bp_ptr = arm_r_hp;
                     break;
                 case 4:
-                    bp = bodypart_str_id( "leg_l" );
+                    bp = bodypart_str_id( "leg_l"_id );
                     bp_ptr = leg_l_hp;
                     break;
                 case 5:
-                    bp = bodypart_str_id( "leg_r" );
+                    bp = bodypart_str_id( "leg_r"_id );
                     bp_ptr = leg_r_hp;
                     break;
                 case 6:
@@ -1361,8 +1361,8 @@ void debug()
             new_fac_id += temp->name;
             // create a new "lone wolf" faction for this one NPC
             faction *new_solo_fac = g->faction_manager_ptr->add_new_faction( temp->name,
-                                    faction_id( new_fac_id ), faction_id( "no_faction" ) );
-            temp->set_fac( new_solo_fac ? new_solo_fac->id : faction_id( "no_faction" ) );
+                                    faction_id( new_fac_id ), faction_id( "no_faction"_id ) );
+            temp->set_fac( new_solo_fac ? new_solo_fac->id : faction_id( "no_faction"_id ) );
             g->load_npcs();
         }
         break;
@@ -1452,7 +1452,7 @@ void debug()
         case debug_menu_index::KILL_NPCS:
             for( npc &guy : g->all_npcs() ) {
                 add_msg( _( "%s's head implodes!" ), guy.name );
-                guy.set_part_hp_cur( bodypart_id( "head" ), 0 );
+                guy.set_part_hp_cur( bodypart_id( "head"_id ), 0 );
             }
             break;
 
@@ -1468,7 +1468,7 @@ void debug()
                 // Vector of name, id so that we can sort by name
                 std::vector<std::pair<std::string, vproto_id>> veh_strings;
                 for( auto &elem : vehicle_prototype::get_all() ) {
-                    if( elem == vproto_id( "custom" ) ) {
+                    if( elem == vproto_id( "custom"_id ) ) {
                         continue;
                     }
                     veh_strings.emplace_back( elem->name.translated(), elem );
@@ -1515,7 +1515,7 @@ void debug()
             add_msg( m_info, _( "Martial arts debug." ) );
             add_msg( _( "Your eyes blink rapidly as knowledge floods your brain." ) );
             for( auto &style : all_martialart_types() ) {
-                if( style != matype_id( "style_none" ) ) {
+                if( style != matype_id( "style_none"_id ) ) {
                     player_character.martial_arts_data->add_martialart( style );
                 }
             }
@@ -1541,7 +1541,7 @@ void debug()
                 artifact_natural_property prop = static_cast<artifact_natural_property>( rng( ARTPROP_NULL + 1,
                                                  ARTPROP_MAX - 1 ) );
                 here.create_anomaly( *center, prop );
-                here.spawn_artifact( *center, relic_procgen_id( "alien_reality" ) );
+                here.spawn_artifact( *center, relic_procgen_id( "alien_reality"_id ) );
             }
             break;
 
@@ -1637,12 +1637,12 @@ void debug()
 
         // Damage Self
         case debug_menu_index::DAMAGE_SELF: {
-            const int torso_hp = player_character.get_part_hp_cur( bodypart_id( "torso" ) );
-            const int head_hp = player_character.get_part_hp_cur( bodypart_id( "head" ) );
-            const int arm_l_hp = player_character.get_part_hp_cur( bodypart_id( "arm_l" ) );
-            const int arm_r_hp = player_character.get_part_hp_cur( bodypart_id( "arm_r" ) );
-            const int leg_l_hp = player_character.get_part_hp_cur( bodypart_id( "leg_l" ) );
-            const int leg_r_hp = player_character.get_part_hp_cur( bodypart_id( "leg_r" ) );
+            const int torso_hp = player_character.get_part_hp_cur( bodypart_id( "torso"_id ) );
+            const int head_hp = player_character.get_part_hp_cur( bodypart_id( "head"_id ) );
+            const int arm_l_hp = player_character.get_part_hp_cur( bodypart_id( "arm_l"_id ) );
+            const int arm_r_hp = player_character.get_part_hp_cur( bodypart_id( "arm_r"_id ) );
+            const int leg_l_hp = player_character.get_part_hp_cur( bodypart_id( "leg_l"_id ) );
+            const int leg_r_hp = player_character.get_part_hp_cur( bodypart_id( "leg_r"_id ) );
             uilist smenu;
             smenu.addentry( 0, true, 'q', "%s: %d", _( "Torso" ), torso_hp );
             smenu.addentry( 1, true, 'w', "%s: %d", _( "Head" ), head_hp );
@@ -1655,22 +1655,22 @@ void debug()
             int dbg_damage;
             switch( smenu.ret ) {
                 case 0:
-                    part = bodypart_id( "torso" );
+                    part = bodypart_id( "torso"_id );
                     break;
                 case 1:
-                    part = bodypart_id( "head" );
+                    part = bodypart_id( "head"_id );
                     break;
                 case 2:
-                    part = bodypart_id( "arm_l" );
+                    part = bodypart_id( "arm_l"_id );
                     break;
                 case 3:
-                    part = bodypart_id( "arm_r" );
+                    part = bodypart_id( "arm_r"_id );
                     break;
                 case 4:
-                    part = bodypart_id( "leg_l" );
+                    part = bodypart_id( "leg_l"_id );
                     break;
                 case 5:
-                    part = bodypart_id( "leg_r" );
+                    part = bodypart_id( "leg_r"_id );
                     break;
                 default:
                     break;
@@ -1696,22 +1696,22 @@ void debug()
             int intensity = 0;
             switch( smenu.ret ) {
                 case 0:
-                    part = bodypart_id( "torso" );
+                    part = bodypart_id( "torso"_id );
                     break;
                 case 1:
-                    part = bodypart_id( "head" );
+                    part = bodypart_id( "head"_id );
                     break;
                 case 2:
-                    part = bodypart_id( "arm_l" );
+                    part = bodypart_id( "arm_l"_id );
                     break;
                 case 3:
-                    part = bodypart_id( "arm_r" );
+                    part = bodypart_id( "arm_r"_id );
                     break;
                 case 4:
-                    part = bodypart_id( "leg_l" );
+                    part = bodypart_id( "leg_l"_id );
                     break;
                 case 5:
-                    part = bodypart_id( "leg_r" );
+                    part = bodypart_id( "leg_r"_id );
                     break;
                 default:
                     break;

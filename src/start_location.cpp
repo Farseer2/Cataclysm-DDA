@@ -397,7 +397,7 @@ void start_location::add_map_extra( const tripoint_abs_omt &omtstart,
 void start_location::handle_heli_crash( player &u ) const
 {
     for( const bodypart_id &bp : u.get_all_body_parts( get_body_part_flags::only_main ) ) {
-        if( bp == bodypart_id( "head" ) || bp == bodypart_id( "torso" ) ) {
+        if( bp == bodypart_id( "head"_id ) || bp == bodypart_id( "torso"_id ) ) {
             continue;// Skip head + torso for balance reasons.
         }
         const int roll = static_cast<int>( rng( 1, 8 ) );

@@ -105,264 +105,264 @@
 
 struct dealt_projectile_attack;
 
-static const activity_id ACT_MOVE_ITEMS( "ACT_MOVE_ITEMS" );
-static const activity_id ACT_TRAVELLING( "ACT_TRAVELLING" );
-static const activity_id ACT_TREE_COMMUNION( "ACT_TREE_COMMUNION" );
-static const activity_id ACT_TRY_SLEEP( "ACT_TRY_SLEEP" );
-static const activity_id ACT_WAIT_STAMINA( "ACT_WAIT_STAMINA" );
+static const activity_id ACT_MOVE_ITEMS( "ACT_MOVE_ITEMS"_id );
+static const activity_id ACT_TRAVELLING( "ACT_TRAVELLING"_id );
+static const activity_id ACT_TREE_COMMUNION( "ACT_TREE_COMMUNION"_id );
+static const activity_id ACT_TRY_SLEEP( "ACT_TRY_SLEEP"_id );
+static const activity_id ACT_WAIT_STAMINA( "ACT_WAIT_STAMINA"_id );
 
-static const bionic_id bio_eye_optic( "bio_eye_optic" );
-static const bionic_id bio_uncanny_dodge( "bio_uncanny_dodge" );
-static const bionic_id bio_watch( "bio_watch" );
+static const bionic_id bio_eye_optic( "bio_eye_optic"_id );
+static const bionic_id bio_uncanny_dodge( "bio_uncanny_dodge"_id );
+static const bionic_id bio_watch( "bio_watch"_id );
 
-static const efftype_id effect_adrenaline( "adrenaline" );
-static const efftype_id effect_alarm_clock( "alarm_clock" );
-static const efftype_id effect_bandaged( "bandaged" );
-static const efftype_id effect_beartrap( "beartrap" );
-static const efftype_id effect_bite( "bite" );
-static const efftype_id effect_bleed( "bleed" );
-static const efftype_id effect_blind( "blind" );
-static const efftype_id effect_blisters( "blisters" );
-static const efftype_id effect_boomered( "boomered" );
-static const efftype_id effect_cig( "cig" );
-static const efftype_id effect_cold( "cold" );
-static const efftype_id effect_common_cold( "common_cold" );
-static const efftype_id effect_contacts( "contacts" );
-static const efftype_id effect_controlled( "controlled" );
-static const efftype_id effect_corroding( "corroding" );
-static const efftype_id effect_cough_suppress( "cough_suppress" );
-static const efftype_id effect_crushed( "crushed" );
-static const efftype_id effect_darkness( "darkness" );
-static const efftype_id effect_deaf( "deaf" );
-static const efftype_id effect_disinfected( "disinfected" );
-static const efftype_id effect_disrupted_sleep( "disrupted_sleep" );
-static const efftype_id effect_downed( "downed" );
-static const efftype_id effect_drunk( "drunk" );
-static const efftype_id effect_earphones( "earphones" );
-static const efftype_id effect_flu( "flu" );
-static const efftype_id effect_foodpoison( "foodpoison" );
-static const efftype_id effect_frostbite( "frostbite" );
-static const efftype_id effect_frostbite_recovery( "frostbite_recovery" );
-static const efftype_id effect_glowing( "glowing" );
-static const efftype_id effect_glowy_led( "glowy_led" );
-static const efftype_id effect_got_checked( "got_checked" );
-static const efftype_id effect_grabbed( "grabbed" );
-static const efftype_id effect_grabbing( "grabbing" );
-static const efftype_id effect_harnessed( "harnessed" );
-static const efftype_id effect_heating_bionic( "heating_bionic" );
-static const efftype_id effect_heavysnare( "heavysnare" );
-static const efftype_id effect_hot( "hot" );
-static const efftype_id effect_hot_speed( "hot_speed" );
-static const efftype_id effect_hunger_blank( "hunger_blank" );
-static const efftype_id effect_hunger_engorged( "hunger_engorged" );
-static const efftype_id effect_hunger_famished( "hunger_famished" );
-static const efftype_id effect_hunger_full( "hunger_full" );
-static const efftype_id effect_hunger_hungry( "hunger_hungry" );
-static const efftype_id effect_hunger_near_starving( "hunger_near_starving" );
-static const efftype_id effect_hunger_satisfied( "hunger_satisfied" );
-static const efftype_id effect_hunger_starving( "hunger_starving" );
-static const efftype_id effect_hunger_very_hungry( "hunger_very_hungry" );
-static const efftype_id effect_hypovolemia( "hypovolemia" );
-static const efftype_id effect_in_pit( "in_pit" );
-static const efftype_id effect_incorporeal( "incorporeal" );
-static const efftype_id effect_infected( "infected" );
-static const efftype_id effect_jetinjector( "jetinjector" );
-static const efftype_id effect_lack_sleep( "lack_sleep" );
-static const efftype_id effect_lightsnare( "lightsnare" );
-static const efftype_id effect_lying_down( "lying_down" );
-static const efftype_id effect_masked_scent( "masked_scent" );
-static const efftype_id effect_melatonin( "melatonin" );
-static const efftype_id effect_mending( "mending" );
-static const efftype_id effect_narcosis( "narcosis" );
-static const efftype_id effect_nausea( "nausea" );
-static const efftype_id effect_nightmares( "nightmares" );
-static const efftype_id effect_no_sight( "no_sight" );
-static const efftype_id effect_onfire( "onfire" );
+static const efftype_id effect_adrenaline( "adrenaline"_id );
+static const efftype_id effect_alarm_clock( "alarm_clock"_id );
+static const efftype_id effect_bandaged( "bandaged"_id );
+static const efftype_id effect_beartrap( "beartrap"_id );
+static const efftype_id effect_bite( "bite"_id );
+static const efftype_id effect_bleed( "bleed"_id );
+static const efftype_id effect_blind( "blind"_id );
+static const efftype_id effect_blisters( "blisters"_id );
+static const efftype_id effect_boomered( "boomered"_id );
+static const efftype_id effect_cig( "cig"_id );
+static const efftype_id effect_cold( "cold"_id );
+static const efftype_id effect_common_cold( "common_cold"_id );
+static const efftype_id effect_contacts( "contacts"_id );
+static const efftype_id effect_controlled( "controlled"_id );
+static const efftype_id effect_corroding( "corroding"_id );
+static const efftype_id effect_cough_suppress( "cough_suppress"_id );
+static const efftype_id effect_crushed( "crushed"_id );
+static const efftype_id effect_darkness( "darkness"_id );
+static const efftype_id effect_deaf( "deaf"_id );
+static const efftype_id effect_disinfected( "disinfected"_id );
+static const efftype_id effect_disrupted_sleep( "disrupted_sleep"_id );
+static const efftype_id effect_downed( "downed"_id );
+static const efftype_id effect_drunk( "drunk"_id );
+static const efftype_id effect_earphones( "earphones"_id );
+static const efftype_id effect_flu( "flu"_id );
+static const efftype_id effect_foodpoison( "foodpoison"_id );
+static const efftype_id effect_frostbite( "frostbite"_id );
+static const efftype_id effect_frostbite_recovery( "frostbite_recovery"_id );
+static const efftype_id effect_glowing( "glowing"_id );
+static const efftype_id effect_glowy_led( "glowy_led"_id );
+static const efftype_id effect_got_checked( "got_checked"_id );
+static const efftype_id effect_grabbed( "grabbed"_id );
+static const efftype_id effect_grabbing( "grabbing"_id );
+static const efftype_id effect_harnessed( "harnessed"_id );
+static const efftype_id effect_heating_bionic( "heating_bionic"_id );
+static const efftype_id effect_heavysnare( "heavysnare"_id );
+static const efftype_id effect_hot( "hot"_id );
+static const efftype_id effect_hot_speed( "hot_speed"_id );
+static const efftype_id effect_hunger_blank( "hunger_blank"_id );
+static const efftype_id effect_hunger_engorged( "hunger_engorged"_id );
+static const efftype_id effect_hunger_famished( "hunger_famished"_id );
+static const efftype_id effect_hunger_full( "hunger_full"_id );
+static const efftype_id effect_hunger_hungry( "hunger_hungry"_id );
+static const efftype_id effect_hunger_near_starving( "hunger_near_starving"_id );
+static const efftype_id effect_hunger_satisfied( "hunger_satisfied"_id );
+static const efftype_id effect_hunger_starving( "hunger_starving"_id );
+static const efftype_id effect_hunger_very_hungry( "hunger_very_hungry"_id );
+static const efftype_id effect_hypovolemia( "hypovolemia"_id );
+static const efftype_id effect_in_pit( "in_pit"_id );
+static const efftype_id effect_incorporeal( "incorporeal"_id );
+static const efftype_id effect_infected( "infected"_id );
+static const efftype_id effect_jetinjector( "jetinjector"_id );
+static const efftype_id effect_lack_sleep( "lack_sleep"_id );
+static const efftype_id effect_lightsnare( "lightsnare"_id );
+static const efftype_id effect_lying_down( "lying_down"_id );
+static const efftype_id effect_masked_scent( "masked_scent"_id );
+static const efftype_id effect_melatonin( "melatonin"_id );
+static const efftype_id effect_mending( "mending"_id );
+static const efftype_id effect_narcosis( "narcosis"_id );
+static const efftype_id effect_nausea( "nausea"_id );
+static const efftype_id effect_nightmares( "nightmares"_id );
+static const efftype_id effect_no_sight( "no_sight"_id );
+static const efftype_id effect_onfire( "onfire"_id );
 static const efftype_id effect_pkill1( "pkill1" );
 static const efftype_id effect_pkill2( "pkill2" );
 static const efftype_id effect_pkill3( "pkill3" );
-static const efftype_id effect_recently_coughed( "recently_coughed" );
-static const efftype_id effect_ridden( "ridden" );
-static const efftype_id effect_riding( "riding" );
-static const efftype_id effect_monster_saddled( "monster_saddled" );
-static const efftype_id effect_sleep( "sleep" );
-static const efftype_id effect_slept_through_alarm( "slept_through_alarm" );
-static const efftype_id effect_stunned( "stunned" );
-static const efftype_id effect_tied( "tied" );
-static const efftype_id effect_took_prozac( "took_prozac" );
-static const efftype_id effect_took_xanax( "took_xanax" );
-static const efftype_id effect_webbed( "webbed" );
-static const efftype_id effect_winded( "winded" );
+static const efftype_id effect_recently_coughed( "recently_coughed"_id );
+static const efftype_id effect_ridden( "ridden"_id );
+static const efftype_id effect_riding( "riding"_id );
+static const efftype_id effect_monster_saddled( "monster_saddled"_id );
+static const efftype_id effect_sleep( "sleep"_id );
+static const efftype_id effect_slept_through_alarm( "slept_through_alarm"_id );
+static const efftype_id effect_stunned( "stunned"_id );
+static const efftype_id effect_tied( "tied"_id );
+static const efftype_id effect_took_prozac( "took_prozac"_id );
+static const efftype_id effect_took_xanax( "took_xanax"_id );
+static const efftype_id effect_webbed( "webbed"_id );
+static const efftype_id effect_winded( "winded"_id );
 
-static const field_type_str_id field_fd_clairvoyant( "fd_clairvoyant" );
+static const field_type_str_id field_fd_clairvoyant( "fd_clairvoyant"_id );
 
-static const itype_id itype_adv_UPS_off( "adv_UPS_off" );
-static const itype_id itype_apparatus( "apparatus" );
-static const itype_id itype_beartrap( "beartrap" );
-static const itype_id itype_e_handcuffs( "e_handcuffs" );
-static const itype_id itype_fire( "fire" );
+static const itype_id itype_adv_UPS_off( "adv_UPS_off"_id );
+static const itype_id itype_apparatus( "apparatus"_id );
+static const itype_id itype_beartrap( "beartrap"_id );
+static const itype_id itype_e_handcuffs( "e_handcuffs"_id );
+static const itype_id itype_fire( "fire"_id );
 static const itype_id itype_rm13_armor_on( "rm13_armor_on" );
 static const itype_id itype_rope_6( "rope_6" );
-static const itype_id itype_snare_trigger( "snare_trigger" );
+static const itype_id itype_snare_trigger( "snare_trigger"_id );
 static const itype_id itype_string_36( "string_36" );
-static const itype_id itype_toolset( "toolset" );
-static const itype_id itype_UPS( "UPS" );
-static const itype_id itype_UPS_off( "UPS_off" );
+static const itype_id itype_toolset( "toolset"_id );
+static const itype_id itype_UPS( "UPS"_id );
+static const itype_id itype_UPS_off( "UPS_off"_id );
 
-static const skill_id skill_archery( "archery" );
-static const skill_id skill_dodge( "dodge" );
-static const skill_id skill_pistol( "pistol" );
-static const skill_id skill_rifle( "rifle" );
-static const skill_id skill_shotgun( "shotgun" );
-static const skill_id skill_smg( "smg" );
-static const skill_id skill_swimming( "swimming" );
-static const skill_id skill_throw( "throw" );
+static const skill_id skill_archery( "archery"_id );
+static const skill_id skill_dodge( "dodge"_id );
+static const skill_id skill_pistol( "pistol"_id );
+static const skill_id skill_rifle( "rifle"_id );
+static const skill_id skill_shotgun( "shotgun"_id );
+static const skill_id skill_smg( "smg"_id );
+static const skill_id skill_swimming( "swimming"_id );
+static const skill_id skill_throw( "throw"_id );
 
-static const species_id species_HUMAN( "HUMAN" );
-static const species_id species_ROBOT( "ROBOT" );
+static const species_id species_HUMAN( "HUMAN"_id );
+static const species_id species_ROBOT( "ROBOT"_id );
 
-static const trait_id trait_ACIDBLOOD( "ACIDBLOOD" );
-static const trait_id trait_ACIDPROOF( "ACIDPROOF" );
-static const trait_id trait_ADRENALINE( "ADRENALINE" );
-static const trait_id trait_ANTENNAE( "ANTENNAE" );
-static const trait_id trait_ANTLERS( "ANTLERS" );
-static const trait_id trait_BADBACK( "BADBACK" );
-static const trait_id trait_CF_HAIR( "CF_HAIR" );
-static const trait_id trait_CHITIN_FUR( "CHITIN_FUR" );
+static const trait_id trait_ACIDBLOOD( "ACIDBLOOD"_id );
+static const trait_id trait_ACIDPROOF( "ACIDPROOF"_id );
+static const trait_id trait_ADRENALINE( "ADRENALINE"_id );
+static const trait_id trait_ANTENNAE( "ANTENNAE"_id );
+static const trait_id trait_ANTLERS( "ANTLERS"_id );
+static const trait_id trait_BADBACK( "BADBACK"_id );
+static const trait_id trait_CF_HAIR( "CF_HAIR"_id );
+static const trait_id trait_CHITIN_FUR( "CHITIN_FUR"_id );
 static const trait_id trait_CHITIN_FUR2( "CHITIN_FUR2" );
 static const trait_id trait_CHITIN_FUR3( "CHITIN_FUR3" );
-static const trait_id trait_CLUMSY( "CLUMSY" );
-static const trait_id trait_DEBUG_NODMG( "DEBUG_NODMG" );
-static const trait_id trait_DEFT( "DEFT" );
-static const trait_id trait_FELINE_FUR( "FELINE_FUR" );
-static const trait_id trait_FUR( "FUR" );
-static const trait_id trait_LIGHTFUR( "LIGHTFUR" );
-static const trait_id trait_LUPINE_FUR( "LUPINE_FUR" );
-static const trait_id trait_PACIFIST( "PACIFIST" );
-static const trait_id trait_PROF_SKATER( "PROF_SKATER" );
-static const trait_id trait_QUILLS( "QUILLS" );
-static const trait_id trait_SAVANT( "SAVANT" );
-static const trait_id trait_SPINES( "SPINES" );
-static const trait_id trait_SQUEAMISH( "SQUEAMISH" );
-static const trait_id trait_THORNS( "THORNS" );
-static const trait_id trait_URSINE_FUR( "URSINE_FUR" );
-static const trait_id trait_WOOLALLERGY( "WOOLALLERGY" );
+static const trait_id trait_CLUMSY( "CLUMSY"_id );
+static const trait_id trait_DEBUG_NODMG( "DEBUG_NODMG"_id );
+static const trait_id trait_DEFT( "DEFT"_id );
+static const trait_id trait_FELINE_FUR( "FELINE_FUR"_id );
+static const trait_id trait_FUR( "FUR"_id );
+static const trait_id trait_LIGHTFUR( "LIGHTFUR"_id );
+static const trait_id trait_LUPINE_FUR( "LUPINE_FUR"_id );
+static const trait_id trait_PACIFIST( "PACIFIST"_id );
+static const trait_id trait_PROF_SKATER( "PROF_SKATER"_id );
+static const trait_id trait_QUILLS( "QUILLS"_id );
+static const trait_id trait_SAVANT( "SAVANT"_id );
+static const trait_id trait_SPINES( "SPINES"_id );
+static const trait_id trait_SQUEAMISH( "SQUEAMISH"_id );
+static const trait_id trait_THORNS( "THORNS"_id );
+static const trait_id trait_URSINE_FUR( "URSINE_FUR"_id );
+static const trait_id trait_WOOLALLERGY( "WOOLALLERGY"_id );
 
-static const bionic_id bio_ads( "bio_ads" );
-static const bionic_id bio_blaster( "bio_blaster" );
-static const bionic_id bio_blindfold( "bio_blindfold" );
-static const bionic_id bio_climate( "bio_climate" );
-static const bionic_id bio_earplugs( "bio_earplugs" );
-static const bionic_id bio_ears( "bio_ears" );
-static const bionic_id bio_faraday( "bio_faraday" );
-static const bionic_id bio_flashlight( "bio_flashlight" );
-static const bionic_id bio_gills( "bio_gills" );
-static const bionic_id bio_ground_sonar( "bio_ground_sonar" );
-static const bionic_id bio_heatsink( "bio_heatsink" );
-static const bionic_id bio_hydraulics( "bio_hydraulics" );
-static const bionic_id bio_infrared( "bio_infrared" );
-static const bionic_id bio_jointservo( "bio_jointservo" );
-static const bionic_id bio_laser( "bio_laser" );
-static const bionic_id bio_leukocyte( "bio_leukocyte" );
-static const bionic_id bio_lighter( "bio_lighter" );
-static const bionic_id bio_membrane( "bio_membrane" );
-static const bionic_id bio_memory( "bio_memory" );
-static const bionic_id bio_night_vision( "bio_night_vision" );
-static const bionic_id bio_railgun( "bio_railgun" );
-static const bionic_id bio_recycler( "bio_recycler" );
-static const bionic_id bio_shock_absorber( "bio_shock_absorber" );
-static const bionic_id bio_synaptic_regen( "bio_synaptic_regen" );
-static const bionic_id bio_tattoo_led( "bio_tattoo_led" );
-static const bionic_id bio_tools( "bio_tools" );
-static const bionic_id bio_ups( "bio_ups" );
+static const bionic_id bio_ads( "bio_ads"_id );
+static const bionic_id bio_blaster( "bio_blaster"_id );
+static const bionic_id bio_blindfold( "bio_blindfold"_id );
+static const bionic_id bio_climate( "bio_climate"_id );
+static const bionic_id bio_earplugs( "bio_earplugs"_id );
+static const bionic_id bio_ears( "bio_ears"_id );
+static const bionic_id bio_faraday( "bio_faraday"_id );
+static const bionic_id bio_flashlight( "bio_flashlight"_id );
+static const bionic_id bio_gills( "bio_gills"_id );
+static const bionic_id bio_ground_sonar( "bio_ground_sonar"_id );
+static const bionic_id bio_heatsink( "bio_heatsink"_id );
+static const bionic_id bio_hydraulics( "bio_hydraulics"_id );
+static const bionic_id bio_infrared( "bio_infrared"_id );
+static const bionic_id bio_jointservo( "bio_jointservo"_id );
+static const bionic_id bio_laser( "bio_laser"_id );
+static const bionic_id bio_leukocyte( "bio_leukocyte"_id );
+static const bionic_id bio_lighter( "bio_lighter"_id );
+static const bionic_id bio_membrane( "bio_membrane"_id );
+static const bionic_id bio_memory( "bio_memory"_id );
+static const bionic_id bio_night_vision( "bio_night_vision"_id );
+static const bionic_id bio_railgun( "bio_railgun"_id );
+static const bionic_id bio_recycler( "bio_recycler"_id );
+static const bionic_id bio_shock_absorber( "bio_shock_absorber"_id );
+static const bionic_id bio_synaptic_regen( "bio_synaptic_regen"_id );
+static const bionic_id bio_tattoo_led( "bio_tattoo_led"_id );
+static const bionic_id bio_tools( "bio_tools"_id );
+static const bionic_id bio_ups( "bio_ups"_id );
 // Aftershock stuff!
-static const bionic_id afs_bio_linguistic_coprocessor( "afs_bio_linguistic_coprocessor" );
+static const bionic_id afs_bio_linguistic_coprocessor( "afs_bio_linguistic_coprocessor"_id );
 
-static const trait_id trait_BADTEMPER( "BADTEMPER" );
-static const trait_id trait_BARK( "BARK" );
-static const trait_id trait_BIRD_EYE( "BIRD_EYE" );
-static const trait_id trait_CEPH_EYES( "CEPH_EYES" );
-static const trait_id trait_CEPH_VISION( "CEPH_VISION" );
-static const trait_id trait_CHEMIMBALANCE( "CHEMIMBALANCE" );
-static const trait_id trait_CHLOROMORPH( "CHLOROMORPH" );
-static const trait_id trait_COLDBLOOD( "COLDBLOOD" );
+static const trait_id trait_BADTEMPER( "BADTEMPER"_id );
+static const trait_id trait_BARK( "BARK"_id );
+static const trait_id trait_BIRD_EYE( "BIRD_EYE"_id );
+static const trait_id trait_CEPH_EYES( "CEPH_EYES"_id );
+static const trait_id trait_CEPH_VISION( "CEPH_VISION"_id );
+static const trait_id trait_CHEMIMBALANCE( "CHEMIMBALANCE"_id );
+static const trait_id trait_CHLOROMORPH( "CHLOROMORPH"_id );
+static const trait_id trait_COLDBLOOD( "COLDBLOOD"_id );
 static const trait_id trait_COLDBLOOD2( "COLDBLOOD2" );
 static const trait_id trait_COLDBLOOD3( "COLDBLOOD3" );
 static const trait_id trait_COLDBLOOD4( "COLDBLOOD4" );
-static const trait_id trait_DEAF( "DEAF" );
-static const trait_id trait_DEBUG_CLOAK( "DEBUG_CLOAK" );
-static const trait_id trait_DEBUG_LS( "DEBUG_LS" );
-static const trait_id trait_DEBUG_NIGHTVISION( "DEBUG_NIGHTVISION" );
-static const trait_id trait_DEBUG_NOTEMP( "DEBUG_NOTEMP" );
-static const trait_id trait_DISRESISTANT( "DISRESISTANT" );
-static const trait_id trait_DOWN( "DOWN" );
-static const trait_id trait_ELECTRORECEPTORS( "ELECTRORECEPTORS" );
-static const trait_id trait_ELFA_FNV( "ELFA_FNV" );
-static const trait_id trait_ELFA_NV( "ELFA_NV" );
-static const trait_id trait_FASTLEARNER( "FASTLEARNER" );
-static const trait_id trait_FAST_REFLEXES( "FAST_REFLEXES" );
-static const trait_id trait_FEL_NV( "FEL_NV" );
-static const trait_id trait_GILLS( "GILLS" );
-static const trait_id trait_GILLS_CEPH( "GILLS_CEPH" );
-static const trait_id trait_HEAVYSLEEPER( "HEAVYSLEEPER" );
+static const trait_id trait_DEAF( "DEAF"_id );
+static const trait_id trait_DEBUG_CLOAK( "DEBUG_CLOAK"_id );
+static const trait_id trait_DEBUG_LS( "DEBUG_LS"_id );
+static const trait_id trait_DEBUG_NIGHTVISION( "DEBUG_NIGHTVISION"_id );
+static const trait_id trait_DEBUG_NOTEMP( "DEBUG_NOTEMP"_id );
+static const trait_id trait_DISRESISTANT( "DISRESISTANT"_id );
+static const trait_id trait_DOWN( "DOWN"_id );
+static const trait_id trait_ELECTRORECEPTORS( "ELECTRORECEPTORS"_id );
+static const trait_id trait_ELFA_FNV( "ELFA_FNV"_id );
+static const trait_id trait_ELFA_NV( "ELFA_NV"_id );
+static const trait_id trait_FASTLEARNER( "FASTLEARNER"_id );
+static const trait_id trait_FAST_REFLEXES( "FAST_REFLEXES"_id );
+static const trait_id trait_FEL_NV( "FEL_NV"_id );
+static const trait_id trait_GILLS( "GILLS"_id );
+static const trait_id trait_GILLS_CEPH( "GILLS_CEPH"_id );
+static const trait_id trait_HEAVYSLEEPER( "HEAVYSLEEPER"_id );
 static const trait_id trait_HEAVYSLEEPER2( "HEAVYSLEEPER2" );
-static const trait_id trait_HIBERNATE( "HIBERNATE" );
-static const trait_id trait_HOARDER( "HOARDER" );
-static const trait_id trait_HOLLOW_BONES( "HOLLOW_BONES" );
-static const trait_id trait_HOOVES( "HOOVES" );
-static const trait_id trait_HORNS_POINTED( "HORNS_POINTED" );
-static const trait_id trait_INFRARED( "INFRARED" );
-static const trait_id trait_LEG_TENT_BRACE( "LEG_TENT_BRACE" );
-static const trait_id trait_LEG_TENTACLES( "LEG_TENTACLES" );
-static const trait_id trait_LIGHT_BONES( "LIGHT_BONES" );
-static const trait_id trait_LIZ_IR( "LIZ_IR" );
-static const trait_id trait_M_DEPENDENT( "M_DEPENDENT" );
-static const trait_id trait_M_IMMUNE( "M_IMMUNE" );
+static const trait_id trait_HIBERNATE( "HIBERNATE"_id );
+static const trait_id trait_HOARDER( "HOARDER"_id );
+static const trait_id trait_HOLLOW_BONES( "HOLLOW_BONES"_id );
+static const trait_id trait_HOOVES( "HOOVES"_id );
+static const trait_id trait_HORNS_POINTED( "HORNS_POINTED"_id );
+static const trait_id trait_INFRARED( "INFRARED"_id );
+static const trait_id trait_LEG_TENT_BRACE( "LEG_TENT_BRACE"_id );
+static const trait_id trait_LEG_TENTACLES( "LEG_TENTACLES"_id );
+static const trait_id trait_LIGHT_BONES( "LIGHT_BONES"_id );
+static const trait_id trait_LIZ_IR( "LIZ_IR"_id );
+static const trait_id trait_M_DEPENDENT( "M_DEPENDENT"_id );
+static const trait_id trait_M_IMMUNE( "M_IMMUNE"_id );
 static const trait_id trait_M_SKIN2( "M_SKIN2" );
 static const trait_id trait_M_SKIN3( "M_SKIN3" );
-static const trait_id trait_MEMBRANE( "MEMBRANE" );
-static const trait_id trait_MYOPIC( "MYOPIC" );
-static const trait_id trait_NIGHTVISION( "NIGHTVISION" );
+static const trait_id trait_MEMBRANE( "MEMBRANE"_id );
+static const trait_id trait_MYOPIC( "MYOPIC"_id );
+static const trait_id trait_NIGHTVISION( "NIGHTVISION"_id );
 static const trait_id trait_NIGHTVISION2( "NIGHTVISION2" );
 static const trait_id trait_NIGHTVISION3( "NIGHTVISION3" );
-static const trait_id trait_NO_THIRST( "NO_THIRST" );
-static const trait_id trait_NOMAD( "NOMAD" );
+static const trait_id trait_NO_THIRST( "NO_THIRST"_id );
+static const trait_id trait_NOMAD( "NOMAD"_id );
 static const trait_id trait_NOMAD2( "NOMAD2" );
 static const trait_id trait_NOMAD3( "NOMAD3" );
-static const trait_id trait_NOPAIN( "NOPAIN" );
-static const trait_id trait_PADDED_FEET( "PADDED_FEET" );
-static const trait_id trait_PAWS( "PAWS" );
-static const trait_id trait_PAWS_LARGE( "PAWS_LARGE" );
-static const trait_id trait_PER_SLIME( "PER_SLIME" );
-static const trait_id trait_PER_SLIME_OK( "PER_SLIME_OK" );
-static const trait_id trait_PROF_FOODP( "PROF_FOODP" );
-static const trait_id trait_QUICK( "QUICK" );
-static const trait_id trait_PYROMANIA( "PYROMANIA" );
-static const trait_id trait_RADIOGENIC( "RADIOGENIC" );
+static const trait_id trait_NOPAIN( "NOPAIN"_id );
+static const trait_id trait_PADDED_FEET( "PADDED_FEET"_id );
+static const trait_id trait_PAWS( "PAWS"_id );
+static const trait_id trait_PAWS_LARGE( "PAWS_LARGE"_id );
+static const trait_id trait_PER_SLIME( "PER_SLIME"_id );
+static const trait_id trait_PER_SLIME_OK( "PER_SLIME_OK"_id );
+static const trait_id trait_PROF_FOODP( "PROF_FOODP"_id );
+static const trait_id trait_QUICK( "QUICK"_id );
+static const trait_id trait_PYROMANIA( "PYROMANIA"_id );
+static const trait_id trait_RADIOGENIC( "RADIOGENIC"_id );
 static const trait_id trait_ROOTS2( "ROOTS2" );
 static const trait_id trait_ROOTS3( "ROOTS3" );
-static const trait_id trait_SEESLEEP( "SEESLEEP" );
-static const trait_id trait_SELFAWARE( "SELFAWARE" );
+static const trait_id trait_SEESLEEP( "SEESLEEP"_id );
+static const trait_id trait_SELFAWARE( "SELFAWARE"_id );
 static const trait_id trait_SHELL2( "SHELL2" );
 static const trait_id trait_SHOUT2( "SHOUT2" );
 static const trait_id trait_SHOUT3( "SHOUT3" );
-static const trait_id trait_SLIMESPAWNER( "SLIMESPAWNER" );
-static const trait_id trait_SLIMY( "SLIMY" );
-static const trait_id trait_SLOWLEARNER( "SLOWLEARNER" );
-static const trait_id trait_STRONGSTOMACH( "STRONGSTOMACH" );
-static const trait_id trait_THRESH_CEPHALOPOD( "THRESH_CEPHALOPOD" );
-static const trait_id trait_THRESH_INSECT( "THRESH_INSECT" );
-static const trait_id trait_THRESH_PLANT( "THRESH_PLANT" );
-static const trait_id trait_THRESH_SPIDER( "THRESH_SPIDER" );
-static const trait_id trait_TOUGH_FEET( "TOUGH_FEET" );
-static const trait_id trait_TRANSPIRATION( "TRANSPIRATION" );
-static const trait_id trait_URSINE_EYE( "URSINE_EYE" );
-static const trait_id trait_VISCOUS( "VISCOUS" );
-static const trait_id trait_WATERSLEEP( "WATERSLEEP" );
-static const trait_id trait_WEBBED( "WEBBED" );
-static const trait_id trait_WEB_SPINNER( "WEB_SPINNER" );
-static const trait_id trait_WEB_WALKER( "WEB_WALKER" );
-static const trait_id trait_WEB_WEAVER( "WEB_WEAVER" );
+static const trait_id trait_SLIMESPAWNER( "SLIMESPAWNER"_id );
+static const trait_id trait_SLIMY( "SLIMY"_id );
+static const trait_id trait_SLOWLEARNER( "SLOWLEARNER"_id );
+static const trait_id trait_STRONGSTOMACH( "STRONGSTOMACH"_id );
+static const trait_id trait_THRESH_CEPHALOPOD( "THRESH_CEPHALOPOD"_id );
+static const trait_id trait_THRESH_INSECT( "THRESH_INSECT"_id );
+static const trait_id trait_THRESH_PLANT( "THRESH_PLANT"_id );
+static const trait_id trait_THRESH_SPIDER( "THRESH_SPIDER"_id );
+static const trait_id trait_TOUGH_FEET( "TOUGH_FEET"_id );
+static const trait_id trait_TRANSPIRATION( "TRANSPIRATION"_id );
+static const trait_id trait_URSINE_EYE( "URSINE_EYE"_id );
+static const trait_id trait_VISCOUS( "VISCOUS"_id );
+static const trait_id trait_WATERSLEEP( "WATERSLEEP"_id );
+static const trait_id trait_WEBBED( "WEBBED"_id );
+static const trait_id trait_WEB_SPINNER( "WEB_SPINNER"_id );
+static const trait_id trait_WEB_WALKER( "WEB_WALKER"_id );
+static const trait_id trait_WEB_WEAVER( "WEB_WEAVER"_id );
 
 static const std::string flag_ACTIVE_CLOAKING( "ACTIVE_CLOAKING" );
 static const std::string flag_ALLOWS_NATURAL_ATTACKS( "ALLOWS_NATURAL_ATTACKS" );
@@ -399,9 +399,9 @@ static const std::string flag_SWIM_GOGGLES( "SWIM_GOGGLES" );
 static const std::string flag_UNDERSIZE( "UNDERSIZE" );
 static const std::string flag_USE_UPS( "USE_UPS" );
 
-static const mtype_id mon_player_blob( "mon_player_blob" );
+static const mtype_id mon_player_blob( "mon_player_blob"_id );
 
-static const vitamin_id vitamin_blood( "blood" );
+static const vitamin_id vitamin_blood( "blood"_id );
 static const morale_type morale_nightmare( "morale_nightmare" );
 
 namespace io
@@ -473,7 +473,7 @@ Character::Character() :
 
     *path_settings = pathfinding_settings{ 0, 1000, 1000, 0, true, true, true, false, true };
 
-    move_mode = move_mode_id( "walk" );
+    move_mode = move_mode_id( "walk"_id );
     next_expected_position = cata::nullopt;
 }
 // *INDENT-ON*
@@ -602,7 +602,7 @@ int Character::effective_dispersion( int dispersion ) const
     /** @EFFECT_PER penalizes sight dispersion when low. */
     dispersion += ranged_per_mod();
 
-    dispersion += encumb( bodypart_id( "eyes" ) ) / 2;
+    dispersion += encumb( bodypart_id( "eyes"_id ) ) / 2;
 
     return std::max( dispersion, 0 );
 }
@@ -671,7 +671,7 @@ double Character::aim_speed_dex_modifier() const
 
 double Character::aim_speed_encumbrance_modifier() const
 {
-    return ( encumb( bodypart_id( "hand_l" ) ) + encumb( bodypart_id( "hand_r" ) ) ) / 10.0;
+    return ( encumb( bodypart_id( "hand_l"_id ) ) + encumb( bodypart_id( "hand_r"_id ) ) ) / 10.0;
 }
 
 double Character::aim_cap_from_volume( const item &gun ) const
@@ -927,8 +927,8 @@ int Character::swim_speed() const
         }
     }
     const body_part_set usable = exclusive_flag_coverage( "ALLOWS_NATURAL_ATTACKS" );
-    float hand_bonus_mult = ( usable.test( bodypart_str_id( "hand_l" ) ) ? 0.5f : 0.0f ) +
-                            ( usable.test( bodypart_str_id( "hand_r" ) ) ? 0.5f : 0.0f );
+    float hand_bonus_mult = ( usable.test( bodypart_str_id( "hand_l"_id ) ) ? 0.5f : 0.0f ) +
+                            ( usable.test( bodypart_str_id( "hand_r"_id ) ) ? 0.5f : 0.0f );
 
     // base swim speed.
     ret = ( 440 * mutation_value( "movecost_swim_modifier" ) ) + weight_carried() /
@@ -942,10 +942,10 @@ int Character::swim_speed() const
         ret -= hand_bonus_mult * ( 20 + str_cur * 4 );
     }
     /** @EFFECT_STR increases swim speed bonus from swim_fins */
-    if( worn_with_flag( "FIN", bodypart_id( "foot_l" ) ) ||
-        worn_with_flag( "FIN", bodypart_id( "foot_r" ) ) ) {
-        if( worn_with_flag( "FIN", bodypart_id( "foot_l" ) ) &&
-            worn_with_flag( "FIN", bodypart_id( "foot_r" ) ) ) {
+    if( worn_with_flag( "FIN", bodypart_id( "foot_l"_id ) ) ||
+        worn_with_flag( "FIN", bodypart_id( "foot_r"_id ) ) ) {
+        if( worn_with_flag( "FIN", bodypart_id( "foot_l"_id ) ) &&
+            worn_with_flag( "FIN", bodypart_id( "foot_r"_id ) ) ) {
             ret -= ( 15 * str_cur );
         } else {
             ret -= ( 15 * str_cur ) / 2;
@@ -956,10 +956,10 @@ int Character::swim_speed() const
         ret -= hand_bonus_mult * ( 60 + str_cur * 5 );
     }
     /** @EFFECT_SWIMMING increases swim speed */
-    ret += ( 50 - get_skill_level( skill_swimming ) * 2 ) * ( ( encumb( bodypart_id( "leg_l" ) ) +
+    ret += ( 50 - get_skill_level( skill_swimming ) * 2 ) * ( ( encumb( bodypart_id( "leg_l"_id ) ) +
             encumb(
-                bodypart_id( "leg_r" ) ) ) / 10 );
-    ret += ( 80 - get_skill_level( skill_swimming ) * 3 ) * ( encumb( bodypart_id( "torso" ) ) / 10 );
+                bodypart_id( "leg_r"_id ) ) ) / 10 );
+    ret += ( 80 - get_skill_level( skill_swimming ) * 3 ) * ( encumb( bodypart_id( "torso"_id ) ) / 10 );
     if( get_skill_level( skill_swimming ) < 10 ) {
         for( const item &i : worn ) {
             ret += i.volume() / 125_ml * ( 10 - get_skill_level( skill_swimming ) );
@@ -1211,39 +1211,39 @@ void Character::forced_dismount()
         }
         const int dodge = get_dodge();
         const int damage = std::max( 0, rng( 1, 20 ) - rng( dodge, dodge * 2 ) );
-        bodypart_id hit( "bp_null" );
+        bodypart_id hit( "bp_null"_id );
         switch( rng( 1, 10 ) ) {
             case  1:
                 if( one_in( 2 ) ) {
-                    hit = bodypart_id( "foot_l" );
+                    hit = bodypart_id( "foot_l"_id );
                 } else {
-                    hit = bodypart_id( "foot_r" );
+                    hit = bodypart_id( "foot_r"_id );
                 }
                 break;
             case  2:
             case  3:
             case  4:
                 if( one_in( 2 ) ) {
-                    hit = bodypart_id( "leg_l" );
+                    hit = bodypart_id( "leg_l"_id );
                 } else {
-                    hit = bodypart_id( "leg_r" );
+                    hit = bodypart_id( "leg_r"_id );
                 }
                 break;
             case  5:
             case  6:
             case  7:
                 if( one_in( 2 ) ) {
-                    hit = bodypart_id( "arm_l" );
+                    hit = bodypart_id( "arm_l"_id );
                 } else {
-                    hit = bodypart_id( "arm_r" );
+                    hit = bodypart_id( "arm_r"_id );
                 }
                 break;
             case  8:
             case  9:
-                hit = bodypart_id( "torso" );
+                hit = bodypart_id( "torso"_id );
                 break;
             case 10:
-                hit = bodypart_id( "head" );
+                hit = bodypart_id( "head"_id );
                 break;
         }
         if( damage > 0 ) {
@@ -1266,7 +1266,7 @@ void Character::forced_dismount()
             add_msg( m_warning, _( "You let go of the grabbed object." ) );
             player_character.grab( object_type::NONE );
         }
-        set_movement_mode( move_mode_id( "walk" ) );
+        set_movement_mode( move_mode_id( "walk"_id ) );
         if( player_character.is_auto_moving() || player_character.has_destination() ||
             player_character.has_destination_activity() ) {
             player_character.clear_destination();
@@ -1307,7 +1307,7 @@ void Character::dismount()
         critter->mounted_player = nullptr;
         setpos( *pnt );
         mod_moves( -100 );
-        set_movement_mode( move_mode_id( "walk" ) );
+        set_movement_mode( move_mode_id( "walk"_id ) );
     }
 }
 
@@ -1325,13 +1325,13 @@ float Character::stability_roll() const
 
 bool Character::is_dead_state() const
 {
-    return get_part_hp_cur( bodypart_id( "head" ) ) <= 0 ||
-           get_part_hp_cur( bodypart_id( "torso" ) ) <= 0;
+    return get_part_hp_cur( bodypart_id( "head"_id ) ) <= 0 ||
+           get_part_hp_cur( bodypart_id( "torso"_id ) ) <= 0;
 }
 
 void Character::on_dodge( Creature *source, float difficulty )
 {
-    static const matec_id tec_none( "tec_none" );
+    static const matec_id tec_none( "tec_none"_id );
 
     // Each avoided hit consumes an available dodge
     // When no more available we are likely to fail player::dodge_roll
@@ -1365,7 +1365,7 @@ void Character::on_dodge( Creature *source, float difficulty )
 
 float Character::get_melee() const
 {
-    return get_skill_level( skill_id( "melee" ) );
+    return get_skill_level( skill_id( "melee"_id ) );
 }
 
 bool Character::uncanny_dodge()
@@ -1442,10 +1442,10 @@ int Character::get_working_arm_count() const
     }
 
     int limb_count = 0;
-    if( !is_limb_disabled( bodypart_id( "arm_l" ) ) ) {
+    if( !is_limb_disabled( bodypart_id( "arm_l"_id ) ) ) {
         limb_count++;
     }
-    if( !is_limb_disabled( bodypart_id( "arm_r" ) ) ) {
+    if( !is_limb_disabled( bodypart_id( "arm_r"_id ) ) ) {
         limb_count++;
     }
     if( has_bionic( bio_blaster ) && limb_count > 0 ) {
@@ -1459,10 +1459,10 @@ int Character::get_working_arm_count() const
 int Character::get_working_leg_count() const
 {
     int limb_count = 0;
-    if( !is_limb_broken( bodypart_id( "leg_l" ) ) ) {
+    if( !is_limb_broken( bodypart_id( "leg_l"_id ) ) ) {
         limb_count++;
     }
-    if( !is_limb_broken( bodypart_id( "leg_r" ) ) ) {
+    if( !is_limb_broken( bodypart_id( "leg_r"_id ) ) ) {
         limb_count++;
     }
     return limb_count;
@@ -1652,7 +1652,7 @@ bool Character::try_remove_grab()
             remove_effect( effect_grabbed );
 
             /** @EFFECT_STR increases chance to escape grab */
-        } else if( rng( 0, get_str() ) < rng( get_effect_int( effect_grabbed, bodypart_id( "torso" ) ),
+        } else if( rng( 0, get_str() ) < rng( get_effect_int( effect_grabbed, bodypart_id( "torso"_id ) ),
                                               8 ) ) {
             add_msg_player_or_npc( m_bad, _( "You try break out of the grab, but fail!" ),
                                    _( "<npcname> tries to break out of the grab, but fails!" ) );
@@ -1844,7 +1844,7 @@ void Character::expose_to_disease( const diseasetype_id &dis_type )
         }
     } else {
         add_effect( dis_type->symptoms, rng( dis_type->min_duration, dis_type->max_duration ),
-                    bodypart_id( "bp_null" ),
+                    bodypart_id( "bp_null"_id ),
                     false,
                     rng( dis_type->min_intensity, dis_type->max_intensity ) );
     }
@@ -2082,7 +2082,7 @@ float Character::get_vision_threshold( float light_level ) const
                                      ( LIGHT_AMBIENT_LIT - LIGHT_AMBIENT_MINIMAL ) );
 
     int eyes_encumb = 0;
-    const bodypart_id eyes( "eyes" );
+    const bodypart_id eyes( "eyes"_id );
     if( has_part( eyes ) ) {
         eyes_encumb = encumb( eyes );
     }
@@ -2234,7 +2234,7 @@ std::vector<bionic_id> Character::get_fueled_bionics() const
 bionic_id Character::get_most_efficient_bionic( const std::vector<bionic_id> &bids ) const
 {
     float temp_eff = 0.0f;
-    bionic_id bio( "null" );
+    bionic_id bio( "null"_id );
     for( const bionic_id &bid : bids ) {
         if( bid->fuel_efficiency > temp_eff ) {
             temp_eff = bid->fuel_efficiency;
@@ -2582,8 +2582,8 @@ int Character::get_standard_stamina_cost( item *thrown_item )
     //If the item is thrown, override with the thrown item instead.
     const int weight_cost = ( thrown_item == nullptr ) ? this->weapon.weight() /
                             ( 16_gram ) : thrown_item->weight() / ( 16_gram );
-    const int encumbrance_cost = this->encumb( bodypart_id( "arm_l" ) ) + this->encumb(
-                                     bodypart_id( "arm_r" ) );
+    const int encumbrance_cost = this->encumb( bodypart_id( "arm_l"_id ) ) + this->encumb(
+                                     bodypart_id( "arm_r"_id ) );
     return ( weight_cost + encumbrance_cost + 50 ) * -1;
 }
 
@@ -2618,7 +2618,7 @@ cata::optional<std::list<item>::iterator> Character::wear_item( const item &to_w
         for( const bodypart_id &bp : get_all_body_parts() ) {
             if( to_wear.covers( bp ) && encumb( bp ) >= 40 ) {
                 add_msg_if_player( m_warning,
-                                   bp == bodypart_id( "eyes" ) ?
+                                   bp == bodypart_id( "eyes"_id ) ?
                                    _( "Your %s are very encumbered!  %s" ) : _( "Your %s is very encumbered!  %s" ),
                                    body_part_name( bp ), encumb_text( bp ) );
             }
@@ -3321,7 +3321,7 @@ units::mass Character::best_nearby_lifting_assist() const
 
 units::mass Character::best_nearby_lifting_assist( const tripoint &world_pos ) const
 {
-    const quality_id LIFT( "LIFT" );
+    const quality_id LIFT( "LIFT"_id );
     int mech_lift = 0;
     if( is_mounted() ) {
         auto *mons = mounted_creature.get();
@@ -3538,7 +3538,7 @@ ret_val<bool> Character::can_wear( const item &it, bool with_equip_change ) cons
         return ret_val<bool>::make_failure( _( "Putting on a %s would be tricky." ), it.tname() );
     }
 
-    if( has_trait( trait_WOOLALLERGY ) && ( it.made_of( material_id( "wool" ) ) ||
+    if( has_trait( trait_WOOLALLERGY ) && ( it.made_of( material_id( "wool"_id ) ) ||
                                             it.item_tags.count( "wooled" ) ) ) {
         return ret_val<bool>::make_failure( _( "Can't wear that, it's made of wool!" ) );
     }
@@ -3557,9 +3557,9 @@ ret_val<bool> Character::can_wear( const item &it, bool with_equip_change ) cons
                                                     it.type_name() );
             }
         }
-        if( it.covers( bodypart_id( "head" ) ) && !it.has_flag( flag_SEMITANGIBLE ) &&
-            !it.made_of( material_id( "wool" ) ) && !it.made_of( material_id( "cotton" ) ) &&
-            !it.made_of( material_id( "nomex" ) ) && !it.made_of( material_id( "leather" ) ) &&
+        if( it.covers( bodypart_id( "head"_id ) ) && !it.has_flag( flag_SEMITANGIBLE ) &&
+            !it.made_of( material_id( "wool"_id ) ) && !it.made_of( material_id( "cotton"_id ) ) &&
+            !it.made_of( material_id( "nomex"_id ) ) && !it.made_of( material_id( "leather"_id ) ) &&
             ( has_trait( trait_HORNS_POINTED ) || has_trait( trait_ANTENNAE ) ||
               has_trait( trait_ANTLERS ) ) ) {
             return ret_val<bool>::make_failure( _( "Cannot wear a helmet over %s." ),
@@ -3627,7 +3627,7 @@ ret_val<bool> Character::can_wear( const item &it, bool with_equip_change ) cons
                 return ret_val<bool>::make_failure( _( "Can't wear power armor over other gear!" ) );
             }
         }
-        if( !it.covers( bodypart_id( "torso" ) ) ) {
+        if( !it.covers( bodypart_id( "torso"_id ) ) ) {
             bool power_armor = false;
             if( !worn.empty() ) {
                 for( const item &elem : worn ) {
@@ -3653,8 +3653,8 @@ ret_val<bool> Character::can_wear( const item &it, bool with_equip_change ) cons
         // You can't wear headgear if power armor helmet is already sitting on your head.
         bool has_helmet = false;
         if( !it.has_flag( flag_POWERARMOR_COMPATIBLE ) && ( ( is_wearing_power_armor( &has_helmet ) &&
-                ( has_helmet || !( it.covers( bodypart_id( "head" ) ) || it.covers( bodypart_id( "mouth" ) ) ||
-                                   it.covers( bodypart_id( "eyes" ) ) ) ) ) ) ) {
+                ( has_helmet || !( it.covers( bodypart_id( "head"_id ) ) || it.covers( bodypart_id( "mouth"_id ) ) ||
+                                   it.covers( bodypart_id( "eyes"_id ) ) ) ) ) ) ) {
             return ret_val<bool>::make_failure( _( "Can't wear %s with power armor!" ), it.tname() );
         }
     }
@@ -3677,8 +3677,8 @@ ret_val<bool> Character::can_wear( const item &it, bool with_equip_change ) cons
                                             MAX_WORN_PER_TYPE + 1, it.tname( MAX_WORN_PER_TYPE + 1 ) );
     }
 
-    if( ( ( it.covers( bodypart_id( "foot_l" ) ) && is_wearing_shoes( side::LEFT ) ) ||
-          ( it.covers( bodypart_id( "foot_r" ) ) && is_wearing_shoes( side::RIGHT ) ) ) &&
+    if( ( ( it.covers( bodypart_id( "foot_l"_id ) ) && is_wearing_shoes( side::LEFT ) ) ||
+          ( it.covers( bodypart_id( "foot_r"_id ) ) && is_wearing_shoes( side::RIGHT ) ) ) &&
         ( !it.has_flag( flag_OVERSIZE ) || !it.has_flag( flag_OUTER ) ) && !it.has_flag( flag_SKINTIGHT ) &&
         !it.has_flag( flag_BELTED ) && !it.has_flag( flag_PERSONAL ) && !it.has_flag( flag_AURA ) &&
         !it.has_flag( flag_SEMITANGIBLE ) ) {
@@ -3687,19 +3687,19 @@ ret_val<bool> Character::can_wear( const item &it, bool with_equip_change ) cons
                                               : string_format( _( "%s is already wearing footwear!" ), name ) ) );
     }
 
-    if( it.covers( bodypart_id( "head" ) ) &&
+    if( it.covers( bodypart_id( "head"_id ) ) &&
         !it.has_flag( flag_HELMET_COMPAT ) && !it.has_flag( flag_SKINTIGHT ) &&
         !it.has_flag( flag_PERSONAL ) &&
         !it.has_flag( flag_AURA ) && !it.has_flag( flag_SEMITANGIBLE ) && !it.has_flag( flag_OVERSIZE ) &&
         is_wearing_helmet() ) {
-        return ret_val<bool>::make_failure( wearing_something_on( bodypart_id( "head" ) ),
+        return ret_val<bool>::make_failure( wearing_something_on( bodypart_id( "head"_id ) ),
                                             ( is_player() ? _( "You can't wear that with other headgear!" )
                                               : string_format( _( "%s can't wear that with other headgear!" ), name ) ) );
     }
 
-    if( it.covers( bodypart_id( "head" ) ) && !it.has_flag( flag_SEMITANGIBLE ) &&
+    if( it.covers( bodypart_id( "head"_id ) ) && !it.has_flag( flag_SEMITANGIBLE ) &&
         ( it.has_flag( flag_SKINTIGHT ) || it.has_flag( flag_HELMET_COMPAT ) ) &&
-        ( head_cloth_encumbrance() + it.get_encumber( *this, bodypart_id( "head" ) ) > 40 ) ) {
+        ( head_cloth_encumbrance() + it.get_encumber( *this, bodypart_id( "head"_id ) ) > 40 ) ) {
         return ret_val<bool>::make_failure( ( is_player() ? _( "You can't wear that much on your head!" )
                                               : string_format( _( "%s can't wear that much on their head!" ), name ) ) );
     }
@@ -3789,7 +3789,7 @@ bool Character::is_wearing_on_bp( const itype_id &it, const bodypart_id &bp ) co
 bool Character::worn_with_flag( const std::string &flag, const bodypart_id &bp ) const
 {
     return std::any_of( worn.begin(), worn.end(), [&flag, bp]( const item & it ) {
-        return it.has_flag( flag ) && ( bp == bodypart_id( "bp_null" ) || it.covers( bp ) );
+        return it.has_flag( flag ) && ( bp == bodypart_id( "bp_null"_id ) || it.covers( bp ) );
     } );
 }
 
@@ -3804,7 +3804,7 @@ item Character::item_worn_with_flag( const std::string &flag, const bodypart_id 
 {
     item it_with_flag;
     for( const item &it : worn ) {
-        if( it.has_flag( flag ) && ( bp == bodypart_id( "bp_null" ) || it.covers( bp ) ) ) {
+        if( it.has_flag( flag ) && ( bp == bodypart_id( "bp_null"_id ) || it.covers( bp ) ) ) {
             it_with_flag = it;
             break;
         }
@@ -4305,7 +4305,7 @@ bool Character::is_wearing_power_armor( bool *hasHelmet ) const
         }
         // found power armor, continue search for helmet
         result = true;
-        if( elem.covers( bodypart_id( "head" ) ) ) {
+        if( elem.covers( bodypart_id( "head"_id ) ) ) {
             *hasHelmet = true;
             return true;
         }
@@ -4384,13 +4384,13 @@ int Character::get_wind_resistance( const bodypart_id &bp ) const
 
     for( const item &i : worn ) {
         if( i.covers( bp ) ) {
-            if( i.made_of( material_id( "leather" ) ) || i.made_of( material_id( "plastic" ) ) ||
-                i.made_of( material_id( "bone" ) ) ||
-                i.made_of( material_id( "chitin" ) ) || i.made_of( material_id( "nomex" ) ) ) {
+            if( i.made_of( material_id( "leather"_id ) ) || i.made_of( material_id( "plastic"_id ) ) ||
+                i.made_of( material_id( "bone"_id ) ) ||
+                i.made_of( material_id( "chitin"_id ) ) || i.made_of( material_id( "nomex"_id ) ) ) {
                 penalty = 10; // 90% effective
-            } else if( i.made_of( material_id( "cotton" ) ) ) {
+            } else if( i.made_of( material_id( "cotton"_id ) ) ) {
                 penalty = 30;
-            } else if( i.made_of( material_id( "wool" ) ) ) {
+            } else if( i.made_of( material_id( "wool"_id ) ) ) {
                 penalty = 40;
             } else {
                 penalty = 1; // 99% effective
@@ -4563,7 +4563,7 @@ void Character::mut_cbm_encumb( std::map<bodypart_id, encumbrance_data> &vals ) 
         for( std::pair<const bodypart_id, encumbrance_data> &val : vals ) {
             val.second.encumbrance += 3; // Slight encumbrance to all parts except eyes
         }
-        vals[bodypart_id( "eyes" )].encumbrance -= 3;
+        vals[bodypart_id( "eyes"_id )].encumbrance -= 3;
     }
 
     // Lower penalty for bps covered only by XL armor
@@ -5850,13 +5850,13 @@ void Character::check_needs_extremes()
                                _( "You have a sudden heart attack!" ),
                                _( "<npcname> has a sudden heart attack!" ) );
         get_event_bus().send<event_type::dies_from_drug_overdose>( getID(), efftype_id() );
-        set_part_hp_cur( bodypart_id( "torso" ), 0 );
+        set_part_hp_cur( bodypart_id( "torso"_id ), 0 );
     } else if( get_stim() < -200 || get_painkiller() > 240 ) {
         add_msg_player_or_npc( m_bad,
                                _( "Your breathing stops completely." ),
                                _( "<npcname>'s breathing stops completely." ) );
         get_event_bus().send<event_type::dies_from_drug_overdose>( getID(), efftype_id() );
-        set_part_hp_cur( bodypart_id( "torso" ), 0 );
+        set_part_hp_cur( bodypart_id( "torso"_id ), 0 );
     } else if( has_effect( effect_jetinjector ) && get_effect_dur( effect_jetinjector ) > 40_minutes ) {
         if( !( has_trait( trait_NOPAIN ) ) ) {
             add_msg_player_or_npc( m_bad,
@@ -5867,19 +5867,19 @@ void Character::check_needs_extremes()
                                    _( "<npcname>'s heart spasms and stops." ) );
         }
         get_event_bus().send<event_type::dies_from_drug_overdose>( getID(), effect_jetinjector );
-        set_part_hp_cur( bodypart_id( "torso" ), 0 );
+        set_part_hp_cur( bodypart_id( "torso"_id ), 0 );
     } else if( get_effect_dur( effect_adrenaline ) > 50_minutes ) {
         add_msg_player_or_npc( m_bad,
                                _( "Your heart spasms and stops." ),
                                _( "<npcname>'s heart spasms and stops." ) );
         get_event_bus().send<event_type::dies_from_drug_overdose>( getID(), effect_adrenaline );
-        set_part_hp_cur( bodypart_id( "torso" ), 0 );
+        set_part_hp_cur( bodypart_id( "torso"_id ), 0 );
     } else if( get_effect_int( effect_drunk ) > 4 ) {
         add_msg_player_or_npc( m_bad,
                                _( "Your breathing slows down to a stop." ),
                                _( "<npcname>'s breathing slows down to a stop." ) );
         get_event_bus().send<event_type::dies_from_drug_overdose>( getID(), effect_drunk );
-        set_part_hp_cur( bodypart_id( "torso" ), 0 );
+        set_part_hp_cur( bodypart_id( "torso"_id ), 0 );
     }
 
     // check if we've starved
@@ -5887,7 +5887,7 @@ void Character::check_needs_extremes()
         if( get_stored_kcal() <= 0 ) {
             add_msg_if_player( m_bad, _( "You have starved to death." ) );
             get_event_bus().send<event_type::dies_of_starvation>( getID() );
-            set_part_hp_cur( bodypart_id( "torso" ), 0 );
+            set_part_hp_cur( bodypart_id( "torso"_id ), 0 );
         } else {
             if( calendar::once_every( 12_hours ) ) {
                 std::string category;
@@ -5927,7 +5927,7 @@ void Character::check_needs_extremes()
         if( get_thirst() >= 1200 ) {
             add_msg_if_player( m_bad, _( "You have died of dehydration." ) );
             get_event_bus().send<event_type::dies_of_thirst>( getID() );
-            set_part_hp_cur( bodypart_id( "torso" ), 0 );
+            set_part_hp_cur( bodypart_id( "torso"_id ), 0 );
         } else if( get_thirst() >= 1000 && calendar::once_every( 30_minutes ) ) {
             add_msg_if_player( m_warning, _( "Even your eyes feel dry…" ) );
         } else if( get_thirst() >= 800 && calendar::once_every( 30_minutes ) ) {
@@ -6083,10 +6083,10 @@ void Character::get_sick()
     if( one_in( disease_rarity ) ) {
         if( one_in( 6 ) ) {
             // The flu typically lasts 3-10 days.
-            add_env_effect( effect_flu, bodypart_id( "mouth" ), 3, rng( 3_days, 10_days ) );
+            add_env_effect( effect_flu, bodypart_id( "mouth"_id ), 3, rng( 3_days, 10_days ) );
         } else {
             // A cold typically lasts 1-14 days.
-            add_env_effect( effect_common_cold, bodypart_id( "mouth" ), 3, rng( 1_days, 14_days ) );
+            add_env_effect( effect_common_cold, bodypart_id( "mouth"_id ), 3, rng( 1_days, 14_days ) );
         }
     }
 }
@@ -6243,10 +6243,10 @@ void Character::update_bodytemp()
         // If you're standing in water, air temperature is replaced by water temperature. No wind.
         // Convert to 0.01C
         static const std::set<bodypart_id> lowers {
-            bodypart_id( "foot_l" ),
-            bodypart_id( "foot_r" ),
-            bodypart_id( "leg_l" ),
-            bodypart_id( "leg_r" )
+            bodypart_id( "foot_l"_id ),
+            bodypart_id( "foot_r"_id ),
+            bodypart_id( "leg_l"_id ),
+            bodypart_id( "leg_r"_id )
         };
         if( here.has_flag_ter( TFLAG_DEEP_WATER, pos() ) ||
             ( here.has_flag_ter( TFLAG_SHALLOW_WATER, pos() ) && lowers.count( bp ) ) ) {
@@ -6294,7 +6294,7 @@ void Character::update_bodytemp()
 
         mod_part_temp_conv( bp, sunlight_warmth );
         // DISEASES
-        if( bp == bodypart_id( "head" ) && has_effect( effect_flu ) ) {
+        if( bp == bodypart_id( "head"_id ) && has_effect( effect_flu ) ) {
             mod_part_temp_conv( bp, 1500 );
         }
         if( has_common_cold ) {
@@ -6304,37 +6304,37 @@ void Character::update_bodytemp()
         mod_part_temp_conv( bp, - blood_loss( bp ) * get_part_temp_conv( bp ) / 200 );
 
         // EQUALIZATION
-        if( bp == bodypart_id( "torso" ) ) {
-            temp_equalizer( bodypart_id( "torso" ), bodypart_id( "arm_l" ) );
-            temp_equalizer( bodypart_id( "torso" ), bodypart_id( "arm_r" ) );
-            temp_equalizer( bodypart_id( "torso" ), bodypart_id( "leg_l" ) );
-            temp_equalizer( bodypart_id( "torso" ), bodypart_id( "leg_r" ) );
-            temp_equalizer( bodypart_id( "torso" ), bodypart_id( "head" ) );
-        } else if( bp == bodypart_id( "head" ) ) {
-            temp_equalizer( bodypart_id( "head" ), bodypart_id( "torso" ) );
-            temp_equalizer( bodypart_id( "head" ), bodypart_id( "mouth" ) );
-        } else if( bp == bodypart_id( "arm_l" ) ) {
-            temp_equalizer( bodypart_id( "arm_l" ), bodypart_id( "torso" ) );
-            temp_equalizer( bodypart_id( "arm_l" ), bodypart_id( "hand_l" ) );
-        } else if( bp == bodypart_id( "arm_r" ) ) {
-            temp_equalizer( bodypart_id( "arm_r" ), bodypart_id( "torso" ) );
-            temp_equalizer( bodypart_id( "arm_r" ), bodypart_id( "hand_r" ) );
-        } else if( bp == bodypart_id( "leg_l" ) ) {
-            temp_equalizer( bodypart_id( "leg_l" ), bodypart_id( "torso" ) );
-            temp_equalizer( bodypart_id( "leg_l" ), bodypart_id( "foot_l" ) );
-        } else if( bp == bodypart_id( "leg_r" ) ) {
-            temp_equalizer( bodypart_id( "leg_r" ), bodypart_id( "torso" ) );
-            temp_equalizer( bodypart_id( "leg_r" ), bodypart_id( "foot_r" ) );
-        } else if( bp == bodypart_id( "mouth" ) ) {
-            temp_equalizer( bodypart_id( "mouth" ), bodypart_id( "head" ) );
-        } else if( bp == bodypart_id( "hand_l" ) ) {
-            temp_equalizer( bodypart_id( "hand_l" ), bodypart_id( "arm_l" ) );
-        } else if( bp == bodypart_id( "hand_r" ) ) {
-            temp_equalizer( bodypart_id( "hand_r" ), bodypart_id( "arm_r" ) );
-        } else if( bp == bodypart_id( "foot_l" ) ) {
-            temp_equalizer( bodypart_id( "foot_l" ), bodypart_id( "leg_l" ) );
-        } else if( bp == bodypart_id( "foot_r" ) ) {
-            temp_equalizer( bodypart_id( "foot_r" ), bodypart_id( "leg_r" ) );
+        if( bp == bodypart_id( "torso"_id ) ) {
+            temp_equalizer( bodypart_id( "torso"_id ), bodypart_id( "arm_l"_id ) );
+            temp_equalizer( bodypart_id( "torso"_id ), bodypart_id( "arm_r"_id ) );
+            temp_equalizer( bodypart_id( "torso"_id ), bodypart_id( "leg_l"_id ) );
+            temp_equalizer( bodypart_id( "torso"_id ), bodypart_id( "leg_r"_id ) );
+            temp_equalizer( bodypart_id( "torso"_id ), bodypart_id( "head"_id ) );
+        } else if( bp == bodypart_id( "head"_id ) ) {
+            temp_equalizer( bodypart_id( "head"_id ), bodypart_id( "torso"_id ) );
+            temp_equalizer( bodypart_id( "head"_id ), bodypart_id( "mouth"_id ) );
+        } else if( bp == bodypart_id( "arm_l"_id ) ) {
+            temp_equalizer( bodypart_id( "arm_l"_id ), bodypart_id( "torso"_id ) );
+            temp_equalizer( bodypart_id( "arm_l"_id ), bodypart_id( "hand_l"_id ) );
+        } else if( bp == bodypart_id( "arm_r"_id ) ) {
+            temp_equalizer( bodypart_id( "arm_r"_id ), bodypart_id( "torso"_id ) );
+            temp_equalizer( bodypart_id( "arm_r"_id ), bodypart_id( "hand_r"_id ) );
+        } else if( bp == bodypart_id( "leg_l"_id ) ) {
+            temp_equalizer( bodypart_id( "leg_l"_id ), bodypart_id( "torso"_id ) );
+            temp_equalizer( bodypart_id( "leg_l"_id ), bodypart_id( "foot_l"_id ) );
+        } else if( bp == bodypart_id( "leg_r"_id ) ) {
+            temp_equalizer( bodypart_id( "leg_r"_id ), bodypart_id( "torso"_id ) );
+            temp_equalizer( bodypart_id( "leg_r"_id ), bodypart_id( "foot_r"_id ) );
+        } else if( bp == bodypart_id( "mouth"_id ) ) {
+            temp_equalizer( bodypart_id( "mouth"_id ), bodypart_id( "head"_id ) );
+        } else if( bp == bodypart_id( "hand_l"_id ) ) {
+            temp_equalizer( bodypart_id( "hand_l"_id ), bodypart_id( "arm_l"_id ) );
+        } else if( bp == bodypart_id( "hand_r"_id ) ) {
+            temp_equalizer( bodypart_id( "hand_r"_id ), bodypart_id( "arm_r"_id ) );
+        } else if( bp == bodypart_id( "foot_l"_id ) ) {
+            temp_equalizer( bodypart_id( "foot_l"_id ), bodypart_id( "leg_l"_id ) );
+        } else if( bp == bodypart_id( "foot_r"_id ) ) {
+            temp_equalizer( bodypart_id( "foot_r"_id ), bodypart_id( "leg_r"_id ) );
         } else {
             debugmsg( "Wacky body part temperature equalization!" );
         }
@@ -6348,7 +6348,7 @@ void Character::update_bodytemp()
         int bonus_fire_warmth = 0;
         if( !has_sleep_state && best_fire > 0 ) {
             // Warming up over a fire
-            if( bp == bodypart_id( "foot_l" ) || bp == bodypart_id( "foot_r" ) ) {
+            if( bp == bodypart_id( "foot_l"_id ) || bp == bodypart_id( "foot_r"_id ) ) {
                 if( furn_at_pos != f_null ) {
                     // Can sit on something to lift feet up to the fire
                     bonus_fire_warmth = best_fire * furn_at_pos.obj().bonus_fire_warmth_feet;
@@ -6485,8 +6485,8 @@ void Character::update_bodytemp()
         Less than -35F, more than 10 mp
         **/
 
-        if( bp == bodypart_id( "mouth" ) || bp == bodypart_id( "foot_r" ) ||
-            bp == bodypart_id( "foot_l" ) || bp == bodypart_id( "hand_r" ) || bp == bodypart_id( "hand_l" ) ) {
+        if( bp == bodypart_id( "mouth"_id ) || bp == bodypart_id( "foot_r"_id ) ||
+            bp == bodypart_id( "foot_l"_id ) || bp == bodypart_id( "hand_r"_id ) || bp == bodypart_id( "hand_l"_id ) ) {
             // Handle the frostbite timer
             // Need temps in F, windPower already in mph
             int wetness_percentage = 100 * get_part_wetness_percentage( bp ); // 0 - 100
@@ -6598,10 +6598,10 @@ void Character::update_bodytemp()
         // Otherwise, if any other body part is BODYTEMP_VERY_COLD, or 31C
         // AND you have frostbite, then that also prevents you from sleeping
         if( in_sleep_state() && !has_effect( effect_narcosis ) ) {
-            if( bp == bodypart_id( "torso" ) && temp_after <= BODYTEMP_COLD ) {
+            if( bp == bodypart_id( "torso"_id ) && temp_after <= BODYTEMP_COLD ) {
                 add_msg( m_warning, _( "Your shivering prevents you from sleeping." ) );
                 wake_up();
-            } else if( bp != bodypart_id( "torso" ) && temp_after <= BODYTEMP_VERY_COLD &&
+            } else if( bp != bodypart_id( "torso"_id ) && temp_after <= BODYTEMP_VERY_COLD &&
                        has_effect( effect_frostbite ) ) {
                 add_msg( m_warning, _( "You are too cold.  Your frostbite prevents you from sleeping." ) );
                 wake_up();
@@ -6770,12 +6770,12 @@ int Character::blood_loss( const bodypart_id &bp ) const
     int hp_cur_sum = get_part_hp_cur( bp );
     int hp_max_sum = get_part_hp_max( bp );
 
-    if( bp == bodypart_id( "leg_l" ) || bp == bodypart_id( "leg_r" ) ) {
-        hp_cur_sum = get_part_hp_cur( bodypart_id( "leg_l" ) ) + get_part_hp_cur( bodypart_id( "leg_r" ) );
-        hp_max_sum = get_part_hp_max( bodypart_id( "leg_l" ) ) + get_part_hp_max( bodypart_id( "leg_r" ) );
-    } else if( bp == bodypart_id( "arm_l" ) || bp == bodypart_id( "arm_r" ) ) {
-        hp_cur_sum = get_part_hp_cur( bodypart_id( "arm_l" ) ) + get_part_hp_cur( bodypart_id( "arm_r" ) );
-        hp_max_sum = get_part_hp_max( bodypart_id( "arm_l" ) ) + get_part_hp_max( bodypart_id( "arm_r" ) );
+    if( bp == bodypart_id( "leg_l"_id ) || bp == bodypart_id( "leg_r"_id ) ) {
+        hp_cur_sum = get_part_hp_cur( bodypart_id( "leg_l"_id ) ) + get_part_hp_cur( bodypart_id( "leg_r"_id ) );
+        hp_max_sum = get_part_hp_max( bodypart_id( "leg_l"_id ) ) + get_part_hp_max( bodypart_id( "leg_r"_id ) );
+    } else if( bp == bodypart_id( "arm_l"_id ) || bp == bodypart_id( "arm_r"_id ) ) {
+        hp_cur_sum = get_part_hp_cur( bodypart_id( "arm_l"_id ) ) + get_part_hp_cur( bodypart_id( "arm_r"_id ) );
+        hp_max_sum = get_part_hp_max( bodypart_id( "arm_l"_id ) ) + get_part_hp_max( bodypart_id( "arm_r"_id ) );
     }
 
     hp_cur_sum = std::min( hp_max_sum, std::max( 0, hp_cur_sum ) );
@@ -6812,12 +6812,12 @@ bodypart_id Character::body_window( const std::string &menu_header,
     /* The array of the menu entries show to the player. The entries are displayed in this order,
      * it may be changed here. */
     std::array<healable_bp, 6> parts = { {
-            { false, bodypart_id( "head" ),  _( "Head" ), head_bonus },
-            { false, bodypart_id( "torso" ), _( "Torso" ), torso_bonus },
-            { false, bodypart_id( "arm_l" ), _( "Left Arm" ), normal_bonus },
-            { false, bodypart_id( "arm_r" ),  _( "Right Arm" ), normal_bonus },
-            { false, bodypart_id( "leg_l" ),  _( "Left Leg" ), normal_bonus },
-            { false, bodypart_id( "leg_r" ),  _( "Right Leg" ), normal_bonus },
+            { false, bodypart_id( "head"_id ),  _( "Head" ), head_bonus },
+            { false, bodypart_id( "torso"_id ), _( "Torso" ), torso_bonus },
+            { false, bodypart_id( "arm_l"_id ), _( "Left Arm" ), normal_bonus },
+            { false, bodypart_id( "arm_r"_id ),  _( "Right Arm" ), normal_bonus },
+            { false, bodypart_id( "leg_l"_id ),  _( "Left Leg" ), normal_bonus },
+            { false, bodypart_id( "leg_r"_id ),  _( "Right Leg" ), normal_bonus },
         }
     };
 
@@ -7009,13 +7009,13 @@ bodypart_id Character::body_window( const std::string &menu_header,
         parts[bmenu.ret].allowed ) {
         return parts[bmenu.ret].bp;
     } else {
-        return bodypart_id( "bp_null" );
+        return bodypart_id( "bp_null"_id );
     }
 }
 
 nc_color Character::limb_color( const bodypart_id &bp, bool bleed, bool bite, bool infect ) const
 {
-    if( bp == bodypart_id( "bp_null" ) ) {
+    if( bp == bodypart_id( "bp_null"_id ) ) {
         return c_light_gray;
     }
     int color_bit = 0;
@@ -7148,14 +7148,14 @@ bool Character::is_immune_field( const field_type_id &fid ) const
         return has_active_bionic( bio_heatsink ) || is_wearing( itype_rm13_armor_on );
     }
     if( ft.has_acid ) {
-        return !is_on_ground() && get_env_resist( bodypart_id( "foot_l" ) ) >= 15 &&
-               get_env_resist( bodypart_id( "foot_r" ) ) >= 15 &&
-               get_env_resist( bodypart_id( "leg_l" ) ) >= 15 &&
-               get_env_resist( bodypart_id( "leg_r" ) ) >= 15 &&
-               get_armor_type( damage_type::ACID, bodypart_id( "foot_l" ) ) >= 5 &&
-               get_armor_type( damage_type::ACID, bodypart_id( "foot_r" ) ) >= 5 &&
-               get_armor_type( damage_type::ACID, bodypart_id( "leg_l" ) ) >= 5 &&
-               get_armor_type( damage_type::ACID, bodypart_id( "leg_r" ) ) >= 5;
+        return !is_on_ground() && get_env_resist( bodypart_id( "foot_l"_id ) ) >= 15 &&
+               get_env_resist( bodypart_id( "foot_r"_id ) ) >= 15 &&
+               get_env_resist( bodypart_id( "leg_l"_id ) ) >= 15 &&
+               get_env_resist( bodypart_id( "leg_r"_id ) ) >= 15 &&
+               get_armor_type( damage_type::ACID, bodypart_id( "foot_l"_id ) ) >= 5 &&
+               get_armor_type( damage_type::ACID, bodypart_id( "foot_r"_id ) ) >= 5 &&
+               get_armor_type( damage_type::ACID, bodypart_id( "leg_l"_id ) ) >= 5 &&
+               get_armor_type( damage_type::ACID, bodypart_id( "leg_r"_id ) ) >= 5;
     }
     // If we haven't found immunity yet fall up to the next level
     return Creature::is_immune_field( fid );
@@ -7261,7 +7261,7 @@ int Character::throw_range( const item &it ) const
                                         static_cast<int>(
                                             tmp.weight() / 15_gram ) );
     ret -= tmp.volume() / 1_liter;
-    static const std::set<material_id> affected_materials = { material_id( "iron" ), material_id( "steel" ) };
+    static const std::set<material_id> affected_materials = { material_id( "iron"_id ), material_id( "steel"_id ) };
     if( has_active_bionic( bio_railgun ) && tmp.made_of_any( affected_materials ) ) {
         ret *= 2;
     }
@@ -7279,7 +7279,7 @@ int Character::throw_range( const item &it ) const
     return ret;
 }
 
-const std::vector<material_id> Character::fleshy = { material_id( "flesh" ), material_id( "hflesh" ) };
+const std::vector<material_id> Character::fleshy = { material_id( "flesh"_id ), material_id( "hflesh"_id ) };
 bool Character::made_of( const material_id &m ) const
 {
     // TODO: check for mutations that change this.
@@ -7824,10 +7824,10 @@ float Character::healing_rate_medicine( float at_rest_quality, const bodypart_id
             float tmp_rate = static_cast<float>( eff.get_amount( "HEAL_RATE" ) ) / to_turns<int>
                              ( 24_hours );
 
-            if( bp == bodypart_id( "head" ) ) {
+            if( bp == bodypart_id( "head"_id ) ) {
                 tmp_rate *= eff.get_amount( "HEAL_HEAD" ) / 100.0f;
             }
-            if( bp == bodypart_id( "torso" ) ) {
+            if( bp == bodypart_id( "torso"_id ) ) {
                 tmp_rate *= eff.get_amount( "HEAL_TORSO" ) / 100.0f;
             }
             rate_medicine += tmp_rate;
@@ -8201,7 +8201,7 @@ int Character::get_env_resist( bodypart_id bp ) const
     int ret = 0;
     for( const item &i : worn ) {
         // Head protection works on eyes too (e.g. baseball cap)
-        if( i.covers( bp ) || ( bp == bodypart_id( "eyes" ) && i.covers( bodypart_id( "head" ) ) ) ) {
+        if( i.covers( bp ) || ( bp == bodypart_id( "eyes"_id ) && i.covers( bodypart_id( "head"_id ) ) ) ) {
             ret += i.get_env_resist();
         }
     }
@@ -8213,7 +8213,7 @@ int Character::get_env_resist( bodypart_id bp ) const
         }
     }
 
-    if( bp == bodypart_id( "eyes" ) && has_trait( trait_SEESLEEP ) ) {
+    if( bp == bodypart_id( "eyes"_id ) && has_trait( trait_SEESLEEP ) ) {
         ret += 8;
     }
     return ret;
@@ -8344,7 +8344,7 @@ void Character::update_stamina( int turns )
                                mutation_value( stamina_regen_modifier ) + ( mutation_value( "max_stamina_modifier" ) - 1.0f ) );
     // But mouth encumbrance interferes, even with mutated stamina.
     stamina_recovery += stamina_multiplier * std::max( 1.0f,
-                        base_regen_rate - ( encumb( bodypart_id( "mouth" ) ) / 5.0f ) );
+                        base_regen_rate - ( encumb( bodypart_id( "mouth"_id ) ) / 5.0f ) );
     stamina_recovery = enchantment_cache->modify_value( enchant_vals::mod::REGEN_STAMINA,
                        stamina_recovery );
     // TODO: recovering stamina causes hunger/thirst/fatigue.
@@ -8622,9 +8622,9 @@ int Character::item_handling_cost( const item &it, bool penalties, int base_cost
 
     // For single handed items use the least encumbered hand
     if( it.is_two_handed( *this ) ) {
-        mv += encumb( bodypart_id( "hand_l" ) ) + encumb( bodypart_id( "hand_r" ) );
+        mv += encumb( bodypart_id( "hand_l"_id ) ) + encumb( bodypart_id( "hand_r"_id ) );
     } else {
-        mv += std::min( encumb( bodypart_id( "hand_l" ) ), encumb( bodypart_id( "hand_r" ) ) );
+        mv += std::min( encumb( bodypart_id( "hand_l"_id ) ), encumb( bodypart_id( "hand_r"_id ) ) );
     }
 
     return std::max( mv, 0 );
@@ -8709,7 +8709,7 @@ void Character::cough( bool harmful, int loudness )
         const int malus = get_stamina_max() * 0.05; // 5% max stamina
         mod_stamina( -malus );
         if( stam < malus && x_in_y( malus - stam, malus ) && one_in( 6 ) ) {
-            apply_damage( nullptr, bodypart_id( "torso" ), 1 );
+            apply_damage( nullptr, bodypart_id( "torso"_id ), 1 );
         }
     }
 
@@ -8769,8 +8769,8 @@ int Character::get_shout_volume() const
     }
 
     // You can't shout without your face
-    if( has_trait( trait_PROF_FOODP ) && !( is_wearing( itype_id( "foodperson_mask" ) ) ||
-                                            is_wearing( itype_id( "foodperson_mask_on" ) ) ) ) {
+    if( has_trait( trait_PROF_FOODP ) && !( is_wearing( itype_id( "foodperson_mask"_id ) ) ||
+                                            is_wearing( itype_id( "foodperson_mask_on"_id ) ) ) ) {
         base = 0;
         shout_multiplier = 0;
     }
@@ -8779,7 +8779,7 @@ int Character::get_shout_volume() const
     // Balanced around whisper for wearing bondage mask
     // and noise ~= 10 (door smashing) for wearing dust mask for character with strength = 8
     /** @EFFECT_STR increases shouting volume */
-    const int penalty = encumb( bodypart_id( "mouth" ) ) * 3 / 2;
+    const int penalty = encumb( bodypart_id( "mouth"_id ) ) * 3 / 2;
     int noise = base + str_cur * shout_multiplier - penalty;
 
     // Minimum noise volume possible after all reductions.
@@ -8805,8 +8805,8 @@ void Character::shout( std::string msg, bool order )
     std::string shout;
 
     // You can't shout without your face
-    if( has_trait( trait_PROF_FOODP ) && !( is_wearing( itype_id( "foodperson_mask" ) ) ||
-                                            is_wearing( itype_id( "foodperson_mask_on" ) ) ) ) {
+    if( has_trait( trait_PROF_FOODP ) && !( is_wearing( itype_id( "foodperson_mask"_id ) ) ||
+                                            is_wearing( itype_id( "foodperson_mask_on"_id ) ) ) ) {
         add_msg_if_player( m_warning, _( "You try to shout but you have no face!" ) );
         return;
     }
@@ -8849,7 +8849,7 @@ void Character::shout( std::string msg, bool order )
         }
     }
 
-    const int penalty = encumb( bodypart_id( "mouth" ) ) * 3 / 2;
+    const int penalty = encumb( bodypart_id( "mouth"_id ) ) * 3 / 2;
     // TODO: indistinct noise descriptions should be handled in the sounds code
     if( noise <= minimum_noise ) {
         add_msg_if_player( m_warning,
@@ -8875,7 +8875,7 @@ void Character::vomit()
     }
 
     if( !has_effect( effect_nausea ) ) {  // Prevents never-ending nausea
-        const effect dummy_nausea( &effect_nausea.obj(), 0_turns, bodypart_str_id( "bp_null" ), false, 1,
+        const effect dummy_nausea( &effect_nausea.obj(), 0_turns, bodypart_str_id( "bp_null"_id ), false, 1,
                                    calendar::turn );
         add_effect( effect_nausea, std::max( dummy_nausea.get_max_duration() * units::to_milliliter(
                 stomach.contains() ) / 21, dummy_nausea.get_int_dur_factor() ) );
@@ -9513,7 +9513,7 @@ void Character::on_hit( Creature *source, bodypart_id bp_hit,
     }
 
     bool u_see = get_player_view().sees( *this );
-    if( has_active_bionic( bionic_id( "bio_ods" ) ) && get_power_level() > 5_kJ ) {
+    if( has_active_bionic( bionic_id( "bio_ods"_id ) ) && get_power_level() > 5_kJ ) {
         if( is_player() ) {
             add_msg( m_good, _( "Your offensive defense system shocks %s in mid-attack!" ),
                      source->disp_name() );
@@ -9527,7 +9527,7 @@ void Character::on_hit( Creature *source, bodypart_id bp_hit,
         damage_instance ods_shock_damage;
         ods_shock_damage.add_damage( damage_type::ELECTRIC, shock * 5 );
         // Should hit body part used for attack
-        source->deal_damage( this, bodypart_id( "torso" ), ods_shock_damage );
+        source->deal_damage( this, bodypart_id( "torso"_id ), ods_shock_damage );
     }
     if( !wearing_something_on( bp_hit ) &&
         ( has_trait( trait_SPINES ) || has_trait( trait_QUILLS ) ) ) {
@@ -9545,7 +9545,7 @@ void Character::on_hit( Creature *source, bodypart_id bp_hit,
         }
         damage_instance spine_damage;
         spine_damage.add_damage( damage_type::STAB, spine );
-        source->deal_damage( this, bodypart_id( "torso" ), spine_damage );
+        source->deal_damage( this, bodypart_id( "torso"_id ), spine_damage );
     }
     if( ( !( wearing_something_on( bp_hit ) ) ) && ( has_trait( trait_THORNS ) ) &&
         ( !( source->has_weapon() ) ) ) {
@@ -9562,7 +9562,7 @@ void Character::on_hit( Creature *source, bodypart_id bp_hit,
         thorn_damage.add_damage( damage_type::CUT, thorn );
         // In general, critters don't have separate limbs
         // so safer to target the torso
-        source->deal_damage( this, bodypart_id( "torso" ), thorn_damage );
+        source->deal_damage( this, bodypart_id( "torso"_id ), thorn_damage );
     }
     if( ( !( wearing_something_on( bp_hit ) ) ) && ( has_trait( trait_CF_HAIR ) ) ) {
         if( !is_player() ) {
@@ -9622,9 +9622,9 @@ void Character::apply_damage( Creature *source, bodypart_id hurt, int dam, const
         return;
     }
 
-    if( hurt == bodypart_id( "bp_null" ) ) {
+    if( hurt == bodypart_id( "bp_null"_id ) ) {
         debugmsg( "Wacky body part hurt!" );
-        hurt = bodypart_id( "torso" );
+        hurt = bodypart_id( "torso"_id );
     }
 
     mod_pain( dam / 2 );
@@ -9714,26 +9714,26 @@ dealt_damage_instance Character::deal_damage( Creature *source, bodypart_id bp,
         damage_instance acidblood_damage;
         acidblood_damage.add_damage( damage_type::ACID, rng( 4, 16 ) );
         if( !one_in( 4 ) ) {
-            source->deal_damage( this, bodypart_id( "arm_l" ), acidblood_damage );
-            source->deal_damage( this, bodypart_id( "arm_r" ), acidblood_damage );
+            source->deal_damage( this, bodypart_id( "arm_l"_id ), acidblood_damage );
+            source->deal_damage( this, bodypart_id( "arm_r"_id ), acidblood_damage );
         } else {
-            source->deal_damage( this, bodypart_id( "torso" ), acidblood_damage );
-            source->deal_damage( this, bodypart_id( "head" ), acidblood_damage );
+            source->deal_damage( this, bodypart_id( "torso"_id ), acidblood_damage );
+            source->deal_damage( this, bodypart_id( "head"_id ), acidblood_damage );
         }
     }
 
     int recoil_mul = 100;
 
-    if( bp == bodypart_id( "eyes" ) ) {
+    if( bp == bodypart_id( "eyes"_id ) ) {
         if( dam > 5 || cut_dam > 0 ) {
             const time_duration minblind = std::max( 1_turns, 1_turns * ( dam + cut_dam ) / 10 );
             const time_duration maxblind = std::min( 5_turns, 1_turns * ( dam + cut_dam ) / 4 );
             add_effect( effect_blind, rng( minblind, maxblind ) );
         }
-    } else if( bp == bodypart_id( "hand_l" ) || bp == bodypart_id( "arm_l" ) ||
-               bp == bodypart_id( "hand_r" ) || bp == bodypart_id( "arm_r" ) ) {
+    } else if( bp == bodypart_id( "hand_l"_id ) || bp == bodypart_id( "arm_l"_id ) ||
+               bp == bodypart_id( "hand_r"_id ) || bp == bodypart_id( "arm_r"_id ) ) {
         recoil_mul = 200;
-    } else if( bp == bodypart_id( "bp_null" ) ) {
+    } else if( bp == bodypart_id( "bp_null"_id ) ) {
         debugmsg( "Wacky body part hit!" );
     }
 
@@ -9761,7 +9761,7 @@ dealt_damage_instance Character::deal_damage( Creature *source, bodypart_id bp,
                 }
             } else {
                 int prev_effect = get_effect_int( effect_grabbed );
-                add_effect( effect_grabbed, 2_turns,  bodypart_id( "torso" ), false, prev_effect + 2 );
+                add_effect( effect_grabbed, 2_turns,  bodypart_id( "torso"_id ), false, prev_effect + 2 );
                 source->add_effect( effect_grabbing, 2_turns );
                 add_msg_player_or_npc( m_bad, _( "You are grabbed by %s!" ), _( "<npcname> is grabbed by %s!" ),
                                        source->disp_name() );
@@ -9880,8 +9880,8 @@ int Character::hitall( int dam, int vary, Creature *source )
 void Character::on_hurt( Creature *source, bool disturb /*= true*/ )
 {
     if( has_trait( trait_ADRENALINE ) && !has_effect( effect_adrenaline ) &&
-        ( get_part_hp_cur( bodypart_id( "head" ) ) < 25 ||
-          get_part_hp_cur( bodypart_id( "torso" ) ) < 15 ) ) {
+        ( get_part_hp_cur( bodypart_id( "head"_id ) ) < 25 ||
+          get_part_hp_cur( bodypart_id( "torso"_id ) ) < 15 ) ) {
         add_effect( effect_adrenaline, 20_minutes );
     }
 
@@ -9917,7 +9917,7 @@ bool Character::crossed_threshold() const
 
 void Character::update_type_of_scent( bool init )
 {
-    scenttype_id new_scent = scenttype_id( "sc_human" );
+    scenttype_id new_scent = scenttype_id( "sc_human"_id );
     for( const trait_id &mut : get_mutations() ) {
         if( mut.obj().scent_typeid ) {
             new_scent = mut.obj().scent_typeid.value();
@@ -10038,8 +10038,8 @@ void Character::rooted()
     if( ( has_trait( trait_ROOTS2 ) || has_trait( trait_ROOTS3 ) ) &&
         get_map().has_flag( flag_PLOWABLE, pos() ) && shoe_factor != 1.0 ) {
         if( one_in( 96 ) ) {
-            vitamin_mod( vitamin_id( "iron" ), 1, true );
-            vitamin_mod( vitamin_id( "calcium" ), 1, true );
+            vitamin_mod( vitamin_id( "iron"_id ), 1, true );
+            vitamin_mod( vitamin_id( "calcium"_id ), 1, true );
         }
         if( get_thirst() <= -2000 && x_in_y( 75, 425 ) ) {
             mod_thirst( -1 );
@@ -10065,7 +10065,7 @@ bool Character::is_wearing_shoes( const side &which_side ) const
     if( which_side == side::LEFT || which_side == side::BOTH ) {
         left = false;
         for( const item &worn_item : worn ) {
-            if( worn_item.covers( bodypart_id( "foot_l" ) ) && !worn_item.has_flag( flag_BELTED ) &&
+            if( worn_item.covers( bodypart_id( "foot_l"_id ) ) && !worn_item.has_flag( flag_BELTED ) &&
                 !worn_item.has_flag( flag_PERSONAL ) && !worn_item.has_flag( flag_AURA ) &&
                 !worn_item.has_flag( flag_SEMITANGIBLE ) && !worn_item.has_flag( flag_SKINTIGHT ) ) {
                 left = true;
@@ -10076,7 +10076,7 @@ bool Character::is_wearing_shoes( const side &which_side ) const
     if( which_side == side::RIGHT || which_side == side::BOTH ) {
         right = false;
         for( const item &worn_item : worn ) {
-            if( worn_item.covers( bodypart_id( "foot_r" ) ) && !worn_item.has_flag( flag_BELTED ) &&
+            if( worn_item.covers( bodypart_id( "foot_r"_id ) ) && !worn_item.has_flag( flag_BELTED ) &&
                 !worn_item.has_flag( flag_PERSONAL ) && !worn_item.has_flag( flag_AURA ) &&
                 !worn_item.has_flag( flag_SEMITANGIBLE ) && !worn_item.has_flag( flag_SKINTIGHT ) ) {
                 right = true;
@@ -10090,7 +10090,7 @@ bool Character::is_wearing_shoes( const side &which_side ) const
 bool Character::is_wearing_helmet() const
 {
     for( const item &i : worn ) {
-        if( i.covers( bodypart_id( "head" ) ) && !i.has_flag( flag_HELMET_COMPAT ) &&
+        if( i.covers( bodypart_id( "head"_id ) ) && !i.has_flag( flag_HELMET_COMPAT ) &&
             !i.has_flag( flag_SKINTIGHT ) &&
             !i.has_flag( flag_PERSONAL ) && !i.has_flag( flag_AURA ) && !i.has_flag( flag_SEMITANGIBLE ) &&
             !i.has_flag( flag_OVERSIZE ) ) {
@@ -10105,9 +10105,9 @@ int Character::head_cloth_encumbrance() const
     int ret = 0;
     for( const item &i : worn ) {
         const item *worn_item = &i;
-        if( i.covers( bodypart_id( "head" ) ) && !i.has_flag( flag_SEMITANGIBLE ) &&
+        if( i.covers( bodypart_id( "head"_id ) ) && !i.has_flag( flag_SEMITANGIBLE ) &&
             ( worn_item->has_flag( flag_HELMET_COMPAT ) || worn_item->has_flag( flag_SKINTIGHT ) ) ) {
-            ret += worn_item->get_encumber( *this, bodypart_id( "head" ) );
+            ret += worn_item->get_encumber( *this, bodypart_id( "head"_id ) );
         }
     }
     return ret;
@@ -10116,10 +10116,10 @@ int Character::head_cloth_encumbrance() const
 double Character::armwear_factor() const
 {
     double ret = 0;
-    if( wearing_something_on( bodypart_id( "arm_l" ) ) ) {
+    if( wearing_something_on( bodypart_id( "arm_l"_id ) ) ) {
         ret += .5;
     }
-    if( wearing_something_on( bodypart_id( "arm_r" ) ) ) {
+    if( wearing_something_on( bodypart_id( "arm_r"_id ) ) ) {
         ret += .5;
     }
     return ret;
@@ -10128,10 +10128,10 @@ double Character::armwear_factor() const
 double Character::footwear_factor() const
 {
     double ret = 0;
-    if( wearing_something_on( bodypart_id( "foot_l" ) ) ) {
+    if( wearing_something_on( bodypart_id( "foot_l"_id ) ) ) {
         ret += .5;
     }
-    if( wearing_something_on( bodypart_id( "foot_r" ) ) ) {
+    if( wearing_something_on( bodypart_id( "foot_r"_id ) ) ) {
         ret += .5;
     }
     return ret;
@@ -10140,10 +10140,10 @@ double Character::footwear_factor() const
 int Character::shoe_type_count( const itype_id &it ) const
 {
     int ret = 0;
-    if( is_wearing_on_bp( it, bodypart_id( "foot_l" ) ) ) {
+    if( is_wearing_on_bp( it, bodypart_id( "foot_l"_id ) ) ) {
         ret++;
     }
-    if( is_wearing_on_bp( it, bodypart_id( "foot_r" ) ) ) {
+    if( is_wearing_on_bp( it, bodypart_id( "foot_r"_id ) ) ) {
         ret++;
     }
     return ret;
@@ -10342,15 +10342,15 @@ void Character::apply_persistent_morale()
 
     if( has_trait( trait_PROF_FOODP ) ) {
         // Loosing your face is distressing
-        if( !( is_wearing( itype_id( "foodperson_mask" ) ) ||
-               is_wearing( itype_id( "foodperson_mask_on" ) ) ) ) {
+        if( !( is_wearing( itype_id( "foodperson_mask"_id ) ) ||
+               is_wearing( itype_id( "foodperson_mask_on"_id ) ) ) ) {
             add_morale( MORALE_PERM_NOFACE, -20, -20, 1_minutes, 1_minutes, true );
-        } else if( is_wearing( itype_id( "foodperson_mask" ) ) ||
-                   is_wearing( itype_id( "foodperson_mask_on" ) ) ) {
+        } else if( is_wearing( itype_id( "foodperson_mask"_id ) ) ||
+                   is_wearing( itype_id( "foodperson_mask_on"_id ) ) ) {
             rem_morale( MORALE_PERM_NOFACE );
         }
 
-        if( is_wearing( itype_id( "foodperson_mask_on" ) ) ) {
+        if( is_wearing( itype_id( "foodperson_mask_on"_id ) ) ) {
             add_morale( MORALE_PERM_FPMODE_ON, 10, 10, 1_minutes, 1_minutes, true );
         } else {
             rem_morale( MORALE_PERM_FPMODE_ON );
@@ -10624,8 +10624,8 @@ std::string Character::is_snuggling() const
         if( !candidate->is_armor() ) {
             continue;
         } else if( candidate->volume() > 250_ml && candidate->get_warmth() > 0 &&
-                   ( candidate->covers( bodypart_id( "torso" ) ) || candidate->covers( bodypart_id( "leg_l" ) ) ||
-                     candidate->covers( bodypart_id( "leg_r" ) ) ) ) {
+                   ( candidate->covers( bodypart_id( "torso"_id ) ) || candidate->covers( bodypart_id( "leg_l"_id ) ) ||
+                     candidate->covers( bodypart_id( "leg_r"_id ) ) ) ) {
             floor_armor = &*candidate;
             ticker++;
         }
@@ -10652,7 +10652,7 @@ int Character::warmth( const bodypart_id &bp ) const
             warmth = i.get_warmth();
             // Wool items do not lose their warmth due to being wet.
             // Warmth is reduced by 0 - 66% based on wetness.
-            if( !i.made_of( material_id( "wool" ) ) ) {
+            if( !i.made_of( material_id( "wool"_id ) ) ) {
                 warmth *= 1.0 - 0.66 * get_part_wetness_percentage( bp );
             }
             ret += std::round( warmth );
@@ -10678,18 +10678,18 @@ int Character::bonus_item_warmth( const bodypart_id &bp ) const
     int ret = 0;
 
     // If the player is not wielding anything big, check if hands can be put in pockets
-    if( ( bp == bodypart_id( "hand_l" ) || bp == bodypart_id( "hand_r" ) ) &&
+    if( ( bp == bodypart_id( "hand_l"_id ) || bp == bodypart_id( "hand_r"_id ) ) &&
         weapon.volume() < 500_ml ) {
         ret += bestwarmth( worn, "POCKETS" );
     }
 
     // If the player's head is not encumbered, check if hood can be put up
-    if( bp == bodypart_id( "head" ) && encumb( bodypart_id( "head" ) ) < 10 ) {
+    if( bp == bodypart_id( "head"_id ) && encumb( bodypart_id( "head"_id ) ) < 10 ) {
         ret += bestwarmth( worn, "HOOD" );
     }
 
     // If the player's mouth is not encumbered, check if collar can be put up
-    if( bp == bodypart_id( "mouth" ) && encumb( bodypart_id( "mouth" ) ) < 10 ) {
+    if( bp == bodypart_id( "mouth"_id ) && encumb( bodypart_id( "mouth"_id ) ) < 10 ) {
         ret += bestwarmth( worn, "COLLAR" );
     }
 
@@ -10699,26 +10699,26 @@ int Character::bonus_item_warmth( const bodypart_id &bp ) const
 bool Character::can_use_floor_warmth() const
 {
     return in_sleep_state() ||
-           has_activity( activity_id( "ACT_WAIT" ) ) ||
-           has_activity( activity_id( "ACT_WAIT_NPC" ) ) ||
-           has_activity( activity_id( "ACT_WAIT_STAMINA" ) ) ||
-           has_activity( activity_id( "ACT_AUTODRIVE" ) ) ||
-           has_activity( activity_id( "ACT_READ" ) ) ||
-           has_activity( activity_id( "ACT_SOCIALIZE" ) ) ||
-           has_activity( activity_id( "ACT_MEDITATE" ) ) ||
-           has_activity( activity_id( "ACT_FISH" ) ) ||
-           has_activity( activity_id( "ACT_GAME" ) ) ||
-           has_activity( activity_id( "ACT_HAND_CRANK" ) ) ||
-           has_activity( activity_id( "ACT_HEATING" ) ) ||
-           has_activity( activity_id( "ACT_VIBE" ) ) ||
-           has_activity( activity_id( "ACT_TRY_SLEEP" ) ) ||
-           has_activity( activity_id( "ACT_OPERATION" ) ) ||
-           has_activity( activity_id( "ACT_TREE_COMMUNION" ) ) ||
-           has_activity( activity_id( "ACT_EAT_MENU" ) ) ||
-           has_activity( activity_id( "ACT_CONSUME_FOOD_MENU" ) ) ||
-           has_activity( activity_id( "ACT_CONSUME_DRINK_MENU" ) ) ||
-           has_activity( activity_id( "ACT_CONSUME_MEDS_MENU" ) ) ||
-           has_activity( activity_id( "ACT_STUDY_SPELL" ) );
+           has_activity( activity_id( "ACT_WAIT"_id ) ) ||
+           has_activity( activity_id( "ACT_WAIT_NPC"_id ) ) ||
+           has_activity( activity_id( "ACT_WAIT_STAMINA"_id ) ) ||
+           has_activity( activity_id( "ACT_AUTODRIVE"_id ) ) ||
+           has_activity( activity_id( "ACT_READ"_id ) ) ||
+           has_activity( activity_id( "ACT_SOCIALIZE"_id ) ) ||
+           has_activity( activity_id( "ACT_MEDITATE"_id ) ) ||
+           has_activity( activity_id( "ACT_FISH"_id ) ) ||
+           has_activity( activity_id( "ACT_GAME"_id ) ) ||
+           has_activity( activity_id( "ACT_HAND_CRANK"_id ) ) ||
+           has_activity( activity_id( "ACT_HEATING"_id ) ) ||
+           has_activity( activity_id( "ACT_VIBE"_id ) ) ||
+           has_activity( activity_id( "ACT_TRY_SLEEP"_id ) ) ||
+           has_activity( activity_id( "ACT_OPERATION"_id ) ) ||
+           has_activity( activity_id( "ACT_TREE_COMMUNION"_id ) ) ||
+           has_activity( activity_id( "ACT_EAT_MENU"_id ) ) ||
+           has_activity( activity_id( "ACT_CONSUME_FOOD_MENU"_id ) ) ||
+           has_activity( activity_id( "ACT_CONSUME_DRINK_MENU"_id ) ) ||
+           has_activity( activity_id( "ACT_CONSUME_MEDS_MENU"_id ) ) ||
+           has_activity( activity_id( "ACT_STUDY_SPELL"_id ) );
 }
 
 int Character::floor_bedding_warmth( const tripoint &pos )
@@ -10764,8 +10764,8 @@ int Character::floor_item_warmth( const tripoint &pos )
         // Items that are big enough and covers the torso are used to keep warm.
         // Smaller items don't do as good a job
         if( elem.volume() > 250_ml &&
-            ( elem.covers( bodypart_id( "torso" ) ) || elem.covers( bodypart_id( "leg_l" ) ) ||
-              elem.covers( bodypart_id( "leg_r" ) ) ) ) {
+            ( elem.covers( bodypart_id( "torso"_id ) ) || elem.covers( bodypart_id( "leg_l"_id ) ) ||
+              elem.covers( bodypart_id( "leg_r"_id ) ) ) ) {
             item_warmth += 60 * elem.get_warmth() * elem.volume() / 2500_ml;
         }
     }
@@ -11288,8 +11288,8 @@ const pathfinding_settings &Character::get_pathfinding_settings() const
 
 bool Character::crush_frozen_liquid( item_location loc )
 {
-    if( has_quality( quality_id( "HAMMER" ) ) ) {
-        item hammering_item = item_with_best_of_quality( quality_id( "HAMMER" ) );
+    if( has_quality( quality_id( "HAMMER"_id ) ) ) {
+        item hammering_item = item_with_best_of_quality( quality_id( "HAMMER"_id ) );
         //~ %1$s: item to be crushed, %2$s: hammer name
         if( query_yn( _( "Do you want to crush up %1$s with your %2$s?\n"
                          "<color_red>Be wary of fragile items nearby!</color>" ),
@@ -11388,10 +11388,10 @@ int Character::run_cost( int base_cost, bool diag ) const
         }
 
         // Linearly increase move cost relative to individual leg hp.
-        movecost += 50 * ( 1 - std::sqrt( static_cast<float>( get_part_hp_cur( bodypart_id( "leg_l" ) ) ) /
-                                          static_cast<float>( get_part_hp_max( bodypart_id( "leg_l" ) ) ) ) );
-        movecost += 50 * ( 1 - std::sqrt( static_cast<float>( get_part_hp_cur( bodypart_id( "leg_r" ) ) ) /
-                                          static_cast<float>( get_part_hp_max( bodypart_id( "leg_r" ) ) ) ) );
+        movecost += 50 * ( 1 - std::sqrt( static_cast<float>( get_part_hp_cur( bodypart_id( "leg_l"_id ) ) ) /
+                                          static_cast<float>( get_part_hp_max( bodypart_id( "leg_l"_id ) ) ) ) );
+        movecost += 50 * ( 1 - std::sqrt( static_cast<float>( get_part_hp_cur( bodypart_id( "leg_r"_id ) ) ) /
+                                          static_cast<float>( get_part_hp_max( bodypart_id( "leg_r"_id ) ) ) ) );
 
         movecost *= mutation_value( "movecost_modifier" );
         if( flatground ) {
@@ -11443,8 +11443,8 @@ int Character::run_cost( int base_cost, bool diag ) const
         }
 
         movecost +=
-            ( ( encumb( bodypart_id( "foot_l" ) ) + encumb( bodypart_id( "foot_r" ) ) ) * 2.5 +
-              ( encumb( bodypart_id( "leg_l" ) ) + encumb( bodypart_id( "leg_r" ) ) ) * 1.5 ) / 10;
+            ( ( encumb( bodypart_id( "foot_l"_id ) ) + encumb( bodypart_id( "foot_r"_id ) ) ) * 2.5 +
+              ( encumb( bodypart_id( "leg_l"_id ) ) + encumb( bodypart_id( "leg_r"_id ) ) ) * 1.5 ) / 10;
 
         // ROOTS3 does slow you down as your roots are probing around for nutrients,
         // whether you want them to or not.  ROOTS1 is just too squiggly without shoes
@@ -11492,7 +11492,7 @@ void Character::place_corpse()
             cbm.set_flag( "FILTHY" );
             cbm.set_flag( "NO_STERILE" );
             cbm.set_flag( "NO_PACKED" );
-            cbm.faults.emplace( fault_id( "fault_bionic_salvaged" ) );
+            cbm.faults.emplace( fault_id( "fault_bionic_salvaged"_id ) );
             body.put_in( cbm, item_pocket::pocket_type::CORPSE );
         }
     }
@@ -11520,9 +11520,9 @@ void Character::place_corpse( const tripoint_abs_omt &om_target )
     // Q: Why not grep a random point out of all the possible points (e.g. via random_entry)?
     // Q: Why use furn_str_id instead of f_null?
     // TODO: fix it, see above.
-    if( bay.furn( fin ) != furn_str_id( "f_null" ) ) {
+    if( bay.furn( fin ) != furn_str_id( "f_null"_id ) ) {
         for( const tripoint &p : bay.points_on_zlevel() ) {
-            if( bay.furn( p ) == furn_str_id( "f_null" ) ) {
+            if( bay.furn( p ) == furn_str_id( "f_null"_id ) ) {
                 fin.x = p.x;
                 fin.y = p.y;
             }
@@ -11818,7 +11818,7 @@ nc_color Character::bodytemp_color( const bodypart_id &bp ) const
 {
     nc_color color = c_light_gray; // default
     const int temp_conv = get_part_temp_conv( bp );
-    if( bp == bodypart_id( "eyes" ) ) {
+    if( bp == bodypart_id( "eyes"_id ) ) {
         color = c_light_gray;    // Eyes don't count towards warmth
     } else if( temp_conv  > BODYTEMP_SCORCHING ) {
         color = c_red;
@@ -11927,7 +11927,7 @@ int Character::talk_skill() const
     /** @EFFECT_PER slightly increases talking skill */
 
     /** @EFFECT_SPEECH increases talking skill */
-    int ret = get_int() + get_per() + get_skill_level( skill_id( "speech" ) ) * 3;
+    int ret = get_int() + get_per() + get_skill_level( skill_id( "speech"_id ) ) * 3;
     return ret;
 }
 

@@ -68,12 +68,12 @@
 
 class character_id;
 
-static const activity_id ACT_AUTODRIVE( "ACT_AUTODRIVE" );
-static const activity_id ACT_TRAVELLING( "ACT_TRAVELLING" );
+static const activity_id ACT_AUTODRIVE( "ACT_AUTODRIVE"_id );
+static const activity_id ACT_TRAVELLING( "ACT_TRAVELLING"_id );
 
-static const mongroup_id GROUP_FOREST( "GROUP_FOREST" );
+static const mongroup_id GROUP_FOREST( "GROUP_FOREST"_id );
 
-static const trait_id trait_DEBUG_NIGHTVISION( "DEBUG_NIGHTVISION" );
+static const trait_id trait_DEBUG_NIGHTVISION( "DEBUG_NIGHTVISION"_id );
 
 #if defined(__ANDROID__)
 #include <SDL_keyboard.h>
@@ -518,7 +518,7 @@ void draw(
     // Whether showing hordes is currently enabled
     const bool showhordes = uistate.overmap_show_hordes;
 
-    const oter_id forest = oter_str_id( "forest" ).id();
+    const oter_id forest = oter_str_id( "forest"_id ).id();
 
     std::string sZoneName;
     tripoint_abs_omt tripointZone( -1, -1, -1 );

@@ -103,150 +103,150 @@
 
 enum class creature_size : int;
 
-static const efftype_id effect_sheared( "sheared" );
+static const efftype_id effect_sheared( "sheared"_id );
 
 #define dbg(x) DebugLog((x),D_GAME) << __FILE__ << ":" << __LINE__ << ": "
 
-static const activity_id ACT_ADV_INVENTORY( "ACT_ADV_INVENTORY" );
-static const activity_id ACT_ARMOR_LAYERS( "ACT_ARMOR_LAYERS" );
-static const activity_id ACT_ATM( "ACT_ATM" );
-static const activity_id ACT_AUTODRIVE( "ACT_AUTODRIVE" );
-static const activity_id ACT_BUILD( "ACT_BUILD" );
-static const activity_id ACT_BURROW( "ACT_BURROW" );
-static const activity_id ACT_BUTCHER( "ACT_BUTCHER" );
-static const activity_id ACT_BUTCHER_FULL( "ACT_BUTCHER_FULL" );
-static const activity_id ACT_CHOP_LOGS( "ACT_CHOP_LOGS" );
-static const activity_id ACT_CHOP_PLANKS( "ACT_CHOP_PLANKS" );
-static const activity_id ACT_CHOP_TREE( "ACT_CHOP_TREE" );
-static const activity_id ACT_CHURN( "ACT_CHURN" );
-static const activity_id ACT_CLEAR_RUBBLE( "ACT_CLEAR_RUBBLE" );
-static const activity_id ACT_CONSUME_DRINK_MENU( "ACT_CONSUME_DRINK_MENU" );
-static const activity_id ACT_CONSUME_FOOD_MENU( "ACT_CONSUME_FOOD_MENU" );
-static const activity_id ACT_CONSUME_MEDS_MENU( "ACT_CONSUME_MEDS_MENU" );
-static const activity_id ACT_CRACKING( "ACT_CRACKING" );
-static const activity_id ACT_DISASSEMBLE( "ACT_DISASSEMBLE" );
-static const activity_id ACT_DISMEMBER( "ACT_DISMEMBER" );
-static const activity_id ACT_DISSECT( "ACT_DISSECT" );
-static const activity_id ACT_EAT_MENU( "ACT_EAT_MENU" );
-static const activity_id ACT_FERTILIZE_PLOT( "ACT_FERTILIZE_PLOT" );
-static const activity_id ACT_FETCH_REQUIRED( "ACT_FETCH_REQUIRED" );
-static const activity_id ACT_FIELD_DRESS( "ACT_FIELD_DRESS" );
-static const activity_id ACT_FILL_LIQUID( "ACT_FILL_LIQUID" );
-static const activity_id ACT_MILK( "ACT_MILK" );
-static const activity_id ACT_FILL_PIT( "ACT_FILL_PIT" );
-static const activity_id ACT_FIND_MOUNT( "ACT_FIND_MOUNT" );
-static const activity_id ACT_FIRSTAID( "ACT_FIRSTAID" );
-static const activity_id ACT_FISH( "ACT_FISH" );
-static const activity_id ACT_FORAGE( "ACT_FORAGE" );
-static const activity_id ACT_GAME( "ACT_GAME" );
-static const activity_id ACT_GENERIC_GAME( "ACT_GENERIC_GAME" );
-static const activity_id ACT_GUNMOD_ADD( "ACT_GUNMOD_ADD" );
-static const activity_id ACT_HACKSAW( "ACT_HACKSAW" );
-static const activity_id ACT_HAIRCUT( "ACT_HAIRCUT" );
-static const activity_id ACT_HAND_CRANK( "ACT_HAND_CRANK" );
-static const activity_id ACT_HEATING( "ACT_HEATING" );
-static const activity_id ACT_JACKHAMMER( "ACT_JACKHAMMER" );
-static const activity_id ACT_LONGSALVAGE( "ACT_LONGSALVAGE" );
-static const activity_id ACT_MEDITATE( "ACT_MEDITATE" );
-static const activity_id ACT_MEND_ITEM( "ACT_MEND_ITEM" );
-static const activity_id ACT_MIND_SPLICER( "ACT_MIND_SPLICER" );
-static const activity_id ACT_MOVE_LOOT( "ACT_MOVE_LOOT" );
-static const activity_id ACT_MULTIPLE_BUTCHER( "ACT_MULTIPLE_BUTCHER" );
-static const activity_id ACT_MULTIPLE_CHOP_PLANKS( "ACT_MULTIPLE_CHOP_PLANKS" );
-static const activity_id ACT_MULTIPLE_CHOP_TREES( "ACT_MULTIPLE_CHOP_TREES" );
-static const activity_id ACT_MULTIPLE_CONSTRUCTION( "ACT_MULTIPLE_CONSTRUCTION" );
-static const activity_id ACT_MULTIPLE_MINE( "ACT_MULTIPLE_MINE" );
-static const activity_id ACT_MULTIPLE_FARM( "ACT_MULTIPLE_FARM" );
-static const activity_id ACT_MULTIPLE_FISH( "ACT_MULTIPLE_FISH" );
-static const activity_id ACT_OPERATION( "ACT_OPERATION" );
-static const activity_id ACT_OXYTORCH( "ACT_OXYTORCH" );
-static const activity_id ACT_PICKAXE( "ACT_PICKAXE" );
-static const activity_id ACT_PLANT_SEED( "ACT_PLANT_SEED" );
-static const activity_id ACT_PLAY_WITH_PET( "ACT_PLAY_WITH_PET" );
-static const activity_id ACT_PRY_NAILS( "ACT_PRY_NAILS" );
-static const activity_id ACT_PULP( "ACT_PULP" );
-static const activity_id ACT_QUARTER( "ACT_QUARTER" );
-static const activity_id ACT_READ( "ACT_READ" );
-static const activity_id ACT_RELOAD( "ACT_RELOAD" );
-static const activity_id ACT_REPAIR_ITEM( "ACT_REPAIR_ITEM" );
-static const activity_id ACT_ROBOT_CONTROL( "ACT_ROBOT_CONTROL" );
-static const activity_id ACT_SHAVE( "ACT_SHAVE" );
-static const activity_id ACT_SKIN( "ACT_SKIN" );
-static const activity_id ACT_SOCIALIZE( "ACT_SOCIALIZE" );
-static const activity_id ACT_SPELLCASTING( "ACT_SPELLCASTING" );
-static const activity_id ACT_START_ENGINES( "ACT_START_ENGINES" );
-static const activity_id ACT_START_FIRE( "ACT_START_FIRE" );
-static const activity_id ACT_STUDY_SPELL( "ACT_STUDY_SPELL" );
-static const activity_id ACT_TIDY_UP( "ACT_TIDY_UP" );
-static const activity_id ACT_TOOLMOD_ADD( "ACT_TOOLMOD_ADD" );
-static const activity_id ACT_TRAIN( "ACT_TRAIN" );
-static const activity_id ACT_TRAVELLING( "ACT_TRAVELLING" );
-static const activity_id ACT_TREE_COMMUNION( "ACT_TREE_COMMUNION" );
-static const activity_id ACT_VEHICLE( "ACT_VEHICLE" );
-static const activity_id ACT_VEHICLE_DECONSTRUCTION( "ACT_VEHICLE_DECONSTRUCTION" );
-static const activity_id ACT_VEHICLE_REPAIR( "ACT_VEHICLE_REPAIR" );
-static const activity_id ACT_VIBE( "ACT_VIBE" );
-static const activity_id ACT_WAIT( "ACT_WAIT" );
-static const activity_id ACT_WAIT_NPC( "ACT_WAIT_NPC" );
-static const activity_id ACT_WAIT_STAMINA( "ACT_WAIT_STAMINA" );
-static const activity_id ACT_WAIT_WEATHER( "ACT_WAIT_WEATHER" );
-static const activity_id ACT_WASH( "ACT_WASH" );
-static const activity_id ACT_WEAR( "ACT_WEAR" );
+static const activity_id ACT_ADV_INVENTORY( "ACT_ADV_INVENTORY"_id );
+static const activity_id ACT_ARMOR_LAYERS( "ACT_ARMOR_LAYERS"_id );
+static const activity_id ACT_ATM( "ACT_ATM"_id );
+static const activity_id ACT_AUTODRIVE( "ACT_AUTODRIVE"_id );
+static const activity_id ACT_BUILD( "ACT_BUILD"_id );
+static const activity_id ACT_BURROW( "ACT_BURROW"_id );
+static const activity_id ACT_BUTCHER( "ACT_BUTCHER"_id );
+static const activity_id ACT_BUTCHER_FULL( "ACT_BUTCHER_FULL"_id );
+static const activity_id ACT_CHOP_LOGS( "ACT_CHOP_LOGS"_id );
+static const activity_id ACT_CHOP_PLANKS( "ACT_CHOP_PLANKS"_id );
+static const activity_id ACT_CHOP_TREE( "ACT_CHOP_TREE"_id );
+static const activity_id ACT_CHURN( "ACT_CHURN"_id );
+static const activity_id ACT_CLEAR_RUBBLE( "ACT_CLEAR_RUBBLE"_id );
+static const activity_id ACT_CONSUME_DRINK_MENU( "ACT_CONSUME_DRINK_MENU"_id );
+static const activity_id ACT_CONSUME_FOOD_MENU( "ACT_CONSUME_FOOD_MENU"_id );
+static const activity_id ACT_CONSUME_MEDS_MENU( "ACT_CONSUME_MEDS_MENU"_id );
+static const activity_id ACT_CRACKING( "ACT_CRACKING"_id );
+static const activity_id ACT_DISASSEMBLE( "ACT_DISASSEMBLE"_id );
+static const activity_id ACT_DISMEMBER( "ACT_DISMEMBER"_id );
+static const activity_id ACT_DISSECT( "ACT_DISSECT"_id );
+static const activity_id ACT_EAT_MENU( "ACT_EAT_MENU"_id );
+static const activity_id ACT_FERTILIZE_PLOT( "ACT_FERTILIZE_PLOT"_id );
+static const activity_id ACT_FETCH_REQUIRED( "ACT_FETCH_REQUIRED"_id );
+static const activity_id ACT_FIELD_DRESS( "ACT_FIELD_DRESS"_id );
+static const activity_id ACT_FILL_LIQUID( "ACT_FILL_LIQUID"_id );
+static const activity_id ACT_MILK( "ACT_MILK"_id );
+static const activity_id ACT_FILL_PIT( "ACT_FILL_PIT"_id );
+static const activity_id ACT_FIND_MOUNT( "ACT_FIND_MOUNT"_id );
+static const activity_id ACT_FIRSTAID( "ACT_FIRSTAID"_id );
+static const activity_id ACT_FISH( "ACT_FISH"_id );
+static const activity_id ACT_FORAGE( "ACT_FORAGE"_id );
+static const activity_id ACT_GAME( "ACT_GAME"_id );
+static const activity_id ACT_GENERIC_GAME( "ACT_GENERIC_GAME"_id );
+static const activity_id ACT_GUNMOD_ADD( "ACT_GUNMOD_ADD"_id );
+static const activity_id ACT_HACKSAW( "ACT_HACKSAW"_id );
+static const activity_id ACT_HAIRCUT( "ACT_HAIRCUT"_id );
+static const activity_id ACT_HAND_CRANK( "ACT_HAND_CRANK"_id );
+static const activity_id ACT_HEATING( "ACT_HEATING"_id );
+static const activity_id ACT_JACKHAMMER( "ACT_JACKHAMMER"_id );
+static const activity_id ACT_LONGSALVAGE( "ACT_LONGSALVAGE"_id );
+static const activity_id ACT_MEDITATE( "ACT_MEDITATE"_id );
+static const activity_id ACT_MEND_ITEM( "ACT_MEND_ITEM"_id );
+static const activity_id ACT_MIND_SPLICER( "ACT_MIND_SPLICER"_id );
+static const activity_id ACT_MOVE_LOOT( "ACT_MOVE_LOOT"_id );
+static const activity_id ACT_MULTIPLE_BUTCHER( "ACT_MULTIPLE_BUTCHER"_id );
+static const activity_id ACT_MULTIPLE_CHOP_PLANKS( "ACT_MULTIPLE_CHOP_PLANKS"_id );
+static const activity_id ACT_MULTIPLE_CHOP_TREES( "ACT_MULTIPLE_CHOP_TREES"_id );
+static const activity_id ACT_MULTIPLE_CONSTRUCTION( "ACT_MULTIPLE_CONSTRUCTION"_id );
+static const activity_id ACT_MULTIPLE_MINE( "ACT_MULTIPLE_MINE"_id );
+static const activity_id ACT_MULTIPLE_FARM( "ACT_MULTIPLE_FARM"_id );
+static const activity_id ACT_MULTIPLE_FISH( "ACT_MULTIPLE_FISH"_id );
+static const activity_id ACT_OPERATION( "ACT_OPERATION"_id );
+static const activity_id ACT_OXYTORCH( "ACT_OXYTORCH"_id );
+static const activity_id ACT_PICKAXE( "ACT_PICKAXE"_id );
+static const activity_id ACT_PLANT_SEED( "ACT_PLANT_SEED"_id );
+static const activity_id ACT_PLAY_WITH_PET( "ACT_PLAY_WITH_PET"_id );
+static const activity_id ACT_PRY_NAILS( "ACT_PRY_NAILS"_id );
+static const activity_id ACT_PULP( "ACT_PULP"_id );
+static const activity_id ACT_QUARTER( "ACT_QUARTER"_id );
+static const activity_id ACT_READ( "ACT_READ"_id );
+static const activity_id ACT_RELOAD( "ACT_RELOAD"_id );
+static const activity_id ACT_REPAIR_ITEM( "ACT_REPAIR_ITEM"_id );
+static const activity_id ACT_ROBOT_CONTROL( "ACT_ROBOT_CONTROL"_id );
+static const activity_id ACT_SHAVE( "ACT_SHAVE"_id );
+static const activity_id ACT_SKIN( "ACT_SKIN"_id );
+static const activity_id ACT_SOCIALIZE( "ACT_SOCIALIZE"_id );
+static const activity_id ACT_SPELLCASTING( "ACT_SPELLCASTING"_id );
+static const activity_id ACT_START_ENGINES( "ACT_START_ENGINES"_id );
+static const activity_id ACT_START_FIRE( "ACT_START_FIRE"_id );
+static const activity_id ACT_STUDY_SPELL( "ACT_STUDY_SPELL"_id );
+static const activity_id ACT_TIDY_UP( "ACT_TIDY_UP"_id );
+static const activity_id ACT_TOOLMOD_ADD( "ACT_TOOLMOD_ADD"_id );
+static const activity_id ACT_TRAIN( "ACT_TRAIN"_id );
+static const activity_id ACT_TRAVELLING( "ACT_TRAVELLING"_id );
+static const activity_id ACT_TREE_COMMUNION( "ACT_TREE_COMMUNION"_id );
+static const activity_id ACT_VEHICLE( "ACT_VEHICLE"_id );
+static const activity_id ACT_VEHICLE_DECONSTRUCTION( "ACT_VEHICLE_DECONSTRUCTION"_id );
+static const activity_id ACT_VEHICLE_REPAIR( "ACT_VEHICLE_REPAIR"_id );
+static const activity_id ACT_VIBE( "ACT_VIBE"_id );
+static const activity_id ACT_WAIT( "ACT_WAIT"_id );
+static const activity_id ACT_WAIT_NPC( "ACT_WAIT_NPC"_id );
+static const activity_id ACT_WAIT_STAMINA( "ACT_WAIT_STAMINA"_id );
+static const activity_id ACT_WAIT_WEATHER( "ACT_WAIT_WEATHER"_id );
+static const activity_id ACT_WASH( "ACT_WASH"_id );
+static const activity_id ACT_WEAR( "ACT_WEAR"_id );
 
-static const efftype_id effect_blind( "blind" );
-static const efftype_id effect_controlled( "controlled" );
-static const efftype_id effect_narcosis( "narcosis" );
-static const efftype_id effect_pet( "pet" );
-static const efftype_id effect_sleep( "sleep" );
-static const efftype_id effect_tied( "tied" );
-static const efftype_id effect_under_operation( "under_operation" );
+static const efftype_id effect_blind( "blind"_id );
+static const efftype_id effect_controlled( "controlled"_id );
+static const efftype_id effect_narcosis( "narcosis"_id );
+static const efftype_id effect_pet( "pet"_id );
+static const efftype_id effect_sleep( "sleep"_id );
+static const efftype_id effect_tied( "tied"_id );
+static const efftype_id effect_under_operation( "under_operation"_id );
 
 static const itype_id itype_2x4( "2x4" );
-static const itype_id itype_animal( "animal" );
-static const itype_id itype_battery( "battery" );
-static const itype_id itype_burnt_out_bionic( "burnt_out_bionic" );
-static const itype_id itype_log( "log" );
-static const itype_id itype_mind_scan_robofac( "mind_scan_robofac" );
-static const itype_id itype_muscle( "muscle" );
-static const itype_id itype_nail( "nail" );
-static const itype_id itype_pipe( "pipe" );
-static const itype_id itype_scrap( "scrap" );
-static const itype_id itype_sheet_metal( "sheet_metal" );
-static const itype_id itype_spike( "spike" );
-static const itype_id itype_splinter( "splinter" );
-static const itype_id itype_stick_long( "stick_long" );
-static const itype_id itype_steel_chunk( "steel_chunk" );
-static const itype_id itype_steel_plate( "steel_plate" );
-static const itype_id itype_UPS( "UPS" );
-static const itype_id itype_wire( "wire" );
-static const itype_id itype_welder( "welder" );
-static const itype_id itype_wool_staple( "wool_staple" );
+static const itype_id itype_animal( "animal"_id );
+static const itype_id itype_battery( "battery"_id );
+static const itype_id itype_burnt_out_bionic( "burnt_out_bionic"_id );
+static const itype_id itype_log( "log"_id );
+static const itype_id itype_mind_scan_robofac( "mind_scan_robofac"_id );
+static const itype_id itype_muscle( "muscle"_id );
+static const itype_id itype_nail( "nail"_id );
+static const itype_id itype_pipe( "pipe"_id );
+static const itype_id itype_scrap( "scrap"_id );
+static const itype_id itype_sheet_metal( "sheet_metal"_id );
+static const itype_id itype_spike( "spike"_id );
+static const itype_id itype_splinter( "splinter"_id );
+static const itype_id itype_stick_long( "stick_long"_id );
+static const itype_id itype_steel_chunk( "steel_chunk"_id );
+static const itype_id itype_steel_plate( "steel_plate"_id );
+static const itype_id itype_UPS( "UPS"_id );
+static const itype_id itype_wire( "wire"_id );
+static const itype_id itype_welder( "welder"_id );
+static const itype_id itype_wool_staple( "wool_staple"_id );
 
-static const zone_type_id zone_type_FARM_PLOT( "FARM_PLOT" );
+static const zone_type_id zone_type_FARM_PLOT( "FARM_PLOT"_id );
 
-static const skill_id skill_computer( "computer" );
-static const skill_id skill_electronics( "electronics" );
-static const skill_id skill_fabrication( "fabrication" );
-static const skill_id skill_firstaid( "firstaid" );
-static const skill_id skill_survival( "survival" );
+static const skill_id skill_computer( "computer"_id );
+static const skill_id skill_electronics( "electronics"_id );
+static const skill_id skill_fabrication( "fabrication"_id );
+static const skill_id skill_firstaid( "firstaid"_id );
+static const skill_id skill_survival( "survival"_id );
 
-static const quality_id qual_BUTCHER( "BUTCHER" );
-static const quality_id qual_CUT_FINE( "CUT_FINE" );
+static const quality_id qual_BUTCHER( "BUTCHER"_id );
+static const quality_id qual_CUT_FINE( "CUT_FINE"_id );
 
-static const species_id species_HUMAN( "HUMAN" );
-static const species_id species_ZOMBIE( "ZOMBIE" );
+static const species_id species_HUMAN( "HUMAN"_id );
+static const species_id species_ZOMBIE( "ZOMBIE"_id );
 
 static const std::string trait_flag_CANNIBAL( "CANNIBAL" );
 static const std::string trait_flag_PSYCHOPATH( "PSYCHOPATH" );
 static const std::string trait_flag_SAPIOVORE( "SAPIOVORE" );
 
-static const bionic_id bio_ears( "bio_ears" );
-static const bionic_id bio_painkiller( "bio_painkiller" );
+static const bionic_id bio_ears( "bio_ears"_id );
+static const bionic_id bio_painkiller( "bio_painkiller"_id );
 
-static const trait_id trait_DEBUG_HS( "DEBUG_HS" );
-static const trait_id trait_NOPAIN( "NOPAIN" );
-static const trait_id trait_SPIRITUAL( "SPIRITUAL" );
-static const trait_id trait_STOCKY_TROGLO( "STOCKY_TROGLO" );
+static const trait_id trait_DEBUG_HS( "DEBUG_HS"_id );
+static const trait_id trait_NOPAIN( "NOPAIN"_id );
+static const trait_id trait_SPIRITUAL( "SPIRITUAL"_id );
+static const trait_id trait_STOCKY_TROGLO( "STOCKY_TROGLO"_id );
 
 static const std::string flag_AUTODOC( "AUTODOC" );
 static const std::string flag_AUTODOC_COUCH( "AUTODOC_COUCH" );
@@ -389,7 +389,7 @@ activity_handlers::finish_functions = {
     { ACT_PRY_NAILS, pry_nails_finish },
     { ACT_CHOP_TREE, chop_tree_finish },
     { ACT_MILK, milk_finish },
-    { activity_id( "ACT_SHEAR" ), shear_finish },
+    { activity_id( "ACT_SHEAR"_id ), shear_finish },
     { ACT_CHOP_LOGS, chop_logs_finish },
     { ACT_CHOP_PLANKS, chop_planks_finish },
     { ACT_JACKHAMMER, jackhammer_finish },
@@ -1740,19 +1740,19 @@ void activity_handlers::forage_finish( player_activity *act, player *p )
     switch( season_of_year( calendar::turn ) ) {
         case SPRING:
             loc = "forage_spring";
-            next_ter = ter_str_id( "t_underbrush_harvested_spring" );
+            next_ter = ter_str_id( "t_underbrush_harvested_spring"_id );
             break;
         case SUMMER:
             loc = "forage_summer";
-            next_ter = ter_str_id( "t_underbrush_harvested_summer" );
+            next_ter = ter_str_id( "t_underbrush_harvested_summer"_id );
             break;
         case AUTUMN:
             loc = "forage_autumn";
-            next_ter = ter_str_id( "t_underbrush_harvested_autumn" );
+            next_ter = ter_str_id( "t_underbrush_harvested_autumn"_id );
             break;
         case WINTER:
             loc = "forage_winter";
-            next_ter = ter_str_id( "t_underbrush_harvested_winter" );
+            next_ter = ter_str_id( "t_underbrush_harvested_winter"_id );
             break;
         default:
             debugmsg( "Invalid season" );
@@ -2266,8 +2266,8 @@ void activity_handlers::hand_crank_do_turn( player_activity *act, player *p )
     time_to_crank /= p->exertion_adjusted_move_multiplier( act->exertion_level() );
     if( calendar::once_every( time_duration::from_seconds( time_to_crank ) ) ) {
         p->mod_fatigue( 1 );
-        if( hand_crank_item.ammo_capacity( ammotype( "battery" ) ) > hand_crank_item.ammo_remaining() ) {
-            hand_crank_item.ammo_set( itype_id( "battery" ), hand_crank_item.ammo_remaining() + 1 );
+        if( hand_crank_item.ammo_capacity( ammotype( "battery"_id ) ) > hand_crank_item.ammo_remaining() ) {
+            hand_crank_item.ammo_set( itype_id( "battery"_id ), hand_crank_item.ammo_remaining() + 1 );
         } else {
             act->moves_left = 0;
             add_msg( m_info, _( "You've charged the battery completely." ) );
@@ -2287,7 +2287,7 @@ void activity_handlers::vibe_do_turn( player_activity *act, player *p )
     //Deduct 1 battery charge for every minute in use, or vibrator is much less effective
     item &vibrator_item = *act->targets.front();
 
-    if( p->encumb( bodypart_id( "mouth" ) ) >= 30 ) {
+    if( p->encumb( bodypart_id( "mouth"_id ) ) >= 30 ) {
         act->moves_left = 0;
         add_msg( m_bad, _( "You have trouble breathing, and stop." ) );
     }
@@ -2559,7 +2559,7 @@ struct weldrig_hack {
             item pseudo_magazine( pseudo.magazine_default() );
             pseudo.put_in( pseudo_magazine, item_pocket::pocket_type::MAGAZINE_WELL );
             pseudo.ammo_set( itype_battery,  veh->drain( itype_battery,
-                             pseudo.ammo_capacity( ammotype( "battery" ) ) ) );
+                             pseudo.ammo_capacity( ammotype( "battery"_id ) ) ) );
             return pseudo;
         }
 
@@ -3065,7 +3065,7 @@ static void rod_fish( player *p, const std::vector<monster *> &fishables )
     //if the vector is empty (no fish around) the player is still given a small chance to get a (let us say it was hidden) fish
     if( fishables.empty() ) {
         const std::vector<mtype_id> fish_group = MonsterGroupManager::GetMonstersFromGroup(
-                    mongroup_id( "GROUP_FISH" ) );
+                    mongroup_id( "GROUP_FISH"_id ) );
         const mtype_id fish_mon = random_entry_ref( fish_group );
         here.add_item_or_charges( p->pos(), item::make_corpse( fish_mon, calendar::turn + rng( 0_turns,
                                   3_hours ) ) );
@@ -3367,13 +3367,13 @@ void activity_handlers::operation_do_turn( player_activity *act, player *p )
                                                   _( "<npcname>'s %s is ripped open." ), body_part_name_accusative( bp ) );
                     }
 
-                    if( bp == bodypart_id( "eyes" ) ) {
+                    if( bp == bodypart_id( "eyes"_id ) ) {
                         p->add_effect( effect_blind, 1_hours );
                     }
                 }
             } else {
-                p->make_bleed( bodypart_id( "bp_null" ), 1_turns, difficulty, true );
-                p->apply_damage( nullptr, bodypart_id( "torso" ), 20 * difficulty );
+                p->make_bleed( bodypart_id( "bp_null"_id ), 1_turns, difficulty, true );
+                p->apply_damage( nullptr, bodypart_id( "torso"_id ), 20 * difficulty );
             }
         }
     }
@@ -3915,7 +3915,7 @@ void activity_handlers::chop_planks_finish( player_activity *act, player *p )
 {
     const int max_planks = 10;
     /** @EFFECT_FABRICATION increases number of planks cut from a log */
-    int planks = normal_roll( 2 + p->get_skill_level( skill_id( "fabrication" ) ), 1 );
+    int planks = normal_roll( 2 + p->get_skill_level( skill_id( "fabrication"_id ) ), 1 );
     int wasted_planks = max_planks - planks;
     int scraps = rng( wasted_planks, wasted_planks * 3 );
     planks = std::min( planks, max_planks );
@@ -4188,7 +4188,7 @@ void activity_handlers::robot_control_finish( player_activity *act, player *p )
 
     /** @EFFECT_INT increases chance of successful robot reprogramming, vs difficulty */
     /** @EFFECT_COMPUTER increases chance of successful robot reprogramming, vs difficulty */
-    const int computer_skill = p->get_skill_level( skill_id( "computer" ) );
+    const int computer_skill = p->get_skill_level( skill_id( "computer"_id ) );
     const float randomized_skill = rng( 2, p->int_cur ) + computer_skill;
     float success = computer_skill - 3 * z->type->difficulty / randomized_skill;
     if( z->has_flag( MF_RIDEABLE_MECH ) ) {
@@ -4206,9 +4206,9 @@ void activity_handlers::robot_control_finish( player_activity *act, player *p )
         //A near success
         p->add_msg_if_player( _( "The %s short circuits as you attempt to reprogram it!" ), z->name() );
         //damage it a little
-        z->apply_damage( p, bodypart_id( "torso" ), rng( 1, 10 ) );
+        z->apply_damage( p, bodypart_id( "torso"_id ), rng( 1, 10 ) );
         if( z->is_dead() ) {
-            p->practice( skill_id( "computer" ), 10 );
+            p->practice( skill_id( "computer"_id ), 10 );
             // Do not do the other effects if the robot died
             return;
         }

@@ -38,7 +38,7 @@
 #include "weather.h"
 #include "weather_type.h"
 
-static const skill_id skill_swimming( "swimming" );
+static const skill_id skill_swimming( "swimming"_id );
 
 static const std::string title_STATS = translate_marker( "STATS" );
 static const std::string title_ENCUMB = translate_marker( "ENCUMBRANCE AND WARMTH" );
@@ -281,8 +281,8 @@ static bool is_cqb_skill( const skill_id &id )
     // dependency. Maybe change it into a flag of the skill that indicates it's a skill used
     // by the bionic?
     static const std::array<skill_id, 5> cqb_skills = { {
-            skill_id( "melee" ), skill_id( "unarmed" ), skill_id( "cutting" ),
-            skill_id( "bashing" ), skill_id( "stabbing" ),
+            skill_id( "melee"_id ), skill_id( "unarmed"_id ), skill_id( "cutting"_id ),
+            skill_id( "bashing"_id ), skill_id( "stabbing"_id ),
         }
     };
     return std::find( cqb_skills.begin(), cqb_skills.end(), id ) != cqb_skills.end();
@@ -463,7 +463,7 @@ static void draw_stats_info( const catacurses::window &w_info,
                            "your resistance to many diseases, and the effectiveness of actions which require brute force." ) );
         print_colored_text( w_info, point( 1, 3 ), col_temp, c_light_gray,
                             string_format( _( "Base HP: <color_white>%d</color>" ),
-                                           you.get_part_hp_max( bodypart_id( "torso" ) ) ) );
+                                           you.get_part_hp_max( bodypart_id( "torso"_id ) ) ) );
         print_colored_text( w_info, point( 1, 4 ), col_temp, c_light_gray,
                             string_format( _( "Carry weight (%s): <color_white>%.1f</color>" ), weight_units(),
                                            convert_weight( you.weight_capacity() ) ) );
@@ -781,7 +781,7 @@ static void draw_skills_tab( const catacurses::window &w_skills,
             int exercise = level.exercise();
             int level_num = level.level();
             bool locked = false;
-            if( you.has_active_bionic( bionic_id( "bio_cqb" ) ) && is_cqb_skill( aSkill->ident() ) ) {
+            if( you.has_active_bionic( bionic_id( "bio_cqb"_id ) ) && is_cqb_skill( aSkill->ident() ) ) {
                 level_num = 5;
                 exercise = 0;
                 locked = true;
@@ -812,7 +812,7 @@ static void draw_skills_tab( const catacurses::window &w_skills,
                 mvwprintz( w_skills, point( 1, y_pos ), c_light_gray, std::string( col_width, ' ' ) );
             }
             mvwprintz( w_skills, point( 1, y_pos ), cstatus, "%s:", aSkill->name() );
-            if( aSkill->ident() == skill_id( "dodge" ) ) {
+            if( aSkill->ident() == skill_id( "dodge"_id ) ) {
                 mvwprintz( w_skills, point( 14, y_pos ), cstatus, "%4.1f/%-2d(%2d%%)",
                            you.get_dodge(), level_num, exercise < 0 ? 0 : exercise );
             } else {
@@ -893,7 +893,7 @@ static void draw_speed_tab( const catacurses::window &w_speed,
                    left_justify( inanition, 20 ), pen );
         line++;
     }
-    if( you.has_trait( trait_id( "SUNLIGHT_DEPENDENT" ) ) && !g->is_in_sunlight( you.pos() ) ) {
+    if( you.has_trait( trait_id( "SUNLIGHT_DEPENDENT"_id ) ) && !g->is_in_sunlight( you.pos() ) ) {
         pen = ( g->light_level( you.posz() ) >= 12 ? 5 : 10 );
         mvwprintz( w_speed, point( 1, line ), c_red,
                    pgettext( "speed penalty", "Out of Sunlight     -%2d%%" ), pen );
@@ -905,7 +905,7 @@ static void draw_speed_tab( const catacurses::window &w_speed,
         nc_color pen_color;
         std::string pen_sign;
         const int player_local_temp = get_weather().get_temperature( you.pos() );
-        if( you.has_trait( trait_id( "COLDBLOOD4" ) ) && player_local_temp > 65 ) {
+        if( you.has_trait( trait_id( "COLDBLOOD4"_id ) ) && player_local_temp > 65 ) {
             pen_color = c_green;
             pen_sign = "+";
         } else if( player_local_temp < 65 ) {
@@ -923,16 +923,16 @@ static void draw_speed_tab( const catacurses::window &w_speed,
 
     int quick_bonus = static_cast<int>( newmoves - ( newmoves / 1.1 ) );
     int bio_speed_bonus = quick_bonus;
-    if( you.has_trait( trait_id( "QUICK" ) ) && you.has_bionic( bionic_id( "bio_speed" ) ) ) {
+    if( you.has_trait( trait_id( "QUICK"_id ) ) && you.has_bionic( bionic_id( "bio_speed"_id ) ) ) {
         bio_speed_bonus = static_cast<int>( newmoves / 1.1 - ( newmoves / 1.1 / 1.1 ) );
         std::swap( quick_bonus, bio_speed_bonus );
     }
-    if( you.has_trait( trait_id( "QUICK" ) ) ) {
+    if( you.has_trait( trait_id( "QUICK"_id ) ) ) {
         mvwprintz( w_speed, point( 1, line ), c_green,
                    pgettext( "speed bonus", "Quick               +%2d%%" ), quick_bonus );
         line++;
     }
-    if( you.has_bionic( bionic_id( "bio_speed" ) ) ) {
+    if( you.has_bionic( bionic_id( "bio_speed"_id ) ) ) {
         mvwprintz( w_speed, point( 1, line ), c_green,
                    pgettext( "speed bonus", "Bionic Speed        +%2d%%" ), bio_speed_bonus );
         line++;
@@ -1222,18 +1222,18 @@ void player::disp_info()
         effect_name_and_text.push_back( { starvation_name, starvation_text } );
     }
 
-    if( has_trait( trait_id( "TROGLO" ) ) && g->is_in_sunlight( pos() ) &&
+    if( has_trait( trait_id( "TROGLO"_id ) ) && g->is_in_sunlight( pos() ) &&
         get_weather().weather_id->sun_intensity >= sun_intensity_type::high ) {
         effect_name_and_text.push_back( { _( "In Sunlight" ),
                                           _( "The sunlight irritates you.\n"
                                              "Strength - 1;    Dexterity - 1;    Intelligence - 1;    Perception - 1" )
                                         } );
-    } else if( has_trait( trait_id( "TROGLO2" ) ) && g->is_in_sunlight( pos() ) ) {
+    } else if( has_trait( trait_id( "TROGLO2"_id ) ) && g->is_in_sunlight( pos() ) ) {
         effect_name_and_text.push_back( { _( "In Sunlight" ),
                                           _( "The sunlight irritates you badly.\n"
                                              "Strength - 2;    Dexterity - 2;    Intelligence - 2;    Perception - 2" )
                                         } );
-    } else if( has_trait( trait_id( "TROGLO3" ) ) && g->is_in_sunlight( pos() ) ) {
+    } else if( has_trait( trait_id( "TROGLO3"_id ) ) && g->is_in_sunlight( pos() ) ) {
         effect_name_and_text.push_back( { _( "In Sunlight" ),
                                           _( "The sunlight irritates you terribly.\n"
                                              "Strength - 4;    Dexterity - 4;    Intelligence - 4;    Perception - 4" )

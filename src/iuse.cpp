@@ -114,260 +114,260 @@
 #include "weather_gen.h"
 #include "weather_type.h"
 
-static const activity_id ACT_BURROW( "ACT_BURROW" );
-static const activity_id ACT_CHOP_LOGS( "ACT_CHOP_LOGS" );
-static const activity_id ACT_CHOP_PLANKS( "ACT_CHOP_PLANKS" );
-static const activity_id ACT_CHOP_TREE( "ACT_CHOP_TREE" );
-static const activity_id ACT_CHURN( "ACT_CHURN" );
-static const activity_id ACT_CLEAR_RUBBLE( "ACT_CLEAR_RUBBLE" );
-static const activity_id ACT_CRAFT( "ACT_CRAFT" );
-static const activity_id ACT_FILL_PIT( "ACT_FILL_PIT" );
-static const activity_id ACT_FISH( "ACT_FISH" );
-static const activity_id ACT_GAME( "ACT_GAME" );
-static const activity_id ACT_GENERIC_GAME( "ACT_GENERIC_GAME" );
-static const activity_id ACT_HACKSAW( "ACT_HACKSAW" );
-static const activity_id ACT_HAIRCUT( "ACT_HAIRCUT" );
-static const activity_id ACT_HAND_CRANK( "ACT_HAND_CRANK" );
-static const activity_id ACT_HEATING( "ACT_HEATING" );
-static const activity_id ACT_JACKHAMMER( "ACT_JACKHAMMER" );
-static const activity_id ACT_MEDITATE( "ACT_MEDITATE" );
-static const activity_id ACT_MIND_SPLICER( "ACT_MIND_SPLICER" );
-static const activity_id ACT_OXYTORCH( "ACT_OXYTORCH" );
-static const activity_id ACT_PICKAXE( "ACT_PICKAXE" );
-static const activity_id ACT_PRY_NAILS( "ACT_PRY_NAILS" );
-static const activity_id ACT_ROBOT_CONTROL( "ACT_ROBOT_CONTROL" );
-static const activity_id ACT_SHAVE( "ACT_SHAVE" );
-static const activity_id ACT_VIBE( "ACT_VIBE" );
-static const activity_id ACT_WASH( "ACT_WASH" );
+static const activity_id ACT_BURROW( "ACT_BURROW"_id );
+static const activity_id ACT_CHOP_LOGS( "ACT_CHOP_LOGS"_id );
+static const activity_id ACT_CHOP_PLANKS( "ACT_CHOP_PLANKS"_id );
+static const activity_id ACT_CHOP_TREE( "ACT_CHOP_TREE"_id );
+static const activity_id ACT_CHURN( "ACT_CHURN"_id );
+static const activity_id ACT_CLEAR_RUBBLE( "ACT_CLEAR_RUBBLE"_id );
+static const activity_id ACT_CRAFT( "ACT_CRAFT"_id );
+static const activity_id ACT_FILL_PIT( "ACT_FILL_PIT"_id );
+static const activity_id ACT_FISH( "ACT_FISH"_id );
+static const activity_id ACT_GAME( "ACT_GAME"_id );
+static const activity_id ACT_GENERIC_GAME( "ACT_GENERIC_GAME"_id );
+static const activity_id ACT_HACKSAW( "ACT_HACKSAW"_id );
+static const activity_id ACT_HAIRCUT( "ACT_HAIRCUT"_id );
+static const activity_id ACT_HAND_CRANK( "ACT_HAND_CRANK"_id );
+static const activity_id ACT_HEATING( "ACT_HEATING"_id );
+static const activity_id ACT_JACKHAMMER( "ACT_JACKHAMMER"_id );
+static const activity_id ACT_MEDITATE( "ACT_MEDITATE"_id );
+static const activity_id ACT_MIND_SPLICER( "ACT_MIND_SPLICER"_id );
+static const activity_id ACT_OXYTORCH( "ACT_OXYTORCH"_id );
+static const activity_id ACT_PICKAXE( "ACT_PICKAXE"_id );
+static const activity_id ACT_PRY_NAILS( "ACT_PRY_NAILS"_id );
+static const activity_id ACT_ROBOT_CONTROL( "ACT_ROBOT_CONTROL"_id );
+static const activity_id ACT_SHAVE( "ACT_SHAVE"_id );
+static const activity_id ACT_VIBE( "ACT_VIBE"_id );
+static const activity_id ACT_WASH( "ACT_WASH"_id );
 
-static const efftype_id effect_adrenaline( "adrenaline" );
-static const efftype_id effect_antibiotic( "antibiotic" );
-static const efftype_id effect_antibiotic_visible( "antibiotic_visible" );
-static const efftype_id effect_antifungal( "antifungal" );
-static const efftype_id effect_asthma( "asthma" );
-static const efftype_id effect_attention( "attention" );
-static const efftype_id effect_beartrap( "beartrap" );
-static const efftype_id effect_bite( "bite" );
-static const efftype_id effect_bleed( "bleed" );
-static const efftype_id effect_blind( "blind" );
-static const efftype_id effect_bloodworms( "bloodworms" );
-static const efftype_id effect_boomered( "boomered" );
-static const efftype_id effect_bouldering( "bouldering" );
-static const efftype_id effect_brainworms( "brainworms" );
-static const efftype_id effect_cig( "cig" );
-static const efftype_id effect_contacts( "contacts" );
-static const efftype_id effect_corroding( "corroding" );
-static const efftype_id effect_crushed( "crushed" );
-static const efftype_id effect_datura( "datura" );
-static const efftype_id effect_dazed( "dazed" );
-static const efftype_id effect_dermatik( "dermatik" );
-static const efftype_id effect_docile( "docile" );
-static const efftype_id effect_downed( "downed" );
-static const efftype_id effect_drunk( "drunk" );
-static const efftype_id effect_earphones( "earphones" );
-static const efftype_id effect_flushot( "flushot" );
-static const efftype_id effect_foodpoison( "foodpoison" );
-static const efftype_id effect_formication( "formication" );
-static const efftype_id effect_fungus( "fungus" );
-static const efftype_id effect_glowing( "glowing" );
-static const efftype_id effect_glowy_led( "glowy_led" );
-static const efftype_id effect_hallu( "hallu" );
-static const efftype_id effect_happy( "happy" );
-static const efftype_id effect_harnessed( "harnessed" );
-static const efftype_id effect_has_bag( "has_bag" );
-static const efftype_id effect_haslight( "haslight" );
-static const efftype_id effect_high( "high" );
-static const efftype_id effect_in_pit( "in_pit" );
-static const efftype_id effect_infected( "infected" );
-static const efftype_id effect_jetinjector( "jetinjector" );
-static const efftype_id effect_lack_sleep( "lack_sleep" );
-static const efftype_id effect_laserlocked( "laserlocked" );
-static const efftype_id effect_lying_down( "lying_down" );
-static const efftype_id effect_melatonin( "melatonin" );
-static const efftype_id effect_meth( "meth" );
-static const efftype_id effect_monster_armor( "monster_armor" );
-static const efftype_id effect_music( "music" );
-static const efftype_id effect_onfire( "onfire" );
-static const efftype_id effect_paincysts( "paincysts" );
-static const efftype_id effect_pet( "pet" );
-static const efftype_id effect_poison( "poison" );
-static const efftype_id effect_ridden( "ridden" );
-static const efftype_id effect_riding( "riding" );
-static const efftype_id effect_run( "run" );
-static const efftype_id effect_sad( "sad" );
-static const efftype_id effect_monster_saddled( "monster_saddled" );
-static const efftype_id effect_sap( "sap" );
-static const efftype_id effect_shakes( "shakes" );
-static const efftype_id effect_sleep( "sleep" );
-static const efftype_id effect_slimed( "slimed" );
-static const efftype_id effect_smoke( "smoke" );
-static const efftype_id effect_spores( "spores" );
-static const efftype_id effect_stimpack( "stimpack" );
-static const efftype_id effect_strong_antibiotic( "strong_antibiotic" );
-static const efftype_id effect_strong_antibiotic_visible( "strong_antibiotic_visible" );
-static const efftype_id effect_stunned( "stunned" );
-static const efftype_id effect_tapeworm( "tapeworm" );
-static const efftype_id effect_teargas( "teargas" );
-static const efftype_id effect_teleglow( "teleglow" );
-static const efftype_id effect_tetanus( "tetanus" );
-static const efftype_id effect_tied( "tied" );
-static const efftype_id effect_took_antiasthmatic( "took_antiasthmatic" );
-static const efftype_id effect_took_anticonvulsant_visible( "took_anticonvulsant_visible" );
-static const efftype_id effect_took_flumed( "took_flumed" );
-static const efftype_id effect_took_prozac( "took_prozac" );
-static const efftype_id effect_took_prozac_bad( "took_prozac_bad" );
-static const efftype_id effect_took_prozac_visible( "took_prozac_visible" );
-static const efftype_id effect_took_thorazine( "took_thorazine" );
-static const efftype_id effect_took_thorazine_bad( "took_thorazine_bad" );
-static const efftype_id effect_took_thorazine_visible( "took_thorazine_visible" );
-static const efftype_id effect_took_xanax( "took_xanax" );
-static const efftype_id effect_took_xanax_visible( "took_xanax_visible" );
-static const efftype_id effect_valium( "valium" );
-static const efftype_id effect_visuals( "visuals" );
-static const efftype_id effect_weak_antibiotic( "weak_antibiotic" );
-static const efftype_id effect_weak_antibiotic_visible( "weak_antibiotic_visible" );
-static const efftype_id effect_webbed( "webbed" );
-static const efftype_id effect_weed_high( "weed_high" );
+static const efftype_id effect_adrenaline( "adrenaline"_id );
+static const efftype_id effect_antibiotic( "antibiotic"_id );
+static const efftype_id effect_antibiotic_visible( "antibiotic_visible"_id );
+static const efftype_id effect_antifungal( "antifungal"_id );
+static const efftype_id effect_asthma( "asthma"_id );
+static const efftype_id effect_attention( "attention"_id );
+static const efftype_id effect_beartrap( "beartrap"_id );
+static const efftype_id effect_bite( "bite"_id );
+static const efftype_id effect_bleed( "bleed"_id );
+static const efftype_id effect_blind( "blind"_id );
+static const efftype_id effect_bloodworms( "bloodworms"_id );
+static const efftype_id effect_boomered( "boomered"_id );
+static const efftype_id effect_bouldering( "bouldering"_id );
+static const efftype_id effect_brainworms( "brainworms"_id );
+static const efftype_id effect_cig( "cig"_id );
+static const efftype_id effect_contacts( "contacts"_id );
+static const efftype_id effect_corroding( "corroding"_id );
+static const efftype_id effect_crushed( "crushed"_id );
+static const efftype_id effect_datura( "datura"_id );
+static const efftype_id effect_dazed( "dazed"_id );
+static const efftype_id effect_dermatik( "dermatik"_id );
+static const efftype_id effect_docile( "docile"_id );
+static const efftype_id effect_downed( "downed"_id );
+static const efftype_id effect_drunk( "drunk"_id );
+static const efftype_id effect_earphones( "earphones"_id );
+static const efftype_id effect_flushot( "flushot"_id );
+static const efftype_id effect_foodpoison( "foodpoison"_id );
+static const efftype_id effect_formication( "formication"_id );
+static const efftype_id effect_fungus( "fungus"_id );
+static const efftype_id effect_glowing( "glowing"_id );
+static const efftype_id effect_glowy_led( "glowy_led"_id );
+static const efftype_id effect_hallu( "hallu"_id );
+static const efftype_id effect_happy( "happy"_id );
+static const efftype_id effect_harnessed( "harnessed"_id );
+static const efftype_id effect_has_bag( "has_bag"_id );
+static const efftype_id effect_haslight( "haslight"_id );
+static const efftype_id effect_high( "high"_id );
+static const efftype_id effect_in_pit( "in_pit"_id );
+static const efftype_id effect_infected( "infected"_id );
+static const efftype_id effect_jetinjector( "jetinjector"_id );
+static const efftype_id effect_lack_sleep( "lack_sleep"_id );
+static const efftype_id effect_laserlocked( "laserlocked"_id );
+static const efftype_id effect_lying_down( "lying_down"_id );
+static const efftype_id effect_melatonin( "melatonin"_id );
+static const efftype_id effect_meth( "meth"_id );
+static const efftype_id effect_monster_armor( "monster_armor"_id );
+static const efftype_id effect_music( "music"_id );
+static const efftype_id effect_onfire( "onfire"_id );
+static const efftype_id effect_paincysts( "paincysts"_id );
+static const efftype_id effect_pet( "pet"_id );
+static const efftype_id effect_poison( "poison"_id );
+static const efftype_id effect_ridden( "ridden"_id );
+static const efftype_id effect_riding( "riding"_id );
+static const efftype_id effect_run( "run"_id );
+static const efftype_id effect_sad( "sad"_id );
+static const efftype_id effect_monster_saddled( "monster_saddled"_id );
+static const efftype_id effect_sap( "sap"_id );
+static const efftype_id effect_shakes( "shakes"_id );
+static const efftype_id effect_sleep( "sleep"_id );
+static const efftype_id effect_slimed( "slimed"_id );
+static const efftype_id effect_smoke( "smoke"_id );
+static const efftype_id effect_spores( "spores"_id );
+static const efftype_id effect_stimpack( "stimpack"_id );
+static const efftype_id effect_strong_antibiotic( "strong_antibiotic"_id );
+static const efftype_id effect_strong_antibiotic_visible( "strong_antibiotic_visible"_id );
+static const efftype_id effect_stunned( "stunned"_id );
+static const efftype_id effect_tapeworm( "tapeworm"_id );
+static const efftype_id effect_teargas( "teargas"_id );
+static const efftype_id effect_teleglow( "teleglow"_id );
+static const efftype_id effect_tetanus( "tetanus"_id );
+static const efftype_id effect_tied( "tied"_id );
+static const efftype_id effect_took_antiasthmatic( "took_antiasthmatic"_id );
+static const efftype_id effect_took_anticonvulsant_visible( "took_anticonvulsant_visible"_id );
+static const efftype_id effect_took_flumed( "took_flumed"_id );
+static const efftype_id effect_took_prozac( "took_prozac"_id );
+static const efftype_id effect_took_prozac_bad( "took_prozac_bad"_id );
+static const efftype_id effect_took_prozac_visible( "took_prozac_visible"_id );
+static const efftype_id effect_took_thorazine( "took_thorazine"_id );
+static const efftype_id effect_took_thorazine_bad( "took_thorazine_bad"_id );
+static const efftype_id effect_took_thorazine_visible( "took_thorazine_visible"_id );
+static const efftype_id effect_took_xanax( "took_xanax"_id );
+static const efftype_id effect_took_xanax_visible( "took_xanax_visible"_id );
+static const efftype_id effect_valium( "valium"_id );
+static const efftype_id effect_visuals( "visuals"_id );
+static const efftype_id effect_weak_antibiotic( "weak_antibiotic"_id );
+static const efftype_id effect_weak_antibiotic_visible( "weak_antibiotic_visible"_id );
+static const efftype_id effect_webbed( "webbed"_id );
+static const efftype_id effect_weed_high( "weed_high"_id );
 
-static const itype_id itype_adv_UPS_off( "adv_UPS_off" );
-static const itype_id itype_advanced_ecig( "advanced_ecig" );
-static const itype_id itype_afs_atomic_smartphone( "afs_atomic_smartphone" );
-static const itype_id itype_afs_atomic_smartphone_music( "afs_atomic_smartphone_music" );
-static const itype_id itype_afs_wraitheon_smartphone( "afs_wraitheon_smartphone" );
-static const itype_id itype_afs_atomic_wraitheon_music( "afs_atomic_wraitheon_music" );
-static const itype_id itype_apparatus( "apparatus" );
-static const itype_id itype_arrow_flamming( "arrow_flamming" );
-static const itype_id itype_atomic_coffeepot( "atomic_coffeepot" );
-static const itype_id itype_battery( "battery" );
-static const itype_id itype_barometer( "barometer" );
+static const itype_id itype_adv_UPS_off( "adv_UPS_off"_id );
+static const itype_id itype_advanced_ecig( "advanced_ecig"_id );
+static const itype_id itype_afs_atomic_smartphone( "afs_atomic_smartphone"_id );
+static const itype_id itype_afs_atomic_smartphone_music( "afs_atomic_smartphone_music"_id );
+static const itype_id itype_afs_wraitheon_smartphone( "afs_wraitheon_smartphone"_id );
+static const itype_id itype_afs_atomic_wraitheon_music( "afs_atomic_wraitheon_music"_id );
+static const itype_id itype_apparatus( "apparatus"_id );
+static const itype_id itype_arrow_flamming( "arrow_flamming"_id );
+static const itype_id itype_atomic_coffeepot( "atomic_coffeepot"_id );
+static const itype_id itype_battery( "battery"_id );
+static const itype_id itype_barometer( "barometer"_id );
 static const itype_id itype_c4armed( "c4armed" );
-static const itype_id itype_canister_empty( "canister_empty" );
-static const itype_id itype_chainsaw_off( "chainsaw_off" );
-static const itype_id itype_chainsaw_on( "chainsaw_on" );
-static const itype_id itype_cig( "cig" );
-static const itype_id itype_cigar( "cigar" );
-static const itype_id itype_cow_bell( "cow_bell" );
-static const itype_id itype_data_card( "data_card" );
-static const itype_id itype_detergent( "detergent" );
-static const itype_id itype_e_handcuffs( "e_handcuffs" );
-static const itype_id itype_ecig( "ecig" );
-static const itype_id itype_fire( "fire" );
-static const itype_id itype_firecracker_act( "firecracker_act" );
-static const itype_id itype_firecracker_pack_act( "firecracker_pack_act" );
-static const itype_id itype_geiger_off( "geiger_off" );
-static const itype_id itype_geiger_on( "geiger_on" );
-static const itype_id itype_granade_act( "granade_act" );
-static const itype_id itype_handrolled_cig( "handrolled_cig" );
-static const itype_id itype_heatpack_used( "heatpack_used" );
-static const itype_id itype_hygrometer( "hygrometer" );
-static const itype_id itype_joint( "joint" );
-static const itype_id itype_log( "log" );
-static const itype_id itype_manhole_cover( "manhole_cover" );
+static const itype_id itype_canister_empty( "canister_empty"_id );
+static const itype_id itype_chainsaw_off( "chainsaw_off"_id );
+static const itype_id itype_chainsaw_on( "chainsaw_on"_id );
+static const itype_id itype_cig( "cig"_id );
+static const itype_id itype_cigar( "cigar"_id );
+static const itype_id itype_cow_bell( "cow_bell"_id );
+static const itype_id itype_data_card( "data_card"_id );
+static const itype_id itype_detergent( "detergent"_id );
+static const itype_id itype_e_handcuffs( "e_handcuffs"_id );
+static const itype_id itype_ecig( "ecig"_id );
+static const itype_id itype_fire( "fire"_id );
+static const itype_id itype_firecracker_act( "firecracker_act"_id );
+static const itype_id itype_firecracker_pack_act( "firecracker_pack_act"_id );
+static const itype_id itype_geiger_off( "geiger_off"_id );
+static const itype_id itype_geiger_on( "geiger_on"_id );
+static const itype_id itype_granade_act( "granade_act"_id );
+static const itype_id itype_handrolled_cig( "handrolled_cig"_id );
+static const itype_id itype_heatpack_used( "heatpack_used"_id );
+static const itype_id itype_hygrometer( "hygrometer"_id );
+static const itype_id itype_joint( "joint"_id );
+static const itype_id itype_log( "log"_id );
+static const itype_id itype_manhole_cover( "manhole_cover"_id );
 static const itype_id itype_mask_h20survivor_on( "mask_h20survivor_on" );
-static const itype_id itype_mininuke_act( "mininuke_act" );
-static const itype_id itype_molotov( "molotov" );
-static const itype_id itype_mobile_memory_card( "mobile_memory_card" );
-static const itype_id itype_mobile_memory_card_used( "mobile_memory_card_used" );
+static const itype_id itype_mininuke_act( "mininuke_act"_id );
+static const itype_id itype_molotov( "molotov"_id );
+static const itype_id itype_mobile_memory_card( "mobile_memory_card"_id );
+static const itype_id itype_mobile_memory_card_used( "mobile_memory_card_used"_id );
 static const itype_id itype_mp3( "mp3" );
 static const itype_id itype_mp3_on( "mp3_on" );
-static const itype_id itype_multi_cooker( "multi_cooker" );
-static const itype_id itype_multi_cooker_filled( "multi_cooker_filled" );
-static const itype_id itype_nicotine_liquid( "nicotine_liquid" );
-static const itype_id itype_noise_emitter( "noise_emitter" );
-static const itype_id itype_noise_emitter_on( "noise_emitter_on" );
-static const itype_id itype_radio( "radio" );
-static const itype_id itype_radio_car( "radio_car" );
-static const itype_id itype_radio_car_on( "radio_car_on" );
-static const itype_id itype_radio_on( "radio_on" );
-static const itype_id itype_rebreather_on( "rebreather_on" );
-static const itype_id itype_rebreather_xl_on( "rebreather_xl_on" );
+static const itype_id itype_multi_cooker( "multi_cooker"_id );
+static const itype_id itype_multi_cooker_filled( "multi_cooker_filled"_id );
+static const itype_id itype_nicotine_liquid( "nicotine_liquid"_id );
+static const itype_id itype_noise_emitter( "noise_emitter"_id );
+static const itype_id itype_noise_emitter_on( "noise_emitter_on"_id );
+static const itype_id itype_radio( "radio"_id );
+static const itype_id itype_radio_car( "radio_car"_id );
+static const itype_id itype_radio_car_on( "radio_car_on"_id );
+static const itype_id itype_radio_on( "radio_on"_id );
+static const itype_id itype_rebreather_on( "rebreather_on"_id );
+static const itype_id itype_rebreather_xl_on( "rebreather_xl_on"_id );
 static const itype_id itype_rmi2_corpse( "rmi2_corpse" );
-static const itype_id itype_sheet( "sheet" );
-static const itype_id itype_shocktonfa_off( "shocktonfa_off" );
-static const itype_id itype_shocktonfa_on( "shocktonfa_on" );
-static const itype_id itype_smart_phone( "smart_phone" );
-static const itype_id itype_smartphone_music( "smartphone_music" );
-static const itype_id itype_soap( "soap" );
-static const itype_id itype_soldering_iron( "soldering_iron" );
-static const itype_id itype_spiral_stone( "spiral_stone" );
-static const itype_id itype_stick( "stick" );
+static const itype_id itype_sheet( "sheet"_id );
+static const itype_id itype_shocktonfa_off( "shocktonfa_off"_id );
+static const itype_id itype_shocktonfa_on( "shocktonfa_on"_id );
+static const itype_id itype_smart_phone( "smart_phone"_id );
+static const itype_id itype_smartphone_music( "smartphone_music"_id );
+static const itype_id itype_soap( "soap"_id );
+static const itype_id itype_soldering_iron( "soldering_iron"_id );
+static const itype_id itype_spiral_stone( "spiral_stone"_id );
+static const itype_id itype_stick( "stick"_id );
 static const itype_id itype_string_36( "string_36" );
-static const itype_id itype_thermometer( "thermometer" );
-static const itype_id itype_towel( "towel" );
-static const itype_id itype_towel_soiled( "towel_soiled" );
-static const itype_id itype_towel_wet( "towel_wet" );
-static const itype_id itype_UPS_off( "UPS_off" );
-static const itype_id itype_water( "water" );
-static const itype_id itype_water_clean( "water_clean" );
-static const itype_id itype_wax( "wax" );
-static const itype_id itype_weather_reader( "weather_reader" );
+static const itype_id itype_thermometer( "thermometer"_id );
+static const itype_id itype_towel( "towel"_id );
+static const itype_id itype_towel_soiled( "towel_soiled"_id );
+static const itype_id itype_towel_wet( "towel_wet"_id );
+static const itype_id itype_UPS_off( "UPS_off"_id );
+static const itype_id itype_water( "water"_id );
+static const itype_id itype_water_clean( "water_clean"_id );
+static const itype_id itype_wax( "wax"_id );
+static const itype_id itype_weather_reader( "weather_reader"_id );
 
-static const skill_id skill_computer( "computer" );
-static const skill_id skill_cooking( "cooking" );
-static const skill_id skill_electronics( "electronics" );
-static const skill_id skill_fabrication( "fabrication" );
-static const skill_id skill_firstaid( "firstaid" );
-static const skill_id skill_lockpick( "lockpick" );
-static const skill_id skill_mechanics( "mechanics" );
-static const skill_id skill_melee( "melee" );
-static const skill_id skill_survival( "survival" );
+static const skill_id skill_computer( "computer"_id );
+static const skill_id skill_cooking( "cooking"_id );
+static const skill_id skill_electronics( "electronics"_id );
+static const skill_id skill_fabrication( "fabrication"_id );
+static const skill_id skill_firstaid( "firstaid"_id );
+static const skill_id skill_lockpick( "lockpick"_id );
+static const skill_id skill_mechanics( "mechanics"_id );
+static const skill_id skill_melee( "melee"_id );
+static const skill_id skill_survival( "survival"_id );
 
-static const trait_id trait_ACIDBLOOD( "ACIDBLOOD" );
-static const trait_id trait_ACIDPROOF( "ACIDPROOF" );
-static const trait_id trait_ALCMET( "ALCMET" );
-static const trait_id trait_CENOBITE( "CENOBITE" );
-static const trait_id trait_CHLOROMORPH( "CHLOROMORPH" );
-static const trait_id trait_EATDEAD( "EATDEAD" );
-static const trait_id trait_EATPOISON( "EATPOISON" );
-static const trait_id trait_GILLS( "GILLS" );
-static const trait_id trait_HYPEROPIC( "HYPEROPIC" );
-static const trait_id trait_ILLITERATE( "ILLITERATE" );
-static const trait_id trait_LIGHTWEIGHT( "LIGHTWEIGHT" );
-static const trait_id trait_M_DEPENDENT( "M_DEPENDENT" );
-static const trait_id trait_MARLOSS( "MARLOSS" );
-static const trait_id trait_MARLOSS_AVOID( "MARLOSS_AVOID" );
-static const trait_id trait_MARLOSS_BLUE( "MARLOSS_BLUE" );
-static const trait_id trait_MARLOSS_YELLOW( "MARLOSS_YELLOW" );
-static const trait_id trait_MASOCHIST( "MASOCHIST" );
-static const trait_id trait_MASOCHIST_MED( "MASOCHIST_MED" );
-static const trait_id trait_MYOPIC( "MYOPIC" );
-static const trait_id trait_NOPAIN( "NOPAIN" );
-static const trait_id trait_PSYCHOPATH( "PSYCHOPATH" );
-static const trait_id trait_SAPROVORE( "SAPROVORE" );
-static const trait_id trait_SPIRITUAL( "SPIRITUAL" );
-static const trait_id trait_THRESH_MARLOSS( "THRESH_MARLOSS" );
-static const trait_id trait_THRESH_MYCUS( "THRESH_MYCUS" );
-static const trait_id trait_THRESH_PLANT( "THRESH_PLANT" );
-static const trait_id trait_TOLERANCE( "TOLERANCE" );
-static const trait_id trait_URSINE_EYE( "URSINE_EYE" );
-static const trait_id trait_WAYFARER( "WAYFARER" );
+static const trait_id trait_ACIDBLOOD( "ACIDBLOOD"_id );
+static const trait_id trait_ACIDPROOF( "ACIDPROOF"_id );
+static const trait_id trait_ALCMET( "ALCMET"_id );
+static const trait_id trait_CENOBITE( "CENOBITE"_id );
+static const trait_id trait_CHLOROMORPH( "CHLOROMORPH"_id );
+static const trait_id trait_EATDEAD( "EATDEAD"_id );
+static const trait_id trait_EATPOISON( "EATPOISON"_id );
+static const trait_id trait_GILLS( "GILLS"_id );
+static const trait_id trait_HYPEROPIC( "HYPEROPIC"_id );
+static const trait_id trait_ILLITERATE( "ILLITERATE"_id );
+static const trait_id trait_LIGHTWEIGHT( "LIGHTWEIGHT"_id );
+static const trait_id trait_M_DEPENDENT( "M_DEPENDENT"_id );
+static const trait_id trait_MARLOSS( "MARLOSS"_id );
+static const trait_id trait_MARLOSS_AVOID( "MARLOSS_AVOID"_id );
+static const trait_id trait_MARLOSS_BLUE( "MARLOSS_BLUE"_id );
+static const trait_id trait_MARLOSS_YELLOW( "MARLOSS_YELLOW"_id );
+static const trait_id trait_MASOCHIST( "MASOCHIST"_id );
+static const trait_id trait_MASOCHIST_MED( "MASOCHIST_MED"_id );
+static const trait_id trait_MYOPIC( "MYOPIC"_id );
+static const trait_id trait_NOPAIN( "NOPAIN"_id );
+static const trait_id trait_PSYCHOPATH( "PSYCHOPATH"_id );
+static const trait_id trait_SAPROVORE( "SAPROVORE"_id );
+static const trait_id trait_SPIRITUAL( "SPIRITUAL"_id );
+static const trait_id trait_THRESH_MARLOSS( "THRESH_MARLOSS"_id );
+static const trait_id trait_THRESH_MYCUS( "THRESH_MYCUS"_id );
+static const trait_id trait_THRESH_PLANT( "THRESH_PLANT"_id );
+static const trait_id trait_TOLERANCE( "TOLERANCE"_id );
+static const trait_id trait_URSINE_EYE( "URSINE_EYE"_id );
+static const trait_id trait_WAYFARER( "WAYFARER"_id );
 
-static const quality_id qual_AXE( "AXE" );
-static const quality_id qual_DIG( "DIG" );
-static const quality_id qual_LOCKPICK( "LOCKPICK" );
+static const quality_id qual_AXE( "AXE"_id );
+static const quality_id qual_DIG( "DIG"_id );
+static const quality_id qual_LOCKPICK( "LOCKPICK"_id );
 
-static const species_id species_FUNGUS( "FUNGUS" );
-static const species_id species_HALLUCINATION( "HALLUCINATION" );
-static const species_id species_INSECT( "INSECT" );
-static const species_id species_ROBOT( "ROBOT" );
-static const species_id species_ZOMBIE( "ZOMBIE" );
+static const species_id species_FUNGUS( "FUNGUS"_id );
+static const species_id species_HALLUCINATION( "HALLUCINATION"_id );
+static const species_id species_INSECT( "INSECT"_id );
+static const species_id species_ROBOT( "ROBOT"_id );
+static const species_id species_ZOMBIE( "ZOMBIE"_id );
 
-static const mongroup_id GROUP_FISH( "GROUP_FISH" );
+static const mongroup_id GROUP_FISH( "GROUP_FISH"_id );
 
-static const mtype_id mon_bee( "mon_bee" );
-static const mtype_id mon_blob( "mon_blob" );
-static const mtype_id mon_dog_thing( "mon_dog_thing" );
-static const mtype_id mon_fly( "mon_fly" );
-static const mtype_id mon_hallu_multicooker( "mon_hallu_multicooker" );
-static const mtype_id mon_hologram( "mon_hologram" );
-static const mtype_id mon_shadow( "mon_shadow" );
-static const mtype_id mon_spore( "mon_spore" );
-static const mtype_id mon_vortex( "mon_vortex" );
-static const mtype_id mon_wasp( "mon_wasp" );
+static const mtype_id mon_bee( "mon_bee"_id );
+static const mtype_id mon_blob( "mon_blob"_id );
+static const mtype_id mon_dog_thing( "mon_dog_thing"_id );
+static const mtype_id mon_fly( "mon_fly"_id );
+static const mtype_id mon_hallu_multicooker( "mon_hallu_multicooker"_id );
+static const mtype_id mon_hologram( "mon_hologram"_id );
+static const mtype_id mon_shadow( "mon_shadow"_id );
+static const mtype_id mon_spore( "mon_spore"_id );
+static const mtype_id mon_vortex( "mon_vortex"_id );
+static const mtype_id mon_wasp( "mon_wasp"_id );
 
-static const bionic_id bio_eye_optic( "bio_eye_optic" );
-static const bionic_id bio_shock( "bio_shock" );
-static const bionic_id bio_tools( "bio_tools" );
+static const bionic_id bio_eye_optic( "bio_eye_optic"_id );
+static const bionic_id bio_shock( "bio_shock"_id );
+static const bionic_id bio_tools( "bio_tools"_id );
 
 static const std::string flag_EATEN_COLD( "EATEN_COLD" );
 static const std::string flag_ACID( "ACID" );
@@ -432,9 +432,9 @@ static const std::vector<std::string> camera_ter_whitelist_flags = {
     "GOES_DOWN", "RAMP", "SHARP", "SIGN", "CLIMBABLE"
 };
 static const std::vector<ter_str_id> camera_ter_whitelist_types = {
-    ter_str_id( "t_pit_covered" ), ter_str_id( "t_grave_new" ), ter_str_id( "t_grave" ), ter_str_id( "t_pit" ),
-    ter_str_id( "t_pit_shallow" ), ter_str_id( "t_pit_corpsed" ), ter_str_id( "t_pit_spiked" ),
-    ter_str_id( "t_pit_spiked_covered" ), ter_str_id( "t_pit_glass" ), ter_str_id( "t_pit_glass" ), ter_str_id( "t_utility_light" )
+    ter_str_id( "t_pit_covered"_id ), ter_str_id( "t_grave_new"_id ), ter_str_id( "t_grave"_id ), ter_str_id( "t_pit"_id ),
+    ter_str_id( "t_pit_shallow"_id ), ter_str_id( "t_pit_corpsed"_id ), ter_str_id( "t_pit_spiked"_id ),
+    ter_str_id( "t_pit_spiked_covered"_id ), ter_str_id( "t_pit_glass"_id ), ter_str_id( "t_pit_glass"_id ), ter_str_id( "t_utility_light"_id )
 };
 
 void remove_radio_mod( item &it, Character &p )
@@ -886,7 +886,7 @@ int iuse::meth( player *p, item *it, bool, const tripoint & )
         // breathe out some smoke
         for( int i = 0; i < 3; i++ ) {
             here.add_field( {p->posx() + static_cast<int>( rng( -2, 2 ) ), p->posy() + static_cast<int>( rng( -2, 2 ) ), p->posz()},
-                            field_type_id( "fd_methsmoke" ), 2 );
+                            field_type_id( "fd_methsmoke"_id ), 2 );
         }
     } else {
         p->add_msg_if_player( _( "You snort some crystal meth." ) );
@@ -1127,7 +1127,7 @@ int iuse::blech( player *p, item *it, bool, const tripoint & )
         p->add_msg_if_player( m_bad, _( "Blech, that burns your throat!" ) );
         p->mod_pain( rng( 32, 64 ) );
         p->add_effect( effect_poison, 1_hours );
-        p->apply_damage( nullptr, bodypart_id( "torso" ), rng( 4, 12 ) );
+        p->apply_damage( nullptr, bodypart_id( "torso"_id ), rng( 4, 12 ) );
         p->vomit();
     }
     return it->type->charges_to_use();
@@ -1588,7 +1588,7 @@ int iuse::mycus( player *p, item *it, bool t, const tripoint &pos )
     } else if( p->has_trait( trait_THRESH_MYCUS ) &&
                !p->has_trait( trait_M_DEPENDENT ) ) { // OK, now set the hook.
         if( !one_in( 3 ) ) {
-            p->mutate_category( mutation_category_id( "MYCUS" ) );
+            p->mutate_category( mutation_category_id( "MYCUS"_id ) );
             p->mod_stored_nutr( 10 );
             p->mod_thirst( 10 );
             p->mod_fatigue( 5 );
@@ -1682,7 +1682,7 @@ static int petfood( player &p, item &it, Petfood animal_food_type )
         switch( animal_food_type ) {
             case DOGFOOD:
                 if( mon.type->id == mon_dog_thing ) {
-                    p.deal_damage( &mon, bodypart_id( "hand_r" ), damage_instance( damage_type::CUT, rng( 1, 10 ) ) );
+                    p.deal_damage( &mon, bodypart_id( "hand_r"_id ), damage_instance( damage_type::CUT, rng( 1, 10 ) ) );
                     p.add_msg_if_player( m_bad, _( "You want to feed it the dog food, but it bites your fingers!" ) );
                     if( one_in( 5 ) ) {
                         p.add_msg_if_player(
@@ -2049,7 +2049,7 @@ int iuse::extinguisher( player *p, item *it, bool, const tripoint & )
             if( player_view.sees( critter ) ) {
                 p->add_msg_if_player( _( "The %s is frozen!" ), critter.name() );
             }
-            critter.apply_damage( p, bodypart_id( "torso" ), rng( 20, 60 ) );
+            critter.apply_damage( p, bodypart_id( "torso"_id ), rng( 20, 60 ) );
             critter.set_speed_base( critter.get_speed_base() / 2 );
         }
     }
@@ -2589,7 +2589,7 @@ int iuse::crowbar( player *p, item *it, bool, const tripoint &pos )
     // The iexamine function for crate supplies a hammer object.
     // So this stops the player (A)ctivating a Hammer with a Crowbar in their backpack
     // then managing to open a door.
-    const int pry_level = it->get_quality( quality_id( "PRY" ) );
+    const int pry_level = it->get_quality( quality_id( "PRY"_id ) );
 
     if( pry_level < pry_quality ) {
         p->add_msg_if_player( _( "You can't get sufficient leverage to open that with your %s." ),
@@ -2809,9 +2809,9 @@ static digging_moves_and_byproducts dig_pit_moves_and_byproducts( player *p, ite
 
     ter_id result_terrain;
     if( channel ) {
-        result_terrain = ter_id( "t_water_moving_sh" );
+        result_terrain = ter_id( "t_water_moving_sh"_id );
     } else {
-        result_terrain = deep ? ter_id( "t_pit" ) : ter_id( "t_pit_shallow" );
+        result_terrain = deep ? ter_id( "t_pit"_id ) : ter_id( "t_pit_shallow"_id );
     }
 
     return { moves, static_cast<int>( volume_m3 / 0.05 ), "digging_soil_loam_50L", result_terrain };
@@ -3078,7 +3078,7 @@ int iuse::clear_rubble( player *p, item *it, bool, const tripoint & )
         return 0;
     }
 
-    int bonus = std::max( it->get_quality( quality_id( "DIG" ) ) - 1, 1 );
+    int bonus = std::max( it->get_quality( quality_id( "DIG"_id ) ) - 1, 1 );
     const std::vector<npc *> helpers = p->get_crafting_helpers();
     for( const npc *np : helpers ) {
         add_msg( m_info, _( "%s helps with this task…" ), np->name );
@@ -4161,7 +4161,7 @@ int iuse::tazer( player *p, item *it, bool, const tripoint &pos )
     } else {
         // TODO: Maybe - Execute an attack and maybe zap something other than torso
         // Maybe, because it's torso (heart) that fails when zapped with electricity
-        int dam = target->deal_damage( p, bodypart_id( "torso" ), damage_instance( damage_type::ELECTRIC,
+        int dam = target->deal_damage( p, bodypart_id( "torso"_id ), damage_instance( damage_type::ELECTRIC,
                                        rng( 5,
                                             25 ) ) ).total_damage();
         if( dam > 0 ) {
@@ -4603,7 +4603,7 @@ int iuse::portable_game( player *p, item *it, bool active, const tripoint & )
 
         if( game_score != 0 ) {
             if( game_data.find( "moraletype" ) != game_data.end() ) {
-                std::string moraletype = game_data.find( "moraletype" )->second;
+                std::string& moraletype = game_data.at( "moraletype" );
                 if( moraletype == "MORALE_GAME_FOUND_KITTEN" ) {
                     p->add_morale( MORALE_GAME_FOUND_KITTEN, game_score, 110 );
                 } /*else if ( ...*/
@@ -4673,7 +4673,7 @@ int iuse::hand_crank( player *p, item *it, bool, const tripoint & )
         // 1600 minutes. It shouldn't ever run this long, but it's an upper bound.
         // expectation is it runs until the player is too tired.
         int moves = to_moves<int>( 1600_minutes );
-        if( it->ammo_capacity( ammotype( "battery" ) ) > it->ammo_remaining() ) {
+        if( it->ammo_capacity( ammotype( "battery"_id ) ) > it->ammo_remaining() ) {
             p->add_msg_if_player( _( "You start cranking the %s to charge its %s." ), it->tname(),
                                   it->magazine_current()->tname() );
             p->assign_activity( ACT_HAND_CRANK, moves, -1, 0, "hand-cranking" );
@@ -5062,7 +5062,7 @@ int iuse::oxytorch( player *p, item *it, bool, const tripoint & )
         p->add_msg_if_player( m_info, _( "You cannot do that while mounted." ) );
         return 0;
     }
-    static const quality_id GLARE( "GLARE" );
+    static const quality_id GLARE( "GLARE"_id );
     if( !p->has_quality( GLARE, 2 ) ) {
         p->add_msg_if_player( m_info, _( "You need welding goggles to do that." ) );
         return 0;
@@ -5587,7 +5587,7 @@ int iuse::unfold_generic( player *p, item *it, bool, const tripoint & )
         return 0;
     }
     map &here = get_map();
-    vehicle *veh = here.add_vehicle( vproto_id( "none" ), p->pos(), 0, 0, 0, false );
+    vehicle *veh = here.add_vehicle( vproto_id( "none"_id ), p->pos(), 0, 0, 0, false );
     if( veh == nullptr ) {
         p->add_msg_if_player( m_info, _( "There's no room to unfold the %s." ), it->tname() );
         return 0;
@@ -5945,7 +5945,7 @@ int iuse::bell( player *p, item *it, bool, const tripoint & )
                        "cow_bell" );
         if( !p->is_deaf() ) {
             auto cattle_level =
-                p->mutation_category_level.find( mutation_category_id( "CATTLE" ) );
+                p->mutation_category_level.find( mutation_category_id( "CATTLE"_id ) );
             const int cow_factor = 1 + ( cattle_level == p->mutation_category_level.end() ?
                                          0 :
                                          ( cattle_level->second ) / 8
@@ -7810,8 +7810,8 @@ int iuse::ehandcuffs( player *p, item *it, bool t, const tripoint &pos )
                 } else {
                     add_msg( m_bad, _( "Ouch, the cuffs shock you!" ) );
 
-                    p->apply_damage( nullptr, bodypart_id( "arm_l" ), rng( 0, 2 ) );
-                    p->apply_damage( nullptr, bodypart_id( "arm_r" ), rng( 0, 2 ) );
+                    p->apply_damage( nullptr, bodypart_id( "arm_l"_id ), rng( 0, 2 ) );
+                    p->apply_damage( nullptr, bodypart_id( "arm_r"_id ), rng( 0, 2 ) );
                     p->mod_pain( rng( 2, 5 ) );
 
                 }
@@ -8399,7 +8399,7 @@ int iuse::autoclave( player *p, item *it, bool t, const tripoint &pos )
         }
 
         if( query_yn( _( "Start the autoclave?" ) ) ) {
-            requirement_data reqs = *requirement_id( "autoclave_item" );
+            requirement_data reqs = *requirement_id( "autoclave_item"_id );
             for( const auto &e : reqs.get_components() ) {
                 p->consume_items( e, 1, is_crafting_component );
             }
@@ -8687,7 +8687,7 @@ int iuse::multicooker( player *p, item *it, bool t, const tripoint &pos )
                 has_tools = false;
             }
 
-            static const quality_id SCREW_FINE( "SCREW_FINE" );
+            static const quality_id SCREW_FINE( "SCREW_FINE"_id );
             if( !cinv.has_quality( SCREW_FINE ) ) {
                 p->add_msg_if_player( m_warning, _( "You need an item with %s of 1 or more to disassemble this." ),
                                       SCREW_FINE.obj().name );
@@ -9356,7 +9356,7 @@ int iuse::capture_monster_act( player *p, item *it, bool, const tripoint &pos )
         if( const monster *const mon_ptr = g->critter_at<monster>( target ) ) {
             const monster &f = *mon_ptr;
 
-            if( f.get_size() > Creature::size_map.find( capacity )->second ) {
+            if( f.get_size() > Creature::size_map.at( capacity ) ) {
                 p->add_msg_if_player( m_info, _( "The %1$s is too big to put in your %2$s." ),
                                       f.type->nname(), it->tname() );
                 return 0;
@@ -9407,7 +9407,7 @@ int iuse::ladder( player *p, item *, bool, const tripoint & )
 
     p->add_msg_if_player( _( "You set down the ladder." ) );
     p->moves -= to_moves<int>( 5_seconds );
-    here.furn_set( pnt, furn_str_id( "f_ladder" ) );
+    here.furn_set( pnt, furn_str_id( "f_ladder"_id ) );
     return 1;
 }
 

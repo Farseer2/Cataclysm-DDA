@@ -60,23 +60,23 @@
 
 class player;
 
-static const efftype_id effect_amigara( "amigara" );
-static const efftype_id effect_glowing( "glowing" );
-static const efftype_id effect_harnessed( "harnessed" );
-static const efftype_id effect_incorporeal( "incorporeal" );
-static const efftype_id effect_onfire( "onfire" );
-static const efftype_id effect_pet( "pet" );
-static const efftype_id effect_relax_gas( "relax_gas" );
-static const efftype_id effect_ridden( "ridden" );
-static const efftype_id effect_stunned( "stunned" );
+static const efftype_id effect_amigara( "amigara"_id );
+static const efftype_id effect_glowing( "glowing"_id );
+static const efftype_id effect_harnessed( "harnessed"_id );
+static const efftype_id effect_incorporeal( "incorporeal"_id );
+static const efftype_id effect_onfire( "onfire"_id );
+static const efftype_id effect_pet( "pet"_id );
+static const efftype_id effect_relax_gas( "relax_gas"_id );
+static const efftype_id effect_ridden( "ridden"_id );
+static const efftype_id effect_stunned( "stunned"_id );
 
-static const itype_id itype_swim_fins( "swim_fins" );
+static const itype_id itype_swim_fins( "swim_fins"_id );
 
-static const skill_id skill_swimming( "swimming" );
+static const skill_id skill_swimming( "swimming"_id );
 
-static const trait_id trait_BURROW( "BURROW" );
-static const trait_id trait_GRAZER( "GRAZER" );
-static const trait_id trait_RUMINANT( "RUMINANT" );
+static const trait_id trait_BURROW( "BURROW"_id );
+static const trait_id trait_GRAZER( "GRAZER"_id );
+static const trait_id trait_RUMINANT( "RUMINANT"_id );
 static const trait_id trait_SHELL2( "SHELL2" );
 
 static const std::string flag_ALLOWS_REMOTE_USE( "ALLOWS_REMOTE_USE" );
@@ -138,7 +138,7 @@ bool avatar_action::move( avatar &you, map &m, const tripoint &d )
             }
         }
         if( you.has_trait( trait_BURROW ) ) {
-            item burrowing_item( itype_id( "fake_burrowing" ) );
+            item burrowing_item( itype_id( "fake_burrowing"_id ) );
             you.invoke_item( &burrowing_item, "BURROW", dest_loc );
             // don't move into the tile until done mining
             you.defer_move( dest_loc );
@@ -566,13 +566,13 @@ void avatar_action::swim( map &m, avatar &you, const tripoint &p )
     }
 
     body_part_set drenchFlags{ {
-            bodypart_str_id( "leg_l" ), bodypart_str_id( "leg_r" ), bodypart_str_id( "torso" ), bodypart_str_id( "arm_l" ),
-            bodypart_str_id( "arm_r" ), bodypart_str_id( "foot_l" ), bodypart_str_id( "foot_r" ), bodypart_str_id( "hand_l" ), bodypart_str_id( "hand_r" )
+            bodypart_str_id( "leg_l"_id ), bodypart_str_id( "leg_r"_id ), bodypart_str_id( "torso"_id ), bodypart_str_id( "arm_l"_id ),
+            bodypart_str_id( "arm_r"_id ), bodypart_str_id( "foot_l"_id ), bodypart_str_id( "foot_r"_id ), bodypart_str_id( "hand_l"_id ), bodypart_str_id( "hand_r"_id )
         }
     };
 
     if( you.is_underwater() ) {
-        drenchFlags.unify_set( { { bodypart_str_id( "head" ), bodypart_str_id( "eyes" ), bodypart_str_id( "mouth" ), bodypart_str_id( "hand_l" ), bodypart_str_id( "hand_r" ) } } );
+        drenchFlags.unify_set( { { bodypart_str_id( "head"_id ), bodypart_str_id( "eyes"_id ), bodypart_str_id( "mouth"_id ), bodypart_str_id( "hand_l"_id ), bodypart_str_id( "hand_r"_id ) } } );
     }
     you.drench( 100, drenchFlags, true );
 }

@@ -55,81 +55,81 @@
 static const std::string comesttype_DRINK( "DRINK" );
 static const std::string comesttype_FOOD( "FOOD" );
 
-static const skill_id skill_cooking( "cooking" );
-static const skill_id skill_survival( "survival" );
+static const skill_id skill_cooking( "cooking"_id );
+static const skill_id skill_survival( "survival"_id );
 
-static const mtype_id mon_player_blob( "mon_player_blob" );
+static const mtype_id mon_player_blob( "mon_player_blob"_id );
 
-static const bionic_id bio_advreactor( "bio_advreactor" );
-static const bionic_id bio_digestion( "bio_digestion" );
-static const bionic_id bio_furnace( "bio_furnace" );
-static const bionic_id bio_reactor( "bio_reactor" );
-static const bionic_id bio_syringe( "bio_syringe" );
-static const bionic_id bio_taste_blocker( "bio_taste_blocker" );
+static const bionic_id bio_advreactor( "bio_advreactor"_id );
+static const bionic_id bio_digestion( "bio_digestion"_id );
+static const bionic_id bio_furnace( "bio_furnace"_id );
+static const bionic_id bio_reactor( "bio_reactor"_id );
+static const bionic_id bio_syringe( "bio_syringe"_id );
+static const bionic_id bio_taste_blocker( "bio_taste_blocker"_id );
 
-static const efftype_id effect_bloodworms( "bloodworms" );
-static const efftype_id effect_brainworms( "brainworms" );
-static const efftype_id effect_common_cold( "common_cold" );
-static const efftype_id effect_flu( "flu" );
-static const efftype_id effect_foodpoison( "foodpoison" );
-static const efftype_id effect_fungus( "fungus" );
-static const efftype_id effect_hallu( "hallu" );
-static const efftype_id effect_hunger_engorged( "hunger_engorged" );
-static const efftype_id effect_hunger_full( "hunger_full" );
-static const efftype_id effect_nausea( "nausea" );
-static const efftype_id effect_paincysts( "paincysts" );
-static const efftype_id effect_poison( "poison" );
-static const efftype_id effect_tapeworm( "tapeworm" );
-static const efftype_id effect_visuals( "visuals" );
+static const efftype_id effect_bloodworms( "bloodworms"_id );
+static const efftype_id effect_brainworms( "brainworms"_id );
+static const efftype_id effect_common_cold( "common_cold"_id );
+static const efftype_id effect_flu( "flu"_id );
+static const efftype_id effect_foodpoison( "foodpoison"_id );
+static const efftype_id effect_fungus( "fungus"_id );
+static const efftype_id effect_hallu( "hallu"_id );
+static const efftype_id effect_hunger_engorged( "hunger_engorged"_id );
+static const efftype_id effect_hunger_full( "hunger_full"_id );
+static const efftype_id effect_nausea( "nausea"_id );
+static const efftype_id effect_paincysts( "paincysts"_id );
+static const efftype_id effect_poison( "poison"_id );
+static const efftype_id effect_tapeworm( "tapeworm"_id );
+static const efftype_id effect_visuals( "visuals"_id );
 
-static const item_category_id item_category_chems( "chems" );
+static const item_category_id item_category_chems( "chems"_id );
 
-static const itype_id itype_apparatus( "apparatus" );
-static const itype_id itype_dab_pen_on( "dab_pen_on" );
-static const itype_id itype_syringe( "syringe" );
+static const itype_id itype_apparatus( "apparatus"_id );
+static const itype_id itype_dab_pen_on( "dab_pen_on"_id );
+static const itype_id itype_syringe( "syringe"_id );
 
-static const mutation_category_id mutation_category_URSINE( "URSINE" );
+static const mutation_category_id mutation_category_URSINE( "URSINE"_id );
 
-static const trait_id trait_ACIDBLOOD( "ACIDBLOOD" );
-static const trait_id trait_AMORPHOUS( "AMORPHOUS" );
-static const trait_id trait_ANTIFRUIT( "ANTIFRUIT" );
-static const trait_id trait_ANTIJUNK( "ANTIJUNK" );
-static const trait_id trait_ANTIWHEAT( "ANTIWHEAT" );
-static const trait_id trait_CANNIBAL( "CANNIBAL" );
-static const trait_id trait_CARNIVORE( "CARNIVORE" );
-static const trait_id trait_EATDEAD( "EATDEAD" );
-static const trait_id trait_EATHEALTH( "EATHEALTH" );
-static const trait_id trait_EATPOISON( "EATPOISON" );
-static const trait_id trait_GIZZARD( "GIZZARD" );
-static const trait_id trait_GOURMAND( "GOURMAND" );
-static const trait_id trait_HERBIVORE( "HERBIVORE" );
-static const trait_id trait_HIBERNATE( "HIBERNATE" );
-static const trait_id trait_LACTOSE( "LACTOSE" );
-static const trait_id trait_M_DEPENDENT( "M_DEPENDENT" );
-static const trait_id trait_M_IMMUNE( "M_IMMUNE" );
-static const trait_id trait_MEATARIAN( "MEATARIAN" );
-static const trait_id trait_PARAIMMUNE( "PARAIMMUNE" );
-static const trait_id trait_PROBOSCIS( "PROBOSCIS" );
-static const trait_id trait_PROJUNK( "PROJUNK" );
+static const trait_id trait_ACIDBLOOD( "ACIDBLOOD"_id );
+static const trait_id trait_AMORPHOUS( "AMORPHOUS"_id );
+static const trait_id trait_ANTIFRUIT( "ANTIFRUIT"_id );
+static const trait_id trait_ANTIJUNK( "ANTIJUNK"_id );
+static const trait_id trait_ANTIWHEAT( "ANTIWHEAT"_id );
+static const trait_id trait_CANNIBAL( "CANNIBAL"_id );
+static const trait_id trait_CARNIVORE( "CARNIVORE"_id );
+static const trait_id trait_EATDEAD( "EATDEAD"_id );
+static const trait_id trait_EATHEALTH( "EATHEALTH"_id );
+static const trait_id trait_EATPOISON( "EATPOISON"_id );
+static const trait_id trait_GIZZARD( "GIZZARD"_id );
+static const trait_id trait_GOURMAND( "GOURMAND"_id );
+static const trait_id trait_HERBIVORE( "HERBIVORE"_id );
+static const trait_id trait_HIBERNATE( "HIBERNATE"_id );
+static const trait_id trait_LACTOSE( "LACTOSE"_id );
+static const trait_id trait_M_DEPENDENT( "M_DEPENDENT"_id );
+static const trait_id trait_M_IMMUNE( "M_IMMUNE"_id );
+static const trait_id trait_MEATARIAN( "MEATARIAN"_id );
+static const trait_id trait_PARAIMMUNE( "PARAIMMUNE"_id );
+static const trait_id trait_PROBOSCIS( "PROBOSCIS"_id );
+static const trait_id trait_PROJUNK( "PROJUNK"_id );
 static const trait_id trait_PROJUNK2( "PROJUNK2" );
-static const trait_id trait_PSYCHOPATH( "PSYCHOPATH" );
-static const trait_id trait_RUMINANT( "RUMINANT" );
-static const trait_id trait_SAPIOVORE( "SAPIOVORE" );
-static const trait_id trait_SAPROPHAGE( "SAPROPHAGE" );
-static const trait_id trait_SAPROVORE( "SAPROVORE" );
-static const trait_id trait_SCHIZOPHRENIC( "SCHIZOPHRENIC" );
-static const trait_id trait_SLIMESPAWNER( "SLIMESPAWNER" );
-static const trait_id trait_SPIRITUAL( "SPIRITUAL" );
-static const trait_id trait_STIMBOOST( "STIMBOOST" );
-static const trait_id trait_TABLEMANNERS( "TABLEMANNERS" );
-static const trait_id trait_THRESH_BIRD( "THRESH_BIRD" );
-static const trait_id trait_THRESH_CATTLE( "THRESH_CATTLE" );
-static const trait_id trait_THRESH_FELINE( "THRESH_FELINE" );
-static const trait_id trait_THRESH_LUPINE( "THRESH_LUPINE" );
-static const trait_id trait_THRESH_PLANT( "THRESH_PLANT" );
-static const trait_id trait_THRESH_URSINE( "THRESH_URSINE" );
-static const trait_id trait_VEGETARIAN( "VEGETARIAN" );
-static const trait_id trait_WATERSLEEP( "WATERSLEEP" );
+static const trait_id trait_PSYCHOPATH( "PSYCHOPATH"_id );
+static const trait_id trait_RUMINANT( "RUMINANT"_id );
+static const trait_id trait_SAPIOVORE( "SAPIOVORE"_id );
+static const trait_id trait_SAPROPHAGE( "SAPROPHAGE"_id );
+static const trait_id trait_SAPROVORE( "SAPROVORE"_id );
+static const trait_id trait_SCHIZOPHRENIC( "SCHIZOPHRENIC"_id );
+static const trait_id trait_SLIMESPAWNER( "SLIMESPAWNER"_id );
+static const trait_id trait_SPIRITUAL( "SPIRITUAL"_id );
+static const trait_id trait_STIMBOOST( "STIMBOOST"_id );
+static const trait_id trait_TABLEMANNERS( "TABLEMANNERS"_id );
+static const trait_id trait_THRESH_BIRD( "THRESH_BIRD"_id );
+static const trait_id trait_THRESH_CATTLE( "THRESH_CATTLE"_id );
+static const trait_id trait_THRESH_FELINE( "THRESH_FELINE"_id );
+static const trait_id trait_THRESH_LUPINE( "THRESH_LUPINE"_id );
+static const trait_id trait_THRESH_PLANT( "THRESH_PLANT"_id );
+static const trait_id trait_THRESH_URSINE( "THRESH_URSINE"_id );
+static const trait_id trait_VEGETARIAN( "VEGETARIAN"_id );
+static const trait_id trait_WATERSLEEP( "WATERSLEEP"_id );
 
 static const std::string flag_EATEN_COLD( "EATEN_COLD" );
 static const std::string flag_HIDDEN_HALLU( "HIDDEN_HALLU" );
@@ -185,9 +185,9 @@ static const units::volume furnace_max_volume( 3_liter );
 
 // TODO: JSONize.
 static const std::map<itype_id, int> plut_charges = {
-    { itype_id( "plut_cell" ),         PLUTONIUM_CHARGES * 10 },
-    { itype_id( "plut_slurry_dense" ), PLUTONIUM_CHARGES },
-    { itype_id( "plut_slurry" ),       PLUTONIUM_CHARGES / 2 }
+    { itype_id( "plut_cell"_id ),         PLUTONIUM_CHARGES * 10 },
+    { itype_id( "plut_slurry_dense"_id ), PLUTONIUM_CHARGES },
+    { itype_id( "plut_slurry"_id ),       PLUTONIUM_CHARGES / 2 }
 };
 
 int Character::stomach_capacity() const
@@ -268,7 +268,7 @@ static std::map<vitamin_id, int> compute_default_effective_vitamins(
         // TODO: put this loop into a function and utilize it again for bionics
         for( const auto &mat : mut.vitamin_absorb_multi ) {
             // this is where we are able to check if the food actually is changed by the trait
-            if( mat.first == material_id( "all" ) || it.made_of( mat.first ) ) {
+            if( mat.first == material_id( "all"_id ) || it.made_of( mat.first ) ) {
                 const std::map<vitamin_id, double> &mat_vit_map = mat.second;
                 for( auto &vit : res ) {
                     auto vit_factor = mat_vit_map.find( vit.first );
@@ -1437,8 +1437,8 @@ bool Character::consume_effects( item &food )
 bool Character::can_feed_reactor_with( const item &it ) const
 {
     static const std::set<ammotype> acceptable = {{
-            ammotype( "reactor_slurry" ),
-            ammotype( "plutonium" )
+            ammotype( "reactor_slurry"_id ),
+            ammotype( "plutonium"_id )
         }
     };
 
@@ -1647,10 +1647,10 @@ int Character::get_acquirable_energy( const item &it, rechargeable_cbm cbm ) con
             int amount = ( consumed_vol / 250_ml + consumed_mass / 1_gram ) / 9;
 
             // TODO: JSONize.
-            if( it.made_of( material_id( "leather" ) ) ) {
+            if( it.made_of( material_id( "leather"_id ) ) ) {
                 amount /= 4;
             }
-            if( it.made_of( material_id( "wood" ) ) ) {
+            if( it.made_of( material_id( "wood"_id ) ) ) {
                 amount /= 2;
             }
 

@@ -122,19 +122,19 @@
 struct mutation_branch;
 struct oter_type_t;
 
-static const efftype_id effect_riding( "riding" );
+static const efftype_id effect_riding( "riding"_id );
 
-static const itype_id itype_rad_badge( "rad_badge" );
-static const itype_id itype_radio( "radio" );
-static const itype_id itype_radio_on( "radio_on" );
-static const itype_id itype_usb_drive( "usb_drive" );
+static const itype_id itype_rad_badge( "rad_badge"_id );
+static const itype_id itype_radio( "radio"_id );
+static const itype_id itype_radio_on( "radio_on"_id );
+static const itype_id itype_usb_drive( "usb_drive"_id );
 
-static const ter_str_id ter_t_ash( "t_ash" );
-static const ter_str_id ter_t_rubble( "t_rubble" );
-static const ter_str_id ter_t_pwr_sb_support_l( "t_pwr_sb_support_l" );
-static const ter_str_id ter_t_pwr_sb_switchgear_l( "t_pwr_sb_switchgear_l" );
-static const ter_str_id ter_t_pwr_sb_switchgear_s( "t_pwr_sb_switchgear_s" );
-static const ter_str_id ter_t_wreckage( "t_wreckage" );
+static const ter_str_id ter_t_ash( "t_ash"_id );
+static const ter_str_id ter_t_rubble( "t_rubble"_id );
+static const ter_str_id ter_t_pwr_sb_support_l( "t_pwr_sb_support_l"_id );
+static const ter_str_id ter_t_pwr_sb_switchgear_l( "t_pwr_sb_switchgear_l"_id );
+static const ter_str_id ter_t_pwr_sb_switchgear_s( "t_pwr_sb_switchgear_s"_id );
+static const ter_str_id ter_t_wreckage( "t_wreckage"_id );
 
 static const std::array<std::string, static_cast<size_t>( object_type::NUM_OBJECT_TYPES )>
 obj_type_name = { { "OBJECT_NONE", "OBJECT_ITEM", "OBJECT_ACTOR", "OBJECT_PLAYER",
@@ -319,7 +319,7 @@ void player_activity::deserialize( JsonIn &jsin )
     // ACT_MIGRATION_CANCEL will clear the backlog and reset npc state
     // this may cause inconvenience but should avoid any lasting damage to npcs
     if( is_obsolete || ( has_actor && ( data.has_null( "actor" ) || !data.has_member( "actor" ) ) ) ) {
-        type = activity_id( "ACT_MIGRATION_CANCEL" );
+        type = activity_id( "ACT_MIGRATION_CANCEL"_id );
     }
 
     if( !data.read( "position", tmppos ) ) {
@@ -513,7 +513,7 @@ void Character::load( const JsonObject &data )
         matype_id temp_selected_style;
         data.read( "style_selected", temp_selected_style );
         if( !temp_selected_style.is_valid() ) {
-            temp_selected_style = matype_id( "style_none" );
+            temp_selected_style = matype_id( "style_none"_id );
         }
         *martial_arts_data = character_martial_arts( temp_styles, temp_selected_style,
                              temp_keep_hands_free );
@@ -538,8 +538,8 @@ void Character::load( const JsonObject &data )
         data.read( "backlog", backlog );
     }
     if( !backlog.empty() && !backlog.front().str_values.empty() && ( ( activity &&
-            activity.id() == activity_id( "ACT_FETCH_REQUIRED" ) ) || ( destination_activity &&
-                    destination_activity.id() == activity_id( "ACT_FETCH_REQUIRED" ) ) ) ) {
+            activity.id() == activity_id( "ACT_FETCH_REQUIRED"_id ) ) || ( destination_activity &&
+                    destination_activity.id() == activity_id( "ACT_FETCH_REQUIRED"_id ) ) ) ) {
         requirement_data fetch_reqs;
         data.read( "fetch_data", fetch_reqs );
         const requirement_id req_id( backlog.front().str_values.back() );
@@ -574,9 +574,9 @@ void Character::load( const JsonObject &data )
         if( tid.is_valid() ) {
             ++it;
             // Remove after 0.F
-        } else if( tid == trait_id( "PROF_HELI_PILOT" ) ) {
+        } else if( tid == trait_id( "PROF_HELI_PILOT"_id ) ) {
             it = my_traits.erase( it );
-            add_proficiency( proficiency_id( "prof_helicopter_pilot" ) );
+            add_proficiency( proficiency_id( "prof_helicopter_pilot"_id ) );
         } else {
             debugmsg( "character %s has invalid trait %s, it will be ignored", name, tid.c_str() );
             my_traits.erase( it++ );
@@ -592,9 +592,9 @@ void Character::load( const JsonObject &data )
             cached_mutations.push_back( &mid.obj() );
             ++it;
             // Remove after 0.F
-        } else if( mid == trait_id( "PROF_HELI_PILOT" ) ) {
+        } else if( mid == trait_id( "PROF_HELI_PILOT"_id ) ) {
             it = my_mutations.erase( it );
-            add_proficiency( proficiency_id( "prof_helicopter_pilot" ) );
+            add_proficiency( proficiency_id( "prof_helicopter_pilot"_id ) );
         } else {
             debugmsg( "character %s has invalid mutation %s, it will be ignored", name, mid.c_str() );
             it = my_mutations.erase( it );
@@ -615,136 +615,136 @@ void Character::load( const JsonObject &data )
 
     // TEMPORARY until 0.F
     if( data.has_array( "hp_cur" ) ) {
-        set_anatomy( anatomy_id( "human_anatomy" ) );
+        set_anatomy( anatomy_id( "human_anatomy"_id ) );
         set_body();
         std::array<int, 6> hp_cur;
         data.read( "hp_cur", hp_cur );
         std::array<int, 6> hp_max;
         data.read( "hp_max", hp_max );
-        set_part_hp_cur( bodypart_id( "head" ), hp_cur[0] );
-        set_part_hp_max( bodypart_id( "head" ), hp_max[0] );
-        set_part_hp_cur( bodypart_id( "torso" ), hp_cur[1] );
-        set_part_hp_max( bodypart_id( "torso" ), hp_max[1] );
-        set_part_hp_cur( bodypart_id( "arm_l" ), hp_cur[2] );
-        set_part_hp_max( bodypart_id( "arm_l" ), hp_max[2] );
-        set_part_hp_cur( bodypart_id( "arm_r" ), hp_cur[3] );
-        set_part_hp_max( bodypart_id( "arm_r" ), hp_max[3] );
-        set_part_hp_cur( bodypart_id( "leg_l" ), hp_cur[4] );
-        set_part_hp_max( bodypart_id( "leg_l" ), hp_max[4] );
-        set_part_hp_cur( bodypart_id( "leg_r" ), hp_cur[5] );
-        set_part_hp_max( bodypart_id( "leg_r" ), hp_max[5] );
+        set_part_hp_cur( bodypart_id( "head"_id ), hp_cur[0] );
+        set_part_hp_max( bodypart_id( "head"_id ), hp_max[0] );
+        set_part_hp_cur( bodypart_id( "torso"_id ), hp_cur[1] );
+        set_part_hp_max( bodypart_id( "torso"_id ), hp_max[1] );
+        set_part_hp_cur( bodypart_id( "arm_l"_id ), hp_cur[2] );
+        set_part_hp_max( bodypart_id( "arm_l"_id ), hp_max[2] );
+        set_part_hp_cur( bodypart_id( "arm_r"_id ), hp_cur[3] );
+        set_part_hp_max( bodypart_id( "arm_r"_id ), hp_max[3] );
+        set_part_hp_cur( bodypart_id( "leg_l"_id ), hp_cur[4] );
+        set_part_hp_max( bodypart_id( "leg_l"_id ), hp_max[4] );
+        set_part_hp_cur( bodypart_id( "leg_r"_id ), hp_cur[5] );
+        set_part_hp_max( bodypart_id( "leg_r"_id ), hp_max[5] );
     }
     if( data.has_array( "damage_bandaged" ) ) {
-        set_anatomy( anatomy_id( "human_anatomy" ) );
+        set_anatomy( anatomy_id( "human_anatomy"_id ) );
         set_body();
         std::array<int, 6> damage_bandaged;
         data.read( "damage_bandaged", damage_bandaged );
-        set_part_damage_bandaged( bodypart_id( "head" ), damage_bandaged[0] );
-        set_part_damage_bandaged( bodypart_id( "torso" ), damage_bandaged[1] );
-        set_part_damage_bandaged( bodypart_id( "arm_l" ), damage_bandaged[2] );
-        set_part_damage_bandaged( bodypart_id( "arm_r" ), damage_bandaged[3] );
-        set_part_damage_bandaged( bodypart_id( "leg_l" ), damage_bandaged[4] );
-        set_part_damage_bandaged( bodypart_id( "leg_r" ), damage_bandaged[5] );
+        set_part_damage_bandaged( bodypart_id( "head"_id ), damage_bandaged[0] );
+        set_part_damage_bandaged( bodypart_id( "torso"_id ), damage_bandaged[1] );
+        set_part_damage_bandaged( bodypart_id( "arm_l"_id ), damage_bandaged[2] );
+        set_part_damage_bandaged( bodypart_id( "arm_r"_id ), damage_bandaged[3] );
+        set_part_damage_bandaged( bodypart_id( "leg_l"_id ), damage_bandaged[4] );
+        set_part_damage_bandaged( bodypart_id( "leg_r"_id ), damage_bandaged[5] );
     }
     if( data.has_array( "damage_disinfected" ) ) {
-        set_anatomy( anatomy_id( "human_anatomy" ) );
+        set_anatomy( anatomy_id( "human_anatomy"_id ) );
         set_body();
         std::array<int, 6> damage_disinfected;
         data.read( "damage_disinfected", damage_disinfected );
-        set_part_damage_disinfected( bodypart_id( "head" ), damage_disinfected[0] );
-        set_part_damage_disinfected( bodypart_id( "torso" ), damage_disinfected[1] );
-        set_part_damage_disinfected( bodypart_id( "arm_l" ), damage_disinfected[2] );
-        set_part_damage_disinfected( bodypart_id( "arm_r" ), damage_disinfected[3] );
-        set_part_damage_disinfected( bodypart_id( "leg_l" ), damage_disinfected[4] );
-        set_part_damage_disinfected( bodypart_id( "leg_r" ), damage_disinfected[5] );
+        set_part_damage_disinfected( bodypart_id( "head"_id ), damage_disinfected[0] );
+        set_part_damage_disinfected( bodypart_id( "torso"_id ), damage_disinfected[1] );
+        set_part_damage_disinfected( bodypart_id( "arm_l"_id ), damage_disinfected[2] );
+        set_part_damage_disinfected( bodypart_id( "arm_r"_id ), damage_disinfected[3] );
+        set_part_damage_disinfected( bodypart_id( "leg_l"_id ), damage_disinfected[4] );
+        set_part_damage_disinfected( bodypart_id( "leg_r"_id ), damage_disinfected[5] );
     }
     if( data.has_array( "healed_24h" ) ) {
-        set_anatomy( anatomy_id( "human_anatomy" ) );
+        set_anatomy( anatomy_id( "human_anatomy"_id ) );
         set_body();
         std::array<int, 6> healed_total;
         data.read( "healed_24h", healed_total );
-        set_part_healed_total( bodypart_id( "head" ), healed_total[0] );
-        set_part_healed_total( bodypart_id( "torso" ), healed_total[1] );
-        set_part_healed_total( bodypart_id( "arm_l" ), healed_total[2] );
-        set_part_healed_total( bodypart_id( "arm_r" ), healed_total[3] );
-        set_part_healed_total( bodypart_id( "leg_l" ), healed_total[4] );
-        set_part_healed_total( bodypart_id( "leg_r" ), healed_total[5] );
+        set_part_healed_total( bodypart_id( "head"_id ), healed_total[0] );
+        set_part_healed_total( bodypart_id( "torso"_id ), healed_total[1] );
+        set_part_healed_total( bodypart_id( "arm_l"_id ), healed_total[2] );
+        set_part_healed_total( bodypart_id( "arm_r"_id ), healed_total[3] );
+        set_part_healed_total( bodypart_id( "leg_l"_id ), healed_total[4] );
+        set_part_healed_total( bodypart_id( "leg_r"_id ), healed_total[5] );
     }
     if( data.has_array( "body_wetness" ) ) {
-        set_anatomy( anatomy_id( "human_anatomy" ) );
+        set_anatomy( anatomy_id( "human_anatomy"_id ) );
         set_body();
         std::array<int, 12> body_wetness;
         body_wetness.fill( 0 );
         data.read( "body_wetness", body_wetness );
-        set_part_wetness( bodypart_id( "torso" ), body_wetness[0] );
-        set_part_wetness( bodypart_id( "head" ), body_wetness[1] );
-        set_part_wetness( bodypart_id( "eyes" ), body_wetness[2] );
-        set_part_wetness( bodypart_id( "mouth" ), body_wetness[3] );
-        set_part_wetness( bodypart_id( "arm_l" ), body_wetness[4] );
-        set_part_wetness( bodypart_id( "arm_r" ), body_wetness[5] );
-        set_part_wetness( bodypart_id( "hand_l" ), body_wetness[6] );
-        set_part_wetness( bodypart_id( "hand_r" ), body_wetness[7] );
-        set_part_wetness( bodypart_id( "leg_l" ), body_wetness[8] );
-        set_part_wetness( bodypart_id( "leg_r" ), body_wetness[9] );
-        set_part_wetness( bodypart_id( "foot_l" ), body_wetness[10] );
-        set_part_wetness( bodypart_id( "foot_r" ), body_wetness[11] );
+        set_part_wetness( bodypart_id( "torso"_id ), body_wetness[0] );
+        set_part_wetness( bodypart_id( "head"_id ), body_wetness[1] );
+        set_part_wetness( bodypart_id( "eyes"_id ), body_wetness[2] );
+        set_part_wetness( bodypart_id( "mouth"_id ), body_wetness[3] );
+        set_part_wetness( bodypart_id( "arm_l"_id ), body_wetness[4] );
+        set_part_wetness( bodypart_id( "arm_r"_id ), body_wetness[5] );
+        set_part_wetness( bodypart_id( "hand_l"_id ), body_wetness[6] );
+        set_part_wetness( bodypart_id( "hand_r"_id ), body_wetness[7] );
+        set_part_wetness( bodypart_id( "leg_l"_id ), body_wetness[8] );
+        set_part_wetness( bodypart_id( "leg_r"_id ), body_wetness[9] );
+        set_part_wetness( bodypart_id( "foot_l"_id ), body_wetness[10] );
+        set_part_wetness( bodypart_id( "foot_r"_id ), body_wetness[11] );
     }
     if( data.has_array( "temp_cur" ) ) {
-        set_anatomy( anatomy_id( "human_anatomy" ) );
+        set_anatomy( anatomy_id( "human_anatomy"_id ) );
         set_body();
         std::array<int, 12> temp_cur;
         temp_cur.fill( BODYTEMP_NORM );
         data.read( "temp_cur", temp_cur );
-        set_part_temp_cur( bodypart_id( "torso" ), temp_cur[0] );
-        set_part_temp_cur( bodypart_id( "head" ), temp_cur[1] );
-        set_part_temp_cur( bodypart_id( "eyes" ), temp_cur[2] );
-        set_part_temp_cur( bodypart_id( "mouth" ), temp_cur[3] );
-        set_part_temp_cur( bodypart_id( "arm_l" ), temp_cur[4] );
-        set_part_temp_cur( bodypart_id( "arm_r" ), temp_cur[5] );
-        set_part_temp_cur( bodypart_id( "hand_l" ), temp_cur[6] );
-        set_part_temp_cur( bodypart_id( "hand_r" ), temp_cur[7] );
-        set_part_temp_cur( bodypart_id( "leg_l" ), temp_cur[8] );
-        set_part_temp_cur( bodypart_id( "leg_r" ), temp_cur[9] );
-        set_part_temp_cur( bodypart_id( "foot_l" ), temp_cur[10] );
-        set_part_temp_cur( bodypart_id( "foot_r" ), temp_cur[11] );
+        set_part_temp_cur( bodypart_id( "torso"_id ), temp_cur[0] );
+        set_part_temp_cur( bodypart_id( "head"_id ), temp_cur[1] );
+        set_part_temp_cur( bodypart_id( "eyes"_id ), temp_cur[2] );
+        set_part_temp_cur( bodypart_id( "mouth"_id ), temp_cur[3] );
+        set_part_temp_cur( bodypart_id( "arm_l"_id ), temp_cur[4] );
+        set_part_temp_cur( bodypart_id( "arm_r"_id ), temp_cur[5] );
+        set_part_temp_cur( bodypart_id( "hand_l"_id ), temp_cur[6] );
+        set_part_temp_cur( bodypart_id( "hand_r"_id ), temp_cur[7] );
+        set_part_temp_cur( bodypart_id( "leg_l"_id ), temp_cur[8] );
+        set_part_temp_cur( bodypart_id( "leg_r"_id ), temp_cur[9] );
+        set_part_temp_cur( bodypart_id( "foot_l"_id ), temp_cur[10] );
+        set_part_temp_cur( bodypart_id( "foot_r"_id ), temp_cur[11] );
     }
     if( data.has_array( "temp_conv" ) ) {
-        set_anatomy( anatomy_id( "human_anatomy" ) );
+        set_anatomy( anatomy_id( "human_anatomy"_id ) );
         set_body();
         std::array<int, 12> temp_conv;
         temp_conv.fill( BODYTEMP_NORM );
         data.read( "temp_conv", temp_conv );
-        set_part_temp_conv( bodypart_id( "torso" ), temp_conv[0] );
-        set_part_temp_conv( bodypart_id( "head" ), temp_conv[1] );
-        set_part_temp_conv( bodypart_id( "eyes" ), temp_conv[2] );
-        set_part_temp_conv( bodypart_id( "mouth" ), temp_conv[3] );
-        set_part_temp_conv( bodypart_id( "arm_l" ), temp_conv[4] );
-        set_part_temp_conv( bodypart_id( "arm_r" ), temp_conv[5] );
-        set_part_temp_conv( bodypart_id( "hand_l" ), temp_conv[6] );
-        set_part_temp_conv( bodypart_id( "hand_r" ), temp_conv[7] );
-        set_part_temp_conv( bodypart_id( "leg_l" ), temp_conv[8] );
-        set_part_temp_conv( bodypart_id( "leg_r" ), temp_conv[9] );
-        set_part_temp_conv( bodypart_id( "foot_l" ), temp_conv[10] );
-        set_part_temp_conv( bodypart_id( "foot_r" ), temp_conv[11] );
+        set_part_temp_conv( bodypart_id( "torso"_id ), temp_conv[0] );
+        set_part_temp_conv( bodypart_id( "head"_id ), temp_conv[1] );
+        set_part_temp_conv( bodypart_id( "eyes"_id ), temp_conv[2] );
+        set_part_temp_conv( bodypart_id( "mouth"_id ), temp_conv[3] );
+        set_part_temp_conv( bodypart_id( "arm_l"_id ), temp_conv[4] );
+        set_part_temp_conv( bodypart_id( "arm_r"_id ), temp_conv[5] );
+        set_part_temp_conv( bodypart_id( "hand_l"_id ), temp_conv[6] );
+        set_part_temp_conv( bodypart_id( "hand_r"_id ), temp_conv[7] );
+        set_part_temp_conv( bodypart_id( "leg_l"_id ), temp_conv[8] );
+        set_part_temp_conv( bodypart_id( "leg_r"_id ), temp_conv[9] );
+        set_part_temp_conv( bodypart_id( "foot_l"_id ), temp_conv[10] );
+        set_part_temp_conv( bodypart_id( "foot_r"_id ), temp_conv[11] );
     }
     if( data.has_array( "frostbite_timer" ) ) {
-        set_anatomy( anatomy_id( "human_anatomy" ) );
+        set_anatomy( anatomy_id( "human_anatomy"_id ) );
         set_body();
         std::array<int, 12> frostbite_timer;
         frostbite_timer.fill( 0 );
         data.read( "frostbite_timer", frostbite_timer );
-        set_part_frostbite_timer( bodypart_id( "torso" ), frostbite_timer[0] );
-        set_part_frostbite_timer( bodypart_id( "head" ), frostbite_timer[1] );
-        set_part_frostbite_timer( bodypart_id( "eyes" ), frostbite_timer[2] );
-        set_part_frostbite_timer( bodypart_id( "mouth" ), frostbite_timer[3] );
-        set_part_frostbite_timer( bodypart_id( "arm_l" ), frostbite_timer[4] );
-        set_part_frostbite_timer( bodypart_id( "arm_r" ), frostbite_timer[5] );
-        set_part_frostbite_timer( bodypart_id( "hand_l" ), frostbite_timer[6] );
-        set_part_frostbite_timer( bodypart_id( "hand_r" ), frostbite_timer[7] );
-        set_part_frostbite_timer( bodypart_id( "leg_l" ), frostbite_timer[8] );
-        set_part_frostbite_timer( bodypart_id( "leg_r" ), frostbite_timer[9] );
-        set_part_frostbite_timer( bodypart_id( "foot_l" ), frostbite_timer[10] );
-        set_part_frostbite_timer( bodypart_id( "foot_r" ), frostbite_timer[11] );
+        set_part_frostbite_timer( bodypart_id( "torso"_id ), frostbite_timer[0] );
+        set_part_frostbite_timer( bodypart_id( "head"_id ), frostbite_timer[1] );
+        set_part_frostbite_timer( bodypart_id( "eyes"_id ), frostbite_timer[2] );
+        set_part_frostbite_timer( bodypart_id( "mouth"_id ), frostbite_timer[3] );
+        set_part_frostbite_timer( bodypart_id( "arm_l"_id ), frostbite_timer[4] );
+        set_part_frostbite_timer( bodypart_id( "arm_r"_id ), frostbite_timer[5] );
+        set_part_frostbite_timer( bodypart_id( "hand_l"_id ), frostbite_timer[6] );
+        set_part_frostbite_timer( bodypart_id( "hand_r"_id ), frostbite_timer[7] );
+        set_part_frostbite_timer( bodypart_id( "leg_l"_id ), frostbite_timer[8] );
+        set_part_frostbite_timer( bodypart_id( "leg_r"_id ), frostbite_timer[9] );
+        set_part_frostbite_timer( bodypart_id( "foot_l"_id ), frostbite_timer[10] );
+        set_part_frostbite_timer( bodypart_id( "foot_r"_id ), frostbite_timer[11] );
     }
 
     inv->clear();
@@ -785,7 +785,7 @@ void Character::load( const JsonObject &data )
     }
     if( savegame_loading_version <= 28 ) {
         if( !skill_data.has_member( "chemistry" ) && skill_data.has_member( "cooking" ) ) {
-            skill_data.get_member( "cooking" ).read( ( *_skills )[skill_id( "chemistry" )] );
+            skill_data.get_member( "cooking" ).read( ( *_skills )[skill_id( "chemistry"_id )] );
         }
     }
 
@@ -889,8 +889,8 @@ void Character::store( JsonOut &json ) const
 
     // handling for storing activity requirements
     if( !backlog.empty() && !backlog.front().str_values.empty() && ( ( activity &&
-            activity.id() == activity_id( "ACT_FETCH_REQUIRED" ) ) || ( destination_activity &&
-                    destination_activity.id() == activity_id( "ACT_FETCH_REQUIRED" ) ) ) ) {
+            activity.id() == activity_id( "ACT_FETCH_REQUIRED"_id ) ) || ( destination_activity &&
+                    destination_activity.id() == activity_id( "ACT_FETCH_REQUIRED"_id ) ) ) ) {
         requirement_data things_to_fetch = requirement_id( backlog.front().str_values.back() ).obj();
         json.member( "fetch_data", things_to_fetch );
     }
@@ -1071,13 +1071,13 @@ void player::load( const JsonObject &data )
     data.read( "followers", follower_ids );
 
     // Add the earplugs.
-    if( has_bionic( bionic_id( "bio_ears" ) ) && !has_bionic( bionic_id( "bio_earplugs" ) ) ) {
-        add_bionic( bionic_id( "bio_earplugs" ) );
+    if( has_bionic( bionic_id( "bio_ears"_id ) ) && !has_bionic( bionic_id( "bio_earplugs"_id ) ) ) {
+        add_bionic( bionic_id( "bio_earplugs"_id ) );
     }
 
     // Add the blindfold.
-    if( has_bionic( bionic_id( "bio_sunglasses" ) ) && !has_bionic( bionic_id( "bio_blindfold" ) ) ) {
-        add_bionic( bionic_id( "bio_blindfold" ) );
+    if( has_bionic( bionic_id( "bio_sunglasses"_id ) ) && !has_bionic( bionic_id( "bio_blindfold"_id ) ) ) {
+        add_bionic( bionic_id( "bio_blindfold"_id ) );
     }
 
     // Fixes bugged characters for CBM's preventing mutations.
@@ -2481,7 +2481,7 @@ void item::deserialize( JsonIn &jsin )
 
     // Remove after 0.F: artifact migration code
     if( typeId().str().substr( 0, 9 ) == "artifact_" ) {
-        static const relic_procgen_id proc_cult( "cult" );
+        static const relic_procgen_id proc_cult( "cult"_id );
         relic_procgen_data::generation_rules rules;
         rules.max_attributes = 5;
         rules.max_negative_power = -1000;
@@ -2503,7 +2503,7 @@ void item::serialize( JsonOut &json ) const
 {
     // Remove after 0.F: artifact migration code
     if( typeId().str().substr( 0, 9 ) == "artifact_" ) {
-        static const relic_procgen_id proc_cult( "cult" );
+        static const relic_procgen_id proc_cult( "cult"_id );
         relic_procgen_data::generation_rules rules;
         rules.max_attributes = 5;
         rules.max_negative_power = -1000;
@@ -2583,7 +2583,7 @@ void vehicle_part::deserialize( JsonIn &jsin )
     // if we don't know what type of part it is, it'll cause problems later.
     if( !pid.is_valid() ) {
         if( pid.str() == "wheel_underbody" ) {
-            pid = vpart_id( "wheel_wide" );
+            pid = vpart_id( "wheel_wide"_id );
         } else {
             data.throw_error( "bad vehicle part", "id" );
         }
@@ -2813,7 +2813,7 @@ void vehicle::deserialize( JsonIn &jsin )
     }
 
     for( const vpart_reference &vp : get_any_parts( "TURRET" ) ) {
-        install_part( vp.mount(), vpart_id( "turret_mount" ) );
+        install_part( vp.mount(), vpart_id( "turret_mount"_id ) );
 
         //Forcibly set turrets' targeting mode to manual if no turret control unit is
         //present on turret's tile on loading save
@@ -2829,23 +2829,23 @@ void vehicle::deserialize( JsonIn &jsin )
     // Add vehicle mounts to cars that are missing them.
     for( const vpart_reference &vp : get_any_parts( "NEEDS_WHEEL_MOUNT_LIGHT" ) ) {
         if( vp.info().has_flag( "STEERABLE" ) ) {
-            install_part( vp.mount(), vpart_id( "wheel_mount_light_steerable" ) );
+            install_part( vp.mount(), vpart_id( "wheel_mount_light_steerable"_id ) );
         } else {
-            install_part( vp.mount(), vpart_id( "wheel_mount_light" ) );
+            install_part( vp.mount(), vpart_id( "wheel_mount_light"_id ) );
         }
     }
     for( const vpart_reference &vp : get_any_parts( "NEEDS_WHEEL_MOUNT_MEDIUM" ) ) {
         if( vp.info().has_flag( "STEERABLE" ) ) {
-            install_part( vp.mount(), vpart_id( "wheel_mount_medium_steerable" ) );
+            install_part( vp.mount(), vpart_id( "wheel_mount_medium_steerable"_id ) );
         } else {
-            install_part( vp.mount(), vpart_id( "wheel_mount_medium" ) );
+            install_part( vp.mount(), vpart_id( "wheel_mount_medium"_id ) );
         }
     }
     for( const vpart_reference &vp : get_any_parts( "NEEDS_WHEEL_MOUNT_HEAVY" ) ) {
         if( vp.info().has_flag( "STEERABLE" ) ) {
-            install_part( vp.mount(), vpart_id( "wheel_mount_heavy_steerable" ) );
+            install_part( vp.mount(), vpart_id( "wheel_mount_heavy_steerable"_id ) );
         } else {
-            install_part( vp.mount(), vpart_id( "wheel_mount_heavy" ) );
+            install_part( vp.mount(), vpart_id( "wheel_mount_heavy"_id ) );
         }
     }
 
@@ -3936,24 +3936,24 @@ void submap::load( JsonIn &jsin, const std::string &member_name, int version )
                     const ter_str_id tid( jsin.get_string() );
 
                     if( tid == ter_t_rubble ) {
-                        ter[i][j] = ter_id( "t_dirt" );
-                        frn[i][j] = furn_id( "f_rubble" );
+                        ter[i][j] = ter_id( "t_dirt"_id );
+                        frn[i][j] = furn_id( "f_rubble"_id );
                         itm[i][j].insert( rock );
                         itm[i][j].insert( rock );
                     } else if( tid == ter_t_wreckage ) {
-                        ter[i][j] = ter_id( "t_dirt" );
-                        frn[i][j] = furn_id( "f_wreckage" );
+                        ter[i][j] = ter_id( "t_dirt"_id );
+                        frn[i][j] = furn_id( "f_wreckage"_id );
                         itm[i][j].insert( chunk );
                         itm[i][j].insert( chunk );
                     } else if( tid == ter_t_ash ) {
-                        ter[i][j] = ter_id( "t_dirt" );
-                        frn[i][j] = furn_id( "f_ash" );
+                        ter[i][j] = ter_id( "t_dirt"_id );
+                        frn[i][j] = furn_id( "f_ash"_id );
                     } else if( tid == ter_t_pwr_sb_support_l ) {
-                        ter[i][j] = ter_id( "t_support_l" );
+                        ter[i][j] = ter_id( "t_support_l"_id );
                     } else if( tid == ter_t_pwr_sb_switchgear_l ) {
-                        ter[i][j] = ter_id( "t_switchgear_l" );
+                        ter[i][j] = ter_id( "t_switchgear_l"_id );
                     } else if( tid == ter_t_pwr_sb_switchgear_s ) {
-                        ter[i][j] = ter_id( "t_switchgear_s" );
+                        ter[i][j] = ter_id( "t_switchgear_s"_id );
                     } else {
                         ter[i][j] = tid.id();
                     }

@@ -196,7 +196,7 @@ void enchantment::add_activation( const time_duration &dur, const fake_spell &fa
 
 void enchantment::load( const JsonObject &jo, const std::string & )
 {
-    optional( jo, was_loaded, "id", id, enchantment_id( "" ) );
+    optional( jo, was_loaded, "id", id, enchantment_id( ""_id ) );
 
     jo.read( "hit_you_effect", hit_you_effect );
     jo.read( "hit_me_effect", hit_me_effect );

@@ -13,8 +13,8 @@
 #include "string_id.h"
 #include "translations.h"
 
-static const matype_id style_kicks( "style_kicks" );
-static const matype_id style_none( "style_none" );
+static const matype_id style_kicks( "style_kicks"_id );
+static const matype_id style_none( "style_none"_id );
 
 character_martial_arts::character_martial_arts()
 {

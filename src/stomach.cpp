@@ -13,19 +13,19 @@
 #include "units.h"
 #include "vitamin.h"
 
-static const trait_id trait_GIZZARD( "GIZZARD" );
-static const trait_id trait_GOURMAND( "GOURMAND" );
-static const trait_id trait_HIBERNATE( "HIBERNATE" );
-static const trait_id trait_SLIMESPAWNER( "SLIMESPAWNER" );
+static const trait_id trait_GIZZARD( "GIZZARD"_id );
+static const trait_id trait_GOURMAND( "GOURMAND"_id );
+static const trait_id trait_HIBERNATE( "HIBERNATE"_id );
+static const trait_id trait_SLIMESPAWNER( "SLIMESPAWNER"_id );
 
 //size mutations now affect this, so we have to define them first
-static const trait_id trait_SMALL( "SMALL" );
+static const trait_id trait_SMALL( "SMALL"_id );
 static const trait_id trait_SMALL2( "SMALL2" );
-static const trait_id trait_SMALL_OK( "SMALL_OK" );
-static const trait_id trait_LARGE( "LARGE" );
-static const trait_id trait_LARGE_OK( "LARGE_OK" );
-static const trait_id trait_HUGE( "HUGE" );
-static const trait_id trait_HUGE_OK( "HUGE_OK" );
+static const trait_id trait_SMALL_OK( "SMALL_OK"_id );
+static const trait_id trait_LARGE( "LARGE"_id );
+static const trait_id trait_LARGE_OK( "LARGE_OK"_id );
+static const trait_id trait_HUGE( "HUGE"_id );
+static const trait_id trait_HUGE_OK( "HUGE_OK"_id );
 //done defining, the new things start at line 184
 
 void nutrients::min_in_place( const nutrients &r )

@@ -226,8 +226,8 @@ void Item_factory::finalize_pre( itype &obj )
         }
 
         const auto &mats = obj.materials;
-        if( std::find( mats.begin(), mats.end(), material_id( "hydrocarbons" ) ) == mats.end() &&
-            std::find( mats.begin(), mats.end(), material_id( "oil" ) ) == mats.end() ) {
+        if( std::find( mats.begin(), mats.end(), material_id( "hydrocarbons"_id ) ) == mats.end() &&
+            std::find( mats.begin(), mats.end(), material_id( "oil"_id ) ) == mats.end() ) {
             const auto &ammo_effects = obj.ammo->ammo_effects;
             obj.ammo->cookoff = ammo_effects.count( "INCENDIARY" ) > 0 ||
                                 ammo_effects.count( "COOKOFF" ) > 0;
@@ -352,7 +352,7 @@ void Item_factory::finalize_pre( itype &obj )
         const auto defmode_name = [&]() {
             if( obj.gun->clip == 1 ) {
                 return to_translation( "manual" ); // break-type actions
-            } else if( obj.gun->skill_used == skill_id( "pistol" ) && obj.item_tags.count( "RELOAD_ONE" ) ) {
+            } else if( obj.gun->skill_used == skill_id( "pistol"_id ) && obj.item_tags.count( "RELOAD_ONE" ) ) {
                 return to_translation( "revolver" );
             } else {
                 return to_translation( "semi-auto" );
@@ -360,27 +360,27 @@ void Item_factory::finalize_pre( itype &obj )
         };
 
         // if the gun doesn't have a DEFAULT mode then add one now
-        obj.gun->modes.emplace( gun_mode_id( "DEFAULT" ),
+        obj.gun->modes.emplace( gun_mode_id( "DEFAULT"_id ),
                                 gun_modifier_data( defmode_name(), 1, std::set<std::string>() ) );
 
         // If a "gun" has a reach attack, give it an additional melee mode.
         if( obj.item_tags.count( "REACH_ATTACK" ) ) {
-            obj.gun->modes.emplace( gun_mode_id( "MELEE" ),
+            obj.gun->modes.emplace( gun_mode_id( "MELEE"_id ),
                                     gun_modifier_data( to_translation( "melee" ), 1,
             { "MELEE" } ) );
         }
         if( obj.gun->burst > 1 ) {
             // handle legacy JSON format
-            obj.gun->modes.emplace( gun_mode_id( "AUTO" ),
+            obj.gun->modes.emplace( gun_mode_id( "AUTO"_id ),
                                     gun_modifier_data( to_translation( "auto" ), obj.gun->burst,
                                             std::set<std::string>() ) );
         }
 
         if( obj.gun->handling < 0 ) {
             // TODO: specify in JSON via classes
-            if( obj.gun->skill_used == skill_id( "rifle" ) ||
-                obj.gun->skill_used == skill_id( "smg" ) ||
-                obj.gun->skill_used == skill_id( "shotgun" ) ) {
+            if( obj.gun->skill_used == skill_id( "rifle"_id ) ||
+                obj.gun->skill_used == skill_id( "smg"_id ) ||
+                obj.gun->skill_used == skill_id( "shotgun"_id ) ) {
                 obj.gun->handling = 20;
             } else {
                 obj.gun->handling = 10;
@@ -388,8 +388,8 @@ void Item_factory::finalize_pre( itype &obj )
         }
 
         // TODO: Move to jsons?
-        if( obj.gun->skill_used == skill_id( "archery" ) ||
-            obj.gun->skill_used == skill_id( "throw" ) ) {
+        if( obj.gun->skill_used == skill_id( "archery"_id ) ||
+            obj.gun->skill_used == skill_id( "throw"_id ) ) {
             obj.item_tags.insert( "WATERPROOF_GUN" );
             obj.item_tags.insert( "NEVER_JAMS" );
             obj.gun->ammo_effects.insert( "NEVER_MISFIRES" );
@@ -1248,7 +1248,7 @@ void Item_factory::check_definitions() const
             }
         }
         if( type->ammo ) {
-            if( !type->ammo->type && type->ammo->type != ammotype( "NULL" ) ) {
+            if( !type->ammo->type && type->ammo->type != ammotype( "NULL"_id ) ) {
                 msg += "must define at least one ammo type\n";
             }
             check_ammo_type( msg, type->ammo->type );
@@ -2451,31 +2451,31 @@ static void set_allergy_flags( itype &item_template )
     static const std::vector<material_allergy_pair> all_pairs = {{
             // First allergens:
             // An item is an allergen even if it has trace amounts of allergenic material
-            std::make_pair( material_id( "hflesh" ), "CANNIBALISM" ),
+            std::make_pair( material_id( "hflesh"_id ), "CANNIBALISM" ),
 
-            std::make_pair( material_id( "hflesh" ), "ALLERGEN_MEAT" ),
-            std::make_pair( material_id( "iflesh" ), "ALLERGEN_MEAT" ),
-            std::make_pair( material_id( "flesh" ), "ALLERGEN_MEAT" ),
-            std::make_pair( material_id( "wheat" ), "ALLERGEN_WHEAT" ),
-            std::make_pair( material_id( "fruit" ), "ALLERGEN_FRUIT" ),
-            std::make_pair( material_id( "veggy" ), "ALLERGEN_VEGGY" ),
-            std::make_pair( material_id( "bean" ), "ALLERGEN_VEGGY" ),
-            std::make_pair( material_id( "tomato" ), "ALLERGEN_VEGGY" ),
-            std::make_pair( material_id( "garlic" ), "ALLERGEN_VEGGY" ),
-            std::make_pair( material_id( "nut" ), "ALLERGEN_NUT" ),
-            std::make_pair( material_id( "mushroom" ), "ALLERGEN_VEGGY" ),
-            std::make_pair( material_id( "milk" ), "ALLERGEN_MILK" ),
-            std::make_pair( material_id( "egg" ), "ALLERGEN_EGG" ),
-            std::make_pair( material_id( "junk" ), "ALLERGEN_JUNK" ),
+            std::make_pair( material_id( "hflesh"_id ), "ALLERGEN_MEAT" ),
+            std::make_pair( material_id( "iflesh"_id ), "ALLERGEN_MEAT" ),
+            std::make_pair( material_id( "flesh"_id ), "ALLERGEN_MEAT" ),
+            std::make_pair( material_id( "wheat"_id ), "ALLERGEN_WHEAT" ),
+            std::make_pair( material_id( "fruit"_id ), "ALLERGEN_FRUIT" ),
+            std::make_pair( material_id( "veggy"_id ), "ALLERGEN_VEGGY" ),
+            std::make_pair( material_id( "bean"_id ), "ALLERGEN_VEGGY" ),
+            std::make_pair( material_id( "tomato"_id ), "ALLERGEN_VEGGY" ),
+            std::make_pair( material_id( "garlic"_id ), "ALLERGEN_VEGGY" ),
+            std::make_pair( material_id( "nut"_id ), "ALLERGEN_NUT" ),
+            std::make_pair( material_id( "mushroom"_id ), "ALLERGEN_VEGGY" ),
+            std::make_pair( material_id( "milk"_id ), "ALLERGEN_MILK" ),
+            std::make_pair( material_id( "egg"_id ), "ALLERGEN_EGG" ),
+            std::make_pair( material_id( "junk"_id ), "ALLERGEN_JUNK" ),
             // Not food, but we can keep it here
-            std::make_pair( material_id( "wool" ), "ALLERGEN_WOOL" ),
+            std::make_pair( material_id( "wool"_id ), "ALLERGEN_WOOL" ),
             // Now "made of". Those flags should not be passed
-            std::make_pair( material_id( "flesh" ), "CARNIVORE_OK" ),
-            std::make_pair( material_id( "hflesh" ), "CARNIVORE_OK" ),
-            std::make_pair( material_id( "iflesh" ), "CARNIVORE_OK" ),
-            std::make_pair( material_id( "milk" ), "CARNIVORE_OK" ),
-            std::make_pair( material_id( "egg" ), "CARNIVORE_OK" ),
-            std::make_pair( material_id( "honey" ), "URSINE_HONEY" ),
+            std::make_pair( material_id( "flesh"_id ), "CARNIVORE_OK" ),
+            std::make_pair( material_id( "hflesh"_id ), "CARNIVORE_OK" ),
+            std::make_pair( material_id( "iflesh"_id ), "CARNIVORE_OK" ),
+            std::make_pair( material_id( "milk"_id ), "CARNIVORE_OK" ),
+            std::make_pair( material_id( "egg"_id ), "CARNIVORE_OK" ),
+            std::make_pair( material_id( "honey"_id ), "URSINE_HONEY" ),
         }
     };
 
@@ -2493,11 +2493,11 @@ void hflesh_to_flesh( itype &item_template )
 {
     auto &mats = item_template.materials;
     const size_t old_size = mats.size();
-    mats.erase( std::remove( mats.begin(), mats.end(), material_id( "hflesh" ) ), mats.end() );
+    mats.erase( std::remove( mats.begin(), mats.end(), material_id( "hflesh"_id ) ), mats.end() );
     // Only add "flesh" material if not already present
     if( old_size != mats.size() &&
-        std::find( mats.begin(), mats.end(), material_id( "flesh" ) ) == mats.end() ) {
-        mats.push_back( material_id( "flesh" ) );
+        std::find( mats.begin(), mats.end(), material_id( "flesh"_id ) ) == mats.end() ) {
+        mats.push_back( material_id( "flesh"_id ) );
     }
 }
 
@@ -3536,39 +3536,39 @@ std::string enum_to_string<phase_id>( phase_id data )
 item_category_id calc_category( const itype &obj )
 {
     if( obj.gun && !obj.gunmod ) {
-        return item_category_id( "guns" );
+        return item_category_id( "guns"_id );
     }
     if( obj.magazine ) {
-        return item_category_id( "magazines" );
+        return item_category_id( "magazines"_id );
     }
     if( obj.ammo ) {
-        return item_category_id( "ammo" );
+        return item_category_id( "ammo"_id );
     }
     if( obj.tool ) {
-        return item_category_id( "tools" );
+        return item_category_id( "tools"_id );
     }
     if( obj.armor ) {
-        return item_category_id( "clothing" );
+        return item_category_id( "clothing"_id );
     }
     if( obj.comestible ) {
         return obj.comestible->comesttype == "MED" ?
-               item_category_id( "drugs" ) : item_category_id( "food" );
+               item_category_id( "drugs"_id ) : item_category_id( "food"_id );
     }
     if( obj.book ) {
-        return item_category_id( "books" );
+        return item_category_id( "books"_id );
     }
     if( obj.gunmod ) {
-        return item_category_id( "mods" );
+        return item_category_id( "mods"_id );
     }
     if( obj.bionic ) {
-        return item_category_id( "bionics" );
+        return item_category_id( "bionics"_id );
     }
 
     bool weap = std::any_of( obj.melee.begin(), obj.melee.end(), []( int qty ) {
         return qty > MELEE_STAT;
     } );
 
-    return weap ? item_category_id( "weapons" ) : item_category_id( "other" );
+    return weap ? item_category_id( "weapons"_id ) : item_category_id( "other"_id );
 }
 
 std::vector<Group_tag> Item_factory::get_all_group_names()

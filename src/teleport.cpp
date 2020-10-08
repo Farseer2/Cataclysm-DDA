@@ -18,8 +18,8 @@
 #include "type_id.h"
 #include "viewer.h"
 
-static const efftype_id effect_grabbed( "grabbed" );
-static const efftype_id effect_teleglow( "teleglow" );
+static const efftype_id effect_grabbed( "grabbed"_id );
+static const efftype_id effect_teleglow( "teleglow"_id );
 
 bool teleport::teleport( Creature &critter, int min_distance, int max_distance, bool safe,
                          bool add_teleglow )
@@ -55,7 +55,7 @@ bool teleport::teleport( Creature &critter, int min_distance, int max_distance, 
             }
             return false;
         }
-        critter.apply_damage( nullptr, bodypart_id( "torso" ), 9999 );
+        critter.apply_damage( nullptr, bodypart_id( "torso"_id ), 9999 );
         if( c_is_u ) {
             get_event_bus().send<event_type::teleports_into_wall>( p->getID(), here.obstacle_name( new_pos ) );
             add_msg( m_bad, _( "You die after teleporting into a solid." ) );
@@ -94,7 +94,7 @@ bool teleport::teleport( Creature &critter, int min_distance, int max_distance, 
                 }
             }
             //Splatter real nice.
-            poor_soul->apply_damage( nullptr, bodypart_id( "torso" ), 9999 );
+            poor_soul->apply_damage( nullptr, bodypart_id( "torso"_id ), 9999 );
             poor_soul->check_dead_state();
         }
     }

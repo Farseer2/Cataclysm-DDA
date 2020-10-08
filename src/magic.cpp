@@ -49,7 +49,7 @@
 #include "ui.h"
 #include "units.h"
 
-static const trait_id trait_NONE( "NONE" );
+static const trait_id trait_NONE( "NONE"_id );
 
 namespace io
 {
@@ -130,7 +130,7 @@ const int fake_spell::level_default = 0;
 const bool fake_spell::self_default = false;
 const int fake_spell::trigger_once_in_default = 1;
 
-const skill_id spell_type::skill_default = skill_id( "spellcraft" );
+const skill_id spell_type::skill_default = skill_id( "spellcraft"_id );
 // empty string
 const requirement_id spell_type::spell_components_default;
 const translation spell_type::message_default = to_translation( "You cast %s!" );
@@ -168,7 +168,7 @@ const float spell_type::pierce_increment_default = 0.0f;
 const int spell_type::max_pierce_default = 0;
 const int spell_type::base_energy_cost_default = 0;
 const float spell_type::energy_increment_default = 0.0f;
-const trait_id spell_type::spell_class_default = trait_id( "NONE" );
+const trait_id spell_type::spell_class_default = trait_id( "NONE"_id );
 const magic_energy_type spell_type::energy_source_default = magic_energy_type::none;
 const damage_type spell_type::dmg_type_default = damage_type::NONE;
 const int spell_type::difficulty_default = 0;
@@ -748,7 +748,7 @@ int spell::energy_cost( const Character &guy ) const
     if( !has_flag( spell_flag::NO_HANDS ) ) {
         // the first 10 points of combined encumbrance is ignored, but quickly adds up
         const int hands_encumb = std::max( 0,
-                                           guy.encumb( bodypart_id( "hand_l" ) ) + guy.encumb( bodypart_id( "hand_r" ) ) - 10 );
+                                           guy.encumb( bodypart_id( "hand_l"_id ) ) + guy.encumb( bodypart_id( "hand_r"_id ) ) - 10 );
         switch( type->energy_source ) {
             default:
                 cost += 10 * hands_encumb;
@@ -849,13 +849,13 @@ int spell::casting_time( const Character &guy, bool ignore_encumb ) const
         if( !has_flag( spell_flag::NO_LEGS ) ) {
             // the first 20 points of encumbrance combined is ignored
             const int legs_encumb = std::max( 0,
-                                              guy.encumb( bodypart_id( "leg_l" ) ) + guy.encumb( bodypart_id( "leg_r" ) ) - 20 );
+                                              guy.encumb( bodypart_id( "leg_l"_id ) ) + guy.encumb( bodypart_id( "leg_r"_id ) ) - 20 );
             casting_time += legs_encumb * 3;
         }
         if( has_flag( spell_flag::SOMATIC ) ) {
             // the first 20 points of encumbrance combined is ignored
             const int arms_encumb = std::max( 0,
-                                              guy.encumb( bodypart_id( "arm_l" ) ) + guy.encumb( bodypart_id( "arm_r" ) ) - 20 );
+                                              guy.encumb( bodypart_id( "arm_l"_id ) ) + guy.encumb( bodypart_id( "arm_r"_id ) ) - 20 );
             casting_time += arms_encumb * 2;
         }
     }
@@ -907,13 +907,13 @@ float spell::spell_fail( const Character &guy ) const
     if( has_flag( spell_flag::SOMATIC ) && !guy.has_trait_flag( "SUBTLE_SPELL" ) ) {
         // the first 20 points of encumbrance combined is ignored
         const int arms_encumb = std::max( 0,
-                                          guy.encumb( bodypart_id( "arm_l" ) ) + guy.encumb( bodypart_id( "arm_r" ) ) - 20 );
+                                          guy.encumb( bodypart_id( "arm_l"_id ) ) + guy.encumb( bodypart_id( "arm_r"_id ) ) - 20 );
         // each encumbrance point beyond the "gray" color counts as half an additional fail %
         fail_chance += arms_encumb / 200.0f;
     }
     if( has_flag( spell_flag::VERBAL ) && !guy.has_trait_flag( "SILENT_SPELL" ) ) {
         // a little bit of mouth encumbrance is allowed, but not much
-        const int mouth_encumb = std::max( 0, guy.encumb( bodypart_id( "mouth" ) ) - 5 );
+        const int mouth_encumb = std::max( 0, guy.encumb( bodypart_id( "mouth"_id ) ) - 5 );
         fail_chance += mouth_encumb / 100.0f;
     }
     // concentration spells work better than you'd expect with a higher focus pool
@@ -1719,13 +1719,13 @@ static bool casting_time_encumbered( const spell &sp, const Character &guy )
     int encumb = 0;
     if( !sp.has_flag( spell_flag::NO_LEGS ) ) {
         // the first 20 points of encumbrance combined is ignored
-        encumb += std::max( 0, guy.encumb( bodypart_id( "leg_l" ) ) + guy.encumb(
-                                bodypart_id( "leg_r" ) ) - 20 );
+        encumb += std::max( 0, guy.encumb( bodypart_id( "leg_l"_id ) ) + guy.encumb(
+                                bodypart_id( "leg_r"_id ) ) - 20 );
     }
     if( sp.has_flag( spell_flag::SOMATIC ) ) {
         // the first 20 points of encumbrance combined is ignored
-        encumb += std::max( 0, guy.encumb( bodypart_id( "arm_l" ) ) + guy.encumb(
-                                bodypart_id( "arm_r" ) ) - 20 );
+        encumb += std::max( 0, guy.encumb( bodypart_id( "arm_l"_id ) ) + guy.encumb(
+                                bodypart_id( "arm_r"_id ) ) - 20 );
     }
     return encumb > 0;
 }
@@ -1733,8 +1733,8 @@ static bool casting_time_encumbered( const spell &sp, const Character &guy )
 static bool energy_cost_encumbered( const spell &sp, const Character &guy )
 {
     if( !sp.has_flag( spell_flag::NO_HANDS ) ) {
-        return std::max( 0, guy.encumb( bodypart_id( "hand_l" ) ) + guy.encumb(
-                             bodypart_id( "hand_r" ) ) - 10 ) >
+        return std::max( 0, guy.encumb( bodypart_id( "hand_l"_id ) ) + guy.encumb(
+                             bodypart_id( "hand_r"_id ) ) - 10 ) >
                0;
     }
     return false;

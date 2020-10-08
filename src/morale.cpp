@@ -25,23 +25,23 @@
 #include "translations.h"
 #include "ui_manager.h"
 
-static const efftype_id effect_cold( "cold" );
-static const efftype_id effect_hot( "hot" );
-static const efftype_id effect_took_prozac( "took_prozac" );
-static const efftype_id effect_took_prozac_bad( "took_prozac_bad" );
+static const efftype_id effect_cold( "cold"_id );
+static const efftype_id effect_hot( "hot"_id );
+static const efftype_id effect_took_prozac( "took_prozac"_id );
+static const efftype_id effect_took_prozac_bad( "took_prozac_bad"_id );
 
-static const trait_id trait_BADTEMPER( "BADTEMPER" );
-static const trait_id trait_CENOBITE( "CENOBITE" );
-static const trait_id trait_FLOWERS( "FLOWERS" );
+static const trait_id trait_BADTEMPER( "BADTEMPER"_id );
+static const trait_id trait_CENOBITE( "CENOBITE"_id );
+static const trait_id trait_FLOWERS( "FLOWERS"_id );
 static const trait_id trait_LEAVES2( "LEAVES2" );
 static const trait_id trait_LEAVES3( "LEAVES3" );
-static const trait_id trait_MASOCHIST( "MASOCHIST" );
-static const trait_id trait_MASOCHIST_MED( "MASOCHIST_MED" );
-static const trait_id trait_OPTIMISTIC( "OPTIMISTIC" );
+static const trait_id trait_MASOCHIST( "MASOCHIST"_id );
+static const trait_id trait_MASOCHIST_MED( "MASOCHIST_MED"_id );
+static const trait_id trait_OPTIMISTIC( "OPTIMISTIC"_id );
 static const trait_id trait_ROOTS1( "ROOTS1" );
 static const trait_id trait_ROOTS2( "ROOTS2" );
 static const trait_id trait_ROOTS3( "ROOTS3" );
-static const trait_id trait_STYLISH( "STYLISH" );
+static const trait_id trait_STYLISH( "STYLISH"_id );
 
 namespace
 {
@@ -903,7 +903,7 @@ void player_morale::on_worn_item_washed( const item &it )
 void player_morale::on_effect_int_change( const efftype_id &eid, int intensity,
         const bodypart_id &bp )
 {
-    const bodypart_id bp_null( "bp_null" );
+    const bodypart_id bp_null( "bp_null"_id );
     if( eid == effect_took_prozac && bp == bp_null ) {
         set_prozac( intensity != 0 );
     } else if( eid == effect_took_prozac_bad && bp == bp_null ) {
@@ -1058,16 +1058,16 @@ void player_morale::update_constrained_penalty()
     int pen = 0;
 
     if( has_mutation( trait_FLOWERS ) ) {
-        pen += bp_pen( bodypart_id( "head" ), 10 );
+        pen += bp_pen( bodypart_id( "head"_id ), 10 );
     }
     if( has_mutation( trait_ROOTS1 ) || has_mutation( trait_ROOTS2 ) ||
         has_mutation( trait_ROOTS3 ) ) {
-        pen += bp_pen( bodypart_id( "foot_l" ), 5 );
-        pen += bp_pen( bodypart_id( "foot_r" ), 5 );
+        pen += bp_pen( bodypart_id( "foot_l"_id ), 5 );
+        pen += bp_pen( bodypart_id( "foot_r"_id ), 5 );
     }
     if( has_mutation( trait_LEAVES2 ) || has_mutation( trait_LEAVES3 ) ) {
-        pen += bp_pen( bodypart_id( "arm_l" ), 5 );
-        pen += bp_pen( bodypart_id( "arm_r" ), 5 );
+        pen += bp_pen( bodypart_id( "arm_l"_id ), 5 );
+        pen += bp_pen( bodypart_id( "arm_r"_id ), 5 );
     }
     set_permanent( MORALE_PERM_CONSTRAINED, -std::min( pen, 10 ) );
 }

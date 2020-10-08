@@ -104,58 +104,58 @@ static const std::string CLOTHING_MOD_VAR_PREFIX( "clothing_mod_" );
 static const ammotype ammo_battery( "battery" );
 static const ammotype ammo_plutonium( "plutonium" );
 
-static const item_category_id item_category_drugs( "drugs" );
-static const item_category_id item_category_food( "food" );
-static const item_category_id item_category_maps( "maps" );
-static const item_category_id item_category_container( "container" );
+static const item_category_id item_category_drugs( "drugs"_id );
+static const item_category_id item_category_food( "food"_id );
+static const item_category_id item_category_maps( "maps"_id );
+static const item_category_id item_category_container( "container"_id );
 
-static const efftype_id effect_cig( "cig" );
-static const efftype_id effect_shakes( "shakes" );
-static const efftype_id effect_sleep( "sleep" );
-static const efftype_id effect_weed_high( "weed_high" );
-static const efftype_id effect_bleed( "bleed" );
+static const efftype_id effect_cig( "cig"_id );
+static const efftype_id effect_shakes( "shakes"_id );
+static const efftype_id effect_sleep( "sleep"_id );
+static const efftype_id effect_weed_high( "weed_high"_id );
+static const efftype_id effect_bleed( "bleed"_id );
 
-static const fault_id fault_gun_blackpowder( "fault_gun_blackpowder" );
+static const fault_id fault_gun_blackpowder( "fault_gun_blackpowder"_id );
 
-static const gun_mode_id gun_mode_REACH( "REACH" );
+static const gun_mode_id gun_mode_REACH( "REACH"_id );
 
-static const itype_id itype_battery( "battery" );
-static const itype_id itype_barrel_small( "barrel_small" );
-static const itype_id itype_blood( "blood" );
-static const itype_id itype_brass_catcher( "brass_catcher" );
-static const itype_id itype_bullet_crossbow( "bullet_crossbow" );
-static const itype_id itype_cig_butt( "cig_butt" );
-static const itype_id itype_cig_lit( "cig_lit" );
-static const itype_id itype_cigar_butt( "cigar_butt" );
-static const itype_id itype_cigar_lit( "cigar_lit" );
-static const itype_id itype_hand_crossbow( "hand_crossbow" );
-static const itype_id itype_joint_roach( "joint_roach" );
-static const itype_id itype_plut_cell( "plut_cell" );
-static const itype_id itype_rad_badge( "rad_badge" );
-static const itype_id itype_tuned_mechanism( "tuned_mechanism" );
-static const itype_id itype_UPS( "UPS" );
-static const itype_id itype_waterproof_gunmod( "waterproof_gunmod" );
+static const itype_id itype_battery( "battery"_id );
+static const itype_id itype_barrel_small( "barrel_small"_id );
+static const itype_id itype_blood( "blood"_id );
+static const itype_id itype_brass_catcher( "brass_catcher"_id );
+static const itype_id itype_bullet_crossbow( "bullet_crossbow"_id );
+static const itype_id itype_cig_butt( "cig_butt"_id );
+static const itype_id itype_cig_lit( "cig_lit"_id );
+static const itype_id itype_cigar_butt( "cigar_butt"_id );
+static const itype_id itype_cigar_lit( "cigar_lit"_id );
+static const itype_id itype_hand_crossbow( "hand_crossbow"_id );
+static const itype_id itype_joint_roach( "joint_roach"_id );
+static const itype_id itype_plut_cell( "plut_cell"_id );
+static const itype_id itype_rad_badge( "rad_badge"_id );
+static const itype_id itype_tuned_mechanism( "tuned_mechanism"_id );
+static const itype_id itype_UPS( "UPS"_id );
+static const itype_id itype_waterproof_gunmod( "waterproof_gunmod"_id );
 
-static const skill_id skill_cooking( "cooking" );
-static const skill_id skill_melee( "melee" );
-static const skill_id skill_survival( "survival" );
-static const skill_id skill_unarmed( "unarmed" );
-static const skill_id skill_weapon( "weapon" );
+static const skill_id skill_cooking( "cooking"_id );
+static const skill_id skill_melee( "melee"_id );
+static const skill_id skill_survival( "survival"_id );
+static const skill_id skill_unarmed( "unarmed"_id );
+static const skill_id skill_weapon( "weapon"_id );
 
-static const quality_id qual_JACK( "JACK" );
-static const quality_id qual_LIFT( "LIFT" );
-static const species_id species_ROBOT( "ROBOT" );
+static const quality_id qual_JACK( "JACK"_id );
+static const quality_id qual_LIFT( "LIFT"_id );
+static const species_id species_ROBOT( "ROBOT"_id );
 
 static const std::string trait_flag_CANNIBAL( "CANNIBAL" );
 
-static const bionic_id bio_digestion( "bio_digestion" );
+static const bionic_id bio_digestion( "bio_digestion"_id );
 
-static const trait_id trait_CARNIVORE( "CARNIVORE" );
-static const trait_id trait_JITTERY( "JITTERY" );
-static const trait_id trait_LIGHTWEIGHT( "LIGHTWEIGHT" );
-static const trait_id trait_SAPROVORE( "SAPROVORE" );
-static const trait_id trait_TOLERANCE( "TOLERANCE" );
-static const trait_id trait_WOOLALLERGY( "WOOLALLERGY" );
+static const trait_id trait_CARNIVORE( "CARNIVORE"_id );
+static const trait_id trait_JITTERY( "JITTERY"_id );
+static const trait_id trait_LIGHTWEIGHT( "LIGHTWEIGHT"_id );
+static const trait_id trait_SAPROVORE( "SAPROVORE"_id );
+static const trait_id trait_TOLERANCE( "TOLERANCE"_id );
+static const trait_id trait_WOOLALLERGY( "WOOLALLERGY"_id );
 
 static const std::string flag_ALWAYS_TWOHAND( "ALWAYS_TWOHAND" );
 static const std::string flag_AURA( "AURA" );
@@ -266,7 +266,7 @@ static const std::string flag_WATER_EXTINGUISH( "WATER_EXTINGUISH" );
 static const std::string flag_WET( "WET" );
 static const std::string flag_WIND_EXTINGUISH( "WIND_EXTINGUISH" );
 
-static const matec_id RAPID( "RAPID" );
+static const matec_id RAPID( "RAPID"_id );
 
 class npc_class;
 
@@ -786,7 +786,7 @@ body_part_set item::get_covered_body_parts( const side s ) const
     if( is_gun() ) {
         // Currently only used for guns with the should strap mod, other guns might
         // go on another bodypart.
-        res.set( bodypart_str_id( "torso" ) );
+        res.set( bodypart_str_id( "torso"_id ) );
     }
 
     const islot_armor *armor = find_armor_data();
@@ -809,17 +809,17 @@ body_part_set item::get_covered_body_parts( const side s ) const
             break;
 
         case side::LEFT:
-            res.reset( bodypart_str_id( "arm_r" ) );
-            res.reset( bodypart_str_id( "hand_r" ) );
-            res.reset( bodypart_str_id( "leg_r" ) );
-            res.reset( bodypart_str_id( "foot_r" ) );
+            res.reset( bodypart_str_id( "arm_r"_id ) );
+            res.reset( bodypart_str_id( "hand_r"_id ) );
+            res.reset( bodypart_str_id( "leg_r"_id ) );
+            res.reset( bodypart_str_id( "foot_r"_id ) );
             break;
 
         case side::RIGHT:
-            res.reset( bodypart_str_id( "arm_l" ) );
-            res.reset( bodypart_str_id( "hand_l" ) );
-            res.reset( bodypart_str_id( "leg_l" ) );
-            res.reset( bodypart_str_id( "foot_l" ) );
+            res.reset( bodypart_str_id( "arm_l"_id ) );
+            res.reset( bodypart_str_id( "hand_l"_id ) );
+            res.reset( bodypart_str_id( "leg_l"_id ) );
+            res.reset( bodypart_str_id( "foot_l"_id ) );
             break;
     }
 
@@ -861,7 +861,7 @@ bool item::swap_side()
 
 bool item::is_worn_only_with( const item &it ) const
 {
-    return is_power_armor() && it.is_power_armor() && it.covers( bodypart_id( "torso" ) );
+    return is_power_armor() && it.is_power_armor() && it.covers( bodypart_id( "torso"_id ) );
 }
 
 item item::in_its_container( int qty ) const
@@ -1363,7 +1363,7 @@ static int get_base_env_resist( const item &it )
 
 bool item::is_owned_by( const Character &c, bool available_to_take ) const
 {
-    // owner.is_null() implies faction_id( "no_faction" ) which shouldn't happen, or no owner at all.
+    // owner.is_null() implies faction_id( "no_faction"_id ) which shouldn't happen, or no owner at all.
     // either way, certain situations this means the thing is available to take.
     // in other scenarios we actually really want to check for id == id, even for no_faction
     if( get_owner().is_null() ) {
@@ -1459,7 +1459,7 @@ double item::effective_dps( const Character &guy, monster &mon ) const
 {
     const float mon_dodge = mon.get_dodge();
     float base_hit = guy.get_dex() / 4.0f + guy.get_hit_weapon( *this );
-    base_hit *= std::max( 0.25f, 1.0f - guy.encumb( bodypart_id( "torso" ) ) / 100.0f );
+    base_hit *= std::max( 0.25f, 1.0f - guy.encumb( bodypart_id( "torso"_id ) ) / 100.0f );
     float mon_defense = mon_dodge + mon.size_melee_penalty() / 5.0f;
     constexpr double hit_trials = 10000.0;
     const int rng_mean = std::max( std::min( static_cast<int>( base_hit - mon_defense ), 20 ),
@@ -1496,12 +1496,12 @@ double item::effective_dps( const Character &guy, monster &mon ) const
         damage_instance base_damage;
         guy.roll_all_damage( crit, base_damage, true, *this );
         damage_instance dealt_damage = base_damage;
-        temp_mon.absorb_hit( bodypart_id( "torso" ), dealt_damage );
+        temp_mon.absorb_hit( bodypart_id( "torso"_id ), dealt_damage );
         dealt_damage_instance dealt_dams;
         for( const damage_unit &dmg_unit : dealt_damage.damage_units ) {
             int cur_damage = 0;
             int total_pain = 0;
-            temp_mon.deal_damage_handle_type( dmg_unit, bodypart_id( "torso" ), cur_damage, total_pain );
+            temp_mon.deal_damage_handle_type( dmg_unit, bodypart_id( "torso"_id ), cur_damage, total_pain );
             if( cur_damage > 0 ) {
                 dealt_dams.dealt_dams[ static_cast<int>( dmg_unit.type )] += cur_damage;
             }
@@ -1518,12 +1518,12 @@ double item::effective_dps( const Character &guy, monster &mon ) const
             for( damage_unit &dmg_unit : dealt_rs_damage.damage_units ) {
                 dmg_unit.damage_multiplier *= 0.66;
             }
-            temp_rs_mon.absorb_hit( bodypart_id( "torso" ), dealt_rs_damage );
+            temp_rs_mon.absorb_hit( bodypart_id( "torso"_id ), dealt_rs_damage );
             dealt_damage_instance rs_dealt_dams;
             for( const damage_unit &dmg_unit : dealt_rs_damage.damage_units ) {
                 int cur_damage = 0;
                 int total_pain = 0;
-                temp_rs_mon.deal_damage_handle_type( dmg_unit, bodypart_id( "torso" ), cur_damage, total_pain );
+                temp_rs_mon.deal_damage_handle_type( dmg_unit, bodypart_id( "torso"_id ), cur_damage, total_pain );
                 if( cur_damage > 0 ) {
                     rs_dealt_dams.dealt_dams[ static_cast<int>( dmg_unit.type ) ] += cur_damage;
                 }
@@ -1552,10 +1552,10 @@ struct dps_comp_data {
 };
 
 static const std::vector<std::pair<translation, dps_comp_data>> dps_comp_monsters = {
-    { to_translation( "Best" ), { mtype_id( "debug_mon" ), true, false } },
-    { to_translation( "Vs. Agile" ), { mtype_id( "mon_zombie_smoker" ), true, true } },
-    { to_translation( "Vs. Armored" ), { mtype_id( "mon_zombie_soldier" ), true, true } },
-    { to_translation( "Vs. Mixed" ), { mtype_id( "mon_zombie_survivor" ), false, true } },
+    { to_translation( "Best" ), { mtype_id( "debug_mon"_id ), true, false } },
+    { to_translation( "Vs. Agile" ), { mtype_id( "mon_zombie_smoker"_id ), true, true } },
+    { to_translation( "Vs. Armored" ), { mtype_id( "mon_zombie_soldier"_id ), true, true } },
+    { to_translation( "Vs. Mixed" ), { mtype_id( "mon_zombie_survivor"_id ), false, true } },
 };
 
 std::map<std::string, double> item::dps( const bool for_display, const bool for_calc,
@@ -1892,7 +1892,7 @@ void item::food_info( const item *food_item, std::vector<iteminfo> &info,
     insert_separation_line( info );
 
     if( parts->test( iteminfo_parts::FOOD_ALLERGEN )
-        && player_character.allergy_type( *food_item ) != morale_type( "morale_null" ) ) {
+        && player_character.allergy_type( *food_item ) != morale_type( "morale_null"_id ) ) {
         info.emplace_back( "DESCRIPTION",
                            _( "* This food will cause an <bad>allergic reaction</bad>." ) );
     }
@@ -2612,56 +2612,56 @@ void item::armor_info( std::vector<iteminfo> &info, const iteminfo_query *parts,
     if( parts->test( iteminfo_parts::ARMOR_BODYPARTS ) ) {
         insert_separation_line( info );
         std::string coverage = _( "<bold>Covers</bold>:" );
-        if( covers( bodypart_id( "head" ) ) ) {
+        if( covers( bodypart_id( "head"_id ) ) ) {
             coverage += _( " The <info>head</info>." );
         }
-        if( covers( bodypart_id( "eyes" ) ) ) {
+        if( covers( bodypart_id( "eyes"_id ) ) ) {
             coverage += _( " The <info>eyes</info>." );
         }
-        if( covers( bodypart_id( "mouth" ) ) ) {
+        if( covers( bodypart_id( "mouth"_id ) ) ) {
             coverage += _( " The <info>mouth</info>." );
         }
-        if( covers( bodypart_id( "torso" ) ) ) {
+        if( covers( bodypart_id( "torso"_id ) ) ) {
             coverage += _( " The <info>torso</info>." );
         }
 
-        if( is_sided() && ( covers( bodypart_id( "arm_l" ) ) || covers( bodypart_id( "arm_r" ) ) ) ) {
+        if( is_sided() && ( covers( bodypart_id( "arm_l"_id ) ) || covers( bodypart_id( "arm_r"_id ) ) ) ) {
             coverage += _( " Either <info>arm</info>." );
-        } else if( covers( bodypart_id( "arm_l" ) ) && covers( bodypart_id( "arm_r" ) ) ) {
+        } else if( covers( bodypart_id( "arm_l"_id ) ) && covers( bodypart_id( "arm_r"_id ) ) ) {
             coverage += _( " The <info>arms</info>." );
-        } else if( covers( bodypart_id( "arm_l" ) ) ) {
+        } else if( covers( bodypart_id( "arm_l"_id ) ) ) {
             coverage += _( " The <info>left arm</info>." );
-        } else if( covers( bodypart_id( "arm_r" ) ) ) {
+        } else if( covers( bodypart_id( "arm_r"_id ) ) ) {
             coverage += _( " The <info>right arm</info>." );
         }
 
-        if( is_sided() && ( covers( bodypart_id( "hand_l" ) ) || covers( bodypart_id( "hand_r" ) ) ) ) {
+        if( is_sided() && ( covers( bodypart_id( "hand_l"_id ) ) || covers( bodypart_id( "hand_r"_id ) ) ) ) {
             coverage += _( " Either <info>hand</info>." );
-        } else if( covers( bodypart_id( "hand_l" ) ) && covers( bodypart_id( "hand_r" ) ) ) {
+        } else if( covers( bodypart_id( "hand_l"_id ) ) && covers( bodypart_id( "hand_r"_id ) ) ) {
             coverage += _( " The <info>hands</info>." );
-        } else if( covers( bodypart_id( "hand_l" ) ) ) {
+        } else if( covers( bodypart_id( "hand_l"_id ) ) ) {
             coverage += _( " The <info>left hand</info>." );
-        } else if( covers( bodypart_id( "hand_r" ) ) ) {
+        } else if( covers( bodypart_id( "hand_r"_id ) ) ) {
             coverage += _( " The <info>right hand</info>." );
         }
 
-        if( is_sided() && ( covers( bodypart_id( "leg_l" ) ) || covers( bodypart_id( "leg_r" ) ) ) ) {
+        if( is_sided() && ( covers( bodypart_id( "leg_l"_id ) ) || covers( bodypart_id( "leg_r"_id ) ) ) ) {
             coverage += _( " Either <info>leg</info>." );
-        } else if( covers( bodypart_id( "leg_l" ) ) && covers( bodypart_id( "leg_r" ) ) ) {
+        } else if( covers( bodypart_id( "leg_l"_id ) ) && covers( bodypart_id( "leg_r"_id ) ) ) {
             coverage += _( " The <info>legs</info>." );
-        } else if( covers( bodypart_id( "leg_l" ) ) ) {
+        } else if( covers( bodypart_id( "leg_l"_id ) ) ) {
             coverage += _( " The <info>left leg</info>." );
-        } else if( covers( bodypart_id( "leg_r" ) ) ) {
+        } else if( covers( bodypart_id( "leg_r"_id ) ) ) {
             coverage += _( " The <info>right leg</info>." );
         }
 
-        if( is_sided() && ( covers( bodypart_id( "foot_l" ) ) || covers( bodypart_id( "foot_r" ) ) ) ) {
+        if( is_sided() && ( covers( bodypart_id( "foot_l"_id ) ) || covers( bodypart_id( "foot_r"_id ) ) ) ) {
             coverage += _( " Either <info>foot</info>." );
-        } else if( covers( bodypart_id( "foot_l" ) ) && covers( bodypart_id( "foot_r" ) ) ) {
+        } else if( covers( bodypart_id( "foot_l"_id ) ) && covers( bodypart_id( "foot_r"_id ) ) ) {
             coverage += _( " The <info>feet</info>." );
-        } else if( covers( bodypart_id( "foot_l" ) ) ) {
+        } else if( covers( bodypart_id( "foot_l"_id ) ) ) {
             coverage += _( " The <info>left foot</info>." );
-        } else if( covers( bodypart_id( "foot_r" ) ) ) {
+        } else if( covers( bodypart_id( "foot_r"_id ) ) ) {
             coverage += _( " The <info>right foot</info>." );
         }
 
@@ -2752,7 +2752,7 @@ void item::armor_info( std::vector<iteminfo> &info, const iteminfo_query *parts,
                 for( const armor_portion_data &piece : t->data ) {
                     if( piece.covers.has_value() ) {
                         for( const bodypart_str_id &covering_id : piece.covers.value() ) {
-                            if( covering_id != bodypart_str_id( "bp_null" ) ) {
+                            if( covering_id != bodypart_str_id( "bp_null"_id ) ) {
                                 to_display_data[covering_id] = { covering_id.obj().name_as_heading, {
                                         get_encumber( player_character, covering_id ),
                                         get_encumber( player_character, covering_id, encumber_flags::assume_full ),
@@ -2983,7 +2983,7 @@ void item::armor_fit_info( std::vector<iteminfo> &info, const iteminfo_query *pa
         info.push_back( iteminfo( "DESCRIPTION",
                                   _( "* This gear is a part of power armor." ) ) );
         if( parts->test( iteminfo_parts::DESCRIPTION_FLAGS_POWERARMOR_RADIATIONHINT ) ) {
-            if( covers( bodypart_id( "head" ) ) ) {
+            if( covers( bodypart_id( "head"_id ) ) ) {
                 info.push_back( iteminfo( "DESCRIPTION",
                                           _( "* When worn with a power armor suit, it will "
                                              "<good>fully protect</good> you from "
@@ -3775,7 +3775,7 @@ void item::final_info( std::vector<iteminfo> &info, const iteminfo_query *parts,
     avatar &player_character = get_avatar();
     if( parts->test( iteminfo_parts::DESCRIPTION_ALLERGEN ) ) {
         if( is_armor() && player_character.has_trait( trait_WOOLALLERGY ) &&
-            ( made_of( material_id( "wool" ) ) || item_tags.count( "wooled" ) ) ) {
+            ( made_of( material_id( "wool"_id ) ) || item_tags.count( "wooled" ) ) ) {
             info.push_back( iteminfo( "DESCRIPTION",
                                       _( "* This clothing will give you an <bad>allergic "
                                          "reaction</bad>." ) ) );
@@ -4198,7 +4198,7 @@ nc_color item::color_in_inventory() const
     } else if( has_flag( flag_LITCIG ) ) {
         ret = c_red;
     } else if( is_armor() && player_character.has_trait( trait_WOOLALLERGY ) &&
-               ( made_of( material_id( "wool" ) ) || item_tags.count( "wooled" ) ) ) {
+               ( made_of( material_id( "wool"_id ) ) || item_tags.count( "wooled" ) ) ) {
         ret = c_red;
     } else if( is_filthy() || item_tags.count( "DIRTY" ) ) {
         ret = c_brown;
@@ -4220,7 +4220,7 @@ nc_color item::color_in_inventory() const
 
         // Give color priority to allergy (allergy > inedible by freeze or other conditions)
         // TODO: refactor u.will_eat to let this section handle coloring priority without duplicating code.
-        if( player_character.allergy_type( *food ) != morale_type( "morale_null" ) ) {
+        if( player_character.allergy_type( *food ) != morale_type( "morale_null"_id ) ) {
             return c_red;
         }
 
@@ -4332,19 +4332,19 @@ void item::on_wear( Character &p )
     if( is_sided() && get_side() == side::BOTH ) {
         if( has_flag( flag_SPLINT ) ) {
             set_side( side::LEFT );
-            if( ( covers( bodypart_id( "leg_l" ) ) && p.is_limb_broken( bodypart_id( "leg_r" ) ) &&
-                  !p.worn_with_flag( flag_SPLINT, bodypart_id( "leg_r" ) ) ) ||
-                ( covers( bodypart_id( "arm_l" ) ) && p.is_limb_broken( bodypart_id( "arm_r" ) ) &&
-                  !p.worn_with_flag( flag_SPLINT, bodypart_id( "arm_r" ) ) ) ) {
+            if( ( covers( bodypart_id( "leg_l"_id ) ) && p.is_limb_broken( bodypart_id( "leg_r"_id ) ) &&
+                  !p.worn_with_flag( flag_SPLINT, bodypart_id( "leg_r"_id ) ) ) ||
+                ( covers( bodypart_id( "arm_l"_id ) ) && p.is_limb_broken( bodypart_id( "arm_r"_id ) ) &&
+                  !p.worn_with_flag( flag_SPLINT, bodypart_id( "arm_r"_id ) ) ) ) {
                 set_side( side::RIGHT );
             }
         } else if( has_flag( flag_TOURNIQUET ) ) {
             set_side( side::LEFT );
-            if( ( covers( bodypart_id( "leg_l" ) ) &&
-                  p.has_effect( effect_bleed, bodypart_str_id( "leg_r" ) ) &&
-                  !p.worn_with_flag( flag_TOURNIQUET, bodypart_id( "leg_r" ) ) ) ||
-                ( covers( bodypart_id( "arm_l" ) ) && p.has_effect( effect_bleed, bodypart_str_id( "arm_r" ) ) &&
-                  !p.worn_with_flag( flag_TOURNIQUET, bodypart_id( "arm_r" ) ) ) ) {
+            if( ( covers( bodypart_id( "leg_l"_id ) ) &&
+                  p.has_effect( effect_bleed, bodypart_str_id( "leg_r"_id ) ) &&
+                  !p.worn_with_flag( flag_TOURNIQUET, bodypart_id( "leg_r"_id ) ) ) ||
+                ( covers( bodypart_id( "arm_l"_id ) ) && p.has_effect( effect_bleed, bodypart_str_id( "arm_r"_id ) ) &&
+                  !p.worn_with_flag( flag_TOURNIQUET, bodypart_id( "arm_r"_id ) ) ) ) {
                 set_side( side::RIGHT );
             }
         } else {
@@ -4468,7 +4468,7 @@ void item::handle_pickup_ownership( Character &c )
                 set_old_owner( get_owner() );
                 bool guard_chosen = false;
                 for( npc *elem : witnesses ) {
-                    if( elem->myclass == npc_class_id( "NC_BOUNTY_HUNTER" ) ) {
+                    if( elem->myclass == npc_class_id( "NC_BOUNTY_HUNTER"_id ) ) {
                         guard_chosen = true;
                         elem->witness_thievery( &*this );
                         break;
@@ -5440,7 +5440,7 @@ int item::get_quality( const quality_id &id ) const
         }
         return false;
     };
-    if( id == quality_id( "BOIL" ) && !( contents.empty() ||
+    if( id == quality_id( "BOIL"_id ) && !( contents.empty() ||
                                          ( is_tool() && !has_item_with( boil_filter ) ) ) ) {
         return INT_MIN;
     }
@@ -6027,7 +6027,7 @@ bool item::ready_to_revive( const tripoint &pos ) const
 
 bool item::is_money() const
 {
-    return ammo_types().count( ammotype( "money" ) );
+    return ammo_types().count( ammotype( "money"_id ) );
 }
 
 bool item::is_software() const
@@ -7225,7 +7225,7 @@ skill_id item::gun_skill() const
 
 gun_type_type item::gun_type() const
 {
-    static skill_id skill_archery( "archery" );
+    static skill_id skill_archery( "archery"_id );
 
     if( !is_gun() ) {
         return gun_type_type( std::string() );
@@ -7233,7 +7233,7 @@ gun_type_type item::gun_type() const
     // TODO: move to JSON and remove extraction of this from "GUN" (via skill id)
     //and from "GUNMOD" (via "mod_targets") in lang/extract_json_strings.py
     if( gun_skill() == skill_archery ) {
-        if( ammo_types().count( ammotype( "bolt" ) ) || typeId() == itype_bullet_crossbow ) {
+        if( ammo_types().count( ammotype( "bolt"_id ) ) || typeId() == itype_bullet_crossbow ) {
             return gun_type_type( translate_marker_context( "gun_type_type", "crossbow" ) );
         } else {
             return gun_type_type( translate_marker_context( "gun_type_type", "bow" ) );
@@ -8347,7 +8347,7 @@ int item::getlight_emit() const
 {
     float lumint = type->light_emission;
     if( ammo_required() == 0 ||
-        ( has_flag( flag_USE_UPS ) && ammo_capacity( ammotype( "battery" ) ) == 0 ) ) {
+        ( has_flag( flag_USE_UPS ) && ammo_capacity( ammotype( "battery"_id ) ) == 0 ) ) {
         return lumint;
     }
     if( lumint == 0 || ammo_remaining() == 0 ) {
@@ -9458,8 +9458,8 @@ bool item::process_corpse( player *carrier, const tripoint &pos )
 
     // handle human corpses rising as zombies
     if( corpse->id == mtype_id::NULL_ID() && !has_var( "zombie_form" ) &&
-        !mtype_id( "mon_human" )->zombify_into.is_empty() ) {
-        set_var( "zombie_form", mtype_id( "mon_human" )->zombify_into.c_str() );
+        !mtype_id( "mon_human"_id )->zombify_into.is_empty() ) {
+        set_var( "zombie_form", mtype_id( "mon_human"_id )->zombify_into.c_str() );
     }
 
     if( !ready_to_revive( pos ) ) {
@@ -9491,8 +9491,8 @@ bool item::process_corpse( player *carrier, const tripoint &pos )
 bool item::process_fake_mill( player * /*carrier*/, const tripoint &pos )
 {
     map &here = get_map();
-    if( here.furn( pos ) != furn_str_id( "f_wind_mill_active" ) &&
-        here.furn( pos ) != furn_str_id( "f_water_mill_active" ) ) {
+    if( here.furn( pos ) != furn_str_id( "f_wind_mill_active"_id ) &&
+        here.furn( pos ) != furn_str_id( "f_water_mill_active"_id ) ) {
         item_counter = 0;
         return true; //destroy fake mill
     }
@@ -9508,8 +9508,8 @@ bool item::process_fake_mill( player * /*carrier*/, const tripoint &pos )
 bool item::process_fake_smoke( player * /*carrier*/, const tripoint &pos )
 {
     map &here = get_map();
-    if( here.furn( pos ) != furn_str_id( "f_smoking_rack_active" ) &&
-        here.furn( pos ) != furn_str_id( "f_metal_smoking_rack_active" ) ) {
+    if( here.furn( pos ) != furn_str_id( "f_smoking_rack_active"_id ) &&
+        here.furn( pos ) != furn_str_id( "f_metal_smoking_rack_active"_id ) ) {
         item_counter = 0;
         return true; //destroy fake smoke
     }
@@ -9588,7 +9588,7 @@ bool item::process_litcig( player *carrier, const tripoint &pos )
             convert( itype_joint_roach );
             if( carrier != nullptr ) {
                 carrier->add_effect( effect_weed_high, 1_minutes ); // one last puff
-                here.add_field( pos + point( rng( -1, 1 ), rng( -1, 1 ) ), field_type_id( "fd_weedsmoke" ), 2 );
+                here.add_field( pos + point( rng( -1, 1 ), rng( -1, 1 ) ), field_type_id( "fd_weedsmoke"_id ), 2 );
                 weed_msg( *carrier );
             }
         }

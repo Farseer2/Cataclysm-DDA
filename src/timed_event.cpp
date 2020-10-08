@@ -28,17 +28,17 @@
 #include "translations.h"
 #include "type_id.h"
 
-static const itype_id itype_petrified_eye( "petrified_eye" );
+static const itype_id itype_petrified_eye( "petrified_eye"_id );
 
-static const mtype_id mon_amigara_horror( "mon_amigara_horror" );
-static const mtype_id mon_copbot( "mon_copbot" );
-static const mtype_id mon_dark_wyrm( "mon_dark_wyrm" );
-static const mtype_id mon_dermatik( "mon_dermatik" );
-static const mtype_id mon_eyebot( "mon_eyebot" );
-static const mtype_id mon_riotbot( "mon_riotbot" );
-static const mtype_id mon_sewer_snake( "mon_sewer_snake" );
-static const mtype_id mon_spider_cellar_giant( "mon_spider_cellar_giant" );
-static const mtype_id mon_spider_widow_giant( "mon_spider_widow_giant" );
+static const mtype_id mon_amigara_horror( "mon_amigara_horror"_id );
+static const mtype_id mon_copbot( "mon_copbot"_id );
+static const mtype_id mon_dark_wyrm( "mon_dark_wyrm"_id );
+static const mtype_id mon_dermatik( "mon_dermatik"_id );
+static const mtype_id mon_eyebot( "mon_eyebot"_id );
+static const mtype_id mon_riotbot( "mon_riotbot"_id );
+static const mtype_id mon_sewer_snake( "mon_sewer_snake"_id );
+static const mtype_id mon_spider_cellar_giant( "mon_spider_cellar_giant"_id );
+static const mtype_id mon_spider_widow_giant( "mon_spider_widow_giant"_id );
 
 timed_event::timed_event( timed_event_type e_t, const time_point &w, int f_id, tripoint p )
     : type( e_t )

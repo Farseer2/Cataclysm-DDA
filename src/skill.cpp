@@ -168,13 +168,13 @@ const SkillDisplayType &SkillDisplayType::get_skill_type( const skill_displayTyp
 skill_id Skill::from_legacy_int( const int legacy_id )
 {
     static const std::array<skill_id, 28> legacy_skills = { {
-            skill_id::NULL_ID(), skill_id( "dodge" ), skill_id( "melee" ), skill_id( "unarmed" ),
-            skill_id( "bashing" ), skill_id( "cutting" ), skill_id( "stabbing" ), skill_id( "throw" ),
-            skill_id( "gun" ), skill_id( "pistol" ), skill_id( "shotgun" ), skill_id( "smg" ),
-            skill_id( "rifle" ), skill_id( "archery" ), skill_id( "launcher" ), skill_id( "mechanics" ),
-            skill_id( "electronics" ), skill_id( "cooking" ), skill_id( "tailor" ), skill_id::NULL_ID(),
-            skill_id( "firstaid" ), skill_id( "speech" ), skill_id( "barter" ), skill_id( "computer" ),
-            skill_id( "survival" ), skill_id( "traps" ), skill_id( "swimming" ), skill_id( "driving" ),
+            skill_id::NULL_ID(), skill_id( "dodge"_id ), skill_id( "melee"_id ), skill_id( "unarmed"_id ),
+            skill_id( "bashing"_id ), skill_id( "cutting"_id ), skill_id( "stabbing"_id ), skill_id( "throw"_id ),
+            skill_id( "gun"_id ), skill_id( "pistol"_id ), skill_id( "shotgun"_id ), skill_id( "smg"_id ),
+            skill_id( "rifle"_id ), skill_id( "archery"_id ), skill_id( "launcher"_id ), skill_id( "mechanics"_id ),
+            skill_id( "electronics"_id ), skill_id( "cooking"_id ), skill_id( "tailor"_id ), skill_id::NULL_ID(),
+            skill_id( "firstaid"_id ), skill_id( "speech"_id ), skill_id( "barter"_id ), skill_id( "computer"_id ),
+            skill_id( "survival"_id ), skill_id( "traps"_id ), skill_id( "swimming"_id ), skill_id( "driving"_id ),
         }
     };
     if( static_cast<size_t>( legacy_id ) < legacy_skills.size() ) {

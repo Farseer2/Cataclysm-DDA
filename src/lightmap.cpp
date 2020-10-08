@@ -41,8 +41,8 @@
 #include "weather.h"
 #include "weather_type.h"
 
-static const efftype_id effect_haslight( "haslight" );
-static const efftype_id effect_onfire( "onfire" );
+static const efftype_id effect_haslight( "haslight"_id );
+static const efftype_id effect_onfire( "onfire"_id );
 
 static constexpr int LIGHTMAP_CACHE_X = MAPSIZE_X;
 static constexpr int LIGHTMAP_CACHE_Y = MAPSIZE_Y;

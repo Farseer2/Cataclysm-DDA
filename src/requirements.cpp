@@ -32,19 +32,19 @@
 #include "translations.h"
 #include "visitable.h"
 
-static const itype_id itype_char_forge( "char_forge" );
-static const itype_id itype_crucible( "crucible" );
-static const itype_id itype_fire( "fire" );
-static const itype_id itype_forge( "forge" );
-static const itype_id itype_mold_plastic( "mold_plastic" );
-static const itype_id itype_oxy_torch( "oxy_torch" );
-static const itype_id itype_press( "press" );
-static const itype_id itype_sewing_kit( "sewing_kit" );
-static const itype_id itype_UPS( "UPS" );
-static const itype_id itype_welder( "welder" );
-static const itype_id itype_welder_crude( "welder_crude" );
+static const itype_id itype_char_forge( "char_forge"_id );
+static const itype_id itype_crucible( "crucible"_id );
+static const itype_id itype_fire( "fire"_id );
+static const itype_id itype_forge( "forge"_id );
+static const itype_id itype_mold_plastic( "mold_plastic"_id );
+static const itype_id itype_oxy_torch( "oxy_torch"_id );
+static const itype_id itype_press( "press"_id );
+static const itype_id itype_sewing_kit( "sewing_kit"_id );
+static const itype_id itype_UPS( "UPS"_id );
+static const itype_id itype_welder( "welder"_id );
+static const itype_id itype_welder_crude( "welder_crude"_id );
 
-static const trait_id trait_DEBUG_HS( "DEBUG_HS" );
+static const trait_id trait_DEBUG_HS( "DEBUG_HS"_id );
 
 static std::map<requirement_id, requirement_data> requirements_all;
 
@@ -976,14 +976,14 @@ requirement_data requirement_data::disassembly_requirements() const
             // If crafting required a welder or forge then disassembly requires metal sawing
             if( type == itype_welder || type == itype_welder_crude || type == itype_oxy_torch ||
                 type == itype_forge || type == itype_char_forge ) {
-                new_qualities.emplace_back( quality_id( "SAW_M_FINE" ), 1, 1 );
+                new_qualities.emplace_back( quality_id( "SAW_M_FINE"_id ), 1, 1 );
                 replaced = true;
                 break;
             }
             //This only catches instances where the two tools are explicitly stated, and not just the required sewing quality
             if( type == itype_sewing_kit ||
                 type == itype_mold_plastic ) {
-                new_qualities.emplace_back( quality_id( "CUT" ), 1, 1 );
+                new_qualities.emplace_back( quality_id( "CUT"_id ), 1, 1 );
                 replaced = true;
                 break;
             }
@@ -996,7 +996,7 @@ requirement_data requirement_data::disassembly_requirements() const
             if( type == itype_press ) {
                 replaced = true;
                 remove_fire = true;
-                new_qualities.emplace_back( quality_id( "PULL" ), 1, 1 );
+                new_qualities.emplace_back( quality_id( "PULL"_id ), 1, 1 );
                 break;
             }
             if( type == itype_fire && remove_fire ) {
@@ -1023,19 +1023,19 @@ requirement_data requirement_data::disassembly_requirements() const
         for( auto &it : ret.qualities ) {
             bool replaced = false;
             for( const auto &quality : it ) {
-                if( quality.type == quality_id( "SEW" ) ) {
+                if( quality.type == quality_id( "SEW"_id ) ) {
                     replaced = true;
-                    new_qualities.emplace_back( quality_id( "CUT" ), 1, quality.level );
+                    new_qualities.emplace_back( quality_id( "CUT"_id ), 1, quality.level );
                     break;
                 }
-                if( quality.type == quality_id( "GLARE" ) ) {
+                if( quality.type == quality_id( "GLARE"_id ) ) {
                     replaced = true;
                     //Just remove the glare protection requirement from deconstruction
                     //This only happens in case of a reversible recipe, an explicit
                     //deconstruction recipe can still specify glare protection
                     break;
                 }
-                if( quality.type == quality_id( "KNIT" ) ) {
+                if( quality.type == quality_id( "KNIT"_id ) ) {
                     replaced = true;
                     //Ditto for knitting needles
                     break;

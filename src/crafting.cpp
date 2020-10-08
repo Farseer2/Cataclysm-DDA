@@ -78,18 +78,18 @@
 #include "vpart_position.h"
 #include "weather.h"
 
-static const activity_id ACT_DISASSEMBLE( "ACT_DISASSEMBLE" );
+static const activity_id ACT_DISASSEMBLE( "ACT_DISASSEMBLE"_id );
 
-static const efftype_id effect_contacts( "contacts" );
+static const efftype_id effect_contacts( "contacts"_id );
 
-static const itype_id itype_plut_cell( "plut_cell" );
+static const itype_id itype_plut_cell( "plut_cell"_id );
 
-static const skill_id skill_electronics( "electronics" );
-static const skill_id skill_tailor( "tailor" );
+static const skill_id skill_electronics( "electronics"_id );
+static const skill_id skill_tailor( "tailor"_id );
 
-static const trait_id trait_BURROW( "BURROW" );
-static const trait_id trait_DEBUG_HS( "DEBUG_HS" );
-static const trait_id trait_HYPEROPIC( "HYPEROPIC" );
+static const trait_id trait_BURROW( "BURROW"_id );
+static const trait_id trait_DEBUG_HS( "DEBUG_HS"_id );
+static const trait_id trait_HYPEROPIC( "HYPEROPIC"_id );
 
 static const std::string flag_BLIND_EASY( "BLIND_EASY" );
 static const std::string flag_BLIND_HARD( "BLIND_HARD" );

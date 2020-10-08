@@ -362,7 +362,7 @@ void overmap::convert_terrain(
                 bridge_points.emplace_back( pos.xy() );
             }
         } else if( old.compare( 0, 10, "mass_grave" ) == 0 ) {
-            ter_set( pos, oter_id( "field" ) );
+            ter_set( pos, oter_id( "field"_id ) );
         }
 
         for( const auto &conv : nearby ) {

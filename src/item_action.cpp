@@ -38,11 +38,11 @@ class Character;
 
 static const std::string errstring( "ERROR" );
 
-static const bionic_id bio_tools( "bio_tools" );
-static const bionic_id bio_claws( "bio_claws" );
-static const bionic_id bio_claws_weapon( "bio_claws_weapon" );
+static const bionic_id bio_tools( "bio_tools"_id );
+static const bionic_id bio_claws( "bio_claws"_id );
+static const bionic_id bio_claws_weapon( "bio_claws_weapon"_id );
 
-static const itype_id itype_UPS( "UPS" );
+static const itype_id itype_UPS( "UPS"_id );
 
 struct tripoint;
 
@@ -162,7 +162,7 @@ item_action_map item_action_generator::map_actions_to_items( player &p,
             }
 
             // Don't try to remove 'irremovable' toolmods
-            if( actual_item->is_toolmod() && use == item_action_id( "TOOLMOD_ATTACH" ) &&
+            if( actual_item->is_toolmod() && use == item_action_id( "TOOLMOD_ATTACH"_id ) &&
                 actual_item->has_flag( "IRREMOVABLE" ) ) {
                 continue;
             }

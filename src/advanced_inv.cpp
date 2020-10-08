@@ -62,8 +62,8 @@
 #   include <SDL_keyboard.h>
 #endif
 
-static const activity_id ACT_ADV_INVENTORY( "ACT_ADV_INVENTORY" );
-static const activity_id ACT_WEAR( "ACT_WEAR" );
+static const activity_id ACT_ADV_INVENTORY( "ACT_ADV_INVENTORY"_id );
+static const activity_id ACT_WEAR( "ACT_WEAR"_id );
 
 void create_advanced_inv()
 {

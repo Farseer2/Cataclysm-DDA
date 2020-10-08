@@ -68,10 +68,10 @@ static const std::string flag_CITY_START( "CITY_START" );
 static const std::string flag_SECRET( "SECRET" );
 static const std::string flag_WET( "WET" );
 
-static const trait_id trait_SMELLY( "SMELLY" );
-static const trait_id trait_WEAKSCENT( "WEAKSCENT" );
-static const trait_id trait_XS( "XS" );
-static const trait_id trait_XXXL( "XXXL" );
+static const trait_id trait_SMELLY( "SMELLY"_id );
+static const trait_id trait_WEAKSCENT( "WEAKSCENT"_id );
+static const trait_id trait_XS( "XS"_id );
+static const trait_id trait_XXXL( "XXXL"_id );
 
 // Colors used in this file: (Most else defaults to c_light_gray)
 #define COL_SELECT          h_light_gray   // Selected value
@@ -870,7 +870,7 @@ tab_direction set_stats( avatar &u, points_left &points )
                 }
                 u.recalc_hp();
                 mvwprintz( w_description, point_zero, COL_STAT_NEUTRAL, _( "Base HP: %d" ),
-                           u.get_part_hp_max( bodypart_id( "head" ) ) );
+                           u.get_part_hp_max( bodypart_id( "head"_id ) ) );
                 // NOLINTNEXTLINE(cata-use-named-point-constants)
                 mvwprintz( w_description, point( 0, 1 ), COL_STAT_NEUTRAL, _( "Carry weight: %.1f %s" ),
                            convert_weight( u.weight_capacity() ), weight_units() );

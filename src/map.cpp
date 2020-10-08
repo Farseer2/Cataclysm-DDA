@@ -97,28 +97,28 @@
 #include "weather.h"
 #include "weighted_list.h"
 
-static const itype_id itype_battery( "battery" );
-static const itype_id itype_chemistry_set( "chemistry_set" );
-static const itype_id itype_dehydrator( "dehydrator" );
-static const itype_id itype_electrolysis_kit( "electrolysis_kit" );
-static const itype_id itype_food_processor( "food_processor" );
-static const itype_id itype_forge( "forge" );
-static const itype_id itype_glass_shard( "glass_shard" );
-static const itype_id itype_hotplate( "hotplate" );
-static const itype_id itype_kiln( "kiln" );
-static const itype_id itype_nail( "nail" );
-static const itype_id itype_press( "press" );
-static const itype_id itype_sheet( "sheet" );
-static const itype_id itype_soldering_iron( "soldering_iron" );
-static const itype_id itype_stick( "stick" );
+static const itype_id itype_battery( "battery"_id );
+static const itype_id itype_chemistry_set( "chemistry_set"_id );
+static const itype_id itype_dehydrator( "dehydrator"_id );
+static const itype_id itype_electrolysis_kit( "electrolysis_kit"_id );
+static const itype_id itype_food_processor( "food_processor"_id );
+static const itype_id itype_forge( "forge"_id );
+static const itype_id itype_glass_shard( "glass_shard"_id );
+static const itype_id itype_hotplate( "hotplate"_id );
+static const itype_id itype_kiln( "kiln"_id );
+static const itype_id itype_nail( "nail"_id );
+static const itype_id itype_press( "press"_id );
+static const itype_id itype_sheet( "sheet"_id );
+static const itype_id itype_soldering_iron( "soldering_iron"_id );
+static const itype_id itype_stick( "stick"_id );
 static const itype_id itype_string_36( "string_36" );
-static const itype_id itype_vac_sealer( "vac_sealer" );
-static const itype_id itype_welder( "welder" );
+static const itype_id itype_vac_sealer( "vac_sealer"_id );
+static const itype_id itype_welder( "welder"_id );
 
-static const mtype_id mon_zombie( "mon_zombie" );
+static const mtype_id mon_zombie( "mon_zombie"_id );
 
-static const efftype_id effect_boomered( "boomered" );
-static const efftype_id effect_crushed( "crushed" );
+static const efftype_id effect_boomered( "boomered"_id );
+static const efftype_id effect_crushed( "crushed"_id );
 
 #define dbg(x) DebugLog((x),D_MAP) << __FILE__ << ":" << __LINE__ << ": "
 
@@ -2210,27 +2210,27 @@ void map::drop_furniture( const tripoint &p )
         player *pl = dynamic_cast<player *>( critter );
         monster *mon = dynamic_cast<monster *>( critter );
         if( pl != nullptr ) {
-            pl->deal_damage( nullptr, bodypart_id( "torso" ), damage_instance( damage_type::BASH, rng( dmg / 3,
+            pl->deal_damage( nullptr, bodypart_id( "torso"_id ), damage_instance( damage_type::BASH, rng( dmg / 3,
                              dmg ), 0,
                              0.5f ) );
-            pl->deal_damage( nullptr, bodypart_id( "head" ),  damage_instance( damage_type::BASH, rng( dmg / 3,
+            pl->deal_damage( nullptr, bodypart_id( "head"_id ),  damage_instance( damage_type::BASH, rng( dmg / 3,
                              dmg ), 0,
                              0.5f ) );
-            pl->deal_damage( nullptr, bodypart_id( "leg_l" ), damage_instance( damage_type::BASH, rng( dmg / 2,
+            pl->deal_damage( nullptr, bodypart_id( "leg_l"_id ), damage_instance( damage_type::BASH, rng( dmg / 2,
                              dmg ), 0,
                              0.4f ) );
-            pl->deal_damage( nullptr, bodypart_id( "leg_r" ), damage_instance( damage_type::BASH, rng( dmg / 2,
+            pl->deal_damage( nullptr, bodypart_id( "leg_r"_id ), damage_instance( damage_type::BASH, rng( dmg / 2,
                              dmg ), 0,
                              0.4f ) );
-            pl->deal_damage( nullptr, bodypart_id( "arm_l" ), damage_instance( damage_type::BASH, rng( dmg / 2,
+            pl->deal_damage( nullptr, bodypart_id( "arm_l"_id ), damage_instance( damage_type::BASH, rng( dmg / 2,
                              dmg ), 0,
                              0.4f ) );
-            pl->deal_damage( nullptr, bodypart_id( "arm_r" ), damage_instance( damage_type::BASH, rng( dmg / 2,
+            pl->deal_damage( nullptr, bodypart_id( "arm_r"_id ), damage_instance( damage_type::BASH, rng( dmg / 2,
                              dmg ), 0,
                              0.4f ) );
         } else if( mon != nullptr ) {
             // TODO: Monster's armor and size - don't crush hulks with chairs
-            mon->apply_damage( nullptr, bodypart_id( "torso" ), rng( dmg, dmg * 2 ) );
+            mon->apply_damage( nullptr, bodypart_id( "torso"_id ), rng( dmg, dmg * 2 ) );
         }
     }
 
@@ -3492,7 +3492,7 @@ void map::bash_items( const tripoint &p, bash_params &params )
     bool smashed_glass = false;
     for( auto bashed_item = bashed_items.begin(); bashed_item != bashed_items.end(); ) {
         // the check for active suppresses Molotovs smashing themselves with their own explosion
-        if( bashed_item->made_of( material_id( "glass" ) ) && !bashed_item->active && one_in( 2 ) ) {
+        if( bashed_item->made_of( material_id( "glass"_id ) ) && !bashed_item->active && one_in( 2 ) ) {
             params.did_bash = true;
             smashed_glass = true;
             for( const item *bashed_content : bashed_item->contents.all_items_top() ) {
@@ -3589,19 +3589,19 @@ void map::crush( const tripoint &p )
             // TODO: Make this depend on the ceiling material
             const int dam = rng( 0, 40 );
             // Torso and head take the brunt of the blow
-            crushed_player->deal_damage( nullptr, bodypart_id( "head" ), damage_instance( damage_type::BASH,
+            crushed_player->deal_damage( nullptr, bodypart_id( "head"_id ), damage_instance( damage_type::BASH,
                                          dam * .25 ) );
-            crushed_player->deal_damage( nullptr, bodypart_id( "torso" ), damage_instance( damage_type::BASH,
+            crushed_player->deal_damage( nullptr, bodypart_id( "torso"_id ), damage_instance( damage_type::BASH,
                                          dam * .45 ) );
             // Legs take the next most through transferred force
-            crushed_player->deal_damage( nullptr, bodypart_id( "leg_l" ), damage_instance( damage_type::BASH,
+            crushed_player->deal_damage( nullptr, bodypart_id( "leg_l"_id ), damage_instance( damage_type::BASH,
                                          dam * .10 ) );
-            crushed_player->deal_damage( nullptr, bodypart_id( "leg_r" ), damage_instance( damage_type::BASH,
+            crushed_player->deal_damage( nullptr, bodypart_id( "leg_r"_id ), damage_instance( damage_type::BASH,
                                          dam * .10 ) );
             // Arms take the least
-            crushed_player->deal_damage( nullptr, bodypart_id( "arm_l" ), damage_instance( damage_type::BASH,
+            crushed_player->deal_damage( nullptr, bodypart_id( "arm_l"_id ), damage_instance( damage_type::BASH,
                                          dam * .05 ) );
-            crushed_player->deal_damage( nullptr, bodypart_id( "arm_r" ), damage_instance( damage_type::BASH,
+            crushed_player->deal_damage( nullptr, bodypart_id( "arm_r"_id ), damage_instance( damage_type::BASH,
                                          dam * .05 ) );
 
             // Pin whoever got hit
@@ -3612,7 +3612,7 @@ void map::crush( const tripoint &p )
 
     if( monster *const monhit = g->critter_at<monster>( p ) ) {
         // 25 ~= 60 * .45 (torso)
-        monhit->deal_damage( nullptr, bodypart_id( "torso" ), damage_instance( damage_type::BASH, rng( 0,
+        monhit->deal_damage( nullptr, bodypart_id( "torso"_id ), damage_instance( damage_type::BASH, rng( 0,
                              25 ) ) );
 
         // Pin whoever got hit
@@ -3954,7 +3954,7 @@ bool map::open_door( const tripoint &p, const bool inside, const bool check_only
                            "open_door", ter.id.str() );
             ter_set( p, ter.open );
 
-            if( player_character.has_trait( trait_id( "SCHIZOPHRENIC" ) ) &&
+            if( player_character.has_trait( trait_id( "SCHIZOPHRENIC"_id ) ) &&
                 one_in( 50 ) && !ter.has_flag( "TRANSPARENT" ) ) {
                 tripoint mp = p + -2 * player_character.pos().xy() + tripoint( 2 * p.x, 2 * p.y, p.z );
                 g->spawn_hallucination( mp );
@@ -4679,7 +4679,7 @@ static void process_vehicle_items( vehicle &cur_veh, int part )
                 continue;
             }
             // TODO: BATTERIES this should be rewritten when vehicle power and items both use energy quantities
-            if( n.ammo_capacity( ammotype( "battery" ) ) > n.ammo_remaining() ||
+            if( n.ammo_capacity( ammotype( "battery"_id ) ) > n.ammo_remaining() ||
                 ( n.type->battery && n.type->battery->max_capacity > n.energy_remaining() ) ) {
                 int power = recharge_part.info().bonus;
                 while( power >= 1000 || x_in_y( power, 1000 ) ) {
@@ -5775,7 +5775,7 @@ void map::update_visibility_cache( const int zlev )
     visibility_variables_cache.u_sight_impaired = player_character.sight_impaired();
     visibility_variables_cache.u_is_boomered = player_character.has_effect( effect_boomered );
     visibility_variables_cache.clairvoyance_field.reset();
-    const field_type_str_id fd_clairvoyant( "fd_clairvoyant" );
+    const field_type_str_id fd_clairvoyant( "fd_clairvoyant"_id );
     if( fd_clairvoyant.is_valid() ) {
         visibility_variables_cache.clairvoyance_field = fd_clairvoyant;
     }
@@ -7015,8 +7015,8 @@ static void generate_uniform( const tripoint &p, const ter_id &terrain_type )
 void map::loadn( const tripoint &grid, const bool update_vehicles, bool _actualize )
 {
     // Cache empty overmap types
-    static const oter_id rock( "empty_rock" );
-    static const oter_id air( "open_air" );
+    static const oter_id rock( "empty_rock"_id );
+    static const oter_id air( "open_air"_id );
 
     dbg( D_INFO ) << "map::loadn(game[" << g.get() << "], worldx[" << abs_sub.x
                   << "], worldy[" << abs_sub.y << "], grid " << grid << ")";
@@ -7375,13 +7375,13 @@ void map::rad_scorch( const tripoint &p, const time_duration &time_since_last_ac
     const ter_id tid = ter( p );
     // TODO: De-hardcode this
     static const std::map<ter_id, ter_str_id> dies_into {{
-            {t_grass, ter_str_id( "t_dirt" )},
-            {t_tree_young, ter_str_id( "t_dirt" )},
-            {t_tree_pine, ter_str_id( "t_tree_deadpine" )},
-            {t_tree_birch, ter_str_id( "t_tree_birch_harvested" )},
-            {t_tree_willow, ter_str_id( "t_tree_willow_harvested" )},
-            {t_tree_hickory, ter_str_id( "t_tree_hickory_dead" )},
-            {t_tree_hickory_harvested, ter_str_id( "t_tree_hickory_dead" )},
+            {t_grass, ter_str_id( "t_dirt"_id )},
+            {t_tree_young, ter_str_id( "t_dirt"_id )},
+            {t_tree_pine, ter_str_id( "t_tree_deadpine"_id )},
+            {t_tree_birch, ter_str_id( "t_tree_birch_harvested"_id )},
+            {t_tree_willow, ter_str_id( "t_tree_willow_harvested"_id )},
+            {t_tree_hickory, ter_str_id( "t_tree_hickory_dead"_id )},
+            {t_tree_hickory_harvested, ter_str_id( "t_tree_hickory_dead"_id )},
         }};
 
     const auto iter = dies_into.find( tid );
@@ -7394,7 +7394,7 @@ void map::rad_scorch( const tripoint &p, const time_duration &time_since_last_ac
     if( tr.has_flag( "SHRUB" ) ) {
         ter_set( p, t_dirt );
     } else if( tr.has_flag( "TREE" ) ) {
-        ter_set( p, ter_str_id( "t_tree_dead" ) );
+        ter_set( p, ter_str_id( "t_tree_dead"_id ) );
     }
 }
 

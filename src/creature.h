@@ -516,14 +516,14 @@ class Creature : public location, public viewer
         std::vector<effect> get_effects_with_flag( const std::string &flag ) const;
         /** Return the effect that matches the given arguments exactly. */
         const effect &get_effect( const efftype_id &eff_id,
-                                  const bodypart_id &bp = bodypart_id( "bp_null" ) ) const;
-        effect &get_effect( const efftype_id &eff_id, const bodypart_id &bp = bodypart_id( "bp_null" ) );
+                                  const bodypart_id &bp = bodypart_id( "bp_null"_id ) ) const;
+        effect &get_effect( const efftype_id &eff_id, const bodypart_id &bp = bodypart_id( "bp_null"_id ) );
         /** Returns the duration of the matching effect. Returns 0 if effect doesn't exist. */
         time_duration get_effect_dur( const efftype_id &eff_id,
-                                      const bodypart_id &bp = bodypart_id( "bp_null" ) ) const;
+                                      const bodypart_id &bp = bodypart_id( "bp_null"_id ) ) const;
         /** Returns the intensity of the matching effect. Returns 0 if effect doesn't exist. */
         int get_effect_int( const efftype_id &eff_id,
-                            const bodypart_id &bp = bodypart_id( "bp_null" ) ) const;
+                            const bodypart_id &bp = bodypart_id( "bp_null"_id ) ) const;
         /** Returns true if the creature resists an effect */
         bool resists_effect( const effect &e );
 
@@ -614,7 +614,7 @@ class Creature : public location, public viewer
 
     private:
         /**anatomy is the plan of the creature's body*/
-        anatomy_id creature_anatomy = anatomy_id( "default_anatomy" );
+        anatomy_id creature_anatomy = anatomy_id( "default_anatomy"_id );
         /**this is the actual body of the creature*/
         std::map<bodypart_str_id, bodypart> body;
     public:

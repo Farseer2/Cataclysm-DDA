@@ -37,17 +37,17 @@
 #include "vehicle_group.h"
 #include "weighted_list.h"
 
-static const itype_id itype_hat_hard( "hat_hard" );
-static const itype_id itype_jackhammer( "jackhammer" );
-static const itype_id itype_mask_dust( "mask_dust" );
+static const itype_id itype_hat_hard( "hat_hard"_id );
+static const itype_id itype_jackhammer( "jackhammer"_id );
+static const itype_id itype_mask_dust( "mask_dust"_id );
 
-static const mtype_id mon_ant_larva( "mon_ant_larva" );
-static const mtype_id mon_ant_queen( "mon_ant_queen" );
-static const mtype_id mon_bee( "mon_bee" );
-static const mtype_id mon_beekeeper( "mon_beekeeper" );
-static const mtype_id mon_zombie_jackson( "mon_zombie_jackson" );
+static const mtype_id mon_ant_larva( "mon_ant_larva"_id );
+static const mtype_id mon_ant_queen( "mon_ant_queen"_id );
+static const mtype_id mon_bee( "mon_bee"_id );
+static const mtype_id mon_beekeeper( "mon_beekeeper"_id );
+static const mtype_id mon_zombie_jackson( "mon_zombie_jackson"_id );
 
-static const mongroup_id GROUP_ZOMBIE( "GROUP_ZOMBIE" );
+static const mongroup_id GROUP_ZOMBIE( "GROUP_ZOMBIE"_id );
 
 class npc_template;
 
@@ -1258,7 +1258,7 @@ void mapgen_subway( mapgendata &dat )
                                                 f_null,
                                                 f_null,
                                                 f_null ) );
-            VehicleSpawn::apply( vspawn_id( "default_subway_deadend" ), *m, "subway" );
+            VehicleSpawn::apply( vspawn_id( "default_subway_deadend"_id ), *m, "subway" );
             break;
     }
 
@@ -1377,7 +1377,7 @@ void mapgen_highway( mapgendata &dat )
     }
 
     // spawn regular road out of fuel vehicles
-    VehicleSpawn::apply( vspawn_id( "default_highway" ), *m, "highway" );
+    VehicleSpawn::apply( vspawn_id( "default_highway"_id ), *m, "highway" );
 
     if( dat.terrain_type() == "hiway_ew" ) {
         m->rotate( 1 );
@@ -1850,7 +1850,7 @@ void mapgen_parking_lot( mapgendata &dat )
         }
     }
 
-    VehicleSpawn::apply( vspawn_id( "default_parkinglot" ), *m, "parkinglot" );
+    VehicleSpawn::apply( vspawn_id( "default_parkinglot"_id ), *m, "parkinglot" );
 
     m->place_items( "road", 8, point_zero, point( SEEX * 2 - 1, SEEY * 2 - 1 ), false, dat.when() );
     for( int i = 1; i < 4; i++ ) {
@@ -2717,7 +2717,7 @@ void mapgen_forest( mapgendata &dat )
 void mapgen_forest_trail_straight( mapgendata &dat )
 {
     map *const m = &dat.m;
-    mapgendata forest_mapgen_dat( dat, oter_str_id( "forest_thick" ).id() );
+    mapgendata forest_mapgen_dat( dat, oter_str_id( "forest_thick"_id ).id() );
     mapgen_forest( forest_mapgen_dat );
 
     const auto center_offset = [&dat]() {
@@ -2753,7 +2753,7 @@ void mapgen_forest_trail_straight( mapgendata &dat )
 void mapgen_forest_trail_curved( mapgendata &dat )
 {
     map *const m = &dat.m;
-    mapgendata forest_mapgen_dat( dat, oter_str_id( "forest_thick" ).id() );
+    mapgendata forest_mapgen_dat( dat, oter_str_id( "forest_thick"_id ).id() );
     mapgen_forest( forest_mapgen_dat );
 
     const auto center_offset = [&dat]() {
@@ -2797,7 +2797,7 @@ void mapgen_forest_trail_curved( mapgendata &dat )
 void mapgen_forest_trail_tee( mapgendata &dat )
 {
     map *const m = &dat.m;
-    mapgendata forest_mapgen_dat( dat, oter_str_id( "forest_thick" ).id() );
+    mapgendata forest_mapgen_dat( dat, oter_str_id( "forest_thick"_id ).id() );
     mapgen_forest( forest_mapgen_dat );
 
     const auto center_offset = [&dat]() {
@@ -2840,7 +2840,7 @@ void mapgen_forest_trail_tee( mapgendata &dat )
 void mapgen_forest_trail_four_way( mapgendata &dat )
 {
     map *const m = &dat.m;
-    mapgendata forest_mapgen_dat( dat, oter_str_id( "forest_thick" ).id() );
+    mapgendata forest_mapgen_dat( dat, oter_str_id( "forest_thick"_id ).id() );
     mapgen_forest( forest_mapgen_dat );
 
     const auto center_offset = [&dat]() {
@@ -2935,7 +2935,7 @@ void mapgen_lake_shore( mapgendata &dat )
         dat.fill_groundcover();
     }
 
-    const oter_id river_center( "river_center" );
+    const oter_id river_center( "river_center"_id );
 
     auto is_lake = [&]( const oter_id & id ) {
         // We want to consider river_center as a lake as well, so that the confluence of a

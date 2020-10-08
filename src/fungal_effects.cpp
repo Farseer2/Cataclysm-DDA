@@ -27,18 +27,18 @@
 #include "translations.h"
 #include "type_id.h"
 
-static const efftype_id effect_spores( "spores" );
-static const efftype_id effect_stunned( "stunned" );
+static const efftype_id effect_spores( "spores"_id );
+static const efftype_id effect_stunned( "stunned"_id );
 
-static const skill_id skill_melee( "melee" );
+static const skill_id skill_melee( "melee"_id );
 
-static const mtype_id mon_fungal_blossom( "mon_fungal_blossom" );
-static const mtype_id mon_spore( "mon_spore" );
+static const mtype_id mon_fungal_blossom( "mon_fungal_blossom"_id );
+static const mtype_id mon_spore( "mon_spore"_id );
 
-static const species_id species_FUNGUS( "FUNGUS" );
+static const species_id species_FUNGUS( "FUNGUS"_id );
 
-static const trait_id trait_TAIL_CATTLE( "TAIL_CATTLE" );
-static const trait_id trait_THRESH_MYCUS( "THRESH_MYCUS" );
+static const trait_id trait_TAIL_CATTLE( "TAIL_CATTLE"_id );
+static const trait_id trait_THRESH_MYCUS( "THRESH_MYCUS"_id );
 
 static const std::string flag_DIGGABLE( "DIGGABLE" );
 static const std::string flag_FLAMMABLE( "FLAMMABLE" );
@@ -69,7 +69,7 @@ void fungal_effects::fungalize( const tripoint &p, Creature *origin, double spor
         if( !critter.make_fungus() ) {
             // Don't insta-kill non-fungables. Jabberwocks, for example
             critter.add_effect( effect_stunned, rng( 1_turns, 3_turns ) );
-            critter.apply_damage( origin, bodypart_id( "torso" ), rng( 25, 50 ) );
+            critter.apply_damage( origin, bodypart_id( "torso"_id ), rng( 25, 50 ) );
         }
     } else if( player_character.pos() == p ) {
         // TODO: Make this accept NPCs when they understand fungals
@@ -83,23 +83,23 @@ void fungal_effects::fungalize( const tripoint &p, Creature *origin, double spor
         // Spores hit the player--is there any hope?
         bool hit = false;
         hit |= one_in( 4 ) &&
-               player_character.add_env_effect( effect_spores, bodypart_id( "head" ), 3, 9_minutes,
-                                                bodypart_id( "head" ) );
+               player_character.add_env_effect( effect_spores, bodypart_id( "head"_id ), 3, 9_minutes,
+                                                bodypart_id( "head"_id ) );
         hit |= one_in( 2 ) &&
-               player_character.add_env_effect( effect_spores, bodypart_id( "torso" ), 3, 9_minutes,
-                                                bodypart_id( "torso" ) );
+               player_character.add_env_effect( effect_spores, bodypart_id( "torso"_id ), 3, 9_minutes,
+                                                bodypart_id( "torso"_id ) );
         hit |= one_in( 4 ) &&
-               player_character.add_env_effect( effect_spores, bodypart_id( "arm_l" ), 3, 9_minutes,
-                                                bodypart_id( "arm_l" ) );
+               player_character.add_env_effect( effect_spores, bodypart_id( "arm_l"_id ), 3, 9_minutes,
+                                                bodypart_id( "arm_l"_id ) );
         hit |= one_in( 4 ) &&
-               player_character.add_env_effect( effect_spores, bodypart_id( "arm_r" ), 3, 9_minutes,
-                                                bodypart_id( "arm_r" ) );
+               player_character.add_env_effect( effect_spores, bodypart_id( "arm_r"_id ), 3, 9_minutes,
+                                                bodypart_id( "arm_r"_id ) );
         hit |= one_in( 4 ) &&
-               player_character.add_env_effect( effect_spores, bodypart_id( "leg_l" ), 3, 9_minutes,
-                                                bodypart_id( "leg_l" ) );
+               player_character.add_env_effect( effect_spores, bodypart_id( "leg_l"_id ), 3, 9_minutes,
+                                                bodypart_id( "leg_l"_id ) );
         hit |= one_in( 4 ) &&
-               player_character.add_env_effect( effect_spores, bodypart_id( "leg_r" ), 3, 9_minutes,
-                                                bodypart_id( "leg_r" ) );
+               player_character.add_env_effect( effect_spores, bodypart_id( "leg_r"_id ), 3, 9_minutes,
+                                                bodypart_id( "leg_r"_id ) );
         if( hit ) {
             add_msg( m_warning, _( "You're covered in tiny spores!" ) );
         }

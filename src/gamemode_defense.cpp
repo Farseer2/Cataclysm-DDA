@@ -40,14 +40,14 @@
 #include "ui_manager.h"
 #include "weather.h"
 
-static const skill_id skill_barter( "barter" );
+static const skill_id skill_barter( "barter"_id );
 
-static const mongroup_id GROUP_NETHER( "GROUP_NETHER" );
-static const mongroup_id GROUP_ROBOT( "GROUP_ROBOT" );
-static const mongroup_id GROUP_SPIDER( "GROUP_SPIDER" );
-static const mongroup_id GROUP_TRIFFID( "GROUP_TRIFFID" );
-static const mongroup_id GROUP_VANILLA( "GROUP_VANILLA" );
-static const mongroup_id GROUP_ZOMBIE( "GROUP_ZOMBIE" );
+static const mongroup_id GROUP_NETHER( "GROUP_NETHER"_id );
+static const mongroup_id GROUP_ROBOT( "GROUP_ROBOT"_id );
+static const mongroup_id GROUP_SPIDER( "GROUP_SPIDER"_id );
+static const mongroup_id GROUP_TRIFFID( "GROUP_TRIFFID"_id );
+static const mongroup_id GROUP_VANILLA( "GROUP_VANILLA"_id );
+static const mongroup_id GROUP_ZOMBIE( "GROUP_ZOMBIE"_id );
 
 // One in X chance of single-flavor wave
 static constexpr int SPECIAL_WAVE_CHANCE = 5;
@@ -235,7 +235,7 @@ void defense_game::init_map()
     for( int x = 0; x < OMAPX; x++ ) {
         for( int y = 0; y < OMAPY; y++ ) {
             tripoint_om_omt p( x, y, 0 );
-            starting_om.ter_set( p, oter_id( "field" ) );
+            starting_om.ter_set( p, oter_id( "field"_id ) );
             starting_om.seen( p ) = true;
         }
     }
@@ -243,28 +243,28 @@ void defense_game::init_map()
     switch( location ) {
         case DEFLOC_NULL:
         case NUM_DEFENSE_LOCATIONS:
-            defloc_special = overmap_special_id( "house_two_story_basement" );
+            defloc_special = overmap_special_id( "house_two_story_basement"_id );
             DebugLog( D_ERROR, D_GAME ) << "defense location is invalid: " << location;
             break;
 
         case DEFLOC_HOSPITAL:
-            defloc_special = overmap_special_id( "hospital" );
+            defloc_special = overmap_special_id( "hospital"_id );
             break;
 
         case DEFLOC_WORKS:
-            defloc_special = overmap_special_id( "public_works" );
+            defloc_special = overmap_special_id( "public_works"_id );
             break;
 
         case DEFLOC_MALL:
-            defloc_special = overmap_special_id( "megastore" );
+            defloc_special = overmap_special_id( "megastore"_id );
             break;
 
         case DEFLOC_BAR:
-            defloc_special = overmap_special_id( "bar" );
+            defloc_special = overmap_special_id( "bar"_id );
             break;
 
         case DEFLOC_MANSION:
-            defloc_special = overmap_special_id( "Mansion_Wild" );
+            defloc_special = overmap_special_id( "Mansion_Wild"_id );
             break;
     }
     starting_om.place_special_forced( defloc_special, defloc_pos, om_direction::type::north );
@@ -304,7 +304,7 @@ void defense_game::init_map()
     player_character.sety( SEEY );
 
     g->update_map( player_character );
-    monster *const generator = g->place_critter_around( mtype_id( "mon_generator" ),
+    monster *const generator = g->place_critter_around( mtype_id( "mon_generator"_id ),
                                player_character.pos(), 2 );
     cata_assert( generator );
     generator->friendly = -1;

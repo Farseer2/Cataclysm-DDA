@@ -134,19 +134,19 @@ int_id<body_part_type>::int_id( const string_id<body_part_type> &id ) : _id( id.
 const bodypart_str_id &convert_bp( body_part bp )
 {
     static const std::vector<bodypart_str_id> body_parts = {
-        bodypart_str_id( "torso" ),
-        bodypart_str_id( "head" ),
-        bodypart_str_id( "eyes" ),
-        bodypart_str_id( "mouth" ),
-        bodypart_str_id( "arm_l" ),
-        bodypart_str_id( "arm_r" ),
-        bodypart_str_id( "hand_l" ),
-        bodypart_str_id( "hand_r" ),
-        bodypart_str_id( "leg_l" ),
-        bodypart_str_id( "leg_r" ),
-        bodypart_str_id( "foot_l" ),
-        bodypart_str_id( "foot_r" ),
-        bodypart_str_id( "bp_null" ),
+        bodypart_str_id( "torso"_id ),
+        bodypart_str_id( "head"_id ),
+        bodypart_str_id( "eyes"_id ),
+        bodypart_str_id( "mouth"_id ),
+        bodypart_str_id( "arm_l"_id ),
+        bodypart_str_id( "arm_r"_id ),
+        bodypart_str_id( "hand_l"_id ),
+        bodypart_str_id( "hand_r"_id ),
+        bodypart_str_id( "leg_l"_id ),
+        bodypart_str_id( "leg_r"_id ),
+        bodypart_str_id( "foot_l"_id ),
+        bodypart_str_id( "foot_r"_id ),
+        bodypart_str_id( "bp_null"_id ),
     };
     if( bp > num_bp || bp < bp_torso ) {
         debugmsg( "Invalid body part token %d", bp );

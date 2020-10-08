@@ -43,7 +43,7 @@ class harvest_list
     public:
         harvest_list();
 
-        itype_id leftovers = itype_id( "ruined_chunks" );
+        itype_id leftovers = itype_id( "ruined_chunks"_id );
 
         const harvest_id &id() const;
 

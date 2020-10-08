@@ -72,41 +72,41 @@
 #include "vehicle.h"
 #include "vpart_position.h"
 
-static const efftype_id effect_downed( "downed" );
-static const efftype_id effect_hit_by_player( "hit_by_player" );
-static const efftype_id effect_on_roof( "on_roof" );
+static const efftype_id effect_downed( "downed"_id );
+static const efftype_id effect_hit_by_player( "hit_by_player"_id );
+static const efftype_id effect_on_roof( "on_roof"_id );
 
 static const itype_id itype_12mm( "12mm" );
 static const itype_id itype_40x46mm( "40x46mm" );
 static const itype_id itype_40x53mm( "40x53mm" );
 static const itype_id itype_66mm( "66mm" );
 static const itype_id itype_84x246mm( "84x246mm" );
-static const itype_id itype_adv_UPS_off( "adv_UPS_off" );
-static const itype_id itype_arrow( "arrow" );
-static const itype_id itype_bolt( "bolt" );
-static const itype_id itype_brass_catcher( "brass_catcher" );
-static const itype_id itype_flammable( "flammable" );
+static const itype_id itype_adv_UPS_off( "adv_UPS_off"_id );
+static const itype_id itype_arrow( "arrow"_id );
+static const itype_id itype_bolt( "bolt"_id );
+static const itype_id itype_brass_catcher( "brass_catcher"_id );
+static const itype_id itype_flammable( "flammable"_id );
 static const itype_id itype_m235( "m235" );
-static const itype_id itype_metal_rail( "metal_rail" );
-static const itype_id itype_UPS( "UPS" );
-static const itype_id itype_UPS_off( "UPS_off" );
+static const itype_id itype_metal_rail( "metal_rail"_id );
+static const itype_id itype_UPS( "UPS"_id );
+static const itype_id itype_UPS_off( "UPS_off"_id );
 
-static const trap_str_id tr_practice_target( "tr_practice_target" );
+static const trap_str_id tr_practice_target( "tr_practice_target"_id );
 
-static const fault_id fault_gun_blackpowder( "fault_gun_blackpowder" );
-static const fault_id fault_gun_chamber_spent( "fault_gun_chamber_spent" );
-static const fault_id fault_gun_dirt( "fault_gun_dirt" );
-static const fault_id fault_gun_unlubricated( "fault_gun_unlubricated" );
+static const fault_id fault_gun_blackpowder( "fault_gun_blackpowder"_id );
+static const fault_id fault_gun_chamber_spent( "fault_gun_chamber_spent"_id );
+static const fault_id fault_gun_dirt( "fault_gun_dirt"_id );
+static const fault_id fault_gun_unlubricated( "fault_gun_unlubricated"_id );
 
-static const skill_id skill_dodge( "dodge" );
-static const skill_id skill_driving( "driving" );
-static const skill_id skill_gun( "gun" );
-static const skill_id skill_launcher( "launcher" );
-static const skill_id skill_throw( "throw" );
+static const skill_id skill_dodge( "dodge"_id );
+static const skill_id skill_driving( "driving"_id );
+static const skill_id skill_gun( "gun"_id );
+static const skill_id skill_launcher( "launcher"_id );
+static const skill_id skill_throw( "throw"_id );
 
-static const bionic_id bio_railgun( "bio_railgun" );
-static const bionic_id bio_targeting( "bio_targeting" );
-static const bionic_id bio_ups( "bio_ups" );
+static const bionic_id bio_railgun( "bio_railgun"_id );
+static const bionic_id bio_targeting( "bio_targeting"_id );
+static const bionic_id bio_ups( "bio_ups"_id );
 
 static const std::string flag_CONSUMABLE( "CONSUMABLE" );
 static const std::string flag_FIRE_TWOHAND( "FIRE_TWOHAND" );
@@ -120,7 +120,7 @@ static const std::string flag_RESTRICT_HANDS( "RESTRICT_HANDS" );
 static const std::string flag_UNDERWATER_GUN( "UNDERWATER_GUN" );
 static const std::string flag_VEHICLE( "VEHICLE" );
 
-static const trait_id trait_PYROMANIA( "PYROMANIA" );
+static const trait_id trait_PYROMANIA( "PYROMANIA"_id );
 
 static projectile make_gun_projectile( const item &gun );
 static int time_to_attack( const Character &p, const itype &firing );
@@ -887,8 +887,8 @@ int throw_cost( const player &c, const item &to_throw )
     const int skill_cost = static_cast<int>( ( base_move_cost * ( 20 - throw_skill ) / 20 ) );
     ///\EFFECT_DEX increases throwing speed
     const int dexbonus = c.get_dex();
-    const int encumbrance_penalty = c.encumb( bodypart_id( "torso" ) ) +
-                                    ( c.encumb( bodypart_id( "hand_l" ) ) + c.encumb( bodypart_id( "hand_r" ) ) ) / 2;
+    const int encumbrance_penalty = c.encumb( bodypart_id( "torso"_id ) ) +
+                                    ( c.encumb( bodypart_id( "hand_l"_id ) ) + c.encumb( bodypart_id( "hand_r"_id ) ) ) / 2;
     const float stamina_ratio = static_cast<float>( c.get_stamina() ) / c.get_stamina_max();
     const float stamina_penalty = 1.0 + std::max( ( 0.25f - stamina_ratio ) * 4.0f, 0.0f );
 
@@ -909,8 +909,8 @@ int Character::throw_dispersion_per_dodge( bool add_encumbrance ) const
     // +100 at 8, +80 at 12, +66.6 at 16, +57 at 20, +50 at 24
     // Each 10 encumbrance on either hand is like -1 dex (can bring penalty to +400 per dodge)
     // Maybe TODO: Only use one hand
-    const int encumbrance = add_encumbrance ? encumb( bodypart_id( "hand_l" ) ) + encumb(
-                                bodypart_id( "hand_r" ) ) : 0;
+    const int encumbrance = add_encumbrance ? encumb( bodypart_id( "hand_l"_id ) ) + encumb(
+                                bodypart_id( "hand_r"_id ) ) : 0;
     ///\EFFECT_DEX increases throwing accuracy against targets with good dodge stat
     float effective_dex = 2 + get_dex() / 4.0f - ( encumbrance ) / 40.0f;
     return static_cast<int>( 100.0f / std::max( 1.0f, effective_dex ) );
@@ -952,7 +952,7 @@ int Character::throwing_dispersion( const item &to_throw, Creature *critter,
     }
     // 1 perception per 1 eye encumbrance
     ///\EFFECT_PER decreases throwing accuracy penalty from eye encumbrance
-    dispersion += std::max( 0, ( encumb( bodypart_id( "eyes" ) ) - get_per() ) * 10 );
+    dispersion += std::max( 0, ( encumb( bodypart_id( "eyes"_id ) ) - get_per() ) * 10 );
 
     // If throwing blind, we're assuming they mechanically can't achieve the
     // accuracy of a normal throw.
@@ -1004,7 +1004,7 @@ dealt_projectile_attack player::throw_item( const tripoint &target, const item &
     auto &impact = proj.impact;
     auto &proj_effects = proj.proj_effects;
 
-    static const std::set<material_id> ferric = { material_id( "iron" ), material_id( "steel" ) };
+    static const std::set<material_id> ferric = { material_id( "iron"_id ), material_id( "steel"_id ) };
 
     bool do_railgun = has_active_bionic( bio_railgun ) && thrown.made_of_any( ferric ) &&
                       !throw_assist;
@@ -1029,7 +1029,7 @@ dealt_projectile_attack player::throw_item( const tripoint &target, const item &
 
     // Item will shatter upon landing, destroying the item, dealing damage, and making noise
     /** @EFFECT_STR increases chance of shattering thrown glass items (NEGATIVE) */
-    const bool shatter = !thrown.active && thrown.made_of( material_id( "glass" ) ) &&
+    const bool shatter = !thrown.active && thrown.made_of( material_id( "glass"_id ) ) &&
                          rng( 0, units::to_milliliter( 2_liter - volume ) ) < get_str() * 100;
 
     // Item will burst upon landing, destroying the item, and spilling its contents
@@ -1735,11 +1735,11 @@ dispersion_sources Character::get_weapon_dispersion( const item &obj ) const
 
     int arm_encumb = 0;
     // Fake turret NPC does not have arms
-    if( has_part( bodypart_id( "arm_l" ) ) ) {
-        arm_encumb += encumb( bodypart_id( "arm_l" ) );
+    if( has_part( bodypart_id( "arm_l"_id ) ) ) {
+        arm_encumb += encumb( bodypart_id( "arm_l"_id ) );
     }
-    if( has_part( bodypart_id( "arm_r" ) ) ) {
-        arm_encumb += encumb( bodypart_id( "arm_r" ) );
+    if( has_part( bodypart_id( "arm_r"_id ) ) ) {
+        arm_encumb += encumb( bodypart_id( "arm_r"_id ) );
     }
     dispersion.add_range( arm_encumb / 5.0 );
 
@@ -1823,8 +1823,8 @@ double Character::gun_value( const item &weap, int ammo ) const
     int move_cost = time_to_attack( *this, *weap.type );
     if( gun.clip != 0 && gun.clip < 10 ) {
         // TODO: RELOAD_ONE should get a penalty here
-        int reload_cost = gun.reload_time + encumb( bodypart_id( "hand_l" ) ) + encumb(
-                              bodypart_id( "hand_r" ) );
+        int reload_cost = gun.reload_time + encumb( bodypart_id( "hand_l"_id ) ) + encumb(
+                              bodypart_id( "hand_r"_id ) );
         reload_cost /= gun.clip;
         move_cost += reload_cost;
     }

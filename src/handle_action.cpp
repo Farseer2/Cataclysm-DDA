@@ -82,42 +82,42 @@
 #include "weather_type.h"
 #include "worldfactory.h"
 
-static const activity_id ACT_FERTILIZE_PLOT( "ACT_FERTILIZE_PLOT" );
-static const activity_id ACT_MOVE_LOOT( "ACT_MOVE_LOOT" );
-static const activity_id ACT_MULTIPLE_BUTCHER( "ACT_MULTIPLE_BUTCHER" );
-static const activity_id ACT_MULTIPLE_CHOP_PLANKS( "ACT_MULTIPLE_CHOP_PLANKS" );
-static const activity_id ACT_MULTIPLE_CHOP_TREES( "ACT_MULTIPLE_CHOP_TREES" );
-static const activity_id ACT_MULTIPLE_CONSTRUCTION( "ACT_MULTIPLE_CONSTRUCTION" );
-static const activity_id ACT_MULTIPLE_FARM( "ACT_MULTIPLE_FARM" );
-static const activity_id ACT_MULTIPLE_MINE( "ACT_MULTIPLE_MINE" );
-static const activity_id ACT_PULP( "ACT_PULP" );
-static const activity_id ACT_SPELLCASTING( "ACT_SPELLCASTING" );
-static const activity_id ACT_VEHICLE_DECONSTRUCTION( "ACT_VEHICLE_DECONSTRUCTION" );
-static const activity_id ACT_VEHICLE_REPAIR( "ACT_VEHICLE_REPAIR" );
-static const activity_id ACT_WAIT( "ACT_WAIT" );
-static const activity_id ACT_WAIT_STAMINA( "ACT_WAIT_STAMINA" );
-static const activity_id ACT_WAIT_WEATHER( "ACT_WAIT_WEATHER" );
+static const activity_id ACT_FERTILIZE_PLOT( "ACT_FERTILIZE_PLOT"_id );
+static const activity_id ACT_MOVE_LOOT( "ACT_MOVE_LOOT"_id );
+static const activity_id ACT_MULTIPLE_BUTCHER( "ACT_MULTIPLE_BUTCHER"_id );
+static const activity_id ACT_MULTIPLE_CHOP_PLANKS( "ACT_MULTIPLE_CHOP_PLANKS"_id );
+static const activity_id ACT_MULTIPLE_CHOP_TREES( "ACT_MULTIPLE_CHOP_TREES"_id );
+static const activity_id ACT_MULTIPLE_CONSTRUCTION( "ACT_MULTIPLE_CONSTRUCTION"_id );
+static const activity_id ACT_MULTIPLE_FARM( "ACT_MULTIPLE_FARM"_id );
+static const activity_id ACT_MULTIPLE_MINE( "ACT_MULTIPLE_MINE"_id );
+static const activity_id ACT_PULP( "ACT_PULP"_id );
+static const activity_id ACT_SPELLCASTING( "ACT_SPELLCASTING"_id );
+static const activity_id ACT_VEHICLE_DECONSTRUCTION( "ACT_VEHICLE_DECONSTRUCTION"_id );
+static const activity_id ACT_VEHICLE_REPAIR( "ACT_VEHICLE_REPAIR"_id );
+static const activity_id ACT_WAIT( "ACT_WAIT"_id );
+static const activity_id ACT_WAIT_STAMINA( "ACT_WAIT_STAMINA"_id );
+static const activity_id ACT_WAIT_WEATHER( "ACT_WAIT_WEATHER"_id );
 
-static const efftype_id effect_alarm_clock( "alarm_clock" );
-static const efftype_id effect_incorporeal( "incorporeal" );
-static const efftype_id effect_laserlocked( "laserlocked" );
-static const efftype_id effect_relax_gas( "relax_gas" );
+static const efftype_id effect_alarm_clock( "alarm_clock"_id );
+static const efftype_id effect_incorporeal( "incorporeal"_id );
+static const efftype_id effect_laserlocked( "laserlocked"_id );
+static const efftype_id effect_relax_gas( "relax_gas"_id );
 
-static const itype_id itype_radiocontrol( "radiocontrol" );
-static const itype_id itype_shoulder_strap( "shoulder_strap" );
+static const itype_id itype_radiocontrol( "radiocontrol"_id );
+static const itype_id itype_shoulder_strap( "shoulder_strap"_id );
 
-static const skill_id skill_melee( "melee" );
+static const skill_id skill_melee( "melee"_id );
 
-static const quality_id qual_CUT( "CUT" );
+static const quality_id qual_CUT( "CUT"_id );
 
-static const bionic_id bio_remote( "bio_remote" );
+static const bionic_id bio_remote( "bio_remote"_id );
 
-static const trait_id trait_HIBERNATE( "HIBERNATE" );
-static const trait_id trait_PROF_CHURL( "PROF_CHURL" );
+static const trait_id trait_HIBERNATE( "HIBERNATE"_id );
+static const trait_id trait_PROF_CHURL( "PROF_CHURL"_id );
 static const trait_id trait_SHELL2( "SHELL2" );
-static const trait_id trait_WAYFARER( "WAYFARER" );
+static const trait_id trait_WAYFARER( "WAYFARER"_id );
 
-static const proficiency_id proficiency_prof_helicopter_pilot( "prof_helicopter_pilot" );
+static const proficiency_id proficiency_prof_helicopter_pilot( "prof_helicopter_pilot"_id );
 
 static const std::string flag_LITCIG( "LITCIG" );
 static const std::string flag_LOCKED( "LOCKED" );
@@ -420,7 +420,7 @@ static void pldrive( const tripoint &p )
         return;
     }
     if( !remote ) {
-        static const itype_id fuel_type_animal( "animal" );
+        static const itype_id fuel_type_animal( "animal"_id );
         const bool has_animal_controls = veh->part_with_feature( part, "CONTROL_ANIMAL", true ) >= 0;
         const bool has_controls = veh->part_with_feature( part, "CONTROLS", true ) >= 0;
         const bool has_animal = veh->has_engine_type( fuel_type_animal, false ) &&
@@ -767,7 +767,7 @@ static void smash()
     }
 
     if( !player_character.has_weapon() ) {
-        const bodypart_id bp_null( "bp_null" );
+        const bodypart_id bp_null( "bp_null"_id );
         std::pair<bodypart_id, int> best_part_to_smash = {bp_null, 0};
         int tmp_bash_armor = 0;
         for( const bodypart_id &bp : player_character.get_all_body_parts() ) {
@@ -821,18 +821,18 @@ static void smash()
                 player_character.practice( skill_melee, rng( 0, 1 ) * rng( 0, 1 ) );
             }
             const int vol = player_character.weapon.volume() / units::legacy_volume_factor;
-            if( player_character.weapon.made_of( material_id( "glass" ) ) &&
+            if( player_character.weapon.made_of( material_id( "glass"_id ) ) &&
                 rng( 0, vol + 3 ) < vol ) {
                 add_msg( m_bad, _( "Your %s shatters!" ), player_character.weapon.tname() );
                 player_character.weapon.spill_contents( player_character.pos() );
                 sounds::sound( player_character.pos(), 24, sounds::sound_t::combat, "CRACK!", true, "smash",
                                "glass" );
-                player_character.deal_damage( nullptr, bodypart_id( "hand_r" ), damage_instance( damage_type::CUT,
+                player_character.deal_damage( nullptr, bodypart_id( "hand_r"_id ), damage_instance( damage_type::CUT,
                                               rng( 0,
                                                    vol ) ) );
                 if( vol > 20 ) {
                     // Hurt left arm too, if it was big
-                    player_character.deal_damage( nullptr, bodypart_id( "hand_l" ), damage_instance( damage_type::CUT,
+                    player_character.deal_damage( nullptr, bodypart_id( "hand_l"_id ), damage_instance( damage_type::CUT,
                                                   rng( 0,
                                                        static_cast<int>( vol * .5 ) ) ) );
                 }
@@ -1162,31 +1162,31 @@ static void loot()
     // but with a stale cache we never get that far.
     mgr.cache_vzones();
 
-    flags |= g->check_near_zone( zone_type_id( "LOOT_UNSORTED" ),
+    flags |= g->check_near_zone( zone_type_id( "LOOT_UNSORTED"_id ),
                                  player_character.pos() ) ? SortLoot : 0;
-    if( g->check_near_zone( zone_type_id( "FARM_PLOT" ), player_character.pos() ) ) {
+    if( g->check_near_zone( zone_type_id( "FARM_PLOT"_id ), player_character.pos() ) ) {
         flags |= FertilizePlots;
         flags |= MultiFarmPlots;
     }
-    flags |= g->check_near_zone( zone_type_id( "CONSTRUCTION_BLUEPRINT" ),
+    flags |= g->check_near_zone( zone_type_id( "CONSTRUCTION_BLUEPRINT"_id ),
                                  player_character.pos() ) ? ConstructPlots : 0;
 
-    flags |= g->check_near_zone( zone_type_id( "CHOP_TREES" ),
+    flags |= g->check_near_zone( zone_type_id( "CHOP_TREES"_id ),
                                  player_character.pos() ) ? Multichoptrees : 0;
-    flags |= g->check_near_zone( zone_type_id( "LOOT_WOOD" ),
+    flags |= g->check_near_zone( zone_type_id( "LOOT_WOOD"_id ),
                                  player_character.pos() ) ? Multichopplanks : 0;
-    flags |= g->check_near_zone( zone_type_id( "VEHICLE_DECONSTRUCT" ),
+    flags |= g->check_near_zone( zone_type_id( "VEHICLE_DECONSTRUCT"_id ),
                                  player_character.pos() ) ? Multideconvehicle : 0;
-    flags |= g->check_near_zone( zone_type_id( "VEHICLE_REPAIR" ),
+    flags |= g->check_near_zone( zone_type_id( "VEHICLE_REPAIR"_id ),
                                  player_character.pos() ) ? Multirepairvehicle : 0;
-    flags |= g->check_near_zone( zone_type_id( "LOOT_CORPSE" ),
+    flags |= g->check_near_zone( zone_type_id( "LOOT_CORPSE"_id ),
                                  player_character.pos() ) ? MultiButchery : 0;
-    flags |= g->check_near_zone( zone_type_id( "MINING" ), player_character.pos() ) ? MultiMining : 0;
+    flags |= g->check_near_zone( zone_type_id( "MINING"_id ), player_character.pos() ) ? MultiMining : 0;
     if( flags == 0 ) {
         add_msg( m_info, _( "There is no compatible zone nearby." ) );
         add_msg( m_info, _( "Compatible zones are %s and %s" ),
-                 mgr.get_name_from_type( zone_type_id( "LOOT_UNSORTED" ) ),
-                 mgr.get_name_from_type( zone_type_id( "FARM_PLOT" ) ) );
+                 mgr.get_name_from_type( zone_type_id( "LOOT_UNSORTED"_id ) ),
+                 mgr.get_name_from_type( zone_type_id( "FARM_PLOT"_id ) ) );
         return;
     }
 
@@ -2136,7 +2136,7 @@ bool game::handle_action()
 
             case ACTION_FIRE_BURST: {
                 gun_mode_id original_mode = player_character.weapon.gun_get_mode_id();
-                if( player_character.weapon.gun_set_mode( gun_mode_id( "AUTO" ) ) ) {
+                if( player_character.weapon.gun_set_mode( gun_mode_id( "AUTO"_id ) ) ) {
                     avatar_action::fire_wielded_weapon( player_character );
                     player_character.weapon.gun_set_mode( original_mode );
                 }

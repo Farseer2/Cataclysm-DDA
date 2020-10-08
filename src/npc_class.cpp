@@ -18,47 +18,47 @@
 #include "json.h"
 
 static const std::array<npc_class_id, 19> legacy_ids = {{
-        npc_class_id( "NC_NONE" ),
-        npc_class_id( "NC_EVAC_SHOPKEEP" ),  // Found in the Evacuation Center, unique, has more goods than he should be able to carry
-        npc_class_id( "NC_SHOPKEEP" ),       // Found in towns.  Stays in his shop mostly.
-        npc_class_id( "NC_HACKER" ),         // Weak in combat but has hacking skills and equipment
-        npc_class_id( "NC_CYBORG" ),         // Broken Cyborg rescued from a lab
-        npc_class_id( "NC_DOCTOR" ),         // Found in towns, or roaming.  Stays in the clinic.
-        npc_class_id( "NC_TRADER" ),         // Roaming trader, journeying between towns.
-        npc_class_id( "NC_NINJA" ),          // Specializes in unarmed combat, carries few items
-        npc_class_id( "NC_COWBOY" ),         // Gunslinger and survivalist
-        npc_class_id( "NC_SCIENTIST" ),      // Uses intelligence-based skills and high-tech items
-        npc_class_id( "NC_BOUNTY_HUNTER" ),  // Resourceful and well-armored
-        npc_class_id( "NC_THUG" ),           // Moderate melee skills and poor equipment
-        npc_class_id( "NC_SCAVENGER" ),      // Good with pistols light weapons
-        npc_class_id( "NC_ARSONIST" ),       // Evacuation Center, restocks Molotovs and anarchist type stuff
-        npc_class_id( "NC_HUNTER" ),         // Survivor type good with bow or rifle
-        npc_class_id( "NC_SOLDIER" ),        // Well equipped and trained combatant, good with rifles and melee
-        npc_class_id( "NC_BARTENDER" ),      // Stocks alcohol
-        npc_class_id( "NC_JUNK_SHOPKEEP" ),   // Stocks wide range of items...
-        npc_class_id( "NC_HALLU" )           // Hallucinatory NPCs
+        npc_class_id( "NC_NONE"_id ),
+        npc_class_id( "NC_EVAC_SHOPKEEP"_id ),  // Found in the Evacuation Center, unique, has more goods than he should be able to carry
+        npc_class_id( "NC_SHOPKEEP"_id ),       // Found in towns.  Stays in his shop mostly.
+        npc_class_id( "NC_HACKER"_id ),         // Weak in combat but has hacking skills and equipment
+        npc_class_id( "NC_CYBORG"_id ),         // Broken Cyborg rescued from a lab
+        npc_class_id( "NC_DOCTOR"_id ),         // Found in towns, or roaming.  Stays in the clinic.
+        npc_class_id( "NC_TRADER"_id ),         // Roaming trader, journeying between towns.
+        npc_class_id( "NC_NINJA"_id ),          // Specializes in unarmed combat, carries few items
+        npc_class_id( "NC_COWBOY"_id ),         // Gunslinger and survivalist
+        npc_class_id( "NC_SCIENTIST"_id ),      // Uses intelligence-based skills and high-tech items
+        npc_class_id( "NC_BOUNTY_HUNTER"_id ),  // Resourceful and well-armored
+        npc_class_id( "NC_THUG"_id ),           // Moderate melee skills and poor equipment
+        npc_class_id( "NC_SCAVENGER"_id ),      // Good with pistols light weapons
+        npc_class_id( "NC_ARSONIST"_id ),       // Evacuation Center, restocks Molotovs and anarchist type stuff
+        npc_class_id( "NC_HUNTER"_id ),         // Survivor type good with bow or rifle
+        npc_class_id( "NC_SOLDIER"_id ),        // Well equipped and trained combatant, good with rifles and melee
+        npc_class_id( "NC_BARTENDER"_id ),      // Stocks alcohol
+        npc_class_id( "NC_JUNK_SHOPKEEP"_id ),   // Stocks wide range of items...
+        npc_class_id( "NC_HALLU"_id )           // Hallucinatory NPCs
     }
 };
 
-const npc_class_id NC_NONE( "NC_NONE" );
-const npc_class_id NC_EVAC_SHOPKEEP( "NC_EVAC_SHOPKEEP" );
-const npc_class_id NC_SHOPKEEP( "NC_SHOPKEEP" );
-const npc_class_id NC_HACKER( "NC_HACKER" );
-const npc_class_id NC_CYBORG( "NC_CYBORG" );
-const npc_class_id NC_DOCTOR( "NC_DOCTOR" );
-const npc_class_id NC_TRADER( "NC_TRADER" );
-const npc_class_id NC_NINJA( "NC_NINJA" );
-const npc_class_id NC_COWBOY( "NC_COWBOY" );
-const npc_class_id NC_SCIENTIST( "NC_SCIENTIST" );
-const npc_class_id NC_BOUNTY_HUNTER( "NC_BOUNTY_HUNTER" );
-const npc_class_id NC_THUG( "NC_THUG" );
-const npc_class_id NC_SCAVENGER( "NC_SCAVENGER" );
-const npc_class_id NC_ARSONIST( "NC_ARSONIST" );
-const npc_class_id NC_HUNTER( "NC_HUNTER" );
-const npc_class_id NC_SOLDIER( "NC_SOLDIER" );
-const npc_class_id NC_BARTENDER( "NC_BARTENDER" );
-const npc_class_id NC_JUNK_SHOPKEEP( "NC_JUNK_SHOPKEEP" );
-const npc_class_id NC_HALLU( "NC_HALLU" );
+const npc_class_id NC_NONE( "NC_NONE"_id );
+const npc_class_id NC_EVAC_SHOPKEEP( "NC_EVAC_SHOPKEEP"_id );
+const npc_class_id NC_SHOPKEEP( "NC_SHOPKEEP"_id );
+const npc_class_id NC_HACKER( "NC_HACKER"_id );
+const npc_class_id NC_CYBORG( "NC_CYBORG"_id );
+const npc_class_id NC_DOCTOR( "NC_DOCTOR"_id );
+const npc_class_id NC_TRADER( "NC_TRADER"_id );
+const npc_class_id NC_NINJA( "NC_NINJA"_id );
+const npc_class_id NC_COWBOY( "NC_COWBOY"_id );
+const npc_class_id NC_SCIENTIST( "NC_SCIENTIST"_id );
+const npc_class_id NC_BOUNTY_HUNTER( "NC_BOUNTY_HUNTER"_id );
+const npc_class_id NC_THUG( "NC_THUG"_id );
+const npc_class_id NC_SCAVENGER( "NC_SCAVENGER"_id );
+const npc_class_id NC_ARSONIST( "NC_ARSONIST"_id );
+const npc_class_id NC_HUNTER( "NC_HUNTER"_id );
+const npc_class_id NC_SOLDIER( "NC_SOLDIER"_id );
+const npc_class_id NC_BARTENDER( "NC_BARTENDER"_id );
+const npc_class_id NC_JUNK_SHOPKEEP( "NC_JUNK_SHOPKEEP"_id );
+const npc_class_id NC_HALLU( "NC_HALLU"_id );
 
 static generic_factory<npc_class> npc_class_factory( "npc_class" );
 

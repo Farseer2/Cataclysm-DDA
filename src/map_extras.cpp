@@ -74,87 +74,87 @@ static const std::string flag_YOUNG( "YOUNG" );
 static const itype_id itype_223_casing( "223_casing" );
 static const itype_id itype_762_51_casing( "762_51_casing" );
 static const itype_id itype_9mm_casing( "9mm_casing" );
-static const itype_id itype_acoustic_guitar( "acoustic_guitar" );
-static const itype_id itype_anbc_suit( "anbc_suit" );
-static const itype_id itype_ash( "ash" );
-static const itype_id itype_bag_canvas( "bag_canvas" );
-static const itype_id itype_bottle_glass( "bottle_glass" );
-static const itype_id itype_bullwhip( "bullwhip" );
-static const itype_id itype_chunk_sulfur( "chunk_sulfur" );
-static const itype_id itype_coke( "coke" );
-static const itype_id itype_crowbar( "crowbar" );
-static const itype_id itype_fedora( "fedora" );
-static const itype_id itype_glasses_eye( "glasses_eye" );
-static const itype_id itype_hatchet( "hatchet" );
-static const itype_id itype_heroin( "heroin" );
+static const itype_id itype_acoustic_guitar( "acoustic_guitar"_id );
+static const itype_id itype_anbc_suit( "anbc_suit"_id );
+static const itype_id itype_ash( "ash"_id );
+static const itype_id itype_bag_canvas( "bag_canvas"_id );
+static const itype_id itype_bottle_glass( "bottle_glass"_id );
+static const itype_id itype_bullwhip( "bullwhip"_id );
+static const itype_id itype_chunk_sulfur( "chunk_sulfur"_id );
+static const itype_id itype_coke( "coke"_id );
+static const itype_id itype_crowbar( "crowbar"_id );
+static const itype_id itype_fedora( "fedora"_id );
+static const itype_id itype_glasses_eye( "glasses_eye"_id );
+static const itype_id itype_hatchet( "hatchet"_id );
+static const itype_id itype_heroin( "heroin"_id );
 static const itype_id itype_holybook_bible1( "holybook_bible1" );
-static const itype_id itype_indoor_volleyball( "indoor_volleyball" );
-static const itype_id itype_jacket_leather( "jacket_leather" );
-static const itype_id itype_katana( "katana" );
-static const itype_id itype_landmine( "landmine" );
-static const itype_id itype_machete( "machete" );
-static const itype_id itype_material_sand( "material_sand" );
-static const itype_id itype_material_soil( "material_soil" );
-static const itype_id itype_meth( "meth" );
-static const itype_id itype_rag_bloody( "rag_bloody" );
+static const itype_id itype_indoor_volleyball( "indoor_volleyball"_id );
+static const itype_id itype_jacket_leather( "jacket_leather"_id );
+static const itype_id itype_katana( "katana"_id );
+static const itype_id itype_landmine( "landmine"_id );
+static const itype_id itype_machete( "machete"_id );
+static const itype_id itype_material_sand( "material_sand"_id );
+static const itype_id itype_material_soil( "material_soil"_id );
+static const itype_id itype_meth( "meth"_id );
+static const itype_id itype_rag_bloody( "rag_bloody"_id );
 static const itype_id itype_remington_870_breacher( "remington_870_breacher" );
-static const itype_id itype_shot_hull( "shot_hull" );
-static const itype_id itype_splinter( "splinter" );
+static const itype_id itype_shot_hull( "shot_hull"_id );
+static const itype_id itype_splinter( "splinter"_id );
 static const itype_id itype_stanag30( "stanag30" );
-static const itype_id itype_stick( "stick" );
-static const itype_id itype_stick_long( "stick_long" );
-static const itype_id itype_sunglasses( "sunglasses" );
+static const itype_id itype_stick( "stick"_id );
+static const itype_id itype_stick_long( "stick_long"_id );
+static const itype_id itype_sunglasses( "sunglasses"_id );
 static const itype_id itype_sw_619( "sw_619" );
-static const itype_id itype_touring_suit( "touring_suit" );
-static const itype_id itype_tux( "tux" );
-static const itype_id itype_umbrella( "umbrella" );
+static const itype_id itype_touring_suit( "touring_suit"_id );
+static const itype_id itype_tux( "tux"_id );
+static const itype_id itype_umbrella( "umbrella"_id );
 static const itype_id itype_usp_45( "usp_45" );
-static const itype_id itype_vodka( "vodka" );
-static const itype_id itype_weed( "weed" );
-static const itype_id itype_wheel( "wheel" );
-static const itype_id itype_withered( "withered" );
-static const itype_id itype_wrench( "wrench" );
+static const itype_id itype_vodka( "vodka"_id );
+static const itype_id itype_weed( "weed"_id );
+static const itype_id itype_wheel( "wheel"_id );
+static const itype_id itype_withered( "withered"_id );
+static const itype_id itype_wrench( "wrench"_id );
 
-static const ter_str_id ter_t_dirt( "t_dirt" );
-static const ter_str_id ter_t_grass_dead( "t_grass_dead" );
-static const ter_str_id ter_t_stump( "t_stump" );
-static const ter_str_id ter_t_tree_dead( "t_tree_dead" );
-static const ter_str_id ter_t_tree_deadpine( "t_tree_deadpine" );
-static const ter_str_id ter_t_tree_birch_harvested( "t_tree_birch_harvested" );
-static const ter_str_id ter_t_tree_hickory_dead( "t_tree_hickory_dead" );
-static const ter_str_id ter_t_trunk( "t_trunk" );
+static const ter_str_id ter_t_dirt( "t_dirt"_id );
+static const ter_str_id ter_t_grass_dead( "t_grass_dead"_id );
+static const ter_str_id ter_t_stump( "t_stump"_id );
+static const ter_str_id ter_t_tree_dead( "t_tree_dead"_id );
+static const ter_str_id ter_t_tree_deadpine( "t_tree_deadpine"_id );
+static const ter_str_id ter_t_tree_birch_harvested( "t_tree_birch_harvested"_id );
+static const ter_str_id ter_t_tree_hickory_dead( "t_tree_hickory_dead"_id );
+static const ter_str_id ter_t_trunk( "t_trunk"_id );
 
-static const mongroup_id GROUP_FISH( "GROUP_FISH" );
-static const mongroup_id GROUP_FUNGI_FUNGALOID( "GROUP_FUNGI_FUNGALOID" );
-static const mongroup_id GROUP_MAYBE_MIL( "GROUP_MAYBE_MIL" );
-static const mongroup_id GROUP_MI_GO_CAMP_OM( "GROUP_MI-GO_CAMP_OM" );
-static const mongroup_id GROUP_NETHER_CAPTURED( "GROUP_NETHER_CAPTURED" );
-static const mongroup_id GROUP_NETHER_PORTAL( "GROUP_NETHER_PORTAL" );
-static const mongroup_id GROUP_PETS( "GROUP_PETS" );
-static const mongroup_id GROUP_STRAY_DOGS( "GROUP_STRAY_DOGS" );
+static const mongroup_id GROUP_FISH( "GROUP_FISH"_id );
+static const mongroup_id GROUP_FUNGI_FUNGALOID( "GROUP_FUNGI_FUNGALOID"_id );
+static const mongroup_id GROUP_MAYBE_MIL( "GROUP_MAYBE_MIL"_id );
+static const mongroup_id GROUP_MI_GO_CAMP_OM( "GROUP_MI-GO_CAMP_OM"_id );
+static const mongroup_id GROUP_NETHER_CAPTURED( "GROUP_NETHER_CAPTURED"_id );
+static const mongroup_id GROUP_NETHER_PORTAL( "GROUP_NETHER_PORTAL"_id );
+static const mongroup_id GROUP_PETS( "GROUP_PETS"_id );
+static const mongroup_id GROUP_STRAY_DOGS( "GROUP_STRAY_DOGS"_id );
 
-static const mtype_id mon_dispatch( "mon_dispatch" );
-static const mtype_id mon_jabberwock( "mon_jabberwock" );
-static const mtype_id mon_marloss_zealot_f( "mon_marloss_zealot_f" );
-static const mtype_id mon_marloss_zealot_m( "mon_marloss_zealot_m" );
-static const mtype_id mon_shia( "mon_shia" );
-static const mtype_id mon_spider_cellar_giant( "mon_spider_cellar_giant" );
-static const mtype_id mon_spider_web( "mon_spider_web" );
-static const mtype_id mon_spider_widow_giant( "mon_spider_widow_giant" );
-static const mtype_id mon_turret_bmg( "mon_turret_bmg" );
-static const mtype_id mon_turret_searchlight( "mon_turret_searchlight" );
-static const mtype_id mon_turret_rifle( "mon_turret_rifle" );
-static const mtype_id mon_turret_riot( "mon_turret_riot" );
-static const mtype_id mon_turret_speaker( "mon_turret_speaker" );
-static const mtype_id mon_wasp( "mon_wasp" );
-static const mtype_id mon_wolf( "mon_wolf" );
-static const mtype_id mon_zombie_bio_op( "mon_zombie_bio_op" );
-static const mtype_id mon_zombie_military_pilot( "mon_zombie_military_pilot" );
-static const mtype_id mon_zombie_scientist( "mon_zombie_scientist" );
-static const mtype_id mon_zombie_smoker( "mon_zombie_smoker" );
-static const mtype_id mon_zombie_soldier( "mon_zombie_soldier" );
-static const mtype_id mon_zombie_spitter( "mon_zombie_spitter" );
-static const mtype_id mon_zombie_tough( "mon_zombie_tough" );
+static const mtype_id mon_dispatch( "mon_dispatch"_id );
+static const mtype_id mon_jabberwock( "mon_jabberwock"_id );
+static const mtype_id mon_marloss_zealot_f( "mon_marloss_zealot_f"_id );
+static const mtype_id mon_marloss_zealot_m( "mon_marloss_zealot_m"_id );
+static const mtype_id mon_shia( "mon_shia"_id );
+static const mtype_id mon_spider_cellar_giant( "mon_spider_cellar_giant"_id );
+static const mtype_id mon_spider_web( "mon_spider_web"_id );
+static const mtype_id mon_spider_widow_giant( "mon_spider_widow_giant"_id );
+static const mtype_id mon_turret_bmg( "mon_turret_bmg"_id );
+static const mtype_id mon_turret_searchlight( "mon_turret_searchlight"_id );
+static const mtype_id mon_turret_rifle( "mon_turret_rifle"_id );
+static const mtype_id mon_turret_riot( "mon_turret_riot"_id );
+static const mtype_id mon_turret_speaker( "mon_turret_speaker"_id );
+static const mtype_id mon_wasp( "mon_wasp"_id );
+static const mtype_id mon_wolf( "mon_wolf"_id );
+static const mtype_id mon_zombie_bio_op( "mon_zombie_bio_op"_id );
+static const mtype_id mon_zombie_military_pilot( "mon_zombie_military_pilot"_id );
+static const mtype_id mon_zombie_scientist( "mon_zombie_scientist"_id );
+static const mtype_id mon_zombie_smoker( "mon_zombie_smoker"_id );
+static const mtype_id mon_zombie_soldier( "mon_zombie_soldier"_id );
+static const mtype_id mon_zombie_spitter( "mon_zombie_spitter"_id );
+static const mtype_id mon_zombie_tough( "mon_zombie_tough"_id );
 
 class npc_template;
 
@@ -379,7 +379,7 @@ static bool mx_helicopter( map &m, const tripoint &abs_sub )
 
     int dir1 = rng( 0, 359 );
 
-    auto crashed_hull = vgroup_id( "crashed_helicopters" )->pick();
+    auto crashed_hull = vgroup_id( "crashed_helicopters"_id )->pick();
 
     // Create the vehicle so we can rotate it and calculate its bounding box, but don't place it on the map.
     auto veh = std::make_unique<vehicle>( crashed_hull, rng( 1, 33 ), 1 );
@@ -684,7 +684,7 @@ static bool mx_roadblock( map &m, const tripoint &abs_sub )
 
         if( one_in( 2 ) ) {
             // The truck's wrecked...with fuel.  Explosive barrel?
-            m.add_vehicle( vproto_id( "military_cargo_truck" ), point( 12, SEEY * 2 - 12 ), 0, 70, -1 );
+            m.add_vehicle( vproto_id( "military_cargo_truck"_id ), point( 12, SEEY * 2 - 12 ), 0, 70, -1 );
             if( road_at_north ) {
                 spawn_turret( point( 12, 6 ) );
             }
@@ -698,7 +698,7 @@ static bool mx_roadblock( map &m, const tripoint &abs_sub )
                 spawn_turret( point( 6, 12 ) );
             }
         } else {  // Vehicle & turrets
-            m.add_vehicle( vgroup_id( "military_vehicles" ), tripoint( 12, SEEY * 2 - 10, abs_sub.z ), 0, 70,
+            m.add_vehicle( vgroup_id( "military_vehicles"_id ), tripoint( 12, SEEY * 2 - 10, abs_sub.z ), 0, 70,
                            -1 );
             if( road_at_north ) {
                 spawn_turret( point( 12, 6 ) );
@@ -770,8 +770,8 @@ static bool mx_roadblock( map &m, const tripoint &abs_sub )
             m.add_spawn( mon_turret_riot, 1, { 1, 12, abs_sub.z } );
         }
 
-        m.add_vehicle( vproto_id( "policecar" ), point( 8, 6 ), 20 );
-        m.add_vehicle( vproto_id( "policecar" ), point( 16, SEEY * 2 - 6 ), 145 );
+        m.add_vehicle( vproto_id( "policecar"_id ), point( 8, 6 ), 20 );
+        m.add_vehicle( vproto_id( "policecar"_id ), point( 16, SEEY * 2 - 6 ), 145 );
 
         line_furn( &m, f_sandbag_wall, point( 6, 10 ), point( 9, 10 ) );
         m.add_spawn( mon_turret_searchlight, 1, { 7, 11, abs_sub.z } );
@@ -1159,7 +1159,7 @@ static bool mx_minefield( map &, const tripoint &abs_sub )
 
         //50% chance to spawn a humvee in the left block
         if( one_in( 2 ) ) {
-            m.add_vehicle( vproto_id( "humvee" ), point( 5, 3 ), 270, 70, -1 );
+            m.add_vehicle( vproto_id( "humvee"_id ), point( 5, 3 ), 270, 70, -1 );
         }
 
         //Sandbag block at the right edge
@@ -1234,9 +1234,9 @@ static bool mx_minefield( map &, const tripoint &abs_sub )
         //Set two warning signs on the last horizontal line of the submap
         x = rng( 3, SEEX );
         x1 = rng( SEEX + 1, SEEX * 2 - 4 );
-        m.furn_set( point( x, SEEY * 2 - 1 ), furn_str_id( "f_sign_warning" ) );
+        m.furn_set( point( x, SEEY * 2 - 1 ), furn_str_id( "f_sign_warning"_id ) );
         m.set_signage( tripoint( x, SEEY * 2 - 1, abs_sub.z ), text );
-        m.furn_set( point( x1, SEEY * 2 - 1 ), furn_str_id( "f_sign_warning" ) );
+        m.furn_set( point( x1, SEEY * 2 - 1 ), furn_str_id( "f_sign_warning"_id ) );
         m.set_signage( tripoint( x1, SEEY * 2 - 1, abs_sub.z ), text );
 
         did_something = true;
@@ -1300,8 +1300,8 @@ static bool mx_minefield( map &, const tripoint &abs_sub )
 
         //50% chance to spawn two humvees blocking the road
         if( one_in( 2 ) ) {
-            m.add_vehicle( vproto_id( "humvee" ), point( 7, 19 ), 0, 70, -1 );
-            m.add_vehicle( vproto_id( "humvee" ), point( 15, 20 ), 180, 70, -1 );
+            m.add_vehicle( vproto_id( "humvee"_id ), point( 7, 19 ), 0, 70, -1 );
+            m.add_vehicle( vproto_id( "humvee"_id ), point( 15, 20 ), 180, 70, -1 );
         }
 
         //Spawn 6-20 mines in the upper submap.
@@ -1336,9 +1336,9 @@ static bool mx_minefield( map &, const tripoint &abs_sub )
         //Set two warning signs on the first horizontal line of the submap
         x = rng( 3, SEEX );
         x1 = rng( SEEX + 1, SEEX * 2 - 4 );
-        m.furn_set( point( x, 0 ), furn_str_id( "f_sign_warning" ) );
+        m.furn_set( point( x, 0 ), furn_str_id( "f_sign_warning"_id ) );
         m.set_signage( tripoint( x, 0, abs_sub.z ), text );
-        m.furn_set( point( x1, 0 ), furn_str_id( "f_sign_warning" ) );
+        m.furn_set( point( x1, 0 ), furn_str_id( "f_sign_warning"_id ) );
         m.set_signage( tripoint( x1, 0, abs_sub.z ), text );
 
         did_something = true;
@@ -1376,7 +1376,7 @@ static bool mx_minefield( map &, const tripoint &abs_sub )
             m.add_field( { 1, 6, abs_sub.z }, fd_gibs_flesh, 1 );
 
             //Add the culprit
-            m.add_vehicle( vproto_id( "car_fbi" ), point( 7, 7 ), 0, 70, 1 );
+            m.add_vehicle( vproto_id( "car_fbi"_id ), point( 7, 7 ), 0, 70, 1 );
 
             //Remove tent parts after drive-through
             square_furn( &m, f_null, point( 0, 6 ), point( 8, 9 ) );
@@ -1483,9 +1483,9 @@ static bool mx_minefield( map &, const tripoint &abs_sub )
         //Set two warning signs on the last vertical line of the submap
         y = rng( 3, SEEY );
         y1 = rng( SEEY + 1, SEEY * 2 - 4 );
-        m.furn_set( point( SEEX * 2 - 1, y ), furn_str_id( "f_sign_warning" ) );
+        m.furn_set( point( SEEX * 2 - 1, y ), furn_str_id( "f_sign_warning"_id ) );
         m.set_signage( tripoint( SEEX * 2 - 1, y, abs_sub.z ), text );
-        m.furn_set( point( SEEX * 2 - 1, y1 ), furn_str_id( "f_sign_warning" ) );
+        m.furn_set( point( SEEX * 2 - 1, y1 ), furn_str_id( "f_sign_warning"_id ) );
         m.set_signage( tripoint( SEEX * 2 - 1, y1, abs_sub.z ), text );
 
         did_something = true;
@@ -1494,7 +1494,7 @@ static bool mx_minefield( map &, const tripoint &abs_sub )
     if( bridge_at_east && bridgehead_at_center && road_at_west ) {
         m.load( project_to<coords::sm>( abs_omt + point_west ), false );
         //Spawn military cargo truck blocking the entry
-        m.add_vehicle( vproto_id( "military_cargo_truck" ), point( 15, 11 ), 270, 70, 1 );
+        m.add_vehicle( vproto_id( "military_cargo_truck"_id ), point( 15, 11 ), 270, 70, 1 );
 
         //Spawn sandbag barricades around the truck
         line_furn( &m, f_sandbag_half, point( 14, 3 ), point( 14, 8 ) );
@@ -1618,9 +1618,9 @@ static bool mx_minefield( map &, const tripoint &abs_sub )
         //Set two warning signs on the first vertical line of the submap
         y = rng( 3, SEEY );
         y1 = rng( SEEY + 1, SEEY * 2 - 4 );
-        m.furn_set( point( 0, y ), furn_str_id( "f_sign_warning" ) );
+        m.furn_set( point( 0, y ), furn_str_id( "f_sign_warning"_id ) );
         m.set_signage( tripoint( 0, y, abs_sub.z ), text );
-        m.furn_set( point( 0, y1 ), furn_str_id( "f_sign_warning" ) );
+        m.furn_set( point( 0, y1 ), furn_str_id( "f_sign_warning"_id ) );
         m.set_signage( tripoint( 0, y1, abs_sub.z ), text );
 
         did_something = true;
@@ -1785,8 +1785,8 @@ static bool mx_portal_in( map &m, const tripoint &abs_sub )
             do {
                 pos = p + point( rng( -5, 5 ), rng( -5, 5 ) );
             } while( pos.x >= 1 && pos.y >= 1 && pos.x < SEEX * 2 - 1 && pos.y < SEEY * 2 - 1 );
-            circle( &m, ter_id( "t_wall_resin" ), pos, 6 );
-            rough_circle( &m, ter_id( "t_floor_resin" ), pos, 5 );
+            circle( &m, ter_id( "t_wall_resin"_id ), pos, 6 );
+            rough_circle( &m, ter_id( "t_floor_resin"_id ), pos, 5 );
             break;
         }
         //Anomaly caused by the portal and spawned an artifact
@@ -1796,7 +1796,7 @@ static bool mx_portal_in( map &m, const tripoint &abs_sub )
                 static_cast<artifact_natural_property>( rng( ARTPROP_NULL + 1, ARTPROP_MAX - 1 ) );
             m.create_anomaly( portal_location, prop );
             m.spawn_artifact( p + tripoint( rng( -1, 1 ), rng( -1, 1 ), abs_sub.z ),
-                              relic_procgen_id( "alien_reality" ) );
+                              relic_procgen_id( "alien_reality"_id ) );
             break;
         }
     }
@@ -1938,7 +1938,7 @@ static bool mx_clearcut( map &m, const tripoint &abs_sub )
 
     // This map extra converts all trees and young trees in the area to stumps.
 
-    ter_id stump( "t_stump" );
+    ter_id stump( "t_stump"_id );
 
     bool did_something = false;
 
@@ -2581,10 +2581,10 @@ static bool mx_roadworks( map &m, const tripoint &abs_sub )
     // vehicle placer
     switch( rng( 1, 6 ) ) {
         case 1:
-            m.add_vehicle( vproto_id( "road_roller" ), veh, rng( 0, 360 ) );
+            m.add_vehicle( vproto_id( "road_roller"_id ), veh, rng( 0, 360 ) );
             break;
         case 2:
-            m.add_vehicle( vproto_id( "excavator" ), veh, rng( 0, 360 ) );
+            m.add_vehicle( vproto_id( "excavator"_id ), veh, rng( 0, 360 ) );
             break;
         case 3:
         case 4:
@@ -2608,8 +2608,8 @@ static bool mx_mayhem( map &m, const tripoint &abs_sub )
     switch( rng( 1, 3 ) ) {
         //Car accident resulted in a shootout with two victims
         case 1: {
-            m.add_vehicle( vproto_id( "car" ), point( 18, 9 ), 270 );
-            m.add_vehicle( vproto_id( "4x4_car" ), point( 20, 5 ), 0 );
+            m.add_vehicle( vproto_id( "car"_id ), point( 18, 9 ), 270 );
+            m.add_vehicle( vproto_id( "4x4_car"_id ), point( 20, 5 ), 0 );
 
             m.spawn_item( { 16, 10, abs_sub.z }, itype_shot_hull );
             m.add_corpse( { 16, 9, abs_sub.z } );
@@ -2627,7 +2627,7 @@ static bool mx_mayhem( map &m, const tripoint &abs_sub )
         }
         //Some cocky moron with friends got dragged out of limo and shooted down by a military
         case 2: {
-            m.add_vehicle( vproto_id( "limousine" ), point( 18, 9 ), 270 );
+            m.add_vehicle( vproto_id( "limousine"_id ), point( 18, 9 ), 270 );
 
             m.add_corpse( { 16, 9, abs_sub.z } );
             m.add_corpse( { 16, 11, abs_sub.z } );
@@ -2644,7 +2644,7 @@ static bool mx_mayhem( map &m, const tripoint &abs_sub )
         }
         //Some unfortunate stopped at the roadside to change tire, but was ambushed and killed
         case 3: {
-            m.add_vehicle( vproto_id( "car" ), point( 18, 12 ), 270 );
+            m.add_vehicle( vproto_id( "car"_id ), point( 18, 12 ), 270 );
 
             m.add_field( { 16, 15, abs_sub.z }, fd_blood, rng( 1, 3 ) );
 
@@ -3046,7 +3046,7 @@ static bool mx_city_trap( map &/*m*/, const tripoint &abs_sub )
         for( const tripoint &p : points_in_radius( trap_center, 1 ) ) {
             compmap.trap_set( p, tr_blade );
         }
-        compmap.trap_set( trap_center, trap_str_id( "tr_engine" ) );
+        compmap.trap_set( trap_center, trap_str_id( "tr_engine"_id ) );
         //... and a loudspeaker to attract zombies
         compmap.add_spawn( mon_turret_speaker, 1, trap_center );
     }

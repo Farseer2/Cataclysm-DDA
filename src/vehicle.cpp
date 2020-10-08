@@ -80,30 +80,30 @@ static const std::string part_location_structure( "structure" );
 static const std::string part_location_center( "center" );
 static const std::string part_location_onroof( "on_roof" );
 
-static const itype_id fuel_type_animal( "animal" );
-static const itype_id fuel_type_battery( "battery" );
-static const itype_id fuel_type_muscle( "muscle" );
-static const itype_id fuel_type_plutonium_cell( "plut_cell" );
-static const itype_id fuel_type_wind( "wind" );
-static const itype_id fuel_type_mana( "mana" );
+static const itype_id fuel_type_animal( "animal"_id );
+static const itype_id fuel_type_battery( "battery"_id );
+static const itype_id fuel_type_muscle( "muscle"_id );
+static const itype_id fuel_type_plutonium_cell( "plut_cell"_id );
+static const itype_id fuel_type_wind( "wind"_id );
+static const itype_id fuel_type_mana( "mana"_id );
 
-static const fault_id fault_engine_belt_drive( "fault_engine_belt_drive" );
-static const fault_id fault_engine_filter_air( "fault_engine_filter_air" );
-static const fault_id fault_engine_filter_fuel( "fault_engine_filter_fuel" );
-static const fault_id fault_engine_immobiliser( "fault_engine_immobiliser" );
+static const fault_id fault_engine_belt_drive( "fault_engine_belt_drive"_id );
+static const fault_id fault_engine_filter_air( "fault_engine_filter_air"_id );
+static const fault_id fault_engine_filter_fuel( "fault_engine_filter_fuel"_id );
+static const fault_id fault_engine_immobiliser( "fault_engine_immobiliser"_id );
 
-static const activity_id ACT_VEHICLE( "ACT_VEHICLE" );
+static const activity_id ACT_VEHICLE( "ACT_VEHICLE"_id );
 
-static const bionic_id bio_jointservo( "bio_jointservo" );
+static const bionic_id bio_jointservo( "bio_jointservo"_id );
 
-static const efftype_id effect_harnessed( "harnessed" );
-static const efftype_id effect_winded( "winded" );
+static const efftype_id effect_harnessed( "harnessed"_id );
+static const efftype_id effect_winded( "winded"_id );
 
-static const itype_id itype_battery( "battery" );
-static const itype_id itype_plut_cell( "plut_cell" );
-static const itype_id itype_water( "water" );
-static const itype_id itype_water_clean( "water_clean" );
-static const itype_id itype_water_purifier( "water_purifier" );
+static const itype_id itype_battery( "battery"_id );
+static const itype_id itype_plut_cell( "plut_cell"_id );
+static const itype_id itype_water( "water"_id );
+static const itype_id itype_water_clean( "water_clean"_id );
+static const itype_id itype_water_purifier( "water_purifier"_id );
 
 static const std::string flag_PERPETUAL( "PERPETUAL" );
 static const std::string flag_E_COMBUSTION( "E_COMBUSTION" );
@@ -322,7 +322,7 @@ bool vehicle::remote_controlled( const Character &p ) const
  * loading from a game saved before the vehicle construction rules overhaul). */
 void vehicle::add_missing_frames()
 {
-    static const vpart_id frame_id( "frame" );
+    static const vpart_id frame_id( "frame"_id );
     //No need to check the same spot more than once
     std::set<point> locations_checked;
     for( vehicle_part &i : parts ) {
@@ -740,7 +740,7 @@ void vehicle::autopilot_patrol()
         return;
     }
     zone_manager &mgr = zone_manager::get_manager();
-    const auto &zone_src_set = mgr.get_near( zone_type_id( "VEHICLE_PATROL" ),
+    const auto &zone_src_set = mgr.get_near( zone_type_id( "VEHICLE_PATROL"_id ),
                                here.getabs( global_pos3() ), 60 );
     if( zone_src_set.empty() ) {
         is_patrolling = false;
@@ -2144,7 +2144,7 @@ bool vehicle::remove_carried_vehicle( const std::vector<int> &carried_parts )
         }
     }
     map &here = get_map();
-    vehicle *new_vehicle = here.add_vehicle( vproto_id( "none" ), new_pos3, new_dir );
+    vehicle *new_vehicle = here.add_vehicle( vproto_id( "none"_id ), new_pos3, new_dir );
     if( new_vehicle == nullptr ) {
         add_msg_debug( "Unable to unload bike rack, host face %d, new_dir %d!", face.dir(), new_dir );
         return false;
@@ -2358,7 +2358,7 @@ bool vehicle::split_vehicles( const std::vector<std::vector <int>> &new_vehs,
             }
             new_v_pos3 = global_part_pos3( parts[ split_part0 ] );
             mnt_offset = parts[ split_part0 ].mount;
-            new_vehicle = here.add_vehicle( vproto_id( "none" ), new_v_pos3, face.dir() );
+            new_vehicle = here.add_vehicle( vproto_id( "none"_id ), new_v_pos3, face.dir() );
             if( new_vehicle == nullptr ) {
                 // the split part was out of the map bounds.
                 continue;
@@ -4500,7 +4500,7 @@ int vehicle::engine_fuel_usage( int e ) const
         return 0;
     }
 
-    static const itype_id null_fuel_type( "null" );
+    static const itype_id null_fuel_type( "null"_id );
     const itype_id &cur_fuel = parts[engines[e]].fuel_current();
     if( cur_fuel  == null_fuel_type ) {
         return 0;
@@ -4530,7 +4530,7 @@ std::map<itype_id, int> vehicle::fuel_usage() const
         }
 
         const size_t e = engines[ i ];
-        static const itype_id null_fuel_type( "null" );
+        static const itype_id null_fuel_type( "null"_id );
         const itype_id &cur_fuel = parts[ e ].fuel_current();
         if( cur_fuel  == null_fuel_type ) {
             continue;
@@ -4662,7 +4662,7 @@ std::pair<int, int> vehicle::battery_power_level() const
         const vehicle_part &b = parts[bi];
         if( b.is_available() ) {
             remaining_epower += b.ammo_remaining();
-            total_epower_capacity += b.ammo_capacity( ammotype( "battery" ) );
+            total_epower_capacity += b.ammo_capacity( ammotype( "battery"_id ) );
         }
     }
 
@@ -5036,8 +5036,8 @@ int vehicle::charge_battery( int amount, bool include_other_vehicles )
     std::multimap<int, vehicle_part *> chargeable_parts;
     for( vehicle_part &p : parts ) {
         if( p.is_available() && p.is_battery() &&
-            p.ammo_capacity( ammotype( "battery" ) ) > p.ammo_remaining() ) {
-            chargeable_parts.insert( { ( p.ammo_remaining() * 100 ) / p.ammo_capacity( ammotype( "battery" ) ), &p } );
+            p.ammo_capacity( ammotype( "battery"_id ) ) > p.ammo_remaining() ) {
+            chargeable_parts.insert( { ( p.ammo_remaining() * 100 ) / p.ammo_capacity( ammotype( "battery"_id ) ), &p } );
         }
     }
     while( amount > 0 && !chargeable_parts.empty() ) {
@@ -5048,13 +5048,13 @@ int vehicle::charge_battery( int amount, bool include_other_vehicles )
         chargeable_parts.erase( iter );
         // Calculate number of charges to reach the next %, but insure it's at least
         // one more than current charge.
-        int next_charge_level = ( ( charge_level + 1 ) * p->ammo_capacity( ammotype( "battery" ) ) ) / 100;
+        int next_charge_level = ( ( charge_level + 1 ) * p->ammo_capacity( ammotype( "battery"_id ) ) ) / 100;
         next_charge_level = std::max( next_charge_level, p->ammo_remaining() + 1 );
         int qty = std::min( amount, next_charge_level - p->ammo_remaining() );
         p->ammo_set( fuel_type_battery, p->ammo_remaining() + qty );
         amount -= qty;
-        if( p->ammo_capacity( ammotype( "battery" ) ) > p->ammo_remaining() ) {
-            chargeable_parts.insert( { ( p->ammo_remaining() * 100 ) / p->ammo_capacity( ammotype( "battery" ) ), p } );
+        if( p->ammo_capacity( ammotype( "battery"_id ) ) > p->ammo_remaining() ) {
+            chargeable_parts.insert( { ( p->ammo_remaining() * 100 ) / p->ammo_capacity( ammotype( "battery"_id ) ), p } );
         }
     }
 
@@ -5076,7 +5076,7 @@ int vehicle::discharge_battery( int amount, bool recurse )
     std::multimap<int, vehicle_part *> dischargeable_parts;
     for( vehicle_part &p : parts ) {
         if( p.is_available() && p.is_battery() && p.ammo_remaining() > 0 ) {
-            dischargeable_parts.insert( { ( p.ammo_remaining() * 100 ) / p.ammo_capacity( ammotype( "battery" ) ), &p } );
+            dischargeable_parts.insert( { ( p.ammo_remaining() * 100 ) / p.ammo_capacity( ammotype( "battery"_id ) ), &p } );
         }
     }
     while( amount > 0 && !dischargeable_parts.empty() ) {
@@ -5086,12 +5086,12 @@ int vehicle::discharge_battery( int amount, bool recurse )
         vehicle_part *p = iter->second;
         dischargeable_parts.erase( iter );
         // Calculate number of charges to reach the previous %.
-        int prev_charge_level = ( ( charge_level - 1 ) * p->ammo_capacity( ammotype( "battery" ) ) ) / 100;
+        int prev_charge_level = ( ( charge_level - 1 ) * p->ammo_capacity( ammotype( "battery"_id ) ) ) / 100;
         int amount_to_discharge = std::min( p->ammo_remaining() - prev_charge_level, amount );
         p->ammo_consume( amount_to_discharge, global_part_pos3( *p ) );
         amount -= amount_to_discharge;
         if( p->ammo_remaining() > 0 ) {
-            dischargeable_parts.insert( { ( p->ammo_remaining() * 100 ) / p->ammo_capacity( ammotype( "battery" ) ), p } );
+            dischargeable_parts.insert( { ( p->ammo_remaining() * 100 ) / p->ammo_capacity( ammotype( "battery"_id ) ), p } );
         }
     }
 

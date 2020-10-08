@@ -56,31 +56,31 @@
 #include "vehicle.h"
 #include "vpart_position.h"
 
-static const efftype_id effect_blind( "blind" );
-static const efftype_id effect_deaf( "deaf" );
-static const efftype_id effect_emp( "emp" );
-static const efftype_id effect_stunned( "stunned" );
-static const efftype_id effect_teleglow( "teleglow" );
+static const efftype_id effect_blind( "blind"_id );
+static const efftype_id effect_deaf( "deaf"_id );
+static const efftype_id effect_emp( "emp"_id );
+static const efftype_id effect_stunned( "stunned"_id );
+static const efftype_id effect_teleglow( "teleglow"_id );
 
 static const std::string flag_BLIND( "BLIND" );
 static const std::string flag_FLASH_PROTECTION( "FLASH_PROTECTION" );
 
-static const itype_id fuel_type_none( "null" );
+static const itype_id fuel_type_none( "null"_id );
 
-static const itype_id itype_battery( "battery" );
-static const itype_id itype_e_handcuffs( "e_handcuffs" );
+static const itype_id itype_battery( "battery"_id );
+static const itype_id itype_e_handcuffs( "e_handcuffs"_id );
 static const itype_id itype_rm13_armor_on( "rm13_armor_on" );
 
-static const species_id species_ROBOT( "ROBOT" );
+static const species_id species_ROBOT( "ROBOT"_id );
 
-static const trait_id trait_LEG_TENT_BRACE( "LEG_TENT_BRACE" );
-static const trait_id trait_PER_SLIME( "PER_SLIME" );
-static const trait_id trait_PER_SLIME_OK( "PER_SLIME_OK" );
+static const trait_id trait_LEG_TENT_BRACE( "LEG_TENT_BRACE"_id );
+static const trait_id trait_PER_SLIME( "PER_SLIME"_id );
+static const trait_id trait_PER_SLIME_OK( "PER_SLIME_OK"_id );
 
-static const mongroup_id GROUP_NETHER( "GROUP_NETHER" );
+static const mongroup_id GROUP_NETHER( "GROUP_NETHER"_id );
 
-static const bionic_id bio_ears( "bio_ears" );
-static const bionic_id bio_sunglasses( "bio_sunglasses" );
+static const bionic_id bio_ears( "bio_ears"_id );
+static const bionic_id bio_sunglasses( "bio_sunglasses"_id );
 
 // Global to smuggle data into shrapnel_calc() function without replicating it across entire map.
 // Mass in kg
@@ -317,9 +317,9 @@ static void do_blast( const tripoint &p, const float power,
         Character *pl = critter->as_character();
         if( pl == nullptr ) {
             // TODO: player's fault?
-            const double dmg = std::max( force - critter->get_armor_bash( bodypart_id( "torso" ) ) / 2.0, 0.0 );
+            const double dmg = std::max( force - critter->get_armor_bash( bodypart_id( "torso"_id ) ) / 2.0, 0.0 );
             const int actual_dmg = rng_float( dmg * 2, dmg * 3 );
-            critter->apply_damage( nullptr, bodypart_id( "torso" ), actual_dmg );
+            critter->apply_damage( nullptr, bodypart_id( "torso"_id ), actual_dmg );
             critter->check_dead_state();
             add_msg_debug( "Blast hits %s for %d damage", critter->disp_name(), actual_dmg );
             continue;
@@ -337,13 +337,13 @@ static void do_blast( const tripoint &p, const float power,
         };
 
         static const std::array<blastable_part, 6> blast_parts = { {
-                { bodypart_id( "torso" ), 2.0f, 3.0f, 0.5f },
-                { bodypart_id( "head" ),  2.0f, 3.0f, 0.5f },
+                { bodypart_id( "torso"_id ), 2.0f, 3.0f, 0.5f },
+                { bodypart_id( "head"_id ),  2.0f, 3.0f, 0.5f },
                 // Hit limbs harder so that it hurts more without being much more deadly
-                { bodypart_id( "leg_l" ), 2.0f, 3.5f, 0.4f },
-                { bodypart_id( "leg_r" ), 2.0f, 3.5f, 0.4f },
-                { bodypart_id( "arm_l" ), 2.0f, 3.5f, 0.4f },
-                { bodypart_id( "arm_r" ), 2.0f, 3.5f, 0.4f },
+                { bodypart_id( "leg_l"_id ), 2.0f, 3.5f, 0.4f },
+                { bodypart_id( "leg_r"_id ), 2.0f, 3.5f, 0.4f },
+                { bodypart_id( "arm_l"_id ), 2.0f, 3.5f, 0.4f },
+                { bodypart_id( "arm_r"_id ), 2.0f, 3.5f, 0.4f },
             }
         };
 
@@ -578,7 +578,7 @@ void flashbang( const tripoint &p, bool player_immune )
                        player_character.worn_with_flag( flag_FLASH_PROTECTION ) ) {
                 flash_mod = 3; // Not really proper flash protection, but better than nothing
             }
-            player_character.add_env_effect( effect_blind, bodypart_id( "eyes" ), ( 12 - flash_mod - dist ) / 2,
+            player_character.add_env_effect( effect_blind, bodypart_id( "eyes"_id ), ( 12 - flash_mod - dist ) / 2,
                                              time_duration::from_turns( 10 - dist ) );
         }
     }
@@ -664,7 +664,7 @@ void emp_blast( const tripoint &p )
         if( sight ) {
             add_msg( _( "The %s is rendered non-functional!" ), here.tername( p2 ) );
         }
-        here.furn_set( p2, furn_str_id( "f_machinery_electronic" ) );
+        here.furn_set( p2, furn_str_id( "f_machinery_electronic"_id ) );
         return;
     }
     // TODO: More terrain effects.
@@ -728,7 +728,7 @@ void emp_blast( const tripoint &p )
                     add_msg( _( "The EMP blast fries the %s!" ), critter.name() );
                 }
                 int dam = dice( 10, 10 );
-                critter.apply_damage( nullptr, bodypart_id( "torso" ), dam );
+                critter.apply_damage( nullptr, bodypart_id( "torso"_id ), dam );
                 critter.check_dead_state();
                 if( !critter.is_dead() && one_in( 6 ) ) {
                     critter.make_friendly();
@@ -744,7 +744,7 @@ void emp_blast( const tripoint &p )
                          critter.name() );
                 add_msg( m_good, _( "It takes %d damage." ), dam );
                 critter.add_effect( effect_emp, 1_minutes );
-                critter.apply_damage( nullptr, bodypart_id( "torso" ), dam );
+                critter.apply_damage( nullptr, bodypart_id( "torso"_id ), dam );
                 critter.check_dead_state();
             }
         } else if( sight ) {

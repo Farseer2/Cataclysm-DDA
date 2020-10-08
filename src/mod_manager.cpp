@@ -150,12 +150,12 @@ void mod_manager::refresh_mod_list()
         load_mod_info( PATH_INFO::mods_user_default() );
     }
 
-    if( !set_default_mods( mod_id( "user:default" ) ) ) {
-        set_default_mods( mod_id( "dev:default" ) );
+    if( !set_default_mods( mod_id( "user:default"_id ) ) ) {
+        set_default_mods( mod_id( "dev:default"_id ) );
     }
     // remove these mods from the list, so they do not appear to the user
-    remove_mod( mod_id( "user:default" ) );
-    remove_mod( mod_id( "dev:default" ) );
+    remove_mod( mod_id( "user:default"_id ) );
+    remove_mod( mod_id( "dev:default"_id ) );
     for( auto &elem : mod_map ) {
         const auto &deps = elem.second.dependencies;
         mod_dependency_map[elem.second.ident] = std::vector<mod_id>( deps.begin(), deps.end() );

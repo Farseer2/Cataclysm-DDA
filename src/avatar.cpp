@@ -73,51 +73,51 @@
 #include "vehicle.h"
 #include "vpart_position.h"
 
-static const activity_id ACT_READ( "ACT_READ" );
+static const activity_id ACT_READ( "ACT_READ"_id );
 
-static const bionic_id bio_cloak( "bio_cloak" );
-static const bionic_id bio_eye_optic( "bio_eye_optic" );
-static const bionic_id bio_memory( "bio_memory" );
-static const bionic_id bio_watch( "bio_watch" );
+static const bionic_id bio_cloak( "bio_cloak"_id );
+static const bionic_id bio_eye_optic( "bio_eye_optic"_id );
+static const bionic_id bio_memory( "bio_memory"_id );
+static const bionic_id bio_watch( "bio_watch"_id );
 
-static const efftype_id effect_alarm_clock( "alarm_clock" );
-static const efftype_id effect_boomered( "boomered" );
-static const efftype_id effect_contacts( "contacts" );
-static const efftype_id effect_depressants( "depressants" );
-static const efftype_id effect_happy( "happy" );
-static const efftype_id effect_irradiated( "irradiated" );
-static const efftype_id effect_onfire( "onfire" );
-static const efftype_id effect_pkill( "pkill" );
-static const efftype_id effect_sad( "sad" );
-static const efftype_id effect_sleep( "sleep" );
-static const efftype_id effect_sleep_deprived( "sleep_deprived" );
-static const efftype_id effect_slept_through_alarm( "slept_through_alarm" );
-static const efftype_id effect_stim( "stim" );
-static const efftype_id effect_stim_overdose( "stim_overdose" );
-static const efftype_id effect_stunned( "stunned" );
+static const efftype_id effect_alarm_clock( "alarm_clock"_id );
+static const efftype_id effect_boomered( "boomered"_id );
+static const efftype_id effect_contacts( "contacts"_id );
+static const efftype_id effect_depressants( "depressants"_id );
+static const efftype_id effect_happy( "happy"_id );
+static const efftype_id effect_irradiated( "irradiated"_id );
+static const efftype_id effect_onfire( "onfire"_id );
+static const efftype_id effect_pkill( "pkill"_id );
+static const efftype_id effect_sad( "sad"_id );
+static const efftype_id effect_sleep( "sleep"_id );
+static const efftype_id effect_sleep_deprived( "sleep_deprived"_id );
+static const efftype_id effect_slept_through_alarm( "slept_through_alarm"_id );
+static const efftype_id effect_stim( "stim"_id );
+static const efftype_id effect_stim_overdose( "stim_overdose"_id );
+static const efftype_id effect_stunned( "stunned"_id );
 
-static const itype_id itype_guidebook( "guidebook" );
+static const itype_id itype_guidebook( "guidebook"_id );
 
-static const trait_id trait_ARACHNID_ARMS( "ARACHNID_ARMS" );
-static const trait_id trait_ARACHNID_ARMS_OK( "ARACHNID_ARMS_OK" );
-static const trait_id trait_CENOBITE( "CENOBITE" );
+static const trait_id trait_ARACHNID_ARMS( "ARACHNID_ARMS"_id );
+static const trait_id trait_ARACHNID_ARMS_OK( "ARACHNID_ARMS_OK"_id );
+static const trait_id trait_CENOBITE( "CENOBITE"_id );
 static const trait_id trait_CHITIN2( "CHITIN2" );
 static const trait_id trait_CHITIN3( "CHITIN3" );
 static const trait_id trait_CHITIN_FUR3( "CHITIN_FUR3" );
-static const trait_id trait_COMPOUND_EYES( "COMPOUND_EYES" );
-static const trait_id trait_DEBUG_CLOAK( "DEBUG_CLOAK" );
-static const trait_id trait_HYPEROPIC( "HYPEROPIC" );
-static const trait_id trait_ILLITERATE( "ILLITERATE" );
-static const trait_id trait_INSECT_ARMS( "INSECT_ARMS" );
-static const trait_id trait_INSECT_ARMS_OK( "INSECT_ARMS_OK" );
-static const trait_id trait_PROF_DICEMASTER( "PROF_DICEMASTER" );
-static const trait_id trait_SCHIZOPHRENIC( "SCHIZOPHRENIC" );
-static const trait_id trait_STIMBOOST( "STIMBOOST" );
-static const trait_id trait_THICK_SCALES( "THICK_SCALES" );
-static const trait_id trait_WEBBED( "WEBBED" );
-static const trait_id trait_WHISKERS( "WHISKERS" );
-static const trait_id trait_WHISKERS_RAT( "WHISKERS_RAT" );
-static const trait_id trait_MASOCHIST( "MASOCHIST" );
+static const trait_id trait_COMPOUND_EYES( "COMPOUND_EYES"_id );
+static const trait_id trait_DEBUG_CLOAK( "DEBUG_CLOAK"_id );
+static const trait_id trait_HYPEROPIC( "HYPEROPIC"_id );
+static const trait_id trait_ILLITERATE( "ILLITERATE"_id );
+static const trait_id trait_INSECT_ARMS( "INSECT_ARMS"_id );
+static const trait_id trait_INSECT_ARMS_OK( "INSECT_ARMS_OK"_id );
+static const trait_id trait_PROF_DICEMASTER( "PROF_DICEMASTER"_id );
+static const trait_id trait_SCHIZOPHRENIC( "SCHIZOPHRENIC"_id );
+static const trait_id trait_STIMBOOST( "STIMBOOST"_id );
+static const trait_id trait_THICK_SCALES( "THICK_SCALES"_id );
+static const trait_id trait_WEBBED( "WEBBED"_id );
+static const trait_id trait_WHISKERS( "WHISKERS"_id );
+static const trait_id trait_WHISKERS_RAT( "WHISKERS_RAT"_id );
+static const trait_id trait_MASOCHIST( "MASOCHIST"_id );
 
 static const std::string flag_FIX_FARSIGHT( "FIX_FARSIGHT" );
 
@@ -993,7 +993,7 @@ nc_color avatar::basic_symbol_color() const
     if( has_effect( effect_boomered ) ) {
         return c_pink;
     }
-    if( has_active_mutation( trait_id( "SHELL2" ) ) ) {
+    if( has_active_mutation( trait_id( "SHELL2"_id ) ) ) {
         return c_magenta;
     }
     if( underwater ) {
@@ -1171,14 +1171,14 @@ void avatar::reset_stats()
     if( has_trait( trait_CHITIN2 ) || has_trait( trait_CHITIN3 ) || has_trait( trait_CHITIN_FUR3 ) ) {
         add_miss_reason( _( "Your chitin gets in the way." ), 1 );
     }
-    if( has_trait( trait_COMPOUND_EYES ) && !wearing_something_on( bodypart_id( "eyes" ) ) ) {
+    if( has_trait( trait_COMPOUND_EYES ) && !wearing_something_on( bodypart_id( "eyes"_id ) ) ) {
         mod_per_bonus( 1 );
     }
     if( has_trait( trait_INSECT_ARMS ) ) {
         add_miss_reason( _( "Your insect limbs get in the way." ), 2 );
     }
     if( has_trait( trait_INSECT_ARMS_OK ) ) {
-        if( !wearing_something_on( bodypart_id( "torso" ) ) ) {
+        if( !wearing_something_on( bodypart_id( "torso"_id ) ) ) {
             mod_dex_bonus( 1 );
         } else {
             mod_dex_bonus( -1 );
@@ -1192,9 +1192,9 @@ void avatar::reset_stats()
         add_miss_reason( _( "Your arachnid limbs get in the way." ), 4 );
     }
     if( has_trait( trait_ARACHNID_ARMS_OK ) ) {
-        if( !wearing_something_on( bodypart_id( "torso" ) ) ) {
+        if( !wearing_something_on( bodypart_id( "torso"_id ) ) ) {
             mod_dex_bonus( 2 );
-        } else if( !exclusive_flag_coverage( "OVERSIZE" ).test( bodypart_str_id( "torso" ) ) ) {
+        } else if( !exclusive_flag_coverage( "OVERSIZE" ).test( bodypart_str_id( "torso"_id ) ) ) {
             mod_dex_bonus( -2 );
             add_miss_reason( _( "Your clothing constricts your arachnid limbs." ), 2 );
         }
@@ -1271,13 +1271,13 @@ void avatar::reset_stats()
 
     // Dodge-related effects
     mod_dodge_bonus( mabuff_dodge_bonus() -
-                     ( encumb( bodypart_id( "leg_l" ) ) + encumb( bodypart_id( "leg_r" ) ) ) / 20.0f - encumb(
-                         bodypart_id( "torso" ) ) / 10.0f );
+                     ( encumb( bodypart_id( "leg_l"_id ) ) + encumb( bodypart_id( "leg_r"_id ) ) ) / 20.0f - encumb(
+                         bodypart_id( "torso"_id ) ) / 10.0f );
     // Whiskers don't work so well if they're covered
-    if( has_trait( trait_WHISKERS ) && !wearing_something_on( bodypart_id( "mouth" ) ) ) {
+    if( has_trait( trait_WHISKERS ) && !wearing_something_on( bodypart_id( "mouth"_id ) ) ) {
         mod_dodge_bonus( 1 );
     }
-    if( has_trait( trait_WHISKERS_RAT ) && !wearing_something_on( bodypart_id( "mouth" ) ) ) {
+    if( has_trait( trait_WHISKERS_RAT ) && !wearing_something_on( bodypart_id( "mouth"_id ) ) ) {
         mod_dodge_bonus( 2 );
     }
     // depending on mounts size, attacks will hit the mount and use their dodge rating.
@@ -1287,14 +1287,14 @@ void avatar::reset_stats()
     }
     // Spider hair is basically a full-body set of whiskers, once you get the brain for it
     if( has_trait( trait_CHITIN_FUR3 ) ) {
-        static const std::array<bodypart_id, 5> parts{ { bodypart_id( "head" ), bodypart_id( "arm_r" ), bodypart_id( "arm_l" ), bodypart_id( "leg_r" ), bodypart_id( "leg_l" ) } };
+        static const std::array<bodypart_id, 5> parts{ { bodypart_id( "head"_id ), bodypart_id( "arm_r"_id ), bodypart_id( "arm_l"_id ), bodypart_id( "leg_r"_id ), bodypart_id( "leg_l"_id ) } };
         for( const bodypart_id &bp : parts ) {
             if( !wearing_something_on( bp ) ) {
                 mod_dodge_bonus( +1 );
             }
         }
         // Torso handled separately, bigger bonus
-        if( !wearing_something_on( bodypart_id( "torso" ) ) ) {
+        if( !wearing_something_on( bodypart_id( "torso"_id ) ) ) {
             mod_dodge_bonus( 4 );
         }
     }
@@ -1444,7 +1444,7 @@ void avatar::upgrade_stat_prompt( const character_stat &stat )
 
 faction *avatar::get_faction() const
 {
-    return g->faction_manager_ptr->get( faction_id( "your_followers" ) );
+    return g->faction_manager_ptr->get( faction_id( "your_followers"_id ) );
 }
 
 void avatar::set_movement_mode( const move_mode_id &new_mode )
@@ -1477,25 +1477,25 @@ void avatar::set_movement_mode( const move_mode_id &new_mode )
 void avatar::toggle_run_mode()
 {
     if( is_running() ) {
-        set_movement_mode( move_mode_id( "walk" ) );
+        set_movement_mode( move_mode_id( "walk"_id ) );
     } else {
-        set_movement_mode( move_mode_id( "run" ) );
+        set_movement_mode( move_mode_id( "run"_id ) );
     }
 }
 
 void avatar::toggle_crouch_mode()
 {
     if( is_crouching() ) {
-        set_movement_mode( move_mode_id( "walk" ) );
+        set_movement_mode( move_mode_id( "walk"_id ) );
     } else {
-        set_movement_mode( move_mode_id( "crouch" ) );
+        set_movement_mode( move_mode_id( "crouch"_id ) );
     }
 }
 
 void avatar::reset_move_mode()
 {
     if( !is_walking() ) {
-        set_movement_mode( move_mode_id( "walk" ) );
+        set_movement_mode( move_mode_id( "walk"_id ) );
     }
 }
 

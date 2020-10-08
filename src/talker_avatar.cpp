@@ -16,15 +16,15 @@
 #include "talker.h"
 #include "talker_avatar.h"
 
-static const efftype_id effect_pacified( "pacified" );
-static const efftype_id effect_pet( "pet" );
+static const efftype_id effect_pacified( "pacified"_id );
+static const efftype_id effect_pet( "pet"_id );
 
-static const bionic_id bio_armor_eyes( "bio_armor_eyes" );
-static const bionic_id bio_deformity( "bio_deformity" );
-static const bionic_id bio_face_mask( "bio_face_mask" );
-static const bionic_id bio_voice( "bio_voice" );
+static const bionic_id bio_armor_eyes( "bio_armor_eyes"_id );
+static const bionic_id bio_deformity( "bio_deformity"_id );
+static const bionic_id bio_face_mask( "bio_face_mask"_id );
+static const bionic_id bio_voice( "bio_voice"_id );
 
-static const trait_id trait_PROF_FOODP( "PROF_FOODP" );
+static const trait_id trait_PROF_FOODP( "PROF_FOODP"_id );
 
 talker_avatar::talker_avatar( avatar *new_me )
 {
@@ -34,8 +34,8 @@ talker_avatar::talker_avatar( avatar *new_me )
 std::vector<std::string> talker_avatar::get_topics( bool )
 {
     std::vector<std::string> add_topics;
-    if( has_trait( trait_PROF_FOODP ) && !( is_wearing( itype_id( "foodperson_mask" ) ) ||
-                                            is_wearing( itype_id( "foodperson_mask_on" ) ) ) ) {
+    if( has_trait( trait_PROF_FOODP ) && !( is_wearing( itype_id( "foodperson_mask"_id ) ) ||
+                                            is_wearing( itype_id( "foodperson_mask_on"_id ) ) ) ) {
         add_topics.push_back( "TALK_NOFACE" );
     }
     return add_topics;

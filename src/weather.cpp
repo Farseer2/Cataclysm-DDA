@@ -46,18 +46,18 @@
 #include "units_fwd.h"
 #include "weather_gen.h"
 
-static const activity_id ACT_WAIT_WEATHER( "ACT_WAIT_WEATHER" );
+static const activity_id ACT_WAIT_WEATHER( "ACT_WAIT_WEATHER"_id );
 
-static const bionic_id bio_sunglasses( "bio_sunglasses" );
+static const bionic_id bio_sunglasses( "bio_sunglasses"_id );
 
-static const efftype_id effect_glare( "glare" );
-static const efftype_id effect_sleep( "sleep" );
-static const efftype_id effect_snow_glare( "snow_glare" );
+static const efftype_id effect_glare( "glare"_id );
+static const efftype_id effect_sleep( "sleep"_id );
+static const efftype_id effect_snow_glare( "snow_glare"_id );
 
-static const itype_id itype_water( "water" );
+static const itype_id itype_water( "water"_id );
 
-static const trait_id trait_CEPH_VISION( "CEPH_VISION" );
-static const trait_id trait_FEATHERS( "FEATHERS" );
+static const trait_id trait_CEPH_VISION( "CEPH_VISION"_id );
+static const trait_id trait_FEATHERS( "FEATHERS"_id );
 
 static const std::string flag_SUN_GLASSES( "SUN_GLASSES" );
 
@@ -121,7 +121,7 @@ void glare( const weather_type_id &w )
         if( player_character.has_trait( trait_CEPH_VISION ) ) {
             dur = dur * 2;
         }
-        player_character.add_env_effect( *effect, bodypart_id( "eyes" ), 2, dur );
+        player_character.add_env_effect( *effect, bodypart_id( "eyes"_id ), 2, dur );
     }
 }
 
@@ -413,18 +413,18 @@ void wet( Character &target, int amount )
     if( !calendar::once_every( 6_seconds ) ) {
         return;
     }
-    const int warmth_delay = target.warmth( bodypart_id( "torso" ) ) * 4 / 5 + target.warmth(
-                                 bodypart_id( "head" ) ) / 5;
+    const int warmth_delay = target.warmth( bodypart_id( "torso"_id ) ) * 4 / 5 + target.warmth(
+                                 bodypart_id( "head"_id ) ) / 5;
     if( rng( 0, 100 - amount + warmth_delay ) > 10 ) {
         // Thick clothing slows down (but doesn't cap) soaking
         return;
     }
 
-    body_part_set drenched_parts{ { bodypart_str_id( "torso" ), bodypart_str_id( "arm_l" ), bodypart_str_id( "arm_r" ), bodypart_str_id( "head" ) } };
-    if( get_player_character().get_part_wetness( bodypart_id( "torso" ) ) * 100 >=
-        get_player_character().get_part_drench_capacity( bodypart_id( "torso" ) ) * 50 ) {
+    body_part_set drenched_parts{ { bodypart_str_id( "torso"_id ), bodypart_str_id( "arm_l"_id ), bodypart_str_id( "arm_r"_id ), bodypart_str_id( "head"_id ) } };
+    if( get_player_character().get_part_wetness( bodypart_id( "torso"_id ) ) * 100 >=
+        get_player_character().get_part_drench_capacity( bodypart_id( "torso"_id ) ) * 50 ) {
         // Once upper body is 50%+ drenched, start soaking the legs too
-        drenched_parts.unify_set( { { bodypart_str_id( "leg_l" ), bodypart_str_id( "leg_r" ) } } );
+        drenched_parts.unify_set( { { bodypart_str_id( "leg_l"_id ), bodypart_str_id( "leg_r"_id ) } } );
     }
 
     target.drench( amount, drenched_parts, false );

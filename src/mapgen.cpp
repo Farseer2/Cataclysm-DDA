@@ -76,29 +76,29 @@
 #include "vpart_range.h"
 #include "weighted_list.h"
 
-static const mongroup_id GROUP_BREATHER( "GROUP_BREATHER" );
-static const mongroup_id GROUP_BREATHER_HUB( "GROUP_BREATHER_HUB" );
-static const mongroup_id GROUP_DARK_WYRM( "GROUP_DARK_WYRM" );
-static const mongroup_id GROUP_DOG_THING( "GROUP_DOG_THING" );
-static const mongroup_id GROUP_FUNGI_FUNGALOID( "GROUP_FUNGI_FUNGALOID" );
-static const mongroup_id GROUP_HAZMATBOT( "GROUP_HAZMATBOT" );
-static const mongroup_id GROUP_LAB( "GROUP_LAB" );
-static const mongroup_id GROUP_LAB_CYBORG( "GROUP_LAB_CYBORG" );
-static const mongroup_id GROUP_LAB_SECURITY( "GROUP_LAB_SECURITY" );
-static const mongroup_id GROUP_NETHER( "GROUP_NETHER" );
-static const mongroup_id GROUP_PLAIN( "GROUP_PLAIN" );
-static const mongroup_id GROUP_ROBOT_SECUBOT( "GROUP_ROBOT_SECUBOT" );
-static const mongroup_id GROUP_SEWER( "GROUP_SEWER" );
-static const mongroup_id GROUP_SLIME( "GROUP_SLIME" );
-static const mongroup_id GROUP_SPIDER( "GROUP_SPIDER" );
-static const mongroup_id GROUP_TRIFFID( "GROUP_TRIFFID" );
-static const mongroup_id GROUP_TRIFFID_HEART( "GROUP_TRIFFID_HEART" );
-static const mongroup_id GROUP_TRIFFID_OUTER( "GROUP_TRIFFID_OUTER" );
-static const mongroup_id GROUP_TURRET( "GROUP_TURRET" );
-static const mongroup_id GROUP_ZOMBIE( "GROUP_ZOMBIE" );
-static const mongroup_id GROUP_ZOMBIE_COP( "GROUP_ZOMBIE_COP" );
+static const mongroup_id GROUP_BREATHER( "GROUP_BREATHER"_id );
+static const mongroup_id GROUP_BREATHER_HUB( "GROUP_BREATHER_HUB"_id );
+static const mongroup_id GROUP_DARK_WYRM( "GROUP_DARK_WYRM"_id );
+static const mongroup_id GROUP_DOG_THING( "GROUP_DOG_THING"_id );
+static const mongroup_id GROUP_FUNGI_FUNGALOID( "GROUP_FUNGI_FUNGALOID"_id );
+static const mongroup_id GROUP_HAZMATBOT( "GROUP_HAZMATBOT"_id );
+static const mongroup_id GROUP_LAB( "GROUP_LAB"_id );
+static const mongroup_id GROUP_LAB_CYBORG( "GROUP_LAB_CYBORG"_id );
+static const mongroup_id GROUP_LAB_SECURITY( "GROUP_LAB_SECURITY"_id );
+static const mongroup_id GROUP_NETHER( "GROUP_NETHER"_id );
+static const mongroup_id GROUP_PLAIN( "GROUP_PLAIN"_id );
+static const mongroup_id GROUP_ROBOT_SECUBOT( "GROUP_ROBOT_SECUBOT"_id );
+static const mongroup_id GROUP_SEWER( "GROUP_SEWER"_id );
+static const mongroup_id GROUP_SLIME( "GROUP_SLIME"_id );
+static const mongroup_id GROUP_SPIDER( "GROUP_SPIDER"_id );
+static const mongroup_id GROUP_TRIFFID( "GROUP_TRIFFID"_id );
+static const mongroup_id GROUP_TRIFFID_HEART( "GROUP_TRIFFID_HEART"_id );
+static const mongroup_id GROUP_TRIFFID_OUTER( "GROUP_TRIFFID_OUTER"_id );
+static const mongroup_id GROUP_TURRET( "GROUP_TURRET"_id );
+static const mongroup_id GROUP_ZOMBIE( "GROUP_ZOMBIE"_id );
+static const mongroup_id GROUP_ZOMBIE_COP( "GROUP_ZOMBIE_COP"_id );
 
-static const trait_id trait_NPC_STATIC_NPC( "NPC_STATIC_NPC" );
+static const trait_id trait_NPC_STATIC_NPC( "NPC_STATIC_NPC"_id );
 
 #define dbg(x) DebugLog((x),D_MAP_GEN) << __FILE__ << ":" << __LINE__ << ": "
 
@@ -931,7 +931,7 @@ class jmapgen_sign : public jmapgen_piece
                   ) const override {
             const point r( x.get(), y.get() );
             dat.m.furn_set( r, f_null );
-            dat.m.furn_set( r, furn_str_id( "f_sign" ) );
+            dat.m.furn_set( r, furn_str_id( "f_sign"_id ) );
 
             std::string signtext;
 
@@ -1589,7 +1589,7 @@ class jmapgen_computer : public jmapgen_piece
         void apply( const mapgendata &dat, const jmapgen_int &x, const jmapgen_int &y
                   ) const override {
             const point r( x.get(), y.get() );
-            dat.m.furn_set( r, furn_str_id( "f_console" ) );
+            dat.m.furn_set( r, furn_str_id( "f_console"_id ) );
             computer *cpu = dat.m.add_computer( tripoint( r, dat.m.get_abs_sub().z ), name.translated(),
                                                 security );
             for( const auto &opt : options ) {
@@ -2913,7 +2913,7 @@ void map::draw_office_tower( const mapgendata &dat )
     const auto place_office_chairs = [&]() {
         int num_chairs = rng( 0, 6 );
         for( int i = 0; i < num_chairs; i++ ) {
-            add_vehicle( vproto_id( "swivel_chair" ), point( rng( 6, 16 ), rng( 6, 16 ) ),
+            add_vehicle( vproto_id( "swivel_chair"_id ), point( rng( 6, 16 ), rng( 6, 16 ) ),
                          0, -1, -1, false );
         }
     };
@@ -3255,54 +3255,54 @@ void map::draw_office_tower( const mapgendata &dat )
             if( dat.west() == "office_tower_b_entrance" ) {
                 rotate( 1 );
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "car" ), point( 17, 7 ), 180 );
+                    add_vehicle( vproto_id( "car"_id ), point( 17, 7 ), 180 );
                 }
                 if( x_in_y( 1, 3 ) ) {
-                    add_vehicle( vproto_id( "motorcycle" ), point( 17, 13 ), 180 );
+                    add_vehicle( vproto_id( "motorcycle"_id ), point( 17, 13 ), 180 );
                 }
                 if( x_in_y( 1, 5 ) ) {
                     if( one_in( 3 ) ) {
-                        add_vehicle( vproto_id( "fire_truck" ), point( 6, 13 ), 0 );
+                        add_vehicle( vproto_id( "fire_truck"_id ), point( 6, 13 ), 0 );
                     } else {
-                        add_vehicle( vproto_id( "pickup" ), point( 17, 19 ), 180 );
+                        add_vehicle( vproto_id( "pickup"_id ), point( 17, 19 ), 180 );
                     }
                 }
             } else if( dat.north() == "office_tower_b_entrance" ) {
                 rotate( 2 );
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "car" ), point( 10, 17 ), 270 );
+                    add_vehicle( vproto_id( "car"_id ), point( 10, 17 ), 270 );
                 }
                 if( x_in_y( 1, 3 ) ) {
-                    add_vehicle( vproto_id( "motorcycle" ), point( 4, 18 ), 270 );
+                    add_vehicle( vproto_id( "motorcycle"_id ), point( 4, 18 ), 270 );
                 }
                 if( x_in_y( 1, 5 ) ) {
                     if( one_in( 3 ) ) {
-                        add_vehicle( vproto_id( "fire_truck" ), point( 6, 13 ), 0 );
+                        add_vehicle( vproto_id( "fire_truck"_id ), point( 6, 13 ), 0 );
                     } else {
-                        add_vehicle( vproto_id( "pickup" ), point( 16, 17 ), 270 );
+                        add_vehicle( vproto_id( "pickup"_id ), point( 16, 17 ), 270 );
                     }
                 }
             } else if( dat.east() == "office_tower_b_entrance" ) {
                 rotate( 3 );
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "car" ), point( 6, 4 ), 0 );
+                    add_vehicle( vproto_id( "car"_id ), point( 6, 4 ), 0 );
                 }
                 if( x_in_y( 1, 3 ) ) {
-                    add_vehicle( vproto_id( "motorcycle" ), point( 6, 10 ), 180 );
+                    add_vehicle( vproto_id( "motorcycle"_id ), point( 6, 10 ), 180 );
                 }
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "pickup" ), point( 6, 16 ), 0 );
+                    add_vehicle( vproto_id( "pickup"_id ), point( 6, 16 ), 0 );
                 }
 
             } else {
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "pickup" ), point( 7, 6 ), 90 );
+                    add_vehicle( vproto_id( "pickup"_id ), point( 7, 6 ), 90 );
                 }
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "car" ), point( 14, 6 ), 90 );
+                    add_vehicle( vproto_id( "car"_id ), point( 14, 6 ), 90 );
                 }
                 if( x_in_y( 1, 3 ) ) {
-                    add_vehicle( vproto_id( "motorcycle" ), point( 19, 6 ), 90 );
+                    add_vehicle( vproto_id( "motorcycle"_id ), point( 19, 6 ), 90 );
                 }
             }
         } else if( ( dat.west() == "office_tower_b_entrance" && dat.north() == "office_tower_b" ) ||
@@ -3342,49 +3342,49 @@ void map::draw_office_tower( const mapgendata &dat )
             if( dat.north() == "office_tower_b_entrance" ) {
                 rotate( 1 );
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "car" ), point( 8, 15 ), 0 );
+                    add_vehicle( vproto_id( "car"_id ), point( 8, 15 ), 0 );
                 }
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "pickup" ), point( 7, 10 ), 180 );
+                    add_vehicle( vproto_id( "pickup"_id ), point( 7, 10 ), 180 );
                 }
                 if( x_in_y( 1, 3 ) ) {
-                    add_vehicle( vproto_id( "beetle" ), point( 7, 3 ), 0 );
+                    add_vehicle( vproto_id( "beetle"_id ), point( 7, 3 ), 0 );
                 }
             } else if( dat.east() == "office_tower_b_entrance" ) {
                 rotate( 2 );
                 if( x_in_y( 1, 5 ) ) {
                     if( one_in( 3 ) ) {
-                        add_vehicle( vproto_id( "fire_truck" ), point( 6, 13 ), 0 );
+                        add_vehicle( vproto_id( "fire_truck"_id ), point( 6, 13 ), 0 );
                     } else {
-                        add_vehicle( vproto_id( "pickup" ), point( 7, 7 ), 270 );
+                        add_vehicle( vproto_id( "pickup"_id ), point( 7, 7 ), 270 );
                     }
                 }
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "car" ), point( 13, 8 ), 90 );
+                    add_vehicle( vproto_id( "car"_id ), point( 13, 8 ), 90 );
                 }
                 if( x_in_y( 1, 3 ) ) {
-                    add_vehicle( vproto_id( "beetle" ), point( 20, 7 ), 90 );
+                    add_vehicle( vproto_id( "beetle"_id ), point( 20, 7 ), 90 );
                 }
             } else if( dat.south() == "office_tower_b_entrance" ) {
                 rotate( 3 );
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "pickup" ), point( 16, 7 ), 0 );
+                    add_vehicle( vproto_id( "pickup"_id ), point( 16, 7 ), 0 );
                 }
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "car" ), point( 15, 13 ), 180 );
+                    add_vehicle( vproto_id( "car"_id ), point( 15, 13 ), 180 );
                 }
                 if( x_in_y( 1, 3 ) ) {
-                    add_vehicle( vproto_id( "beetle" ), point( 15, 20 ), 180 );
+                    add_vehicle( vproto_id( "beetle"_id ), point( 15, 20 ), 180 );
                 }
             } else {
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "pickup" ), point( 16, 16 ), 90 );
+                    add_vehicle( vproto_id( "pickup"_id ), point( 16, 16 ), 90 );
                 }
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "car" ), point( 9, 15 ), 270 );
+                    add_vehicle( vproto_id( "car"_id ), point( 9, 15 ), 270 );
                 }
                 if( x_in_y( 1, 3 ) ) {
-                    add_vehicle( vproto_id( "beetle" ), point( 4, 16 ), 270 );
+                    add_vehicle( vproto_id( "beetle"_id ), point( 4, 16 ), 270 );
                 }
             }
         } else {
@@ -3422,56 +3422,56 @@ void map::draw_office_tower( const mapgendata &dat )
                 rotate( 1 );
                 if( x_in_y( 1, 5 ) ) {
                     if( one_in( 3 ) ) {
-                        add_vehicle( vproto_id( "cube_van" ), point( 17, 4 ), 180 );
+                        add_vehicle( vproto_id( "cube_van"_id ), point( 17, 4 ), 180 );
                     } else {
-                        add_vehicle( vproto_id( "cube_van_cheap" ), point( 17, 4 ), 180 );
+                        add_vehicle( vproto_id( "cube_van_cheap"_id ), point( 17, 4 ), 180 );
                     }
                 }
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "pickup" ), point( 17, 10 ), 180 );
+                    add_vehicle( vproto_id( "pickup"_id ), point( 17, 10 ), 180 );
                 }
                 if( x_in_y( 1, 3 ) ) {
-                    add_vehicle( vproto_id( "car" ), point( 17, 17 ), 180 );
+                    add_vehicle( vproto_id( "car"_id ), point( 17, 17 ), 180 );
                 }
             } else if( dat.east() == "office_tower_b" && dat.north() == "office_tower_b" ) {
                 rotate( 2 );
                 if( x_in_y( 1, 5 ) ) {
                     if( one_in( 3 ) ) {
-                        add_vehicle( vproto_id( "cube_van" ), point( 6, 17 ), 270 );
+                        add_vehicle( vproto_id( "cube_van"_id ), point( 6, 17 ), 270 );
                     } else {
-                        add_vehicle( vproto_id( "cube_van_cheap" ), point( 6, 17 ), 270 );
+                        add_vehicle( vproto_id( "cube_van_cheap"_id ), point( 6, 17 ), 270 );
                     }
                 }
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "pickup" ), point( 12, 17 ), 270 );
+                    add_vehicle( vproto_id( "pickup"_id ), point( 12, 17 ), 270 );
                 }
                 if( x_in_y( 1, 3 ) ) {
-                    add_vehicle( vproto_id( "fire_truck" ), point( 18, 17 ), 270 );
+                    add_vehicle( vproto_id( "fire_truck"_id ), point( 18, 17 ), 270 );
                 }
             } else if( dat.east() == "office_tower_b" && dat.south() == "office_tower_b" ) {
                 rotate( 3 );
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "cube_van_cheap" ), point( 6, 6 ), 0 );
+                    add_vehicle( vproto_id( "cube_van_cheap"_id ), point( 6, 6 ), 0 );
                 }
                 if( x_in_y( 1, 5 ) ) {
                     if( one_in( 3 ) ) {
-                        add_vehicle( vproto_id( "fire_truck" ), point( 6, 13 ), 0 );
+                        add_vehicle( vproto_id( "fire_truck"_id ), point( 6, 13 ), 0 );
                     } else {
-                        add_vehicle( vproto_id( "pickup" ), point( 6, 13 ), 0 );
+                        add_vehicle( vproto_id( "pickup"_id ), point( 6, 13 ), 0 );
                     }
                 }
                 if( x_in_y( 1, 3 ) ) {
-                    add_vehicle( vproto_id( "car" ), point( 5, 19 ), 180 );
+                    add_vehicle( vproto_id( "car"_id ), point( 5, 19 ), 180 );
                 }
             } else {
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "flatbed_truck" ), point( 16, 6 ), 90 );
+                    add_vehicle( vproto_id( "flatbed_truck"_id ), point( 16, 6 ), 90 );
                 }
                 if( x_in_y( 1, 5 ) ) {
-                    add_vehicle( vproto_id( "cube_van_cheap" ), point( 10, 6 ), 90 );
+                    add_vehicle( vproto_id( "cube_van_cheap"_id ), point( 10, 6 ), 90 );
                 }
                 if( x_in_y( 1, 3 ) ) {
-                    add_vehicle( vproto_id( "car" ), point( 4, 6 ), 90 );
+                    add_vehicle( vproto_id( "car"_id ), point( 4, 6 ), 90 );
                 }
             }
         }
@@ -4407,7 +4407,7 @@ void map::draw_lab( mapgendata &dat )
                     line( this, t_reinforced_glass, point( SEEX - 2, SEEY - 1 ), point( SEEX - 2, SEEY ) );
                     line( this, t_reinforced_glass, point( SEEX + 1, SEEY - 1 ), point( SEEX + 1, SEEY ) );
                     spawn_item( point( SEEX - 4, SEEY - 3 ), "id_science" );
-                    furn_set( point( SEEX - 3, SEEY - 3 ), furn_str_id( "f_console" ) );
+                    furn_set( point( SEEX - 3, SEEY - 3 ), furn_str_id( "f_console"_id ) );
                     tmpcomp = add_computer( tripoint( SEEX - 3,  SEEY - 3, abs_sub.z ),
                                             _( "Bionic access" ), 3 );
                     tmpcomp->add_option( _( "Manifest" ), COMPACT_LIST_BIONICS, 0 );
@@ -4717,9 +4717,9 @@ void map::draw_temple( const mapgendata &dat )
         square( this, t_rock_floor, point( SEEX, 5 ), point( SEEX + 1, SOUTH_EDGE ) );
         line( this, t_stairs_up, point( SEEX, SOUTH_EDGE ), point( SEEX + 1, SOUTH_EDGE ) );
         spawn_artifact( tripoint( rng( SEEX, SEEX + 1 ), rng( 2, 3 ), abs_sub.z ),
-                        relic_procgen_id( "cult" ) );
+                        relic_procgen_id( "cult"_id ) );
         spawn_artifact( tripoint( rng( SEEX, SEEX + 1 ), rng( 2, 3 ), abs_sub.z ),
-                        relic_procgen_id( "cult" ) );
+                        relic_procgen_id( "cult"_id ) );
         return;
 
     }
@@ -5125,7 +5125,7 @@ void map::draw_mine( mapgendata &dat )
                 }
                 place_spawns( GROUP_DOG_THING, 1, point( SEEX, SEEX ), point( SEEX + 1, SEEX + 1 ), 1, true, true );
                 spawn_artifact( tripoint( rng( SEEX, SEEX + 1 ), rng( SEEY, SEEY + 1 ), abs_sub.z ),
-                                relic_procgen_id( "netherum_tunnels" ) );
+                                relic_procgen_id( "netherum_tunnels"_id ) );
             }
             break;
 
@@ -5170,7 +5170,7 @@ void map::draw_mine( mapgendata &dat )
                         break;
                 }
 
-                furn_set( point( SEEX, SEEY ), furn_str_id( "f_console" ) );
+                furn_set( point( SEEX, SEEY ), furn_str_id( "f_console"_id ) );
                 tmpcomp = add_computer( tripoint( SEEX,  SEEY, abs_sub.z ), _( "NEPowerOS" ), 0 );
                 tmpcomp->add_option( _( "Read Logs" ), COMPACT_AMIGARA_LOG, 0 );
                 tmpcomp->add_option( _( "Initiate Tremors" ), COMPACT_AMIGARA_START, 4 );
@@ -5943,7 +5943,7 @@ std::unique_ptr<vehicle> map::add_vehicle_to_map(
         }
 
         // Don't spawn shopping carts on top of another vehicle or other obstacle.
-        if( veh->type == vproto_id( "shopping_cart" ) ) {
+        if( veh->type == vproto_id( "shopping_cart"_id ) ) {
             if( veh_at( p ) || impassable( p ) ) {
                 return nullptr;
             }
@@ -5951,7 +5951,7 @@ std::unique_ptr<vehicle> map::add_vehicle_to_map(
 
         //For other vehicles, simulate collisions with (non-shopping cart) stuff
         vehicle *const other_veh = veh_pointer_or_null( veh_at( p ) );
-        if( other_veh != nullptr && other_veh->type != vproto_id( "shopping_cart" ) ) {
+        if( other_veh != nullptr && other_veh->type != vproto_id( "shopping_cart"_id ) ) {
             if( !merge_wrecks ) {
                 return nullptr;
             }
@@ -6035,7 +6035,7 @@ std::unique_ptr<vehicle> map::add_vehicle_to_map(
 computer *map::add_computer( const tripoint &p, const std::string &name, int security )
 {
     // TODO: Turn this off?
-    furn_set( p, furn_str_id( "f_console" ) );
+    furn_set( p, furn_str_id( "f_console"_id ) );
     point l;
     submap *const place_on_submap = get_submap_at( p, l );
     if( place_on_submap == nullptr ) {
@@ -6445,7 +6445,7 @@ void science_room( map *m, const point &p1, const point &p2, int z, int rotate )
                 m->place_items( "bionics_common", 70, point( biox, bioy ), point( biox, bioy ), false,
                                 calendar::start_of_cataclysm );
 
-                m->furn_set( point( biox, bioy + 2 ), furn_str_id( "f_console" ) );
+                m->furn_set( point( biox, bioy + 2 ), furn_str_id( "f_console"_id ) );
                 computer *tmpcomp = m->add_computer( tripoint( biox,  bioy + 2, z ), _( "Bionic access" ), 2 );
                 tmpcomp->add_option( _( "Manifest" ), COMPACT_LIST_BIONICS, 0 );
                 tmpcomp->add_option( _( "Open Chambers" ), COMPACT_RELEASE_BIONICS, 3 );
@@ -6464,7 +6464,7 @@ void science_room( map *m, const point &p1, const point &p2, int z, int rotate )
                 m->place_items( "bionics_common", 70, point( biox, bioy ), point( biox, bioy ), false,
                                 calendar::start_of_cataclysm );
 
-                m->furn_set( point( biox, bioy - 2 ), furn_str_id( "f_console" ) );
+                m->furn_set( point( biox, bioy - 2 ), furn_str_id( "f_console"_id ) );
                 computer *tmpcomp2 = m->add_computer( tripoint( biox,  bioy - 2, z ), _( "Bionic access" ), 2 );
                 tmpcomp2->add_option( _( "Manifest" ), COMPACT_LIST_BIONICS, 0 );
                 tmpcomp2->add_option( _( "Open Chambers" ), COMPACT_RELEASE_BIONICS, 3 );
@@ -6484,7 +6484,7 @@ void science_room( map *m, const point &p1, const point &p2, int z, int rotate )
                 m->place_items( "bionics_common", 70, point( biox, bioy ), point( biox, bioy ), false,
                                 calendar::start_of_cataclysm );
 
-                m->furn_set( point( biox + 2, bioy ), furn_str_id( "f_console" ) );
+                m->furn_set( point( biox + 2, bioy ), furn_str_id( "f_console"_id ) );
                 computer *tmpcomp = m->add_computer( tripoint( biox + 2,  bioy, z ), _( "Bionic access" ), 2 );
                 tmpcomp->add_option( _( "Manifest" ), COMPACT_LIST_BIONICS, 0 );
                 tmpcomp->add_option( _( "Open Chambers" ), COMPACT_RELEASE_BIONICS, 3 );
@@ -6502,7 +6502,7 @@ void science_room( map *m, const point &p1, const point &p2, int z, int rotate )
                                             mapf::furn_bind( "c", f_counter ) );
                 m->place_items( "bionics_common", 70, point( biox, bioy ), point( biox, bioy ), false, 0 );
 
-                m->furn_set( point( biox - 2, bioy ), furn_str_id( "f_console" ) );
+                m->furn_set( point( biox - 2, bioy ), furn_str_id( "f_console"_id ) );
                 computer *tmpcomp2 = m->add_computer( tripoint( biox - 2,  bioy, z ), _( "Bionic access" ), 2 );
                 tmpcomp2->add_option( _( "Manifest" ), COMPACT_LIST_BIONICS, 0 );
                 tmpcomp2->add_option( _( "Open Chambers" ), COMPACT_RELEASE_BIONICS, 3 );
@@ -6650,7 +6650,7 @@ void build_mine_room( room_type type, const point &p1, const point &p2, const ma
     // Main build switch!
     switch( type ) {
         case room_mine_shaft: {
-            m->furn_set( p1 + point_south_east, furn_str_id( "f_console" ) );
+            m->furn_set( p1 + point_south_east, furn_str_id( "f_console"_id ) );
             line( m, t_wall, point( p2.x - 2, p1.y + 2 ), point( p2.x - 1, p1.y + 2 ) );
             m->ter_set( point( p2.x - 2, p1.y + 1 ), t_elevator );
             m->ter_set( point( p2.x - 1, p1.y + 1 ), t_elevator_control_off );
@@ -7113,7 +7113,7 @@ std::pair<std::map<ter_id, int>, std::map<furn_id, int>> get_changed_ids_from_up
 
     ::fake_map fake_map( f_null, t_dirt, tr_null, fake_map_z );
 
-    oter_id any = oter_id( "field" );
+    oter_id any = oter_id( "field"_id );
     // just need a variable here, it doesn't need to be valid
     const regional_settings dummy_settings;
 

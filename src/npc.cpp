@@ -76,52 +76,52 @@
 #include "vpart_position.h"
 #include "vpart_range.h"
 
-static const activity_id ACT_READ( "ACT_READ" );
+static const activity_id ACT_READ( "ACT_READ"_id );
 
-static const efftype_id effect_bouldering( "bouldering" );
-static const efftype_id effect_contacts( "contacts" );
-static const efftype_id effect_controlled( "controlled" );
-static const efftype_id effect_drunk( "drunk" );
-static const efftype_id effect_high( "high" );
-static const efftype_id effect_infection( "infection" );
-static const efftype_id effect_mending( "mending" );
-static const efftype_id effect_npc_flee_player( "npc_flee_player" );
-static const efftype_id effect_npc_suspend( "npc_suspend" );
-static const efftype_id effect_pkill_l( "pkill_l" );
+static const efftype_id effect_bouldering( "bouldering"_id );
+static const efftype_id effect_contacts( "contacts"_id );
+static const efftype_id effect_controlled( "controlled"_id );
+static const efftype_id effect_drunk( "drunk"_id );
+static const efftype_id effect_high( "high"_id );
+static const efftype_id effect_infection( "infection"_id );
+static const efftype_id effect_mending( "mending"_id );
+static const efftype_id effect_npc_flee_player( "npc_flee_player"_id );
+static const efftype_id effect_npc_suspend( "npc_suspend"_id );
+static const efftype_id effect_pkill_l( "pkill_l"_id );
 static const efftype_id effect_pkill1( "pkill1" );
 static const efftype_id effect_pkill2( "pkill2" );
 static const efftype_id effect_pkill3( "pkill3" );
-static const efftype_id effect_ridden( "ridden" );
-static const efftype_id effect_riding( "riding" );
+static const efftype_id effect_ridden( "ridden"_id );
+static const efftype_id effect_riding( "riding"_id );
 
-static const itype_id itype_UPS_off( "UPS_off" );
+static const itype_id itype_UPS_off( "UPS_off"_id );
 
-static const skill_id skill_archery( "archery" );
-static const skill_id skill_barter( "barter" );
-static const skill_id skill_bashing( "bashing" );
-static const skill_id skill_cutting( "cutting" );
-static const skill_id skill_pistol( "pistol" );
-static const skill_id skill_rifle( "rifle" );
-static const skill_id skill_shotgun( "shotgun" );
-static const skill_id skill_smg( "smg" );
-static const skill_id skill_stabbing( "stabbing" );
-static const skill_id skill_throw( "throw" );
+static const skill_id skill_archery( "archery"_id );
+static const skill_id skill_barter( "barter"_id );
+static const skill_id skill_bashing( "bashing"_id );
+static const skill_id skill_cutting( "cutting"_id );
+static const skill_id skill_pistol( "pistol"_id );
+static const skill_id skill_rifle( "rifle"_id );
+static const skill_id skill_shotgun( "shotgun"_id );
+static const skill_id skill_smg( "smg"_id );
+static const skill_id skill_stabbing( "stabbing"_id );
+static const skill_id skill_throw( "throw"_id );
 
-static const bionic_id bio_eye_optic( "bio_eye_optic" );
-static const bionic_id bio_memory( "bio_memory" );
+static const bionic_id bio_eye_optic( "bio_eye_optic"_id );
+static const bionic_id bio_memory( "bio_memory"_id );
 
-static const trait_id trait_BEE( "BEE" );
-static const trait_id trait_CANNIBAL( "CANNIBAL" );
-static const trait_id trait_DEBUG_MIND_CONTROL( "DEBUG_MIND_CONTROL" );
-static const trait_id trait_HALLUCINATION( "HALLUCINATION" );
-static const trait_id trait_HYPEROPIC( "HYPEROPIC" );
-static const trait_id trait_ILLITERATE( "ILLITERATE" );
-static const trait_id trait_MUTE( "MUTE" );
-static const trait_id trait_PROF_DICEMASTER( "PROF_DICEMASTER" );
-static const trait_id trait_PSYCHOPATH( "PSYCHOPATH" );
-static const trait_id trait_SAPIOVORE( "SAPIOVORE" );
-static const trait_id trait_SCHIZOPHRENIC( "SCHIZOPHRENIC" );
-static const trait_id trait_TERRIFYING( "TERRIFYING" );
+static const trait_id trait_BEE( "BEE"_id );
+static const trait_id trait_CANNIBAL( "CANNIBAL"_id );
+static const trait_id trait_DEBUG_MIND_CONTROL( "DEBUG_MIND_CONTROL"_id );
+static const trait_id trait_HALLUCINATION( "HALLUCINATION"_id );
+static const trait_id trait_HYPEROPIC( "HYPEROPIC"_id );
+static const trait_id trait_ILLITERATE( "ILLITERATE"_id );
+static const trait_id trait_MUTE( "MUTE"_id );
+static const trait_id trait_PROF_DICEMASTER( "PROF_DICEMASTER"_id );
+static const trait_id trait_PSYCHOPATH( "PSYCHOPATH"_id );
+static const trait_id trait_SAPIOVORE( "SAPIOVORE"_id );
+static const trait_id trait_SCHIZOPHRENIC( "SCHIZOPHRENIC"_id );
+static const trait_id trait_TERRIFYING( "TERRIFYING"_id );
 
 static const std::string flag_NPC_SAFE( "NPC_SAFE" );
 
@@ -498,7 +498,7 @@ faction_id npc::get_fac_id() const
 faction *npc::get_faction() const
 {
     if( !my_fac ) {
-        return g->faction_manager_ptr->get( faction_id( "no_faction" ) );
+        return g->faction_manager_ptr->get( faction_id( "no_faction"_id ) );
     }
     return my_fac;
 }
@@ -913,7 +913,7 @@ void npc::finish_read( item &book )
     const skill_id &skill = reading->skill;
     // NPCs don't need to identify the book or learn recipes yet.
     // NPCs don't read to other NPCs yet.
-    const bool display_messages = my_fac->id == faction_id( "your_followers" ) &&
+    const bool display_messages = my_fac->id == faction_id( "your_followers"_id ) &&
                                   get_player_view().sees( pos() );
     bool continuous = false; //whether to continue reading or not
 
@@ -1331,7 +1331,7 @@ void npc::mutiny()
     my_fac->likes_u = std::max( 0, my_fac->likes_u / 2 + 10 );
     my_fac->respects_u -= 5;
     g->remove_npc_follower( getID() );
-    set_fac( faction_id( "amf" ) );
+    set_fac( faction_id( "amf"_id ) );
     job.clear_all_priorities();
     if( assigned_camp ) {
         assigned_camp = cata::nullopt;
@@ -1409,7 +1409,7 @@ void npc::make_angry()
     }
 
     // Make associated faction, if any, angry at the player too.
-    if( my_fac && my_fac->id != faction_id( "no_faction" ) && my_fac->id != faction_id( "amf" ) ) {
+    if( my_fac && my_fac->id != faction_id( "no_faction"_id ) && my_fac->id != faction_id( "amf"_id ) ) {
         my_fac->likes_u = std::min( -15, my_fac->likes_u - 5 );
         my_fac->respects_u = std::min( -15, my_fac->respects_u - 5 );
     }
@@ -1975,7 +1975,7 @@ bool npc::is_ally( const Character &p ) const
         return true;
     }
     if( p.is_player() ) {
-        if( my_fac && my_fac->id == faction_id( "your_followers" ) ) {
+        if( my_fac && my_fac->id == faction_id( "your_followers"_id ) ) {
             return true;
         }
         if( faction_api_version < 2 ) {
@@ -2843,13 +2843,13 @@ bool npc::invoke_item( item *used )
 
 std::array<std::pair<std::string, overmap_location_str_id>, npc_need::num_needs> npc::need_data = {
     {
-        { "need_none", overmap_location_str_id( "source_of_anything" ) },
-        { "need_ammo", overmap_location_str_id( "source_of_ammo" ) },
-        { "need_weapon", overmap_location_str_id( "source_of_weapons" )},
-        { "need_gun", overmap_location_str_id( "source_of_guns" ) },
-        { "need_food", overmap_location_str_id( "source_of_food" )},
-        { "need_drink", overmap_location_str_id( "source_of_drink" ) },
-        { "need_safety", overmap_location_str_id( "source_of_safety" ) }
+        { "need_none", overmap_location_str_id( "source_of_anything"_id ) },
+        { "need_ammo", overmap_location_str_id( "source_of_ammo"_id ) },
+        { "need_weapon", overmap_location_str_id( "source_of_weapons"_id )},
+        { "need_gun", overmap_location_str_id( "source_of_guns"_id ) },
+        { "need_food", overmap_location_str_id( "source_of_food"_id )},
+        { "need_drink", overmap_location_str_id( "source_of_drink"_id ) },
+        { "need_safety", overmap_location_str_id( "source_of_safety"_id ) }
     }
 };
 

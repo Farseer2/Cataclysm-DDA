@@ -22,7 +22,7 @@
 #include "type_id.h"
 #include "uistate.h"
 
-static const trait_id trait_DEBUG_HS( "DEBUG_HS" );
+static const trait_id trait_DEBUG_HS( "DEBUG_HS"_id );
 
 template<typename CompType>
 std::string comp_selection<CompType>::nname() const

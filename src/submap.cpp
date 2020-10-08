@@ -160,7 +160,7 @@ void submap::update_legacy_computer()
     if( legacy_computer ) {
         for( int x = 0; x < SEEX; ++x ) {
             for( int y = 0; y < SEEY; ++y ) {
-                if( frn[x][y] == furn_str_id( "f_console" ) ) {
+                if( frn[x][y] == furn_str_id( "f_console"_id ) ) {
                     computers.emplace( point( x, y ), *legacy_computer );
                 }
             }
@@ -172,7 +172,7 @@ void submap::update_legacy_computer()
 bool submap::has_computer( const point &p ) const
 {
     return computers.find( p ) != computers.end() || ( legacy_computer && frn[p.x][p.y]
-            == furn_str_id( "f_console" ) );
+            == furn_str_id( "f_console"_id ) );
 }
 
 const computer *submap::get_computer( const point &p ) const
@@ -183,7 +183,7 @@ const computer *submap::get_computer( const point &p ) const
     if( it != computers.end() ) {
         return &it->second;
     }
-    if( legacy_computer && frn[p.x][p.y] == furn_str_id( "f_console" ) ) {
+    if( legacy_computer && frn[p.x][p.y] == furn_str_id( "f_console"_id ) ) {
         return legacy_computer.get();
     }
     return nullptr;

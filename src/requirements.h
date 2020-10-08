@@ -122,7 +122,7 @@ struct item_comp : public component {
 };
 
 struct quality_requirement {
-    quality_id type = quality_id( "UNKNOWN" );
+    quality_id type = quality_id( "UNKNOWN"_id );
     int count = 1;
     int level = 1;
     mutable available_status available = available_status::a_false;

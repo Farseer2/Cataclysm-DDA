@@ -99,7 +99,7 @@ void Creature_tracker::add_to_faction_map( const shared_ptr_fast<monster> &critt
     if( critter.friendly == 0 ) {
         monster_faction_map_[ critter.faction ][critter_ptr->pos().z].insert( critter_ptr );
     } else {
-        static const mfaction_str_id playerfaction( "player" );
+        static const mfaction_str_id playerfaction( "player"_id );
         monster_faction_map_[ playerfaction ][critter_ptr->pos().z].insert( critter_ptr );
     }
 }

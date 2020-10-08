@@ -308,7 +308,7 @@ void mission::wrap_up()
             std::map<itype_id, int> matches = std::map<itype_id, int>();
             get_all_item_group_matches(
                 items, grp_type, matches,
-                container, itype_id( "null" ), specific_container_required );
+                container, itype_id( "null"_id ), specific_container_required );
 
             for( std::pair<const itype_id, int> &cnt : matches ) {
                 comps.push_back( item_comp( cnt.first, cnt.second ) );
@@ -374,7 +374,7 @@ bool mission::is_complete( const character_id &_npc_id ) const
             std::map<itype_id, int> matches = std::map<itype_id, int>();
             get_all_item_group_matches(
                 items, grp_type, matches,
-                container, itype_id( "null" ), specific_container_required );
+                container, itype_id( "null"_id ), specific_container_required );
 
             int total_match = std::accumulate( matches.begin(), matches.end(), 0,
             []( const std::size_t previous, const std::pair<const itype_id, std::size_t> &p ) {
@@ -642,7 +642,7 @@ std::string mission::name()
 mission_type_id mission::mission_id()
 {
     if( type == nullptr ) {
-        return mission_type_id( "NULL" );
+        return mission_type_id( "NULL"_id );
     }
     return type->id;
 }

@@ -58,111 +58,111 @@
 #include "weather.h"
 #include "weather_type.h"
 
-static const bionic_id bio_advreactor( "bio_advreactor" );
-static const bionic_id bio_dis_acid( "bio_dis_acid" );
-static const bionic_id bio_dis_shock( "bio_dis_shock" );
-static const bionic_id bio_drain( "bio_drain" );
-static const bionic_id bio_geiger( "bio_geiger" );
-static const bionic_id bio_gills( "bio_gills" );
-static const bionic_id bio_glowy( "bio_glowy" );
-static const bionic_id bio_itchy( "bio_itchy" );
-static const bionic_id bio_leaky( "bio_leaky" );
-static const bionic_id bio_noise( "bio_noise" );
-static const bionic_id bio_plut_filter( "bio_plut_filter" );
-static const bionic_id bio_power_weakness( "bio_power_weakness" );
-static const bionic_id bio_reactor( "bio_reactor" );
-static const bionic_id bio_shakes( "bio_shakes" );
-static const bionic_id bio_sleepy( "bio_sleepy" );
-static const bionic_id bio_spasm( "bio_spasm" );
-static const bionic_id bio_sunglasses( "bio_sunglasses" );
-static const bionic_id bio_trip( "bio_trip" );
+static const bionic_id bio_advreactor( "bio_advreactor"_id );
+static const bionic_id bio_dis_acid( "bio_dis_acid"_id );
+static const bionic_id bio_dis_shock( "bio_dis_shock"_id );
+static const bionic_id bio_drain( "bio_drain"_id );
+static const bionic_id bio_geiger( "bio_geiger"_id );
+static const bionic_id bio_gills( "bio_gills"_id );
+static const bionic_id bio_glowy( "bio_glowy"_id );
+static const bionic_id bio_itchy( "bio_itchy"_id );
+static const bionic_id bio_leaky( "bio_leaky"_id );
+static const bionic_id bio_noise( "bio_noise"_id );
+static const bionic_id bio_plut_filter( "bio_plut_filter"_id );
+static const bionic_id bio_power_weakness( "bio_power_weakness"_id );
+static const bionic_id bio_reactor( "bio_reactor"_id );
+static const bionic_id bio_shakes( "bio_shakes"_id );
+static const bionic_id bio_sleepy( "bio_sleepy"_id );
+static const bionic_id bio_spasm( "bio_spasm"_id );
+static const bionic_id bio_sunglasses( "bio_sunglasses"_id );
+static const bionic_id bio_trip( "bio_trip"_id );
 
-static const efftype_id effect_adrenaline( "adrenaline" );
-static const efftype_id effect_asthma( "asthma" );
-static const efftype_id effect_bleed( "bleed" );
-static const efftype_id effect_blind( "blind" );
-static const efftype_id effect_cig( "cig" );
-static const efftype_id effect_datura( "datura" );
-static const efftype_id effect_deaf( "deaf" );
-static const efftype_id effect_disabled( "disabled" );
-static const efftype_id effect_downed( "downed" );
-static const efftype_id effect_drunk( "drunk" );
-static const efftype_id effect_formication( "formication" );
-static const efftype_id effect_glowy_led( "glowy_led" );
-static const efftype_id effect_hallu( "hallu" );
-static const efftype_id effect_incorporeal( "incorporeal" );
-static const efftype_id effect_iodine( "iodine" );
-static const efftype_id effect_masked_scent( "masked_scent" );
-static const efftype_id effect_mending( "mending" );
-static const efftype_id effect_narcosis( "narcosis" );
-static const efftype_id effect_nausea( "nausea" );
-static const efftype_id effect_onfire( "onfire" );
-static const efftype_id effect_shakes( "shakes" );
-static const efftype_id effect_sleep( "sleep" );
-static const efftype_id effect_stunned( "stunned" );
-static const efftype_id effect_took_antiasthmatic( "took_antiasthmatic" );
-static const efftype_id effect_took_thorazine( "took_thorazine" );
-static const efftype_id effect_valium( "valium" );
-static const efftype_id effect_visuals( "visuals" );
-static const efftype_id effect_winded( "winded" );
+static const efftype_id effect_adrenaline( "adrenaline"_id );
+static const efftype_id effect_asthma( "asthma"_id );
+static const efftype_id effect_bleed( "bleed"_id );
+static const efftype_id effect_blind( "blind"_id );
+static const efftype_id effect_cig( "cig"_id );
+static const efftype_id effect_datura( "datura"_id );
+static const efftype_id effect_deaf( "deaf"_id );
+static const efftype_id effect_disabled( "disabled"_id );
+static const efftype_id effect_downed( "downed"_id );
+static const efftype_id effect_drunk( "drunk"_id );
+static const efftype_id effect_formication( "formication"_id );
+static const efftype_id effect_glowy_led( "glowy_led"_id );
+static const efftype_id effect_hallu( "hallu"_id );
+static const efftype_id effect_incorporeal( "incorporeal"_id );
+static const efftype_id effect_iodine( "iodine"_id );
+static const efftype_id effect_masked_scent( "masked_scent"_id );
+static const efftype_id effect_mending( "mending"_id );
+static const efftype_id effect_narcosis( "narcosis"_id );
+static const efftype_id effect_nausea( "nausea"_id );
+static const efftype_id effect_onfire( "onfire"_id );
+static const efftype_id effect_shakes( "shakes"_id );
+static const efftype_id effect_sleep( "sleep"_id );
+static const efftype_id effect_stunned( "stunned"_id );
+static const efftype_id effect_took_antiasthmatic( "took_antiasthmatic"_id );
+static const efftype_id effect_took_thorazine( "took_thorazine"_id );
+static const efftype_id effect_valium( "valium"_id );
+static const efftype_id effect_visuals( "visuals"_id );
+static const efftype_id effect_winded( "winded"_id );
 
-static const itype_id itype_e_handcuffs( "e_handcuffs" );
-static const itype_id itype_inhaler( "inhaler" );
-static const itype_id itype_smoxygen_tank( "smoxygen_tank" );
-static const itype_id itype_oxygen_tank( "oxygen_tank" );
-static const itype_id itype_rad_badge( "rad_badge" );
+static const itype_id itype_e_handcuffs( "e_handcuffs"_id );
+static const itype_id itype_inhaler( "inhaler"_id );
+static const itype_id itype_smoxygen_tank( "smoxygen_tank"_id );
+static const itype_id itype_oxygen_tank( "oxygen_tank"_id );
+static const itype_id itype_rad_badge( "rad_badge"_id );
 
-static const trait_id trait_ADDICTIVE( "ADDICTIVE" );
-static const trait_id trait_ALBINO( "ALBINO" );
-static const trait_id trait_ASTHMA( "ASTHMA" );
-static const trait_id trait_CHAOTIC( "CHAOTIC" );
-static const trait_id trait_CHAOTIC_BAD( "CHAOTIC_BAD" );
-static const trait_id trait_CHEMIMBALANCE( "CHEMIMBALANCE" );
-static const trait_id trait_DEBUG_NOTEMP( "DEBUG_NOTEMP" );
-static const trait_id trait_FRESHWATEROSMOSIS( "FRESHWATEROSMOSIS" );
-static const trait_id trait_GILLS( "GILLS" );
-static const trait_id trait_GILLS_CEPH( "GILLS_CEPH" );
-static const trait_id trait_JITTERY( "JITTERY" );
-static const trait_id trait_KILLER( "KILLER" );
-static const trait_id trait_LEAVES( "LEAVES" );
+static const trait_id trait_ADDICTIVE( "ADDICTIVE"_id );
+static const trait_id trait_ALBINO( "ALBINO"_id );
+static const trait_id trait_ASTHMA( "ASTHMA"_id );
+static const trait_id trait_CHAOTIC( "CHAOTIC"_id );
+static const trait_id trait_CHAOTIC_BAD( "CHAOTIC_BAD"_id );
+static const trait_id trait_CHEMIMBALANCE( "CHEMIMBALANCE"_id );
+static const trait_id trait_DEBUG_NOTEMP( "DEBUG_NOTEMP"_id );
+static const trait_id trait_FRESHWATEROSMOSIS( "FRESHWATEROSMOSIS"_id );
+static const trait_id trait_GILLS( "GILLS"_id );
+static const trait_id trait_GILLS_CEPH( "GILLS_CEPH"_id );
+static const trait_id trait_JITTERY( "JITTERY"_id );
+static const trait_id trait_KILLER( "KILLER"_id );
+static const trait_id trait_LEAVES( "LEAVES"_id );
 static const trait_id trait_LEAVES2( "LEAVES2" );
 static const trait_id trait_LEAVES3( "LEAVES3" );
-static const trait_id trait_M_BLOSSOMS( "M_BLOSSOMS" );
-static const trait_id trait_M_SPORES( "M_SPORES" );
-static const trait_id trait_MOODSWINGS( "MOODSWINGS" );
-static const trait_id trait_NARCOLEPTIC( "NARCOLEPTIC" );
-static const trait_id trait_NONADDICTIVE( "NONADDICTIVE" );
-static const trait_id trait_NOPAIN( "NOPAIN" );
-static const trait_id trait_PER_SLIME( "PER_SLIME" );
-static const trait_id trait_PYROMANIA( "PYROMANIA" );
+static const trait_id trait_M_BLOSSOMS( "M_BLOSSOMS"_id );
+static const trait_id trait_M_SPORES( "M_SPORES"_id );
+static const trait_id trait_MOODSWINGS( "MOODSWINGS"_id );
+static const trait_id trait_NARCOLEPTIC( "NARCOLEPTIC"_id );
+static const trait_id trait_NONADDICTIVE( "NONADDICTIVE"_id );
+static const trait_id trait_NOPAIN( "NOPAIN"_id );
+static const trait_id trait_PER_SLIME( "PER_SLIME"_id );
+static const trait_id trait_PYROMANIA( "PYROMANIA"_id );
 static const trait_id trait_RADIOACTIVE1( "RADIOACTIVE1" );
 static const trait_id trait_RADIOACTIVE2( "RADIOACTIVE2" );
 static const trait_id trait_RADIOACTIVE3( "RADIOACTIVE3" );
-static const trait_id trait_RADIOGENIC( "RADIOGENIC" );
-static const trait_id trait_REGEN_LIZ( "REGEN_LIZ" );
+static const trait_id trait_RADIOGENIC( "RADIOGENIC"_id );
+static const trait_id trait_REGEN_LIZ( "REGEN_LIZ"_id );
 static const trait_id trait_ROOTS3( "ROOTS3" );
-static const trait_id trait_SCHIZOPHRENIC( "SCHIZOPHRENIC" );
-static const trait_id trait_SHARKTEETH( "SHARKTEETH" );
+static const trait_id trait_SCHIZOPHRENIC( "SCHIZOPHRENIC"_id );
+static const trait_id trait_SHARKTEETH( "SHARKTEETH"_id );
 static const trait_id trait_SHELL2( "SHELL2" );
 static const trait_id trait_SHOUT1( "SHOUT1" );
 static const trait_id trait_SHOUT2( "SHOUT2" );
 static const trait_id trait_SHOUT3( "SHOUT3" );
-static const trait_id trait_SORES( "SORES" );
-static const trait_id trait_SUNBURN( "SUNBURN" );
-static const trait_id trait_TROGLO( "TROGLO" );
+static const trait_id trait_SORES( "SORES"_id );
+static const trait_id trait_SUNBURN( "SUNBURN"_id );
+static const trait_id trait_TROGLO( "TROGLO"_id );
 static const trait_id trait_TROGLO2( "TROGLO2" );
 static const trait_id trait_TROGLO3( "TROGLO3" );
-static const trait_id trait_UNSTABLE( "UNSTABLE" );
-static const trait_id trait_VOMITOUS( "VOMITOUS" );
-static const trait_id trait_WEB_SPINNER( "WEB_SPINNER" );
-static const trait_id trait_WEB_WEAVER( "WEB_WEAVER" );
-static const trait_id trait_WINGS_INSECT( "WINGS_INSECT" );
+static const trait_id trait_UNSTABLE( "UNSTABLE"_id );
+static const trait_id trait_VOMITOUS( "VOMITOUS"_id );
+static const trait_id trait_WEB_SPINNER( "WEB_SPINNER"_id );
+static const trait_id trait_WEB_WEAVER( "WEB_WEAVER"_id );
+static const trait_id trait_WINGS_INSECT( "WINGS_INSECT"_id );
 
-static const mtype_id mon_zombie( "mon_zombie" );
-static const mtype_id mon_zombie_cop( "mon_zombie_cop" );
-static const mtype_id mon_zombie_fat( "mon_zombie_fat" );
-static const mtype_id mon_zombie_fireman( "mon_zombie_fireman" );
-static const mtype_id mon_zombie_soldier( "mon_zombie_soldier" );
+static const mtype_id mon_zombie( "mon_zombie"_id );
+static const mtype_id mon_zombie_cop( "mon_zombie_cop"_id );
+static const mtype_id mon_zombie_fat( "mon_zombie_fat"_id );
+static const mtype_id mon_zombie_fireman( "mon_zombie_fireman"_id );
+static const mtype_id mon_zombie_soldier( "mon_zombie_soldier"_id );
 
 static const std::string flag_BLIND( "BLIND" );
 static const std::string flag_PLOWABLE( "PLOWABLE" );
@@ -263,7 +263,7 @@ void Character::suffer_while_underwater()
             mod_power_level( -25_kJ );
         } else {
             add_msg_if_player( m_bad, _( "You're drowning!" ) );
-            apply_damage( nullptr, bodypart_id( "torso" ), rng( 1, 4 ) );
+            apply_damage( nullptr, bodypart_id( "torso"_id ), rng( 1, 4 ) );
         }
     }
     if( has_trait( trait_FRESHWATEROSMOSIS ) && !get_map().has_flag_ter( "SALT_WATER", pos() ) &&
@@ -725,7 +725,7 @@ void Character::suffer_in_sunlight()
             const bool leafier = has_trait( trait_LEAVES2 );
             const bool leafiest = has_trait( trait_LEAVES3 );
             const double sleeve_factor = armwear_factor();
-            const bool has_hat = wearing_something_on( bodypart_id( "head" ) );
+            const bool has_hat = wearing_something_on( bodypart_id( "head"_id ) );
             const float weather_factor = ( get_weather().weather_id->sun_intensity >=
                                            sun_intensity_type::normal ) ? 1.0 : 0.5;
             const int player_local_temp = get_weather().get_temperature( pos() );
@@ -741,8 +741,8 @@ void Character::suffer_in_sunlight()
     }
 
     if( x_in_y( sunlight_nutrition, 18000 ) ) {
-        vitamin_mod( vitamin_id( "vitA" ), 1, true );
-        vitamin_mod( vitamin_id( "vitC" ), 1, true );
+        vitamin_mod( vitamin_id( "vitA"_id ), 1, true );
+        vitamin_mod( vitamin_id( "vitC"_id ), 1, true );
     }
 
     if( x_in_y( sunlight_nutrition, 12000 ) ) {
@@ -834,7 +834,7 @@ void Character::suffer_from_sunburn()
 
     // Sunglasses can keep the sun off the eyes.
     if( !has_bionic( bio_sunglasses ) &&
-        !( wearing_something_on( bodypart_id( "eyes" ) ) &&
+        !( wearing_something_on( bodypart_id( "eyes"_id ) ) &&
            ( worn_with_flag( flag_SUN_GLASSES ) || worn_with_flag( flag_BLIND ) ) ) ) {
         add_msg_if_player( m_bad, _( "%s your eyes." ), sunlight_effect );
         // Pain (1/60) or loss of focus (59/60)
@@ -863,7 +863,7 @@ void Character::suffer_from_sunburn()
     for( const std::pair<const bodypart_id, float> &bp_exp : bp_exposure ) {
         const float exposure = bp_exp.second;
         // Skip minimally-exposed parts, and skip the eyes (handled by sunglasses)
-        if( exposure <= MIN_EXPOSURE || bp_exp.first == bodypart_id( "eyes" ) ) {
+        if( exposure <= MIN_EXPOSURE || bp_exp.first == bodypart_id( "eyes"_id ) ) {
             continue;
         }
         ++count_affected_bp;
@@ -874,7 +874,7 @@ void Character::suffer_from_sunburn()
     }
 
     // If all body parts are protected, there is no suffering
-    if( count_affected_bp == 0 || most_exposed_bp == bodypart_str_id( "bp_null" ) ) {
+    if( count_affected_bp == 0 || most_exposed_bp == bodypart_str_id( "bp_null"_id ) ) {
         return;
     }
 
@@ -919,7 +919,7 @@ void Character::suffer_from_sunburn()
             }
             // Don't damage eyes directly, since it takes from head HP (in other words, your head
             // won't be destroyed if only your eyes are exposed).
-            if( this_part == bodypart_id( "eyes" ) ) {
+            if( this_part == bodypart_id( "eyes"_id ) ) {
                 continue;
             }
             // Exposure percentage determines likelihood of injury
@@ -928,7 +928,7 @@ void Character::suffer_from_sunburn()
                 // Because hands and feet share an HP pool with arms and legs, and the mouth shares
                 // an HP pool with the head, those parts take an unfair share of damage in relation
                 // to the torso, which only has one part.  Increase torso damage to balance this.
-                if( this_part == bodypart_id( "torso" ) ) {
+                if( this_part == bodypart_id( "torso"_id ) ) {
                     apply_damage( nullptr, this_part, 2 );
                 } else {
                     apply_damage( nullptr, this_part, 1 );
@@ -987,8 +987,8 @@ void Character::suffer_from_other_mutations()
     }
 
     if( x_in_y( root_vitamins, 576 ) ) {
-        vitamin_mod( vitamin_id( "iron" ), 1, true );
-        vitamin_mod( vitamin_id( "calcium" ), 1, true );
+        vitamin_mod( vitamin_id( "iron"_id ), 1, true );
+        vitamin_mod( vitamin_id( "calcium"_id ), 1, true );
         mod_healthy_mod( 5, 50 );
     }
 
@@ -1001,7 +1001,7 @@ void Character::suffer_from_other_mutations()
 
     if( has_trait( trait_SORES ) ) {
         for( const bodypart_id bp : get_all_body_parts() ) {
-            if( bp == bodypart_id( "head" ) ) {
+            if( bp == bodypart_id( "head"_id ) ) {
                 continue;
             }
             int sores_pain = 5 + 0.4 * std::abs( encumb( bp ) );
@@ -1224,7 +1224,7 @@ void Character::suffer_from_radiation()
             }
             reactor_plut -= power_gen;
             while( power_gen >= 250 ) {
-                apply_damage( nullptr, bodypart_id( "torso" ), 1 );
+                apply_damage( nullptr, bodypart_id( "torso"_id ), 1 );
                 mod_pain( 1 );
                 add_msg_if_player( m_bad,
                                    _( "Your chest burns as your power systems overload!" ) );
@@ -1437,15 +1437,15 @@ static void apply_weariness( Character &you, int level, int old )
     }
     // A mapping of weariness level to the effect to be applied
     static const std::array<efftype_id, 9> weary_effects { {
-            efftype_id( "weary_0" ),
-            efftype_id( "weary_1" ),
-            efftype_id( "weary_2" ),
-            efftype_id( "weary_3" ),
-            efftype_id( "weary_4" ),
-            efftype_id( "weary_5" ),
-            efftype_id( "weary_6" ),
-            efftype_id( "weary_7" ),
-            efftype_id( "weary_8" ),
+            efftype_id( "weary_0"_id ),
+            efftype_id( "weary_1"_id ),
+            efftype_id( "weary_2"_id ),
+            efftype_id( "weary_3"_id ),
+            efftype_id( "weary_4"_id ),
+            efftype_id( "weary_5"_id ),
+            efftype_id( "weary_6"_id ),
+            efftype_id( "weary_7"_id ),
+            efftype_id( "weary_8"_id ),
         }};
 
     // If we're going above level 8, we're seriously messed up
@@ -1908,8 +1908,8 @@ void Character::drench( int saturation, const body_part_set &flags, bool ignore_
             set_part_wetness( bp, std::min( wetness_max, curr_wetness + wetness_increment ) );
         }
     }
-    const int torso_wetness = get_part_wetness( bodypart_id( "torso" ) );
-    if( torso_wetness >= get_part_drench_capacity( bodypart_id( "torso" ) ) / 2.0 &&
+    const int torso_wetness = get_part_wetness( bodypart_id( "torso"_id ) );
+    if( torso_wetness >= get_part_drench_capacity( bodypart_id( "torso"_id ) ) / 2.0 &&
         has_effect( effect_masked_scent ) &&
         get_value( "waterproof_scent" ).empty() ) {
         add_msg_if_player( m_info, _( "The water wash away the scent." ) );

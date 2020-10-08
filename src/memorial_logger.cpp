@@ -54,44 +54,44 @@
 #include "type_id.h"
 #include "units.h"
 
-static const efftype_id effect_adrenaline( "adrenaline" );
-static const efftype_id effect_datura( "datura" );
-static const efftype_id effect_drunk( "drunk" );
-static const efftype_id effect_jetinjector( "jetinjector" );
+static const efftype_id effect_adrenaline( "adrenaline"_id );
+static const efftype_id effect_datura( "datura"_id );
+static const efftype_id effect_drunk( "drunk"_id );
+static const efftype_id effect_jetinjector( "jetinjector"_id );
 
-static const trap_str_id tr_bubblewrap( "tr_bubblewrap" );
-static const trap_str_id tr_glass( "tr_glass" );
-static const trap_str_id tr_beartrap( "tr_beartrap" );
-static const trap_str_id tr_nailboard( "tr_nailboard" );
-static const trap_str_id tr_caltrops( "tr_caltrops" );
-static const trap_str_id tr_caltrops_glass( "tr_caltrops_glass" );
-static const trap_str_id tr_tripwire( "tr_tripwire" );
-static const trap_str_id tr_crossbow( "tr_crossbow" );
+static const trap_str_id tr_bubblewrap( "tr_bubblewrap"_id );
+static const trap_str_id tr_glass( "tr_glass"_id );
+static const trap_str_id tr_beartrap( "tr_beartrap"_id );
+static const trap_str_id tr_nailboard( "tr_nailboard"_id );
+static const trap_str_id tr_caltrops( "tr_caltrops"_id );
+static const trap_str_id tr_caltrops_glass( "tr_caltrops_glass"_id );
+static const trap_str_id tr_tripwire( "tr_tripwire"_id );
+static const trap_str_id tr_crossbow( "tr_crossbow"_id );
 static const trap_str_id tr_shotgun_2( "tr_shotgun_2" );
 static const trap_str_id tr_shotgun_1( "tr_shotgun_1" );
-static const trap_str_id tr_blade( "tr_blade" );
-static const trap_str_id tr_landmine( "tr_landmine" );
-static const trap_str_id tr_light_snare( "tr_light_snare" );
-static const trap_str_id tr_heavy_snare( "tr_heavy_snare" );
-static const trap_str_id tr_telepad( "tr_telepad" );
-static const trap_str_id tr_goo( "tr_goo" );
-static const trap_str_id tr_dissector( "tr_dissector" );
-static const trap_str_id tr_sinkhole( "tr_sinkhole" );
-static const trap_str_id tr_pit( "tr_pit" );
-static const trap_str_id tr_spike_pit( "tr_spike_pit" );
-static const trap_str_id tr_lava( "tr_lava" );
-static const trap_str_id tr_portal( "tr_portal" );
-static const trap_str_id tr_ledge( "tr_ledge" );
-static const trap_str_id tr_boobytrap( "tr_boobytrap" );
-static const trap_str_id tr_temple_flood( "tr_temple_flood" );
-static const trap_str_id tr_shadow( "tr_shadow" );
-static const trap_str_id tr_drain( "tr_drain" );
-static const trap_str_id tr_snake( "tr_snake" );
-static const trap_str_id tr_glass_pit( "tr_glass_pit" );
+static const trap_str_id tr_blade( "tr_blade"_id );
+static const trap_str_id tr_landmine( "tr_landmine"_id );
+static const trap_str_id tr_light_snare( "tr_light_snare"_id );
+static const trap_str_id tr_heavy_snare( "tr_heavy_snare"_id );
+static const trap_str_id tr_telepad( "tr_telepad"_id );
+static const trap_str_id tr_goo( "tr_goo"_id );
+static const trap_str_id tr_dissector( "tr_dissector"_id );
+static const trap_str_id tr_sinkhole( "tr_sinkhole"_id );
+static const trap_str_id tr_pit( "tr_pit"_id );
+static const trap_str_id tr_spike_pit( "tr_spike_pit"_id );
+static const trap_str_id tr_lava( "tr_lava"_id );
+static const trap_str_id tr_portal( "tr_portal"_id );
+static const trap_str_id tr_ledge( "tr_ledge"_id );
+static const trap_str_id tr_boobytrap( "tr_boobytrap"_id );
+static const trap_str_id tr_temple_flood( "tr_temple_flood"_id );
+static const trap_str_id tr_shadow( "tr_shadow"_id );
+static const trap_str_id tr_drain( "tr_drain"_id );
+static const trap_str_id tr_snake( "tr_snake"_id );
+static const trap_str_id tr_glass_pit( "tr_glass_pit"_id );
 
-static const trait_id trait_CANNIBAL( "CANNIBAL" );
-static const trait_id trait_PSYCHOPATH( "PSYCHOPATH" );
-static const trait_id trait_SAPIOVORE( "SAPIOVORE" );
+static const trait_id trait_CANNIBAL( "CANNIBAL"_id );
+static const trait_id trait_PSYCHOPATH( "PSYCHOPATH"_id );
+static const trait_id trait_SAPIOVORE( "SAPIOVORE"_id );
 
 memorial_log_entry::memorial_log_entry( const std::string &preformatted_msg ) :
     preformatted_( preformatted_msg )
@@ -278,12 +278,12 @@ void memorial_logger::write_text_memorial( std::ostream &file,
     };
 
     file << _( "Final HP:" ) << eol;
-    limb_hp( _( " Head: %d/%d" ), bodypart_id( "head" ) );
-    limb_hp( _( "Torso: %d/%d" ), bodypart_id( "torso" ) );
-    limb_hp( _( "L Arm: %d/%d" ), bodypart_id( "arm_l" ) );
-    limb_hp( _( "R Arm: %d/%d" ), bodypart_id( "arm_r" ) );
-    limb_hp( _( "L Leg: %d/%d" ), bodypart_id( "leg_l" ) );
-    limb_hp( _( "R Leg: %d/%d" ), bodypart_id( "leg_r" ) );
+    limb_hp( _( " Head: %d/%d" ), bodypart_id( "head"_id ) );
+    limb_hp( _( "Torso: %d/%d" ), bodypart_id( "torso"_id ) );
+    limb_hp( _( "L Arm: %d/%d" ), bodypart_id( "arm_l"_id ) );
+    limb_hp( _( "R Arm: %d/%d" ), bodypart_id( "arm_r"_id ) );
+    limb_hp( _( "L Leg: %d/%d" ), bodypart_id( "leg_l"_id ) );
+    limb_hp( _( "R Leg: %d/%d" ), bodypart_id( "leg_r"_id ) );
     file << eol;
 
     //Stats

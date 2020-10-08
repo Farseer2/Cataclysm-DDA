@@ -34,46 +34,46 @@
 #include "translations.h"
 #include "units.h"
 
-static const activity_id ACT_TREE_COMMUNION( "ACT_TREE_COMMUNION" );
+static const activity_id ACT_TREE_COMMUNION( "ACT_TREE_COMMUNION"_id );
 
-static const efftype_id effect_stunned( "stunned" );
+static const efftype_id effect_stunned( "stunned"_id );
 
-static const trait_id trait_BURROW( "BURROW" );
-static const trait_id trait_CARNIVORE( "CARNIVORE" );
-static const trait_id trait_CHAOTIC_BAD( "CHAOTIC_BAD" );
-static const trait_id trait_DEBUG_BIONIC_POWER( "DEBUG_BIONIC_POWER" );
-static const trait_id trait_DEBUG_BIONIC_POWERGEN( "DEBUG_BIONIC_POWERGEN" );
-static const trait_id trait_DEX_ALPHA( "DEX_ALPHA" );
-static const trait_id trait_GLASSJAW( "GLASSJAW" );
-static const trait_id trait_HUGE( "HUGE" );
-static const trait_id trait_HUGE_OK( "HUGE_OK" );
-static const trait_id trait_INT_ALPHA( "INT_ALPHA" );
-static const trait_id trait_INT_SLIME( "INT_SLIME" );
-static const trait_id trait_LARGE( "LARGE" );
-static const trait_id trait_LARGE_OK( "LARGE_OK" );
-static const trait_id trait_M_BLOOM( "M_BLOOM" );
-static const trait_id trait_M_BLOSSOMS( "M_BLOSSOMS" );
-static const trait_id trait_M_FERTILE( "M_FERTILE" );
-static const trait_id trait_M_PROVENANCE( "M_PROVENANCE" );
-static const trait_id trait_M_SPORES( "M_SPORES" );
-static const trait_id trait_MUTAGEN_AVOID( "MUTAGEN_AVOID" );
-static const trait_id trait_NAUSEA( "NAUSEA" );
-static const trait_id trait_NOPAIN( "NOPAIN" );
-static const trait_id trait_PER_ALPHA( "PER_ALPHA" );
-static const trait_id trait_ROBUST( "ROBUST" );
+static const trait_id trait_BURROW( "BURROW"_id );
+static const trait_id trait_CARNIVORE( "CARNIVORE"_id );
+static const trait_id trait_CHAOTIC_BAD( "CHAOTIC_BAD"_id );
+static const trait_id trait_DEBUG_BIONIC_POWER( "DEBUG_BIONIC_POWER"_id );
+static const trait_id trait_DEBUG_BIONIC_POWERGEN( "DEBUG_BIONIC_POWERGEN"_id );
+static const trait_id trait_DEX_ALPHA( "DEX_ALPHA"_id );
+static const trait_id trait_GLASSJAW( "GLASSJAW"_id );
+static const trait_id trait_HUGE( "HUGE"_id );
+static const trait_id trait_HUGE_OK( "HUGE_OK"_id );
+static const trait_id trait_INT_ALPHA( "INT_ALPHA"_id );
+static const trait_id trait_INT_SLIME( "INT_SLIME"_id );
+static const trait_id trait_LARGE( "LARGE"_id );
+static const trait_id trait_LARGE_OK( "LARGE_OK"_id );
+static const trait_id trait_M_BLOOM( "M_BLOOM"_id );
+static const trait_id trait_M_BLOSSOMS( "M_BLOSSOMS"_id );
+static const trait_id trait_M_FERTILE( "M_FERTILE"_id );
+static const trait_id trait_M_PROVENANCE( "M_PROVENANCE"_id );
+static const trait_id trait_M_SPORES( "M_SPORES"_id );
+static const trait_id trait_MUTAGEN_AVOID( "MUTAGEN_AVOID"_id );
+static const trait_id trait_NAUSEA( "NAUSEA"_id );
+static const trait_id trait_NOPAIN( "NOPAIN"_id );
+static const trait_id trait_PER_ALPHA( "PER_ALPHA"_id );
+static const trait_id trait_ROBUST( "ROBUST"_id );
 static const trait_id trait_ROOTS2( "ROOTS2" );
 static const trait_id trait_ROOTS3( "ROOTS3" );
-static const trait_id trait_SELFAWARE( "SELFAWARE" );
-static const trait_id trait_SLIMESPAWNER( "SLIMESPAWNER" );
-static const trait_id trait_SMALL( "SMALL" );
+static const trait_id trait_SELFAWARE( "SELFAWARE"_id );
+static const trait_id trait_SLIMESPAWNER( "SLIMESPAWNER"_id );
+static const trait_id trait_SMALL( "SMALL"_id );
 static const trait_id trait_SMALL2( "SMALL2" );
-static const trait_id trait_SMALL_OK( "SMALL_OK" );
-static const trait_id trait_STR_ALPHA( "STR_ALPHA" );
-static const trait_id trait_THRESH_MARLOSS( "THRESH_MARLOSS" );
-static const trait_id trait_THRESH_MYCUS( "THRESH_MYCUS" );
-static const trait_id trait_TREE_COMMUNION( "TREE_COMMUNION" );
-static const trait_id trait_VOMITOUS( "VOMITOUS" );
-static const trait_id trait_WEB_WEAVER( "WEB_WEAVER" );
+static const trait_id trait_SMALL_OK( "SMALL_OK"_id );
+static const trait_id trait_STR_ALPHA( "STR_ALPHA"_id );
+static const trait_id trait_THRESH_MARLOSS( "THRESH_MARLOSS"_id );
+static const trait_id trait_THRESH_MYCUS( "THRESH_MYCUS"_id );
+static const trait_id trait_TREE_COMMUNION( "TREE_COMMUNION"_id );
+static const trait_id trait_VOMITOUS( "VOMITOUS"_id );
+static const trait_id trait_WEB_WEAVER( "WEB_WEAVER"_id );
 
 namespace io
 {
@@ -651,11 +651,11 @@ void Character::activate_mutation( const trait_id &mut )
         add_msg_if_player( _( "You start spinning web with your spinnerets!" ) );
     } else if( mut == trait_BURROW ) {
         tdata.powered = false;
-        item burrowing_item( itype_id( "fake_burrowing" ) );
+        item burrowing_item( itype_id( "fake_burrowing"_id ) );
         invoke_item( &burrowing_item );
         return;  // handled when the activity finishes
     } else if( mut == trait_SLIMESPAWNER ) {
-        monster *const slime = g->place_critter_around( mtype_id( "mon_player_blob" ), pos(), 1 );
+        monster *const slime = g->place_critter_around( mtype_id( "mon_player_blob"_id ), pos(), 1 );
         if( !slime ) {
             // Oops, no room to divide!
             add_msg_if_player( m_bad, _( "You focus, but are too hemmed in to birth a new slimespring!" ) );
@@ -993,7 +993,7 @@ void Character::mutate_category( const mutation_category_id &cat )
 {
     // Hacky ID comparison is better than separate hardcoded branch used before
     // TODO: Turn it into the null id
-    if( cat == mutation_category_id( "ANY" ) ) {
+    if( cat == mutation_category_id( "ANY"_id ) ) {
         mutate();
         return;
     }
@@ -1637,8 +1637,8 @@ void test_crossing_threshold( Character &guy, const mutation_category_trait &m_c
         // Alpha is similarly eclipsed by other mutation categories.
         // Will add others if there's serious/demonstrable need.
         int booster = 0;
-        if( mutation_category == mutation_category_id( "URSINE" ) ||
-            mutation_category == mutation_category_id( "ALPHA" ) ) {
+        if( mutation_category == mutation_category_id( "URSINE"_id ) ||
+            mutation_category == mutation_category_id( "ALPHA"_id ) ) {
             booster = 50;
         }
         int breacher = breach_power + booster;
@@ -1650,7 +1650,7 @@ void test_crossing_threshold( Character &guy, const mutation_category_trait &m_c
             // Manually removing Carnivore, since it tends to creep in
             // This is because carnivore is a prerequisite for the
             // predator-style post-threshold mutations.
-            if( mutation_category == mutation_category_id( "URSINE" ) &&
+            if( mutation_category == mutation_category_id( "URSINE"_id ) &&
                 guy.has_trait( trait_CARNIVORE ) ) {
                 guy.unset_mutation( trait_CARNIVORE );
                 guy.add_msg_if_player( _( "Your appetite for blood fades." ) );

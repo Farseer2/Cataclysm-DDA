@@ -29,18 +29,18 @@
 #include "string_formatter.h"
 #include "translations.h"
 
-static const itype_id itype_software_hacking( "software_hacking" );
-static const itype_id itype_software_math( "software_math" );
-static const itype_id itype_software_medical( "software_medical" );
-static const itype_id itype_software_useless( "software_useless" );
+static const itype_id itype_software_hacking( "software_hacking"_id );
+static const itype_id itype_software_math( "software_math"_id );
+static const itype_id itype_software_medical( "software_medical"_id );
+static const itype_id itype_software_useless( "software_useless"_id );
 
-static const mtype_id mon_dog( "mon_dog" );
-static const mtype_id mon_zombie( "mon_zombie" );
-static const mtype_id mon_zombie_brute( "mon_zombie_brute" );
-static const mtype_id mon_zombie_dog( "mon_zombie_dog" );
-static const mtype_id mon_zombie_hulk( "mon_zombie_hulk" );
-static const mtype_id mon_zombie_master( "mon_zombie_master" );
-static const mtype_id mon_zombie_necro( "mon_zombie_necro" );
+static const mtype_id mon_dog( "mon_dog"_id );
+static const mtype_id mon_zombie( "mon_zombie"_id );
+static const mtype_id mon_zombie_brute( "mon_zombie_brute"_id );
+static const mtype_id mon_zombie_dog( "mon_zombie_dog"_id );
+static const mtype_id mon_zombie_hulk( "mon_zombie_hulk"_id );
+static const mtype_id mon_zombie_master( "mon_zombie_master"_id );
+static const mtype_id mon_zombie_necro( "mon_zombie_necro"_id );
 
 /* These functions are responsible for making changes to the game at the moment
  * the mission is accepted by the player.  They are also responsible for
@@ -202,7 +202,7 @@ void mission_start::place_npc_software( mission *miss )
     } else if( dev->myclass == NC_DOCTOR ) {
         miss->item_id = itype_software_medical;
         type = "s_pharm";
-        miss->follow_up = mission_type_id( "MISSION_GET_ZOMBIE_BLOOD_ANAL" );
+        miss->follow_up = mission_type_id( "MISSION_GET_ZOMBIE_BLOOD_ANAL"_id );
     } else if( dev->myclass == NC_SCIENTIST ) {
         miss->item_id = itype_software_math;
     } else {
@@ -562,7 +562,7 @@ void mission_start::ranch_scavenger_2( mission *miss )
                                 "ranch_camp_48", 1, miss, false, RANCH_SIZE );
     tinymap bay;
     bay.load( project_to<coords::sm>( site ), false );
-    bay.add_vehicle( vproto_id( "car_chassis" ), point( 20, 15 ), 0 );
+    bay.add_vehicle( vproto_id( "car_chassis"_id ), point( 20, 15 ), 0 );
     bay.draw_square_ter( t_wall_half, point( 18, 19 ), point( 21, 22 ) );
     bay.draw_square_ter( t_dirt, point( 19, 20 ), point( 20, 21 ) );
     bay.ter_set( point( 19, 19 ), t_door_frame );
@@ -589,8 +589,8 @@ void mission_start::ranch_scavenger_3( mission *miss )
     bay.spawn_item( point( 16, 21 ), "wheel_wide" );
     bay.spawn_item( point( 17, 21 ), "wheel_wide" );
     bay.spawn_item( point( 23, 18 ), "v8_combustion" );
-    bay.furn_set( point( 23, 17 ), furn_str_id( "f_arcade_machine" ) );
-    bay.ter_set( point( 23, 16 ), ter_str_id( "t_machinery_light" ) );
+    bay.furn_set( point( 23, 17 ), furn_str_id( "f_arcade_machine"_id ) );
+    bay.ter_set( point( 23, 16 ), ter_str_id( "t_machinery_light"_id ) );
     bay.furn_set( point( 20, 21 ), f_woodstove );
     bay.save();
 
@@ -612,7 +612,7 @@ void mission_start::reveal_refugee_center( mission *miss )
 {
     mission_target_params t;
     t.overmap_terrain = "refctr_S3e";
-    t.overmap_special = overmap_special_id( "evac_center" );
+    t.overmap_special = overmap_special_id( "evac_center"_id );
     t.mission_pointer = miss;
     t.search_range = 0;
     t.reveal_radius = 3;

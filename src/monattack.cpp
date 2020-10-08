@@ -82,131 +82,131 @@
 #include "viewer.h"
 #include "weighted_list.h"
 
-static const activity_id ACT_RELOAD( "ACT_RELOAD" );
+static const activity_id ACT_RELOAD( "ACT_RELOAD"_id );
 
-static const efftype_id effect_assisted( "assisted" );
-static const efftype_id effect_bite( "bite" );
-static const efftype_id effect_bleed( "bleed" );
-static const efftype_id effect_blind( "blind" );
-static const efftype_id effect_boomered( "boomered" );
-static const efftype_id effect_controlled( "controlled" );
-static const efftype_id effect_corroding( "corroding" );
-static const efftype_id effect_countdown( "countdown" );
-static const efftype_id effect_darkness( "darkness" );
-static const efftype_id effect_dazed( "dazed" );
-static const efftype_id effect_deaf( "deaf" );
-static const efftype_id effect_dermatik( "dermatik" );
-static const efftype_id effect_downed( "downed" );
-static const efftype_id effect_dragging( "dragging" );
-static const efftype_id effect_fearparalyze( "fearparalyze" );
-static const efftype_id effect_fungus( "fungus" );
-static const efftype_id effect_glowing( "glowing" );
-static const efftype_id effect_got_checked( "got_checked" );
-static const efftype_id effect_grabbed( "grabbed" );
-static const efftype_id effect_grabbing( "grabbing" );
-static const efftype_id effect_grown_of_fuse( "grown_of_fuse" );
-static const efftype_id effect_hallu( "hallu" );
-static const efftype_id effect_has_bag( "has_bag" );
-static const efftype_id effect_infected( "infected" );
-static const efftype_id effect_laserlocked( "laserlocked" );
-static const efftype_id effect_onfire( "onfire" );
-static const efftype_id effect_operating( "operating" );
-static const efftype_id effect_paid( "paid" );
-static const efftype_id effect_paralyzepoison( "paralyzepoison" );
-static const efftype_id effect_pet( "pet" );
-static const efftype_id effect_raising( "raising" );
-static const efftype_id effect_rat( "rat" );
-static const efftype_id effect_shrieking( "shrieking" );
-static const efftype_id effect_slimed( "slimed" );
-static const efftype_id effect_stunned( "stunned" );
-static const efftype_id effect_taint( "taint" );
-static const efftype_id effect_targeted( "targeted" );
-static const efftype_id effect_tindrift( "tindrift" );
-static const efftype_id effect_under_operation( "under_operation" );
+static const efftype_id effect_assisted( "assisted"_id );
+static const efftype_id effect_bite( "bite"_id );
+static const efftype_id effect_bleed( "bleed"_id );
+static const efftype_id effect_blind( "blind"_id );
+static const efftype_id effect_boomered( "boomered"_id );
+static const efftype_id effect_controlled( "controlled"_id );
+static const efftype_id effect_corroding( "corroding"_id );
+static const efftype_id effect_countdown( "countdown"_id );
+static const efftype_id effect_darkness( "darkness"_id );
+static const efftype_id effect_dazed( "dazed"_id );
+static const efftype_id effect_deaf( "deaf"_id );
+static const efftype_id effect_dermatik( "dermatik"_id );
+static const efftype_id effect_downed( "downed"_id );
+static const efftype_id effect_dragging( "dragging"_id );
+static const efftype_id effect_fearparalyze( "fearparalyze"_id );
+static const efftype_id effect_fungus( "fungus"_id );
+static const efftype_id effect_glowing( "glowing"_id );
+static const efftype_id effect_got_checked( "got_checked"_id );
+static const efftype_id effect_grabbed( "grabbed"_id );
+static const efftype_id effect_grabbing( "grabbing"_id );
+static const efftype_id effect_grown_of_fuse( "grown_of_fuse"_id );
+static const efftype_id effect_hallu( "hallu"_id );
+static const efftype_id effect_has_bag( "has_bag"_id );
+static const efftype_id effect_infected( "infected"_id );
+static const efftype_id effect_laserlocked( "laserlocked"_id );
+static const efftype_id effect_onfire( "onfire"_id );
+static const efftype_id effect_operating( "operating"_id );
+static const efftype_id effect_paid( "paid"_id );
+static const efftype_id effect_paralyzepoison( "paralyzepoison"_id );
+static const efftype_id effect_pet( "pet"_id );
+static const efftype_id effect_raising( "raising"_id );
+static const efftype_id effect_rat( "rat"_id );
+static const efftype_id effect_shrieking( "shrieking"_id );
+static const efftype_id effect_slimed( "slimed"_id );
+static const efftype_id effect_stunned( "stunned"_id );
+static const efftype_id effect_taint( "taint"_id );
+static const efftype_id effect_targeted( "targeted"_id );
+static const efftype_id effect_tindrift( "tindrift"_id );
+static const efftype_id effect_under_operation( "under_operation"_id );
 
-static const itype_id itype_ant_egg( "ant_egg" );
-static const itype_id itype_badge_cybercop( "badge_cybercop" );
-static const itype_id itype_badge_deputy( "badge_deputy" );
-static const itype_id itype_badge_detective( "badge_detective" );
-static const itype_id itype_badge_doctor( "badge_doctor" );
-static const itype_id itype_badge_marshal( "badge_marshal" );
-static const itype_id itype_badge_swat( "badge_swat" );
+static const itype_id itype_ant_egg( "ant_egg"_id );
+static const itype_id itype_badge_cybercop( "badge_cybercop"_id );
+static const itype_id itype_badge_deputy( "badge_deputy"_id );
+static const itype_id itype_badge_detective( "badge_detective"_id );
+static const itype_id itype_badge_doctor( "badge_doctor"_id );
+static const itype_id itype_badge_marshal( "badge_marshal"_id );
+static const itype_id itype_badge_swat( "badge_swat"_id );
 static const itype_id itype_bot_c4_hack( "bot_c4_hack" );
-static const itype_id itype_bot_flashbang_hack( "bot_flashbang_hack" );
-static const itype_id itype_bot_gasbomb_hack( "bot_gasbomb_hack" );
-static const itype_id itype_bot_grenade_hack( "bot_grenade_hack" );
-static const itype_id itype_bot_manhack( "bot_manhack" );
-static const itype_id itype_bot_mininuke_hack( "bot_mininuke_hack" );
-static const itype_id itype_bot_pacification_hack( "bot_pacification_hack" );
+static const itype_id itype_bot_flashbang_hack( "bot_flashbang_hack"_id );
+static const itype_id itype_bot_gasbomb_hack( "bot_gasbomb_hack"_id );
+static const itype_id itype_bot_grenade_hack( "bot_grenade_hack"_id );
+static const itype_id itype_bot_manhack( "bot_manhack"_id );
+static const itype_id itype_bot_mininuke_hack( "bot_mininuke_hack"_id );
+static const itype_id itype_bot_pacification_hack( "bot_pacification_hack"_id );
 static const itype_id itype_c4( "c4" );
 static const itype_id itype_c4armed( "c4armed" );
-static const itype_id itype_e_handcuffs( "e_handcuffs" );
-static const itype_id itype_mininuke( "mininuke" );
-static const itype_id itype_mininuke_act( "mininuke_act" );
+static const itype_id itype_e_handcuffs( "e_handcuffs"_id );
+static const itype_id itype_mininuke( "mininuke"_id );
+static const itype_id itype_mininuke_act( "mininuke_act"_id );
 
-static const skill_id skill_gun( "gun" );
-static const skill_id skill_launcher( "launcher" );
-static const skill_id skill_melee( "melee" );
-static const skill_id skill_rifle( "rifle" );
-static const skill_id skill_unarmed( "unarmed" );
+static const skill_id skill_gun( "gun"_id );
+static const skill_id skill_launcher( "launcher"_id );
+static const skill_id skill_melee( "melee"_id );
+static const skill_id skill_rifle( "rifle"_id );
+static const skill_id skill_unarmed( "unarmed"_id );
 
-static const species_id species_SLIME( "SLIME" );
-static const species_id species_LEECH_PLANT( "LEECH_PLANT" );
-static const species_id species_ZOMBIE( "ZOMBIE" );
+static const species_id species_SLIME( "SLIME"_id );
+static const species_id species_LEECH_PLANT( "LEECH_PLANT"_id );
+static const species_id species_ZOMBIE( "ZOMBIE"_id );
 
 static const std::string flag_AUTODOC_COUCH( "AUTODOC_COUCH" );
 
-static const trait_id trait_ACIDBLOOD( "ACIDBLOOD" );
-static const trait_id trait_MARLOSS( "MARLOSS" );
-static const trait_id trait_MARLOSS_BLUE( "MARLOSS_BLUE" );
-static const trait_id trait_PARAIMMUNE( "PARAIMMUNE" );
-static const trait_id trait_PROF_CHURL( "PROF_CHURL" );
-static const trait_id trait_PROF_CYBERCO( "PROF_CYBERCO" );
-static const trait_id trait_PROF_FED( "PROF_FED" );
-static const trait_id trait_PROF_PD_DET( "PROF_PD_DET" );
-static const trait_id trait_PROF_POLICE( "PROF_POLICE" );
-static const trait_id trait_PROF_SWAT( "PROF_SWAT" );
-static const trait_id trait_TAIL_CATTLE( "TAIL_CATTLE" );
-static const trait_id trait_THRESH_MARLOSS( "THRESH_MARLOSS" );
-static const trait_id trait_THRESH_MYCUS( "THRESH_MYCUS" );
-static const trait_id trait_FAST_REFLEXES( "FAST_REFLEXES" );
+static const trait_id trait_ACIDBLOOD( "ACIDBLOOD"_id );
+static const trait_id trait_MARLOSS( "MARLOSS"_id );
+static const trait_id trait_MARLOSS_BLUE( "MARLOSS_BLUE"_id );
+static const trait_id trait_PARAIMMUNE( "PARAIMMUNE"_id );
+static const trait_id trait_PROF_CHURL( "PROF_CHURL"_id );
+static const trait_id trait_PROF_CYBERCO( "PROF_CYBERCO"_id );
+static const trait_id trait_PROF_FED( "PROF_FED"_id );
+static const trait_id trait_PROF_PD_DET( "PROF_PD_DET"_id );
+static const trait_id trait_PROF_POLICE( "PROF_POLICE"_id );
+static const trait_id trait_PROF_SWAT( "PROF_SWAT"_id );
+static const trait_id trait_TAIL_CATTLE( "TAIL_CATTLE"_id );
+static const trait_id trait_THRESH_MARLOSS( "THRESH_MARLOSS"_id );
+static const trait_id trait_THRESH_MYCUS( "THRESH_MYCUS"_id );
+static const trait_id trait_FAST_REFLEXES( "FAST_REFLEXES"_id );
 
-static const mtype_id mon_ant_acid_larva( "mon_ant_acid_larva" );
-static const mtype_id mon_ant_acid_queen( "mon_ant_acid_queen" );
-static const mtype_id mon_ant_larva( "mon_ant_larva" );
-static const mtype_id mon_biollante( "mon_biollante" );
-static const mtype_id mon_blob( "mon_blob" );
-static const mtype_id mon_blob_brain( "mon_blob_brain" );
-static const mtype_id mon_blob_large( "mon_blob_large" );
-static const mtype_id mon_blob_small( "mon_blob_small" );
-static const mtype_id mon_breather( "mon_breather" );
-static const mtype_id mon_breather_hub( "mon_breather_hub" );
-static const mtype_id mon_creeper_hub( "mon_creeper_hub" );
-static const mtype_id mon_creeper_vine( "mon_creeper_vine" );
-static const mtype_id mon_nursebot_defective( "mon_nursebot_defective" );
-static const mtype_id mon_dermatik( "mon_dermatik" );
-static const mtype_id mon_fungal_hedgerow( "mon_fungal_hedgerow" );
-static const mtype_id mon_fungal_tendril( "mon_fungal_tendril" );
-static const mtype_id mon_fungal_wall( "mon_fungal_wall" );
-static const mtype_id mon_fungaloid( "mon_fungaloid" );
-static const mtype_id mon_fungaloid_young( "mon_fungaloid_young" );
-static const mtype_id mon_headless_dog_thing( "mon_headless_dog_thing" );
-static const mtype_id mon_hound_tindalos_afterimage( "mon_hound_tindalos_afterimage" );
-static const mtype_id mon_leech_blossom( "mon_leech_blossom" );
-static const mtype_id mon_leech_root_drone( "mon_leech_root_drone" );
-static const mtype_id mon_leech_root_runner( "mon_leech_root_runner" );
-static const mtype_id mon_leech_stalk( "mon_leech_stalk" );
-static const mtype_id mon_manhack( "mon_manhack" );
-static const mtype_id mon_shadow( "mon_shadow" );
-static const mtype_id mon_triffid( "mon_triffid" );
-static const mtype_id mon_turret_searchlight( "mon_turret_searchlight" );
-static const mtype_id mon_zombie_dancer( "mon_zombie_dancer" );
-static const mtype_id mon_zombie_gasbag_crawler( "mon_zombie_gasbag_crawler" );
-static const mtype_id mon_zombie_gasbag_impaler( "mon_zombie_gasbag_impaler" );
-static const mtype_id mon_zombie_jackson( "mon_zombie_jackson" );
-static const mtype_id mon_zombie_skeltal_minion( "mon_zombie_skeltal_minion" );
+static const mtype_id mon_ant_acid_larva( "mon_ant_acid_larva"_id );
+static const mtype_id mon_ant_acid_queen( "mon_ant_acid_queen"_id );
+static const mtype_id mon_ant_larva( "mon_ant_larva"_id );
+static const mtype_id mon_biollante( "mon_biollante"_id );
+static const mtype_id mon_blob( "mon_blob"_id );
+static const mtype_id mon_blob_brain( "mon_blob_brain"_id );
+static const mtype_id mon_blob_large( "mon_blob_large"_id );
+static const mtype_id mon_blob_small( "mon_blob_small"_id );
+static const mtype_id mon_breather( "mon_breather"_id );
+static const mtype_id mon_breather_hub( "mon_breather_hub"_id );
+static const mtype_id mon_creeper_hub( "mon_creeper_hub"_id );
+static const mtype_id mon_creeper_vine( "mon_creeper_vine"_id );
+static const mtype_id mon_nursebot_defective( "mon_nursebot_defective"_id );
+static const mtype_id mon_dermatik( "mon_dermatik"_id );
+static const mtype_id mon_fungal_hedgerow( "mon_fungal_hedgerow"_id );
+static const mtype_id mon_fungal_tendril( "mon_fungal_tendril"_id );
+static const mtype_id mon_fungal_wall( "mon_fungal_wall"_id );
+static const mtype_id mon_fungaloid( "mon_fungaloid"_id );
+static const mtype_id mon_fungaloid_young( "mon_fungaloid_young"_id );
+static const mtype_id mon_headless_dog_thing( "mon_headless_dog_thing"_id );
+static const mtype_id mon_hound_tindalos_afterimage( "mon_hound_tindalos_afterimage"_id );
+static const mtype_id mon_leech_blossom( "mon_leech_blossom"_id );
+static const mtype_id mon_leech_root_drone( "mon_leech_root_drone"_id );
+static const mtype_id mon_leech_root_runner( "mon_leech_root_runner"_id );
+static const mtype_id mon_leech_stalk( "mon_leech_stalk"_id );
+static const mtype_id mon_manhack( "mon_manhack"_id );
+static const mtype_id mon_shadow( "mon_shadow"_id );
+static const mtype_id mon_triffid( "mon_triffid"_id );
+static const mtype_id mon_turret_searchlight( "mon_turret_searchlight"_id );
+static const mtype_id mon_zombie_dancer( "mon_zombie_dancer"_id );
+static const mtype_id mon_zombie_gasbag_crawler( "mon_zombie_gasbag_crawler"_id );
+static const mtype_id mon_zombie_gasbag_impaler( "mon_zombie_gasbag_impaler"_id );
+static const mtype_id mon_zombie_jackson( "mon_zombie_jackson"_id );
+static const mtype_id mon_zombie_skeltal_minion( "mon_zombie_skeltal_minion"_id );
 
-static const bionic_id bio_uncanny_dodge( "bio_uncanny_dodge" );
+static const bionic_id bio_uncanny_dodge( "bio_uncanny_dodge"_id );
 
 // shared utility functions
 static bool within_visual_range( monster *z, int max_range )
@@ -388,7 +388,7 @@ bool mattack::antqueen( monster *z )
         }
 
         if( monster *const mon = g->critter_at<monster>( dest ) ) {
-            if( mon->type->default_faction == mfaction_id( "ant" ) && mon->type->upgrades ) {
+            if( mon->type->default_faction == mfaction_id( "ant"_id ) && mon->type->upgrades ) {
                 ants.push_back( mon );
             }
 
@@ -683,8 +683,8 @@ bool mattack::acid_barf( monster *z )
                                        body_part_name_accusative( hit ),
                                        dam );
 
-        if( hit == bodypart_id( "eyes" ) ) {
-            target->add_env_effect( effect_blind, bodypart_id( "eyes" ), 3, 1_minutes );
+        if( hit == bodypart_id( "eyes"_id ) ) {
+            target->add_env_effect( effect_blind, bodypart_id( "eyes"_id ), 3, 1_minutes );
         }
     } else {
         target->add_msg_player_or_npc(
@@ -818,10 +818,10 @@ bool mattack::pull_metal_weapon( monster *z )
     if( foe != nullptr ) {
         // Wielded steel or iron items except for built-in things like bionic claws or monomolecular blade
         if( !foe->weapon.has_flag( "NO_UNWIELD" ) &&
-            ( foe->weapon.made_of( material_id( "iron" ) ) ||
-              foe->weapon.made_of( material_id( "hardsteel" ) ) ||
-              foe->weapon.made_of( material_id( "steel" ) ) ||
-              foe->weapon.made_of( material_id( "budget_steel" ) ) ) ) {
+            ( foe->weapon.made_of( material_id( "iron"_id ) ) ||
+              foe->weapon.made_of( material_id( "hardsteel"_id ) ) ||
+              foe->weapon.made_of( material_id( "steel"_id ) ) ||
+              foe->weapon.made_of( material_id( "budget_steel"_id ) ) ) ) {
             int wp_skill = foe->get_skill_level( skill_melee );
             // It takes a while
             z->moves -= att_cost_pull;
@@ -882,7 +882,7 @@ bool mattack::boomer( monster *z )
     if( !target->uncanny_dodge() ) {
         ///\EFFECT_DODGE increases chance to avoid boomer effect
         if( rng( 0, 10 ) > target->get_dodge() || one_in( target->get_dodge() ) ) {
-            target->add_env_effect( effect_boomered, bodypart_id( "eyes" ), 3, 12_turns );
+            target->add_env_effect( effect_boomered, bodypart_id( "eyes"_id ), 3, 12_turns );
         } else if( u_see ) {
             target->add_msg_player_or_npc( _( "You dodge it!" ),
                                            _( "<npcname> dodges it!" ) );
@@ -924,7 +924,7 @@ bool mattack::boomer_glow( monster *z )
     if( !target->uncanny_dodge() ) {
         ///\EFFECT_DODGE increases chance to avoid glowing boomer effect
         if( rng( 0, 10 ) > target->get_dodge() || one_in( target->get_dodge() ) ) {
-            target->add_env_effect( effect_boomered, bodypart_id( "eyes" ), 5, 25_turns );
+            target->add_env_effect( effect_boomered, bodypart_id( "eyes"_id ), 5, 25_turns );
             target->on_dodge( z, 5 );
             for( int i = 0; i < rng( 2, 4 ); i++ ) {
                 const bodypart_id &bp = target->random_body_part();
@@ -1384,17 +1384,17 @@ static bodypart_id body_part_hit_by_plant()
 {
     bodypart_id hit;
     if( one_in( 2 ) ) {
-        hit = bodypart_id( "leg_l" );
+        hit = bodypart_id( "leg_l"_id );
     } else {
-        hit = bodypart_id( "leg_r" );
+        hit = bodypart_id( "leg_r"_id );
     }
     if( one_in( 4 ) ) {
-        hit = bodypart_id( "torso" );
+        hit = bodypart_id( "torso"_id );
     } else if( one_in( 2 ) ) {
         if( one_in( 2 ) ) {
-            hit = bodypart_id( "foot_l" );
+            hit = bodypart_id( "foot_l"_id );
         } else {
-            hit = bodypart_id( "foot_r" );
+            hit = bodypart_id( "foot_r"_id );
         }
     }
     return hit;
@@ -2106,7 +2106,7 @@ bool mattack::impale( monster *z )
         return true;
     }
 
-    int dam = target->deal_damage( z, bodypart_id( "torso" ), damage_instance( damage_type::STAB,
+    int dam = target->deal_damage( z, bodypart_id( "torso"_id ), damage_instance( damage_type::STAB,
                                    rng( 10, 20 ),
                                    rng( 5, 15 ),
                                    .5 ) ).total_damage();
@@ -2119,7 +2119,7 @@ bool mattack::impale( monster *z )
                                        _( "The %1$s impales <npcname>'s torso!" ),
                                        z->name() );
 
-        target->on_hit( z, bodypart_id( "torso" ),  z->type->melee_skill );
+        target->on_hit( z, bodypart_id( "torso"_id ),  z->type->melee_skill );
         if( rng( 0, 200 + dam ) > 100 ) {
             target->add_effect( effect_downed, 3_turns );
         }
@@ -2185,7 +2185,7 @@ bool mattack::dermatik( monster *z )
     if( player_swat > dodge_roll ) {
         target->add_msg_if_player( _( "The %s lands on you, but you swat it off." ), z->name() );
         if( z->get_hp() >= z->get_hp_max() / 2 ) {
-            z->apply_damage( &player_character, bodypart_id( "torso" ), 1 );
+            z->apply_damage( &player_character, bodypart_id( "torso"_id ), 1 );
             z->check_dead_state();
         }
         if( player_swat > dodge_roll * 1.5 ) {
@@ -2363,9 +2363,9 @@ bool mattack::formblob( monster *z )
             } else if( othermon.type->id == mon_blob && othermon.get_speed_base() >= 80 ) {
                 poly_keep_speed( othermon, mon_blob_large );
             }
-        } else if( ( othermon.made_of( material_id( "flesh" ) ) ||
-                     othermon.made_of( material_id( "veggy" ) ) ||
-                     othermon.made_of( material_id( "iflesh" ) ) ) &&
+        } else if( ( othermon.made_of( material_id( "flesh"_id ) ) ||
+                     othermon.made_of( material_id( "veggy"_id ) ) ||
+                     othermon.made_of( material_id( "iflesh"_id ) ) ) &&
                    rng( 0, z->get_hp() ) > rng( othermon.get_hp() / 2, othermon.get_hp() ) ) {
             didit = blobify( *z, othermon );
         }
@@ -2674,7 +2674,7 @@ bool mattack::ranged_pull( monster *z )
 
     const int prev_effect = target->get_effect_int( effect_grabbed );
     //Duration needs to be at least 2, or grab will immediately be removed
-    target->add_effect( effect_grabbed, 2_turns, bodypart_id( "torso" ), false, prev_effect + 4 );
+    target->add_effect( effect_grabbed, 2_turns, bodypart_id( "torso"_id ), false, prev_effect + 4 );
     z->add_effect( effect_grabbing, 2_turns );
     return true;
 }
@@ -2737,7 +2737,7 @@ bool mattack::grab( monster *z )
 
     const int prev_effect = target->get_effect_int( effect_grabbed );
     z->add_effect( effect_grabbing, 2_turns );
-    target->add_effect( effect_grabbed, 2_turns, bodypart_id( "torso" ), false,
+    target->add_effect( effect_grabbed, 2_turns, bodypart_id( "torso"_id ), false,
                         prev_effect + z->get_grab_strength() );
     target->add_msg_player_or_npc( m_bad, _( "The %s grabs you!" ), _( "The %s grabs <npcname>!" ),
                                    z->name() );
@@ -2799,7 +2799,7 @@ bool mattack::grab_drag( monster *z )
     }
     int prev_effect = target->get_effect_int( effect_grabbed );
     z->add_effect( effect_grabbing, 2_turns );
-    target->add_effect( effect_grabbed, 2_turns, bodypart_id( "torso" ), false, prev_effect + 3 );
+    target->add_effect( effect_grabbed, 2_turns, bodypart_id( "torso"_id ), false, prev_effect + 3 );
 
     // cooldown was not reset prior to refactor here
     return true;
@@ -3004,7 +3004,7 @@ bool mattack::nurse_assist( monster *z )
 }
 bool mattack::nurse_operate( monster *z )
 {
-    const itype_id ammo_type( "anesthetic" );
+    const itype_id ammo_type( "anesthetic"_id );
 
     if( z->has_effect( effect_dragging ) || z->has_effect( effect_operating ) ) {
         return false;
@@ -3298,7 +3298,7 @@ void mattack::taze( monster *z, Creature *target )
         return;
     }
 
-    int dam = target->deal_damage( z, bodypart_id( "torso" ), damage_instance( damage_type::ELECTRIC,
+    int dam = target->deal_damage( z, bodypart_id( "torso"_id ), damage_instance( damage_type::ELECTRIC,
                                    rng( 1,
                                         5 ) ) ).total_damage();
     if( dam == 0 ) {
@@ -3320,7 +3320,7 @@ void mattack::taze( monster *z, Creature *target )
 
 void mattack::rifle( monster *z, Creature *target )
 {
-    const itype_id ammo_type( "556" );
+    const itype_id ammo_type( "556"_id );
     // Make sure our ammo isn't weird.
     if( z->ammo[ammo_type] > 3000 ) {
         debugmsg( "Generated too much ammo (%d) for %s in mattack::rifle", z->ammo[ammo_type],
@@ -3356,7 +3356,7 @@ void mattack::rifle( monster *z, Creature *target )
     add_msg_if_player_sees( *z, m_warning, _( "The %s opens up with its rifle!" ), z->name() );
 
     tmp.weapon = item( "m4a1" ).ammo_set( ammo_type, z->ammo[ ammo_type ] );
-    int burst = std::max( tmp.weapon.gun_get_mode( gun_mode_id( "AUTO" ) ).qty, 1 );
+    int burst = std::max( tmp.weapon.gun_get_mode( gun_mode_id( "AUTO"_id ) ).qty, 1 );
 
     z->ammo[ ammo_type ] -= tmp.fire_gun( target->pos(), burst ) * tmp.weapon.ammo_required();
 
@@ -3367,7 +3367,7 @@ void mattack::rifle( monster *z, Creature *target )
 
 void mattack::frag( monster *z, Creature *target ) // This is for the bots, not a standalone turret
 {
-    const itype_id ammo_type( "40x46mm_m433" );
+    const itype_id ammo_type( "40x46mm_m433"_id );
     // Make sure our ammo isn't weird.
     if( z->ammo[ammo_type] > 200 ) {
         debugmsg( "Generated too much ammo (%d) for %s in mattack::frag", z->ammo[ammo_type],
@@ -3415,7 +3415,7 @@ void mattack::frag( monster *z, Creature *target ) // This is for the bots, not 
     add_msg_if_player_sees( *z, m_warning, _( "The %s's grenade launcher fires!" ), z->name() );
 
     tmp.weapon = item( "mgl" ).ammo_set( ammo_type, z->ammo[ ammo_type ] );
-    int burst = std::max( tmp.weapon.gun_get_mode( gun_mode_id( "AUTO" ) ).qty, 1 );
+    int burst = std::max( tmp.weapon.gun_get_mode( gun_mode_id( "AUTO"_id ) ).qty, 1 );
 
     z->ammo[ ammo_type ] -= tmp.fire_gun( target->pos(), burst ) * tmp.weapon.ammo_required();
 
@@ -3426,7 +3426,7 @@ void mattack::frag( monster *z, Creature *target ) // This is for the bots, not 
 
 void mattack::tankgun( monster *z, Creature *target )
 {
-    const itype_id ammo_type( "120mm_HEAT" );
+    const itype_id ammo_type( "120mm_HEAT"_id );
     // Make sure our ammo isn't weird.
     if( z->ammo[ammo_type] > 40 ) {
         debugmsg( "Generated too much ammo (%d) for %s in mattack::tankgun", z->ammo[ammo_type],
@@ -3472,7 +3472,7 @@ void mattack::tankgun( monster *z, Creature *target )
     }
     add_msg_if_player_sees( *z, m_warning, _( "The %s's 120mm cannon fires!" ), z->name() );
     tmp.weapon = item( "TANK" ).ammo_set( ammo_type, z->ammo[ ammo_type ] );
-    int burst = std::max( tmp.weapon.gun_get_mode( gun_mode_id( "AUTO" ) ).qty, 1 );
+    int burst = std::max( tmp.weapon.gun_get_mode( gun_mode_id( "AUTO"_id ) ).qty, 1 );
 
     z->ammo[ ammo_type ] -= tmp.fire_gun( target->pos(), burst ) * tmp.weapon.ammo_required();
 }
@@ -3537,7 +3537,7 @@ bool mattack::searchlight( monster *z )
         for( int x = zposx - 24; x < zposx + 24; x++ ) {
             for( int y = zposy - 24; y < zposy + 24; y++ ) {
                 tripoint dest( x, y, z->posz() );
-                if( here.ter( dest ) == ter_str_id( "t_plut_generator" ) ) {
+                if( here.ter( dest ) == ter_str_id( "t_plut_generator"_id ) ) {
                     generator_ok = true;
                 }
             }
@@ -3658,7 +3658,7 @@ bool mattack::searchlight( monster *z )
         settings.set_var( "SL_SPOT_X", x - zposx );
         settings.set_var( "SL_SPOT_Y", y - zposy );
 
-        here.add_field( tripoint( x, y, z->posz() ), field_type_id( "fd_spotlight" ), 1 );
+        here.add_field( tripoint( x, y, z->posz() ), field_type_id( "fd_spotlight"_id ), 1 );
     }
 
     return true;
@@ -3727,7 +3727,7 @@ void mattack::flame( monster *z, Creature *target )
             }
             here.add_field( i, fd_fire, 1 );
         }
-        target->add_effect( effect_onfire, 8_turns, bodypart_id( "torso" ) );
+        target->add_effect( effect_onfire, 8_turns, bodypart_id( "torso"_id ) );
 
         return;
     }
@@ -3750,7 +3750,7 @@ void mattack::flame( monster *z, Creature *target )
         here.add_field( i, fd_fire, 1 );
     }
     if( !target->uncanny_dodge() ) {
-        target->add_effect( effect_onfire, 8_turns, bodypart_id( "torso" ) );
+        target->add_effect( effect_onfire, 8_turns, bodypart_id( "torso"_id ) );
     }
 }
 
@@ -4267,8 +4267,8 @@ bool mattack::absorb_meat( monster *z )
         map_stack items = here.i_at( p );
         for( auto &current_item : items ) {
             const material_id current_item_material = current_item.get_base_material().ident();
-            if( current_item_material == material_id( "flesh" ) ||
-                current_item_material == material_id( "hflesh" ) ) {
+            if( current_item_material == material_id( "flesh"_id ) ||
+                current_item_material == material_id( "hflesh"_id ) ) {
                 //We have something meaty! Calculate how much it will heal the monster
                 const int ml_of_meat = units::to_milliliter<int>( current_item.volume() );
                 const int total_charges = current_item.count();
@@ -4464,7 +4464,7 @@ bool mattack::longswipe( monster *z )
     }
 
     int dam = rng( 6, 10 );
-    dam = target->deal_damage( z, bodypart_id( "head" ), damage_instance( damage_type::CUT,
+    dam = target->deal_damage( z, bodypart_id( "head"_id ), damage_instance( damage_type::CUT,
                                dam ) ).total_damage();
     if( dam > 0 ) {
         game_message_type msg_type = target->is_avatar() ? m_bad : m_warning;
@@ -4473,18 +4473,18 @@ bool mattack::longswipe( monster *z )
                                        _( "The %1$s slashes at <npcname>'s neck, cutting their throat for %2$d damage!" ),
                                        z->name(), dam );
         if( target->is_player() || target->is_npc() ) {
-            target->as_character()->make_bleed( bodypart_id( "head" ), 15_minutes );
+            target->as_character()->make_bleed( bodypart_id( "head"_id ), 15_minutes );
         } else {
-            target->add_effect( effect_bleed, 15_minutes, bodypart_id( "head" ) );
+            target->add_effect( effect_bleed, 15_minutes, bodypart_id( "head"_id ) );
         }
 
     } else {
         target->add_msg_player_or_npc( _( "The %1$s slashes at your %2$s, but glances off your armor!" ),
                                        _( "The %1$s slashes at <npcname>'s %2$s, but glances off armor!" ),
                                        z->name(),
-                                       body_part_name_accusative( bodypart_id( "head" ) ) );
+                                       body_part_name_accusative( bodypart_id( "head"_id ) ) );
     }
-    target->on_hit( z, bodypart_id( "head" ),  z->type->melee_skill );
+    target->on_hit( z, bodypart_id( "head"_id ),  z->type->melee_skill );
     target->check_dead_state();
 
     return true;
@@ -4667,8 +4667,8 @@ bool mattack::thrown_by_judo( monster *z )
                 // Discounted electric damage for quick flip
                 damage_instance shock;
                 shock.add_damage( damage_type::ELECTRIC, rng( 1, 3 ) );
-                foe->deal_damage( z, bodypart_id( "arm_l" ), shock );
-                foe->deal_damage( z, bodypart_id( "arm_r" ), shock );
+                foe->deal_damage( z, bodypart_id( "arm_l"_id ), shock );
+                foe->deal_damage( z, bodypart_id( "arm_r"_id ), shock );
                 foe->check_dead_state();
             }
             // Monster is down,
@@ -4677,7 +4677,7 @@ bool mattack::thrown_by_judo( monster *z )
             const int max_damage = 20 + foe->get_skill_level( skill_unarmed );
             // Deal moderate damage
             const int damage = rng( min_damage, max_damage );
-            z->apply_damage( foe, bodypart_id( "torso" ), damage );
+            z->apply_damage( foe, bodypart_id( "torso"_id ), damage );
             z->check_dead_state();
         } else {
             // Still avoids the major hit!
@@ -4921,7 +4921,7 @@ bool mattack::evolve_kill_strike( monster *z )
     damage.add( damage_instance( damage_type::STAB, dice( z->type->melee_dice, z->type->melee_sides ),
                                  rng( 5,
                                       15 ), 1.0, 0.5 ) );
-    int damage_dealt = target->deal_damage( z, bodypart_id( "torso" ), damage ).total_damage();
+    int damage_dealt = target->deal_damage( z, bodypart_id( "torso"_id ), damage ).total_damage();
     if( damage_dealt > 0 ) {
         game_message_type msg_type = target->is_avatar() ? m_bad : m_warning;
         target->add_msg_player_or_npc( msg_type,
@@ -5186,9 +5186,9 @@ bool mattack::bio_op_takedown( monster *z )
         // Handle mons earlier - less to check for
         dam = rng( 6, 18 );
         // Always aim for the torso
-        target->deal_damage( z, bodypart_id( "torso" ), damage_instance( damage_type::BASH, dam ) );
+        target->deal_damage( z, bodypart_id( "torso"_id ), damage_instance( damage_type::BASH, dam ) );
         // Two hits - "leg" and torso
-        target->deal_damage( z, bodypart_id( "torso" ), damage_instance( damage_type::BASH, dam ) );
+        target->deal_damage( z, bodypart_id( "torso"_id ), damage_instance( damage_type::BASH, dam ) );
         target->add_effect( effect_downed, 3_turns );
         if( seen ) {
             add_msg( _( "%1$s slams %2$s to the ground!" ), z->name(), target->disp_name() );
@@ -5197,11 +5197,11 @@ bool mattack::bio_op_takedown( monster *z )
         return true;
     }
     // Yes, it has the CQC bionic.
-    bodypart_id hit( "bp_null" );
+    bodypart_id hit( "bp_null"_id );
     if( one_in( 2 ) ) {
-        hit = bodypart_id( "leg_l" );
+        hit = bodypart_id( "leg_l"_id );
     } else {
-        hit = bodypart_id( "leg_r" );
+        hit = bodypart_id( "leg_r"_id );
     }
     // Weak kick to start with, knocks you off your footing
 
@@ -5214,17 +5214,17 @@ bool mattack::bio_op_takedown( monster *z )
     if( !foe->is_throw_immune() ) {
         if( !target->is_immune_effect( effect_downed ) ) {
             if( one_in( 4 ) ) {
-                hit = bodypart_id( "head" );
+                hit = bodypart_id( "head"_id );
                 // 50% damage buff for the headshot.
                 dam = rng( 9, 21 );
                 target->add_msg_if_player( m_bad, _( "and slams you, face first, to the ground for %d damage!" ),
                                            dam );
-                foe->deal_damage( z, bodypart_id( "head" ), damage_instance( damage_type::BASH, dam ) );
+                foe->deal_damage( z, bodypart_id( "head"_id ), damage_instance( damage_type::BASH, dam ) );
             } else {
-                hit = bodypart_id( "torso" );
+                hit = bodypart_id( "torso"_id );
                 dam = rng( 6, 18 );
                 target->add_msg_if_player( m_bad, _( "and slams you to the ground for %d damage!" ), dam );
-                foe->deal_damage( z, bodypart_id( "torso" ), damage_instance( damage_type::BASH, dam ) );
+                foe->deal_damage( z, bodypart_id( "torso"_id ), damage_instance( damage_type::BASH, dam ) );
             }
             foe->add_effect( effect_downed, 3_turns );
         }
@@ -5232,10 +5232,10 @@ bool mattack::bio_op_takedown( monster *z )
                  foe->martial_arts_data->selected_has_weapon( foe->weapon.typeId() ) ) &&
                !thrown_by_judo( z ) ) {
         // Saved by the tentacle-bracing! :)
-        hit = bodypart_id( "torso" );
+        hit = bodypart_id( "torso"_id );
         dam = rng( 3, 9 );
         target->add_msg_if_player( m_bad, _( "and slams you for %d damage!" ), dam );
-        foe->deal_damage( z, bodypart_id( "torso" ), damage_instance( damage_type::BASH, dam ) );
+        foe->deal_damage( z, bodypart_id( "torso"_id ), damage_instance( damage_type::BASH, dam ) );
     }
     target->on_hit( z, hit,  z->type->melee_skill );
     foe->check_dead_state();
@@ -5288,9 +5288,9 @@ bool mattack::bio_op_impale( monster *z )
 
     if( foe == nullptr ) {
         // Handle mons earlier - less to check for
-        target->deal_damage( z, bodypart_id( "torso" ), damage_instance( damage_type::STAB, dam ) );
+        target->deal_damage( z, bodypart_id( "torso"_id ), damage_instance( damage_type::STAB, dam ) );
         if( do_bleed ) {
-            target->add_effect( effect_bleed, rng( 3_minutes, 10_minutes ), bodypart_id( "torso" ), true );
+            target->add_effect( effect_bleed, rng( 3_minutes, 10_minutes ), bodypart_id( "torso"_id ), true );
         }
         if( seen ) {
             add_msg( _( "The %1$s impales %2$s!" ), z->name(), target->disp_name() );

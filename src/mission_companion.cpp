@@ -64,22 +64,22 @@
 
 class character_id;
 
-static const efftype_id effect_riding( "riding" );
+static const efftype_id effect_riding( "riding"_id );
 
-static const itype_id itype_fungal_seeds( "fungal_seeds" );
-static const itype_id itype_marloss_seed( "marloss_seed" );
+static const itype_id itype_fungal_seeds( "fungal_seeds"_id );
+static const itype_id itype_marloss_seed( "marloss_seed"_id );
 
-static const skill_id skill_bashing( "bashing" );
-static const skill_id skill_cutting( "cutting" );
-static const skill_id skill_dodge( "dodge" );
-static const skill_id skill_fabrication( "fabrication" );
-static const skill_id skill_gun( "gun" );
-static const skill_id skill_melee( "melee" );
-static const skill_id skill_stabbing( "stabbing" );
-static const skill_id skill_survival( "survival" );
-static const skill_id skill_unarmed( "unarmed" );
+static const skill_id skill_bashing( "bashing"_id );
+static const skill_id skill_cutting( "cutting"_id );
+static const skill_id skill_dodge( "dodge"_id );
+static const skill_id skill_fabrication( "fabrication"_id );
+static const skill_id skill_gun( "gun"_id );
+static const skill_id skill_melee( "melee"_id );
+static const skill_id skill_stabbing( "stabbing"_id );
+static const skill_id skill_survival( "survival"_id );
+static const skill_id skill_unarmed( "unarmed"_id );
 
-static const trait_id trait_DEBUG_HS( "DEBUG_HS" );
+static const trait_id trait_DEBUG_HS( "DEBUG_HS"_id );
 static const trait_id trait_NPC_MISSION_LEV_1( "NPC_MISSION_LEV_1" );
 static const trait_id trait_NPC_CONSTRUCTION_LEV_1( "NPC_CONSTRUCTION_LEV_1" );
 static const trait_id trait_NPC_CONSTRUCTION_LEV_2( "NPC_CONSTRUCTION_LEV_2" );
@@ -807,7 +807,7 @@ void talk_function::caravan_return( npc &p, const std::string &dest, const std::
     int money = 0;
     for( const auto &elem : caravan_party ) {
         //Scrub temporary party members and the dead
-        if( elem->get_part_hp_cur( bodypart_id( "torso" ) ) == 0 && elem->has_companion_mission() ) {
+        if( elem->get_part_hp_cur( bodypart_id( "torso"_id ) ) == 0 && elem->has_companion_mission() ) {
             overmap_buffer.remove_npc( comp->getID() );
             money += ( time / 600 ) * 9;
         } else if( elem->has_companion_mission() ) {
@@ -851,7 +851,7 @@ void talk_function::attack_random( const std::vector< monster * > &group,
     const auto def = random_entry( defender );
     att->melee_attack( *def );
     //monster mon;
-    if( def->get_part_hp_cur( bodypart_id( "torso" ) ) <= 0 || def->is_dead() ) {
+    if( def->get_part_hp_cur( bodypart_id( "torso"_id ) ) <= 0 || def->is_dead() ) {
         popup( _( "%s is wasted by %s!" ), def->name, att->type->nname() );
     }
 }
@@ -872,7 +872,7 @@ void talk_function::attack_random( const std::vector<npc_ptr> &attacker,
     }
     ///\EFFECT_DODGE_NPC increases avoidance of random attacks
     if( rng( -1, best_score ) >= rng( 0, def->get_skill_level( skill_dodge ) ) ) {
-        def->set_part_hp_cur( bodypart_id( "torso" ), 0 );
+        def->set_part_hp_cur( bodypart_id( "torso"_id ), 0 );
         popup( _( "%s is wasted by %s!" ), def->name, att->name );
     } else {
         popup( _( "%s dodges %s's attack!" ), def->name, att->name );
@@ -885,7 +885,7 @@ int talk_function::combat_score( const std::vector<npc_ptr> &group )
 {
     int score = 0;
     for( const auto &elem : group ) {
-        if( elem->get_part_hp_cur( bodypart_id( "torso" ) ) != 0 ) {
+        if( elem->get_part_hp_cur( bodypart_id( "torso"_id ) ) != 0 ) {
             const skill_id best = elem->best_skill();
             if( best ) {
                 score += elem->get_skill_level( best );
@@ -1077,7 +1077,7 @@ void talk_function::field_harvest( npc &p, const std::string &place )
     bay.load( project_to<coords::sm>( site ), false );
     for( const tripoint &plot : bay.points_on_zlevel() ) {
         map_stack items = bay.i_at( plot );
-        if( bay.furn( plot ) == furn_str_id( "f_plant_harvest" ) && !items.empty() ) {
+        if( bay.furn( plot ) == furn_str_id( "f_plant_harvest"_id ) && !items.empty() ) {
             // Can't use item_stack::only_item() since there might be fertilizer
             map_stack::iterator seed = std::find_if( items.begin(), items.end(), []( const item & it ) {
                 return it.is_seed();
@@ -1122,7 +1122,7 @@ void talk_function::field_harvest( npc &p, const std::string &place )
     }
 
     for( const tripoint &plot : bay.points_on_zlevel() ) {
-        if( bay.furn( plot ) == furn_str_id( "f_plant_harvest" ) ) {
+        if( bay.furn( plot ) == furn_str_id( "f_plant_harvest"_id ) ) {
             // Can't use item_stack::only_item() since there might be fertilizer
             map_stack items = bay.i_at( plot );
             map_stack::iterator seed = std::find_if( items.begin(), items.end(), []( const item & it ) {
@@ -1596,8 +1596,8 @@ bool talk_function::force_on_force( const std::vector<npc_ptr> &defender,
         }
         std::vector<npc_ptr> remaining_def;
         for( const auto &elem : defender ) {
-            if( !elem->is_dead() && elem->get_part_hp_cur( bodypart_id( "torso" ) ) >= 0 &&
-                elem->get_part_hp_cur( bodypart_id( "head" ) ) >= 0 ) {
+            if( !elem->is_dead() && elem->get_part_hp_cur( bodypart_id( "torso"_id ) ) >= 0 &&
+                elem->get_part_hp_cur( bodypart_id( "head"_id ) ) >= 0 ) {
                 remaining_def.push_back( elem );
             }
         }
@@ -1656,13 +1656,13 @@ void talk_function::force_on_force( const std::vector<npc_ptr> &defender,
     while( true ) {
         std::vector<npc_ptr> remaining_att;
         for( const auto &elem : attacker ) {
-            if( elem->get_part_hp_cur( bodypart_id( "torso" ) ) != 0 ) {
+            if( elem->get_part_hp_cur( bodypart_id( "torso"_id ) ) != 0 ) {
                 remaining_att.push_back( elem );
             }
         }
         std::vector<npc_ptr> remaining_def;
         for( const auto &elem : defender ) {
-            if( elem->get_part_hp_cur( bodypart_id( "torso" ) ) != 0 ) {
+            if( elem->get_part_hp_cur( bodypart_id( "torso"_id ) ) != 0 ) {
                 remaining_def.push_back( elem );
             }
         }
@@ -1672,7 +1672,7 @@ void talk_function::force_on_force( const std::vector<npc_ptr> &defender,
         if( attack > defense * 3 ) {
             attack_random( remaining_att, remaining_def );
             if( defense == 0 || ( remaining_def.size() == 1 &&
-                                  remaining_def[0]->get_part_hp_cur( bodypart_id( "torso" ) ) == 0 ) ) {
+                                  remaining_def[0]->get_part_hp_cur( bodypart_id( "torso"_id ) ) == 0 ) ) {
                 popup( _( "%s forces are destroyed!" ), defender[0]->get_faction()->name );
             } else {
                 popup( _( "%s forces retreat from combat!" ), defender[0]->get_faction()->name );
@@ -1681,7 +1681,7 @@ void talk_function::force_on_force( const std::vector<npc_ptr> &defender,
         } else if( attack * 3 < defense ) {
             attack_random( remaining_def, remaining_att );
             if( attack == 0 || ( remaining_att.size() == 1 &&
-                                 remaining_att[0]->get_part_hp_cur( bodypart_id( "torso" ) ) == 0 ) ) {
+                                 remaining_att[0]->get_part_hp_cur( bodypart_id( "torso"_id ) ) == 0 ) ) {
                 popup( _( "%s forces are destroyed!" ), attacker[0]->get_faction()->name );
             } else {
                 popup( _( "%s forces retreat from combat!" ), attacker[0]->get_faction()->name );
@@ -2104,7 +2104,7 @@ void talk_function::loot_building( const tripoint_abs_omt &site )
         }
     }
     bay.save();
-    overmap_buffer.ter_set( site, oter_id( "looted_building" ) );
+    overmap_buffer.ter_set( site, oter_id( "looted_building"_id ) );
 }
 
 void mission_data::add( const std::string &id, const std::string &name_display,

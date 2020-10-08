@@ -1057,7 +1057,7 @@ overmap_special_id building_bin::pick() const
 {
     if( !finalized ) {
         debugmsg( "Tried to pick a special out of a non-finalized bin" );
-        overmap_special_id null_special( "null" );
+        overmap_special_id null_special( "null"_id );
         return null_special;
     }
 

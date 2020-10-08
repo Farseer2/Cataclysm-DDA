@@ -55,30 +55,30 @@
 #include "vehicle.h"
 #include "vpart_position.h"
 
-static const efftype_id effect_pet( "pet" );
-static const efftype_id effect_sleep( "sleep" );
+static const efftype_id effect_pet( "pet"_id );
+static const efftype_id effect_sleep( "sleep"_id );
 
-static const itype_id itype_bone_human( "bone_human" );
-static const itype_id itype_electrohack( "electrohack" );
-static const itype_id itype_pseudo_bio_picklock( "pseudo_bio_picklock" );
+static const itype_id itype_bone_human( "bone_human"_id );
+static const itype_id itype_electrohack( "electrohack"_id );
+static const itype_id itype_pseudo_bio_picklock( "pseudo_bio_picklock"_id );
 
-static const skill_id skill_computer( "computer" );
-static const skill_id skill_lockpick( "lockpick" );
-static const skill_id skill_mechanics( "mechanics" );
+static const skill_id skill_computer( "computer"_id );
+static const skill_id skill_lockpick( "lockpick"_id );
+static const skill_id skill_mechanics( "mechanics"_id );
 
 static const std::string flag_MAG_DESTROY( "MAG_DESTROY" );
 static const std::string flag_PERFECT_LOCKPICK( "PERFECT_LOCKPICK" );
 static const std::string flag_RELOAD_AND_SHOOT( "RELOAD_AND_SHOOT" );
 
-static const mtype_id mon_zombie( "mon_zombie" );
-static const mtype_id mon_zombie_fat( "mon_zombie_fat" );
-static const mtype_id mon_zombie_rot( "mon_zombie_rot" );
-static const mtype_id mon_skeleton( "mon_skeleton" );
-static const mtype_id mon_zombie_crawler( "mon_zombie_crawler" );
+static const mtype_id mon_zombie( "mon_zombie"_id );
+static const mtype_id mon_zombie_fat( "mon_zombie_fat"_id );
+static const mtype_id mon_zombie_rot( "mon_zombie_rot"_id );
+static const mtype_id mon_skeleton( "mon_skeleton"_id );
+static const mtype_id mon_zombie_crawler( "mon_zombie_crawler"_id );
 
-static const quality_id qual_LOCKPICK( "LOCKPICK" );
+static const quality_id qual_LOCKPICK( "LOCKPICK"_id );
 
-static const activity_id ACT_EAT_MENU( "ACT_EAT_MENU" );
+static const activity_id ACT_EAT_MENU( "ACT_EAT_MENU"_id );
 
 aim_activity_actor::aim_activity_actor()
 {
@@ -547,7 +547,7 @@ void gunmod_remove_activity_actor::gunmod_remove( Character &who, item &gun, ite
         return;
     }
 
-    gun.gun_set_mode( gun_mode_id( "DEFAULT" ) );
+    gun.gun_set_mode( gun_mode_id( "DEFAULT"_id ) );
     const itype *modtype = mod.type;
 
     who.i_add_or_drop( mod );
@@ -732,7 +732,7 @@ void hacking_activity_actor::finish( player_activity &act, Character &who )
                 }
             } else if( type == hack_type::SAFE ) {
                 who.add_msg_if_player( m_good, _( "The door on the safe swings open." ) );
-                here.furn_set( examp, furn_str_id( "f_safe_o" ) );
+                here.furn_set( examp, furn_str_id( "f_safe_o"_id ) );
             } else if( type == hack_type::DOOR ) {
                 who.add_msg_if_player( _( "You activate the panel!" ) );
                 who.add_msg_if_player( m_good, _( "The nearby doors unlock." ) );
@@ -1090,7 +1090,7 @@ void lockpick_activity_actor::finish( player_activity &act, Character &who )
         who.add_msg_if_player( m_good, open_message );
     } else if( furn_type == f_gunsafe_ml && lock_roll > ( 3 * pick_roll ) ) {
         who.add_msg_if_player( m_bad, _( "Your clumsy attempt jams the lock!" ) );
-        here.furn_set( target, furn_str_id( "f_gunsafe_mj" ) );
+        here.furn_set( target, furn_str_id( "f_gunsafe_mj"_id ) );
     } else if( lock_roll > ( 1.5 * pick_roll ) ) {
         if( it->inc_damage() ) {
             who.add_msg_if_player( m_bad,
@@ -1314,7 +1314,7 @@ void consume_activity_actor::finish( player_activity &act, Character & )
         }
     }
 
-    if( act.id() == activity_id( "ACT_CONSUME" ) ) {
+    if( act.id() == "ACT_CONSUME"_id ) {
         act.set_to_null();
     }
     if( !temp_selections.empty() || !temp_selected_items.empty() || !temp_filter.empty() ) {
@@ -1713,10 +1713,10 @@ void workout_activity_actor::start( player_activity &act, Character &who )
     // broken limbs as long as they are not involved by the machine
     bool hand_equipment = here.has_flag_furn( "WORKOUT_ARMS", location );
     bool leg_equipment = here.has_flag_furn( "WORKOUT_LEGS", location );
-    static const bodypart_id arm_l = bodypart_id( "arm_l" );
-    static const bodypart_id arm_r = bodypart_id( "arm_r" );
-    static const bodypart_id leg_l = bodypart_id( "leg_l" );
-    static const bodypart_id leg_r = bodypart_id( "leg_r" );
+    static const bodypart_id arm_l = bodypart_id( "arm_l"_id );
+    static const bodypart_id arm_r = bodypart_id( "arm_r"_id );
+    static const bodypart_id leg_l = bodypart_id( "leg_l"_id );
+    static const bodypart_id leg_r = bodypart_id( "leg_r"_id );
     if( hand_equipment && ( ( who.is_limb_broken( arm_l ) ) ||
                             who.is_limb_broken( arm_r ) ) ) {
         who.add_msg_if_player( _( "You cannot train here with a broken arm." ) );
@@ -1761,20 +1761,20 @@ void workout_activity_actor::start( player_activity &act, Character &who )
             act_id = activity_id::NULL_ID();
             return;
         case 4:
-            act_id = activity_id( "ACT_WORKOUT_HARD" );
+            act_id = activity_id( "ACT_WORKOUT_HARD"_id );
             intensity_modifier = 4;
             break;
         case 3:
-            act_id = activity_id( "ACT_WORKOUT_ACTIVE" );
+            act_id = activity_id( "ACT_WORKOUT_ACTIVE"_id );
             intensity_modifier = 3;
             break;
         case 2:
-            act_id = activity_id( "ACT_WORKOUT_MODERATE" );
+            act_id = activity_id( "ACT_WORKOUT_MODERATE"_id );
             intensity_modifier = 2;
             break;
         case 1:
         default:
-            act_id = activity_id( "ACT_WORKOUT_LIGHT" );
+            act_id = activity_id( "ACT_WORKOUT_LIGHT"_id );
             intensity_modifier = 1;
             break;
     }
@@ -2145,27 +2145,27 @@ namespace activity_actors
 // Please keep this alphabetically sorted
 const std::unordered_map<activity_id, std::unique_ptr<activity_actor>( * )( JsonIn & )>
 deserialize_functions = {
-    { activity_id( "ACT_AIM" ), &aim_activity_actor::deserialize },
-    { activity_id( "ACT_CONSUME" ), &consume_activity_actor::deserialize },
-    { activity_id( "ACT_CRAFT" ), &craft_activity_actor::deserialize },
-    { activity_id( "ACT_DIG" ), &dig_activity_actor::deserialize },
-    { activity_id( "ACT_DIG_CHANNEL" ), &dig_channel_activity_actor::deserialize },
-    { activity_id( "ACT_DROP" ), &drop_activity_actor::deserialize },
-    { activity_id( "ACT_GUNMOD_REMOVE" ), &gunmod_remove_activity_actor::deserialize },
-    { activity_id( "ACT_HACKING" ), &hacking_activity_actor::deserialize },
-    { activity_id( "ACT_HOTWIRE_CAR" ), &hotwire_car_activity_actor::deserialize },
-    { activity_id( "ACT_LOCKPICK" ), &lockpick_activity_actor::deserialize },
-    { activity_id( "ACT_MIGRATION_CANCEL" ), &migration_cancel_activity_actor::deserialize },
-    { activity_id( "ACT_MOVE_ITEMS" ), &move_items_activity_actor::deserialize },
-    { activity_id( "ACT_OPEN_GATE" ), &open_gate_activity_actor::deserialize },
-    { activity_id( "ACT_PICKUP" ), &pickup_activity_actor::deserialize },
-    { activity_id( "ACT_STASH" ), &stash_activity_actor::deserialize },
-    { activity_id( "ACT_TRY_SLEEP" ), &try_sleep_activity_actor::deserialize },
-    { activity_id( "ACT_UNLOAD_MAG" ), &unload_mag_activity_actor::deserialize },
-    { activity_id( "ACT_WORKOUT_HARD" ), &workout_activity_actor::deserialize },
-    { activity_id( "ACT_WORKOUT_ACTIVE" ), &workout_activity_actor::deserialize },
-    { activity_id( "ACT_WORKOUT_MODERATE" ), &workout_activity_actor::deserialize },
-    { activity_id( "ACT_WORKOUT_LIGHT" ), &workout_activity_actor::deserialize },
+    { activity_id( "ACT_AIM"_id ), &aim_activity_actor::deserialize },
+    { activity_id( "ACT_CONSUME"_id ), &consume_activity_actor::deserialize },
+    { activity_id( "ACT_CRAFT"_id ), &craft_activity_actor::deserialize },
+    { activity_id( "ACT_DIG"_id ), &dig_activity_actor::deserialize },
+    { activity_id( "ACT_DIG_CHANNEL"_id ), &dig_channel_activity_actor::deserialize },
+    { activity_id( "ACT_DROP"_id ), &drop_activity_actor::deserialize },
+    { activity_id( "ACT_GUNMOD_REMOVE"_id ), &gunmod_remove_activity_actor::deserialize },
+    { activity_id( "ACT_HACKING"_id ), &hacking_activity_actor::deserialize },
+    { activity_id( "ACT_HOTWIRE_CAR"_id ), &hotwire_car_activity_actor::deserialize },
+    { activity_id( "ACT_LOCKPICK"_id ), &lockpick_activity_actor::deserialize },
+    { activity_id( "ACT_MIGRATION_CANCEL"_id ), &migration_cancel_activity_actor::deserialize },
+    { activity_id( "ACT_MOVE_ITEMS"_id ), &move_items_activity_actor::deserialize },
+    { activity_id( "ACT_OPEN_GATE"_id ), &open_gate_activity_actor::deserialize },
+    { activity_id( "ACT_PICKUP"_id ), &pickup_activity_actor::deserialize },
+    { activity_id( "ACT_STASH"_id ), &stash_activity_actor::deserialize },
+    { activity_id( "ACT_TRY_SLEEP"_id ), &try_sleep_activity_actor::deserialize },
+    { activity_id( "ACT_UNLOAD_MAG"_id ), &unload_mag_activity_actor::deserialize },
+    { activity_id( "ACT_WORKOUT_HARD"_id ), &workout_activity_actor::deserialize },
+    { activity_id( "ACT_WORKOUT_ACTIVE"_id ), &workout_activity_actor::deserialize },
+    { activity_id( "ACT_WORKOUT_MODERATE"_id ), &workout_activity_actor::deserialize },
+    { activity_id( "ACT_WORKOUT_LIGHT"_id ), &workout_activity_actor::deserialize },
 };
 } // namespace activity_actors
 

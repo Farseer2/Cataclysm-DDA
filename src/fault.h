@@ -29,14 +29,14 @@ struct mending_method {
 class fault
 {
     public:
-        fault() : id_( fault_id( "null" ) ) {}
+        fault() : id_( fault_id( "null"_id ) ) {}
 
         const fault_id &id() const {
             return id_;
         }
 
         bool is_null() const {
-            return id_ == fault_id( "null" );
+            return id_ == fault_id( "null"_id );
         }
 
         std::string name() const {

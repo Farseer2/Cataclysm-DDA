@@ -85,52 +85,52 @@
 #include "weather.h"
 #include "weather_type.h"
 
-static const activity_id ACT_FIRSTAID( "ACT_FIRSTAID" );
-static const activity_id ACT_RELOAD( "ACT_RELOAD" );
-static const activity_id ACT_REPAIR_ITEM( "ACT_REPAIR_ITEM" );
-static const activity_id ACT_SPELLCASTING( "ACT_SPELLCASTING" );
-static const activity_id ACT_STUDY_SPELL( "ACT_STUDY_SPELL" );
-static const activity_id ACT_START_FIRE( "ACT_START_FIRE" );
+static const activity_id ACT_FIRSTAID( "ACT_FIRSTAID"_id );
+static const activity_id ACT_RELOAD( "ACT_RELOAD"_id );
+static const activity_id ACT_REPAIR_ITEM( "ACT_REPAIR_ITEM"_id );
+static const activity_id ACT_SPELLCASTING( "ACT_SPELLCASTING"_id );
+static const activity_id ACT_STUDY_SPELL( "ACT_STUDY_SPELL"_id );
+static const activity_id ACT_START_FIRE( "ACT_START_FIRE"_id );
 
-static const efftype_id effect_asthma( "asthma" );
-static const efftype_id effect_bandaged( "bandaged" );
-static const efftype_id effect_bite( "bite" );
-static const efftype_id effect_bleed( "bleed" );
-static const efftype_id effect_pet( "pet" );
-static const efftype_id effect_disinfected( "disinfected" );
-static const efftype_id effect_downed( "downed" );
-static const efftype_id effect_incorporeal( "incorporeal" );
-static const efftype_id effect_infected( "infected" );
-static const efftype_id effect_music( "music" );
-static const efftype_id effect_playing_instrument( "playing_instrument" );
-static const efftype_id effect_recover( "recover" );
-static const efftype_id effect_sleep( "sleep" );
-static const efftype_id effect_stunned( "stunned" );
+static const efftype_id effect_asthma( "asthma"_id );
+static const efftype_id effect_bandaged( "bandaged"_id );
+static const efftype_id effect_bite( "bite"_id );
+static const efftype_id effect_bleed( "bleed"_id );
+static const efftype_id effect_pet( "pet"_id );
+static const efftype_id effect_disinfected( "disinfected"_id );
+static const efftype_id effect_downed( "downed"_id );
+static const efftype_id effect_incorporeal( "incorporeal"_id );
+static const efftype_id effect_infected( "infected"_id );
+static const efftype_id effect_music( "music"_id );
+static const efftype_id effect_playing_instrument( "playing_instrument"_id );
+static const efftype_id effect_recover( "recover"_id );
+static const efftype_id effect_sleep( "sleep"_id );
+static const efftype_id effect_stunned( "stunned"_id );
 
-static const fault_id fault_bionic_salvaged( "fault_bionic_salvaged" );
+static const fault_id fault_bionic_salvaged( "fault_bionic_salvaged"_id );
 
-static const bionic_id bio_syringe( "bio_syringe" );
+static const bionic_id bio_syringe( "bio_syringe"_id );
 
-static const itype_id itype_barrel_small( "barrel_small" );
-static const itype_id itype_brazier( "brazier" );
-static const itype_id itype_char_smoker( "char_smoker" );
-static const itype_id itype_fire( "fire" );
-static const itype_id itype_syringe( "syringe" );
+static const itype_id itype_barrel_small( "barrel_small"_id );
+static const itype_id itype_brazier( "brazier"_id );
+static const itype_id itype_char_smoker( "char_smoker"_id );
+static const itype_id itype_fire( "fire"_id );
+static const itype_id itype_syringe( "syringe"_id );
 
-static const skill_id skill_fabrication( "fabrication" );
-static const skill_id skill_firstaid( "firstaid" );
-static const skill_id skill_survival( "survival" );
+static const skill_id skill_fabrication( "fabrication"_id );
+static const skill_id skill_firstaid( "firstaid"_id );
+static const skill_id skill_survival( "survival"_id );
 
-static const trait_id trait_CENOBITE( "CENOBITE" );
-static const trait_id trait_DEBUG_BIONICS( "DEBUG_BIONICS" );
-static const trait_id trait_TOLERANCE( "TOLERANCE" );
-static const trait_id trait_LIGHTWEIGHT( "LIGHTWEIGHT" );
-static const trait_id trait_PYROMANIA( "PYROMANIA" );
-static const trait_id trait_NOPAIN( "NOPAIN" );
-static const trait_id trait_MASOCHIST( "MASOCHIST" );
-static const trait_id trait_MASOCHIST_MED( "MASOCHIST_MED" );
-static const trait_id trait_MUT_JUNKIE( "MUT_JUNKIE" );
-static const trait_id trait_SELFAWARE( "SELFAWARE" );
+static const trait_id trait_CENOBITE( "CENOBITE"_id );
+static const trait_id trait_DEBUG_BIONICS( "DEBUG_BIONICS"_id );
+static const trait_id trait_TOLERANCE( "TOLERANCE"_id );
+static const trait_id trait_LIGHTWEIGHT( "LIGHTWEIGHT"_id );
+static const trait_id trait_PYROMANIA( "PYROMANIA"_id );
+static const trait_id trait_NOPAIN( "NOPAIN"_id );
+static const trait_id trait_MASOCHIST( "MASOCHIST"_id );
+static const trait_id trait_MASOCHIST_MED( "MASOCHIST_MED"_id );
+static const trait_id trait_MUT_JUNKIE( "MUT_JUNKIE"_id );
+static const trait_id trait_SELFAWARE( "SELFAWARE"_id );
 
 static const std::string flag_FIT( "FIT" );
 static const std::string flag_OVERSIZE( "OVERSIZE" );
@@ -1187,11 +1187,11 @@ bool firestarter_actor::prep_firestarter_use( const player &p, tripoint &pos )
     }
     // check if there's a fire fuel source spot
     bool target_is_firewood = false;
-    if( here.tr_at( pos ).id == trap_str_id( "tr_firewood_source" ) ) {
+    if( here.tr_at( pos ).id == trap_str_id( "tr_firewood_source"_id ) ) {
         target_is_firewood = true;
     } else {
         zone_manager &mgr = zone_manager::get_manager();
-        auto zones = mgr.get_zones( zone_type_id( "SOURCE_FIREWOOD" ), here.getabs( pos ) );
+        auto zones = mgr.get_zones( zone_type_id( "SOURCE_FIREWOOD"_id ), here.getabs( pos ) );
         if( !zones.empty() ) {
             target_is_firewood = true;
         }
@@ -1716,7 +1716,7 @@ bool cauterize_actor::cauterize_effect( player &p, item &it, bool force )
     // TODO: Make this less hacky
     static const heal_actor dummy = prepare_dummy();
     bodypart_id hpart = dummy.use_healing_item( p, p, it, force );
-    if( hpart != bodypart_id( "bp_null" ) ) {
+    if( hpart != bodypart_id( "bp_null"_id ) ) {
         p.add_msg_if_player( m_neutral, _( "You cauterize yourself." ) );
         if( !( p.has_trait( trait_NOPAIN ) ) ) {
             p.mod_pain( 15 );
@@ -2137,7 +2137,7 @@ int learn_spell_actor::use( player &p, item &, bool, const tripoint & ) const
         p.add_msg_if_player( _( "It's too dark to read." ) );
         return 0;
     }
-    if( p.has_trait( trait_id( "ILLITERATE" ) ) ) {
+    if( p.has_trait( trait_id( "ILLITERATE"_id ) ) ) {
         p.add_msg_if_player( _( "You can't read." ) );
         return 0;
     }
@@ -3105,7 +3105,7 @@ int heal_actor::use( player &p, item &it, bool, const tripoint &pos ) const
 
     player &patient = get_patient( p, pos );
     const bodypart_str_id hpp = use_healing_item( p, patient, it, false ).id();
-    if( hpp == bodypart_str_id( "bp_null" ) ) {
+    if( hpp == bodypart_str_id( "bp_null"_id ) ) {
         return 0;
     }
 
@@ -3141,10 +3141,10 @@ int heal_actor::get_heal_value( const Character &healer, bodypart_id healed ) co
 {
     int heal_base;
     float bonus_mult;
-    if( healed == bodypart_id( "head" ) ) {
+    if( healed == bodypart_id( "head"_id ) ) {
         heal_base = head_power;
         bonus_mult = head_scaling;
-    } else if( healed == bodypart_id( "torso" ) ) {
+    } else if( healed == bodypart_id( "torso"_id ) ) {
         heal_base = torso_power;
         bonus_mult = torso_scaling;
     } else {
@@ -3339,8 +3339,8 @@ static bodypart_id pick_part_to_heal(
         bodypart_id healed_part = patient.body_window( menu_header, force, precise,
                                   limb_power, head_bonus, torso_bonus,
                                   bleed_stop, bite_chance, infect_chance, bandage_power, disinfectant_power );
-        if( healed_part == bodypart_id( "bp_null" ) ) {
-            return bodypart_id( "bp_null" );
+        if( healed_part == bodypart_id( "bp_null"_id ) ) {
+            return bodypart_id( "bp_null"_id );
         }
 
         if( ( infect && patient.has_effect( effect_infected, healed_part.id() ) ) ||
@@ -3350,9 +3350,9 @@ static bodypart_id pick_part_to_heal(
         }
 
         if( patient.is_limb_broken( healed_part ) ) {
-            if( healed_part == bodypart_id( "arm_l" ) || healed_part == bodypart_id( "arm_r" ) ) {
+            if( healed_part == bodypart_id( "arm_l"_id ) || healed_part == bodypart_id( "arm_r"_id ) ) {
                 add_msg( m_info, _( "That arm is broken.  It needs surgical attention or a splint." ) );
-            } else if( healed_part == bodypart_id( "leg_l" ) || healed_part == bodypart_id( "leg_r" ) ) {
+            } else if( healed_part == bodypart_id( "leg_l"_id ) || healed_part == bodypart_id( "leg_r"_id ) ) {
                 add_msg( m_info, _( "That leg is broken.  It needs surgical attention or a splint." ) );
             } else {
                 add_msg( m_info, "That body part is bugged.  It needs developer's attention." );
@@ -3370,16 +3370,16 @@ static bodypart_id pick_part_to_heal(
 bodypart_id heal_actor::use_healing_item( player &healer, player &patient, item &it,
         bool force ) const
 {
-    bodypart_id healed = bodypart_id( "bp_null" );
-    const int head_bonus = get_heal_value( healer, bodypart_id( "head" ) );
-    const int limb_power = get_heal_value( healer, bodypart_id( "arm_l" ) );
-    const int torso_bonus = get_heal_value( healer, bodypart_id( "torso" ) );
+    bodypart_id healed = bodypart_id( "bp_null"_id );
+    const int head_bonus = get_heal_value( healer, bodypart_id( "head"_id ) );
+    const int limb_power = get_heal_value( healer, bodypart_id( "arm_l"_id ) );
+    const int torso_bonus = get_heal_value( healer, bodypart_id( "torso"_id ) );
 
     if( !patient.can_use_heal_item( it ) ) {
         patient.add_msg_player_or_npc( m_bad,
                                        _( "Your biology is not compatible with that item." ),
                                        _( "<npcname>'s biology is not compatible with that item." ) );
-        return bodypart_id( "bp_null" ); // canceled
+        return bodypart_id( "bp_null"_id ); // canceled
     }
 
     if( healer.is_npc() ) {
@@ -3410,9 +3410,9 @@ bodypart_id heal_actor::use_healing_item( player &healer, player &patient, item 
             healed = pick_part_to_heal( healer, patient, menu_header, limb_power, head_bonus, torso_bonus,
                                         get_stopbleed_level( healer ), bite, infect, force, get_bandaged_level( healer ),
                                         get_disinfected_level( healer ) );
-            if( healed == bodypart_id( "bp_null" ) ) {
+            if( healed == bodypart_id( "bp_null"_id ) ) {
                 add_msg( m_info, _( "Never mind." ) );
-                return bodypart_id( "bp_null" ); // canceled
+                return bodypart_id( "bp_null"_id ); // canceled
             }
         }
         // Brick healing if using a first aid kit for the first time.
@@ -3435,7 +3435,7 @@ bodypart_id heal_actor::use_healing_item( player &healer, player &patient, item 
                                     get_disinfected_level( healer ) );
     }
 
-    if( healed != bodypart_id( "bp_null" ) ) {
+    if( healed != bodypart_id( "bp_null"_id ) ) {
         finish_using( healer, patient, it,  healed );
     }
 
@@ -3458,11 +3458,11 @@ void heal_actor::info( const item &, std::vector<iteminfo> &dump ) const
         if( g != nullptr ) {
             dump.emplace_back( "HEAL", _( "Actual healing: " ) );
             dump.emplace_back( "HEAL_ACT", _( "Head: " ), "", iteminfo::no_newline,
-                               get_heal_value( player_character, bodypart_id( "head" ) ) );
+                               get_heal_value( player_character, bodypart_id( "head"_id ) ) );
             dump.emplace_back( "HEAL_ACT", _( "  Torso: " ), "", iteminfo::no_newline,
-                               get_heal_value( player_character, bodypart_id( "torso" ) ) );
+                               get_heal_value( player_character, bodypart_id( "torso"_id ) ) );
             dump.emplace_back( "HEAL_ACT", _( "  Limbs: " ), get_heal_value( player_character,
-                               bodypart_id( "arm_l" ) ) );
+                               bodypart_id( "arm_l"_id ) ) );
         }
     }
 
@@ -3645,7 +3645,7 @@ int place_trap_actor::use( player &p, item &it, bool, const tripoint & ) const
         }
     }
 
-    const bool has_shovel = p.has_quality( quality_id( "DIG" ), 3 );
+    const bool has_shovel = p.has_quality( quality_id( "DIG"_id ), 3 );
     const bool is_diggable = here.has_flag( "DIGGABLE", pos );
     bool bury = false;
     if( could_bury && has_shovel && is_diggable ) {
@@ -3654,7 +3654,7 @@ int place_trap_actor::use( player &p, item &it, bool, const tripoint & ) const
     const auto &data = bury ? buried_data : unburied_data;
 
     p.add_msg_if_player( m_info, data.done_message.translated(), distance_to_trap_center );
-    p.practice( skill_id( "traps" ), data.practice );
+    p.practice( skill_id( "traps"_id ), data.practice );
     p.mod_moves( -data.moves );
 
     place_and_add_as_known( p, pos, data.trap );
@@ -4013,9 +4013,9 @@ int mutagen_iv_actor::use( player &p, item &it, bool, const tripoint & ) const
     p.mod_thirst( m_category.iv_thirst * mut_count );
     p.mod_fatigue( m_category.iv_fatigue * mut_count );
 
-    if( m_category.id == mutation_category_id( "CHIMERA" ) ) {
+    if( m_category.id == mutation_category_id( "CHIMERA"_id ) ) {
         p.add_morale( MORALE_MUTAGEN_CHIMERA, m_category.iv_morale, m_category.iv_morale_max );
-    } else if( m_category.id == mutation_category_id( "ELFA" ) ) {
+    } else if( m_category.id == mutation_category_id( "ELFA"_id ) ) {
         p.add_morale( MORALE_MUTAGEN_ELF, m_category.iv_morale, m_category.iv_morale_max );
     } else if( m_category.iv_morale > 0 ) {
         p.add_morale( MORALE_MUTAGEN_MUTATION, m_category.iv_morale, m_category.iv_morale_max );
@@ -4420,7 +4420,7 @@ int change_scent_iuse::use( player &p, item &it, bool, const tripoint & ) const
     if( waterproof ) {
         p.set_value( "waterproof_scent", "true" );
     }
-    p.add_effect( efftype_id( "masked_scent" ), duration, false, scent_mod );
+    p.add_effect( efftype_id( "masked_scent"_id ), duration, false, scent_mod );
     p.set_type_of_scent( scenttypeid );
     p.mod_moves( -moves );
     add_msg( m_info, _( "You use the %s to mask your scent" ), it.tname() );

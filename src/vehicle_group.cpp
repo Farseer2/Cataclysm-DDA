@@ -238,8 +238,8 @@ static void builtin_jackknifed_semi( map &m, const std::string &terrainid )
         trailer_p.y = semi_p.y - 1;
     }
 
-    m.add_vehicle( vgroup_id( "semi_truck" ), semi_p, ( facing + 135 ) % 360, -1, 1 );
-    m.add_vehicle( vgroup_id( "truck_trailer" ), trailer_p, ( facing + 90 ) % 360, -1, 1 );
+    m.add_vehicle( vgroup_id( "semi_truck"_id ), semi_p, ( facing + 135 ) % 360, -1, 1 );
+    m.add_vehicle( vgroup_id( "truck_trailer"_id ), trailer_p, ( facing + 90 ) % 360, -1, 1 );
 }
 
 static void builtin_pileup( map &m, const std::string &, const std::string &vg )
@@ -248,7 +248,7 @@ static void builtin_pileup( map &m, const std::string &, const std::string &vg )
     const int num_cars = rng( 5, 12 );
 
     for( int i = 0; i < num_cars; i++ ) {
-        const VehicleLocation *loc = vplacement_id( "pileup" ).obj().pick();
+        const VehicleLocation *loc = vplacement_id( "pileup"_id ).obj().pick();
         if( !loc ) {
             debugmsg( "builtin_pileup unable to get location to place vehicle." );
             return;
@@ -283,7 +283,7 @@ static void builtin_parkinglot( map &m, const std::string & )
         pos_p.z = m.get_abs_sub().z;
 
         if( !m.veh_at( pos_p ) ) {
-            m.add_vehicle( vgroup_id( "parkinglot" ), pos_p,
+            m.add_vehicle( vgroup_id( "parkinglot"_id ), pos_p,
                            ( one_in( 2 ) ? 0 : 180 ) + one_in( 10 ) * rng( 0, 179 ), -1, -1 );
         }
     }

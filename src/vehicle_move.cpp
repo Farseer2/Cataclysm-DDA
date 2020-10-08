@@ -40,15 +40,15 @@
 
 #define dbg(x) DebugLog((x),D_MAP) << __FILE__ << ":" << __LINE__ << ": "
 
-static const itype_id fuel_type_muscle( "muscle" );
-static const itype_id fuel_type_animal( "animal" );
-static const itype_id fuel_type_battery( "battery" );
+static const itype_id fuel_type_muscle( "muscle"_id );
+static const itype_id fuel_type_animal( "animal"_id );
+static const itype_id fuel_type_battery( "battery"_id );
 
-static const skill_id skill_driving( "driving" );
+static const skill_id skill_driving( "driving"_id );
 
-static const efftype_id effect_harnessed( "harnessed" );
-static const efftype_id effect_pet( "pet" );
-static const efftype_id effect_stunned( "stunned" );
+static const efftype_id effect_harnessed( "harnessed"_id );
+static const efftype_id effect_pet( "pet"_id );
+static const efftype_id effect_stunned( "stunned"_id );
 
 static const std::string part_location_structure( "structure" );
 
@@ -1033,10 +1033,10 @@ veh_collision vehicle::part_collision( int part, const tripoint &p,
                 ph->hitall( dam, 40, driver );
             } else {
                 const int armor = part_flag( ret.part, "SHARP" ) ?
-                                  critter->get_armor_cut( bodypart_id( "torso" ) ) :
-                                  critter->get_armor_bash( bodypart_id( "torso" ) );
+                                  critter->get_armor_cut( bodypart_id( "torso"_id ) ) :
+                                  critter->get_armor_bash( bodypart_id( "torso"_id ) );
                 dam = std::max( 0, dam - armor );
-                critter->apply_damage( driver, bodypart_id( "torso" ), dam );
+                critter->apply_damage( driver, bodypart_id( "torso"_id ), dam );
                 add_msg_debug( "Critter collision damage: %d", dam );
             }
 
@@ -2077,7 +2077,7 @@ int map::shake_vehicle( vehicle &veh, const int velocity_before, const int direc
                                             _( "<npcname> takes %d damage by the power of the "
                                                "impact!" ),  dmg );
             } else {
-                pet->apply_damage( nullptr, bodypart_id( "torso" ), dmg );
+                pet->apply_damage( nullptr, bodypart_id( "torso"_id ), dmg );
             }
         }
 

@@ -70,65 +70,65 @@
 #include "vpart_position.h"
 #include "vpart_range.h"
 
-static const activity_id ACT_OPERATION( "ACT_OPERATION" );
-static const activity_id ACT_PULP( "ACT_PULP" );
+static const activity_id ACT_OPERATION( "ACT_OPERATION"_id );
+static const activity_id ACT_PULP( "ACT_PULP"_id );
 
 static const ammotype ammo_reactor_slurry( "reactor_slurry" );
 static const ammotype ammo_plutonium( "plutonium" );
 
-static const skill_id skill_firstaid( "firstaid" );
+static const skill_id skill_firstaid( "firstaid"_id );
 
-static const bionic_id bio_ads( "bio_ads" );
-static const bionic_id bio_advreactor( "bio_advreactor" );
-static const bionic_id bio_blade( "bio_blade" );
-static const bionic_id bio_claws( "bio_claws" );
-static const bionic_id bio_faraday( "bio_faraday" );
-static const bionic_id bio_furnace( "bio_furnace" );
-static const bionic_id bio_heat_absorb( "bio_heat_absorb" );
-static const bionic_id bio_heatsink( "bio_heatsink" );
-static const bionic_id bio_hydraulics( "bio_hydraulics" );
-static const bionic_id bio_laser( "bio_laser" );
-static const bionic_id bio_leukocyte( "bio_leukocyte" );
-static const bionic_id bio_chain_lightning( "bio_chain_lightning" );
-static const bionic_id bio_nanobots( "bio_nanobots" );
-static const bionic_id bio_ods( "bio_ods" );
-static const bionic_id bio_painkiller( "bio_painkiller" );
-static const bionic_id bio_plutfilter( "bio_plutfilter" );
-static const bionic_id bio_radscrubber( "bio_radscrubber" );
-static const bionic_id bio_reactor( "bio_reactor" );
-static const bionic_id bio_shock( "bio_shock" );
-static const bionic_id bio_soporific( "bio_soporific" );
+static const bionic_id bio_ads( "bio_ads"_id );
+static const bionic_id bio_advreactor( "bio_advreactor"_id );
+static const bionic_id bio_blade( "bio_blade"_id );
+static const bionic_id bio_claws( "bio_claws"_id );
+static const bionic_id bio_faraday( "bio_faraday"_id );
+static const bionic_id bio_furnace( "bio_furnace"_id );
+static const bionic_id bio_heat_absorb( "bio_heat_absorb"_id );
+static const bionic_id bio_heatsink( "bio_heatsink"_id );
+static const bionic_id bio_hydraulics( "bio_hydraulics"_id );
+static const bionic_id bio_laser( "bio_laser"_id );
+static const bionic_id bio_leukocyte( "bio_leukocyte"_id );
+static const bionic_id bio_chain_lightning( "bio_chain_lightning"_id );
+static const bionic_id bio_nanobots( "bio_nanobots"_id );
+static const bionic_id bio_ods( "bio_ods"_id );
+static const bionic_id bio_painkiller( "bio_painkiller"_id );
+static const bionic_id bio_plutfilter( "bio_plutfilter"_id );
+static const bionic_id bio_radscrubber( "bio_radscrubber"_id );
+static const bionic_id bio_reactor( "bio_reactor"_id );
+static const bionic_id bio_shock( "bio_shock"_id );
+static const bionic_id bio_soporific( "bio_soporific"_id );
 
-static const efftype_id effect_asthma( "asthma" );
-static const efftype_id effect_bandaged( "bandaged" );
-static const efftype_id effect_bite( "bite" );
-static const efftype_id effect_bleed( "bleed" );
-static const efftype_id effect_bouldering( "bouldering" );
-static const efftype_id effect_catch_up( "catch_up" );
-static const efftype_id effect_disinfected( "disinfected" );
-static const efftype_id effect_hallu( "hallu" );
-static const efftype_id effect_hit_by_player( "hit_by_player" );
-static const efftype_id effect_hypovolemia( "hypovolemia" );
-static const efftype_id effect_infected( "infected" );
-static const efftype_id effect_lying_down( "lying_down" );
-static const efftype_id effect_no_sight( "no_sight" );
-static const efftype_id effect_npc_fire_bad( "npc_fire_bad" );
-static const efftype_id effect_npc_flee_player( "npc_flee_player" );
-static const efftype_id effect_npc_player_still_looking( "npc_player_still_looking" );
-static const efftype_id effect_npc_run_away( "npc_run_away" );
-static const efftype_id effect_onfire( "onfire" );
-static const efftype_id effect_stunned( "stunned" );
+static const efftype_id effect_asthma( "asthma"_id );
+static const efftype_id effect_bandaged( "bandaged"_id );
+static const efftype_id effect_bite( "bite"_id );
+static const efftype_id effect_bleed( "bleed"_id );
+static const efftype_id effect_bouldering( "bouldering"_id );
+static const efftype_id effect_catch_up( "catch_up"_id );
+static const efftype_id effect_disinfected( "disinfected"_id );
+static const efftype_id effect_hallu( "hallu"_id );
+static const efftype_id effect_hit_by_player( "hit_by_player"_id );
+static const efftype_id effect_hypovolemia( "hypovolemia"_id );
+static const efftype_id effect_infected( "infected"_id );
+static const efftype_id effect_lying_down( "lying_down"_id );
+static const efftype_id effect_no_sight( "no_sight"_id );
+static const efftype_id effect_npc_fire_bad( "npc_fire_bad"_id );
+static const efftype_id effect_npc_flee_player( "npc_flee_player"_id );
+static const efftype_id effect_npc_player_still_looking( "npc_player_still_looking"_id );
+static const efftype_id effect_npc_run_away( "npc_run_away"_id );
+static const efftype_id effect_onfire( "onfire"_id );
+static const efftype_id effect_stunned( "stunned"_id );
 
-static const itype_id itype_battery( "battery" );
-static const itype_id itype_chem_ethanol( "chem_ethanol" );
-static const itype_id itype_chem_methanol( "chem_methanol" );
-static const itype_id itype_denat_alcohol( "denat_alcohol" );
-static const itype_id itype_inhaler( "inhaler" );
-static const itype_id itype_lsd( "lsd" );
-static const itype_id itype_smoxygen_tank( "smoxygen_tank" );
-static const itype_id itype_thorazine( "thorazine" );
-static const itype_id itype_oxygen_tank( "oxygen_tank" );
-static const itype_id itype_UPS( "UPS" );
+static const itype_id itype_battery( "battery"_id );
+static const itype_id itype_chem_ethanol( "chem_ethanol"_id );
+static const itype_id itype_chem_methanol( "chem_methanol"_id );
+static const itype_id itype_denat_alcohol( "denat_alcohol"_id );
+static const itype_id itype_inhaler( "inhaler"_id );
+static const itype_id itype_lsd( "lsd"_id );
+static const itype_id itype_smoxygen_tank( "smoxygen_tank"_id );
+static const itype_id itype_thorazine( "thorazine"_id );
+static const itype_id itype_oxygen_tank( "oxygen_tank"_id );
+static const itype_id itype_UPS( "UPS"_id );
 
 static constexpr float NPC_DANGER_VERY_LOW = 5.0f;
 static constexpr float NPC_DANGER_MAX = 150.0f;
@@ -245,7 +245,7 @@ tripoint npc::good_escape_direction( bool include_pos )
 {
     map &here = get_map();
     if( path.empty() ) {
-        zone_type_id retreat_zone = zone_type_id( "NPC_RETREAT" );
+        zone_type_id retreat_zone = zone_type_id( "NPC_RETREAT"_id );
         const tripoint &abs_pos = global_square_location();
         const zone_manager &mgr = zone_manager::get_manager();
         cata::optional<tripoint> retreat_target = mgr.get_nearest( retreat_zone, abs_pos, 60,
@@ -658,7 +658,7 @@ float npc::character_danger( const Character &uc ) const
     }
     ret += u_weap_val;
 
-    ret += hp_percentage() * get_hp_max( bodypart_id( "torso" ) ) / 100.0 / my_weap_val;
+    ret += hp_percentage() * get_hp_max( bodypart_id( "torso"_id ) ) / 100.0 / my_weap_val;
 
     ret += my_gun ? u.get_dodge() / 2 : u.get_dodge();
 
@@ -1331,7 +1331,7 @@ void npc::witness_thievery( item *it )
 {
     known_stolen_item = it;
     // Shopkeep is behind glass
-    if( myclass == npc_class_id( "NC_EVAC_SHOPKEEP" ) ) {
+    if( myclass == npc_class_id( "NC_EVAC_SHOPKEEP"_id ) ) {
         return;
     }
     set_attitude( NPCATT_RECOVER_GOODS );
@@ -1751,7 +1751,7 @@ bool npc::recharge_cbm()
 
     if( use_bionic_by_id( bio_furnace ) ) {
         const std::function<bool( const item & )> furnace_filter = []( const item & it ) {
-            return it.typeId() == itype_id( "withered" ) || it.typeId() == itype_id( "file" ) ||
+            return it.typeId() == itype_id( "withered"_id ) || it.typeId() == itype_id( "file"_id ) ||
                    it.has_flag( "FIREWOOD" );
         };
         if( consume_cbm_items( furnace_filter ) ) {
@@ -1795,9 +1795,9 @@ healing_options npc::patient_assessment( const Character &c )
             try_to_fix.infect = true;
         }
         int part_threshold = 75;
-        if( elem.first == bodypart_str_id( "head" ) ) {
+        if( elem.first == bodypart_str_id( "head"_id ) ) {
             part_threshold += 20;
-        } else if( elem.first == bodypart_str_id( "torso" ) ) {
+        } else if( elem.first == bodypart_str_id( "torso"_id ) ) {
             part_threshold += 10;
         }
         part_threshold = std::min( 80, part_threshold );
@@ -2600,7 +2600,7 @@ bool npc::find_job_to_perform()
             continue;
         }
         player_activity scan_act = player_activity( elem );
-        if( elem == activity_id( "ACT_MOVE_LOOT" ) ) {
+        if( elem == activity_id( "ACT_MOVE_LOOT"_id ) ) {
             assign_activity( elem );
         } else if( generic_multi_activity_handler( scan_act, *this->as_player(), true ) ) {
             assign_activity( elem );
@@ -2830,7 +2830,7 @@ void npc::find_item()
     //int range = sight_range( g->light_level( posz() ) );
     //range = std::max( 1, std::min( 12, range ) );
 
-    static const zone_type_id zone_type_no_npc_pickup( "NO_NPC_PICKUP" );
+    static const zone_type_id zone_type_no_npc_pickup( "NO_NPC_PICKUP"_id );
 
     const item *wanted = nullptr;
 
@@ -2999,7 +2999,7 @@ void npc::pick_up_item()
 
     if( ( !here.has_items( wanted_item_pos ) && !has_cargo &&
           !here.is_harvestable( wanted_item_pos ) && sees( wanted_item_pos ) ) ||
-        ( is_player_ally() && g->check_zone( zone_type_id( "NO_NPC_PICKUP" ), wanted_item_pos ) ) ) {
+        ( is_player_ally() && g->check_zone( zone_type_id( "NO_NPC_PICKUP"_id ), wanted_item_pos ) ) ) {
         // Items we wanted no longer exist and we can see it
         // Or player who is leading us doesn't want us to pick it up
         fetching_item = false;
@@ -3326,7 +3326,7 @@ bool npc::do_player_activity()
 {
     int old_moves = moves;
     if( moves > 200 && activity && ( activity.is_multi_type() ||
-                                     activity.id() == activity_id( "ACT_TIDY_UP" ) ) ) {
+                                     activity.id() == activity_id( "ACT_TIDY_UP"_id ) ) ) {
         // a huge backlog of a multi-activity type can forever loop
         // instead; just scan the map ONCE for a task to do, and if it returns false
         // then stop scanning, abandon the activity, and kill the backlog of moves.

@@ -13,10 +13,10 @@
 #include "rng.h"
 #include "translations.h"
 
-static const efftype_id effect_hallu( "hallu" );
-static const efftype_id effect_shakes( "shakes" );
+static const efftype_id effect_hallu( "hallu"_id );
+static const efftype_id effect_shakes( "shakes"_id );
 
-static const trait_id trait_MUT_JUNKIE( "MUT_JUNKIE" );
+static const trait_id trait_MUT_JUNKIE( "MUT_JUNKIE"_id );
 
 namespace io
 {

@@ -64,35 +64,35 @@
 #include "weather.h"
 
 static const itype_id itype_rm13_armor_on( "rm13_armor_on" );
-static const itype_id itype_rock( "rock" );
+static const itype_id itype_rock( "rock"_id );
 
-static const species_id species_FUNGUS( "FUNGUS" );
-static const species_id species_INSECT( "INSECT" );
-static const species_id species_SPIDER( "SPIDER" );
+static const species_id species_FUNGUS( "FUNGUS"_id );
+static const species_id species_INSECT( "INSECT"_id );
+static const species_id species_SPIDER( "SPIDER"_id );
 
-static const bionic_id bio_heatsink( "bio_heatsink" );
+static const bionic_id bio_heatsink( "bio_heatsink"_id );
 
-static const efftype_id effect_badpoison( "badpoison" );
-static const efftype_id effect_blind( "blind" );
-static const efftype_id effect_corroding( "corroding" );
-static const efftype_id effect_fungus( "fungus" );
-static const efftype_id effect_onfire( "onfire" );
-static const efftype_id effect_poison( "poison" );
-static const efftype_id effect_stung( "stung" );
-static const efftype_id effect_stunned( "stunned" );
-static const efftype_id effect_teargas( "teargas" );
-static const efftype_id effect_webbed( "webbed" );
+static const efftype_id effect_badpoison( "badpoison"_id );
+static const efftype_id effect_blind( "blind"_id );
+static const efftype_id effect_corroding( "corroding"_id );
+static const efftype_id effect_fungus( "fungus"_id );
+static const efftype_id effect_onfire( "onfire"_id );
+static const efftype_id effect_poison( "poison"_id );
+static const efftype_id effect_stung( "stung"_id );
+static const efftype_id effect_stunned( "stunned"_id );
+static const efftype_id effect_teargas( "teargas"_id );
+static const efftype_id effect_webbed( "webbed"_id );
 
 static const std::string flag_FUNGUS( "FUNGUS" );
 static const std::string flag_GAS_PROOF( "GAS_PROOF" );
 
-static const trait_id trait_ACIDPROOF( "ACIDPROOF" );
-static const trait_id trait_ELECTRORECEPTORS( "ELECTRORECEPTORS" );
-static const trait_id trait_M_IMMUNE( "M_IMMUNE" );
+static const trait_id trait_ACIDPROOF( "ACIDPROOF"_id );
+static const trait_id trait_ELECTRORECEPTORS( "ELECTRORECEPTORS"_id );
+static const trait_id trait_M_IMMUNE( "M_IMMUNE"_id );
 static const trait_id trait_M_SKIN2( "M_SKIN2" );
 static const trait_id trait_M_SKIN3( "M_SKIN3" );
-static const trait_id trait_THRESH_MARLOSS( "THRESH_MARLOSS" );
-static const trait_id trait_THRESH_MYCUS( "THRESH_MYCUS" );
+static const trait_id trait_THRESH_MARLOSS( "THRESH_MARLOSS"_id );
+static const trait_id trait_THRESH_MYCUS( "THRESH_MYCUS"_id );
 
 void map::create_burnproducts( const tripoint &p, const item &fuel, const units::mass &burned_mass )
 {
@@ -712,8 +712,8 @@ void map::process_fields_in_submap( submap *const current_submap,
                                     add_msg_if_player_sees( newp, _( "A %1$s hits %2$s!" ), tmp.tname(), p->name );
                                     p->check_dead_state();
                                 } else if( monster *const mon = g->critter_at<monster>( newp ) ) {
-                                    mon->apply_damage( nullptr, bodypart_id( "torso" ),
-                                                       6 - mon->get_armor_bash( bodypart_id( "torso" ) ) );
+                                    mon->apply_damage( nullptr, bodypart_id( "torso"_id ),
+                                                       6 - mon->get_armor_bash( bodypart_id( "torso"_id ) ) );
                                     add_msg_if_player_sees( newp, _( "A %1$s hits the %2$s!" ), tmp.tname(), mon->name() );
                                     mon->check_dead_state();
                                 }
@@ -913,7 +913,7 @@ void map::process_fields_in_submap( submap *const current_submap,
 
 bool map::process_fire_field_in_submap( maptile &map_tile, const tripoint &p, field_entry &cur )
 {
-    const field_type_id fd_fire( "fd_fire" );
+    const field_type_id fd_fire( "fd_fire"_id );
 
     bool breaks_loop = false;
     map &here = get_map();
@@ -1438,21 +1438,21 @@ void map::player_in_field( player &u )
             // you're certainly not standing in it.
             if( !u.in_vehicle && !u.has_trait( trait_ACIDPROOF ) ) {
                 int total_damage = 0;
-                total_damage += burn_body_part( u, cur, bodypart_id( "foot_l" ), 2 );
-                total_damage += burn_body_part( u, cur, bodypart_id( "foot_r" ), 2 );
+                total_damage += burn_body_part( u, cur, bodypart_id( "foot_l"_id ), 2 );
+                total_damage += burn_body_part( u, cur, bodypart_id( "foot_r"_id ), 2 );
                 const bool on_ground = u.is_on_ground();
                 if( on_ground ) {
                     // Apply the effect to the remaining body parts
-                    total_damage += burn_body_part( u, cur, bodypart_id( "leg_l" ), 2 );
-                    total_damage += burn_body_part( u, cur, bodypart_id( "leg_r" ), 2 );
-                    total_damage += burn_body_part( u, cur, bodypart_id( "hand_l" ), 2 );
-                    total_damage += burn_body_part( u, cur, bodypart_id( "hand_r" ), 2 );
-                    total_damage += burn_body_part( u, cur, bodypart_id( "torso" ), 2 );
+                    total_damage += burn_body_part( u, cur, bodypart_id( "leg_l"_id ), 2 );
+                    total_damage += burn_body_part( u, cur, bodypart_id( "leg_r"_id ), 2 );
+                    total_damage += burn_body_part( u, cur, bodypart_id( "hand_l"_id ), 2 );
+                    total_damage += burn_body_part( u, cur, bodypart_id( "hand_r"_id ), 2 );
+                    total_damage += burn_body_part( u, cur, bodypart_id( "torso"_id ), 2 );
                     // Less arms = less ability to keep upright
                     if( ( !u.has_two_arms() && one_in( 4 ) ) || one_in( 2 ) ) {
-                        total_damage += burn_body_part( u, cur, bodypart_id( "arm_l" ), 1 );
-                        total_damage += burn_body_part( u, cur, bodypart_id( "arm_r" ), 1 );
-                        total_damage += burn_body_part( u, cur, bodypart_id( "head" ), 1 );
+                        total_damage += burn_body_part( u, cur, bodypart_id( "arm_l"_id ), 1 );
+                        total_damage += burn_body_part( u, cur, bodypart_id( "arm_r"_id ), 1 );
+                        total_damage += burn_body_part( u, cur, bodypart_id( "head"_id ), 1 );
                     }
                 }
 
@@ -1532,19 +1532,19 @@ void map::player_in_field( player &u )
                     if( !u.is_on_ground() ) {
                         switch( adjusted_intensity ) {
                             case 3:
-                                parts_burned.push_back( bodypart_id( "hand_l" ) );
-                                parts_burned.push_back( bodypart_id( "hand_r" ) );
-                                parts_burned.push_back( bodypart_id( "arm_l" ) );
-                                parts_burned.push_back( bodypart_id( "arm_r" ) );
+                                parts_burned.push_back( bodypart_id( "hand_l"_id ) );
+                                parts_burned.push_back( bodypart_id( "hand_r"_id ) );
+                                parts_burned.push_back( bodypart_id( "arm_l"_id ) );
+                                parts_burned.push_back( bodypart_id( "arm_r"_id ) );
                             /* fallthrough */
                             case 2:
-                                parts_burned.push_back( bodypart_id( "torso" ) );
+                                parts_burned.push_back( bodypart_id( "torso"_id ) );
                             /* fallthrough */
                             case 1:
-                                parts_burned.push_back( bodypart_id( "foot_l" ) );
-                                parts_burned.push_back( bodypart_id( "foot_r" ) );
-                                parts_burned.push_back( bodypart_id( "leg_l" ) );
-                                parts_burned.push_back( bodypart_id( "leg_r" ) );
+                                parts_burned.push_back( bodypart_id( "foot_l"_id ) );
+                                parts_burned.push_back( bodypart_id( "foot_r"_id ) );
+                                parts_burned.push_back( bodypart_id( "leg_l"_id ) );
+                                parts_burned.push_back( bodypart_id( "leg_r"_id ) );
                         }
                     } else {
                         // Lying in the fire is BAAAD news, hits every body part.
@@ -1572,16 +1572,16 @@ void map::player_in_field( player &u )
         if( ft == fd_tear_gas ) {
             // Tear gas will both give you teargas disease and/or blind you.
             if( ( cur.get_field_intensity() > 1 || !one_in( 3 ) ) && ( !inside || one_in( 3 ) ) ) {
-                u.add_env_effect( effect_teargas, bodypart_id( "mouth" ), 5, 20_seconds );
+                u.add_env_effect( effect_teargas, bodypart_id( "mouth"_id ), 5, 20_seconds );
             }
             if( cur.get_field_intensity() > 1 && ( !inside || one_in( 3 ) ) ) {
-                u.add_env_effect( effect_blind, bodypart_id( "eyes" ), cur.get_field_intensity() * 2, 10_seconds );
+                u.add_env_effect( effect_blind, bodypart_id( "eyes"_id ), cur.get_field_intensity() * 2, 10_seconds );
             }
         }
         if( ft == fd_fungal_haze ) {
             if( !u.has_trait( trait_M_IMMUNE ) && ( !inside || one_in( 4 ) ) ) {
-                u.add_env_effect( effect_fungus, bodypart_id( "mouth" ), 4, 10_minutes, true );
-                u.add_env_effect( effect_fungus, bodypart_id( "eyes" ), 4, 10_minutes, true );
+                u.add_env_effect( effect_fungus, bodypart_id( "mouth"_id ), 4, 10_minutes, true );
+                u.add_env_effect( effect_fungus, bodypart_id( "eyes"_id ), 4, 10_minutes, true );
             }
         }
 
@@ -1605,9 +1605,9 @@ void map::player_in_field( player &u )
                     !u.is_wearing( itype_rm13_armor_on ) ) {
                     u.add_msg_player_or_npc( m_bad, _( "You're torched by flames!" ),
                                              _( "<npcname> is torched by flames!" ) );
-                    u.deal_damage( nullptr, bodypart_id( "leg_l" ), damage_instance( damage_type::HEAT, rng( 2, 6 ) ) );
-                    u.deal_damage( nullptr, bodypart_id( "leg_r" ), damage_instance( damage_type::HEAT, rng( 2, 6 ) ) );
-                    u.deal_damage( nullptr, bodypart_id( "torso" ), damage_instance( damage_type::HEAT, rng( 4, 9 ) ) );
+                    u.deal_damage( nullptr, bodypart_id( "leg_l"_id ), damage_instance( damage_type::HEAT, rng( 2, 6 ) ) );
+                    u.deal_damage( nullptr, bodypart_id( "leg_r"_id ), damage_instance( damage_type::HEAT, rng( 2, 6 ) ) );
+                    u.deal_damage( nullptr, bodypart_id( "torso"_id ), damage_instance( damage_type::HEAT, rng( 4, 9 ) ) );
                     u.check_dead_state();
                 } else {
                     u.add_msg_player_or_npc( _( "These flames do not burn you." ),
@@ -1690,7 +1690,7 @@ void map::player_in_field( player &u )
             } else {
                 u.add_msg_player_or_npc( m_bad, _( "The incendiary melts into your skin!" ),
                                          _( "The incendiary melts into <npcname>s skin!" ) );
-                u.add_effect( effect_onfire, 8_turns, bodypart_id( "torso" ) );
+                u.add_effect( effect_onfire, 8_turns, bodypart_id( "torso"_id ) );
                 u.hurtall( rng( 2, 6 ), nullptr );
             }
         }
@@ -1699,15 +1699,15 @@ void map::player_in_field( player &u )
             // The gas won't harm you inside a vehicle.
             if( !inside ) {
                 // Full body suits protect you from the effects of the gas.
-                if( !( u.worn_with_flag( flag_GAS_PROOF ) && u.get_env_resist( bodypart_id( "mouth" ) ) >= 15 &&
-                       u.get_env_resist( bodypart_id( "eyes" ) ) >= 15 ) ) {
+                if( !( u.worn_with_flag( flag_GAS_PROOF ) && u.get_env_resist( bodypart_id( "mouth"_id ) ) >= 15 &&
+                       u.get_env_resist( bodypart_id( "eyes"_id ) ) >= 15 ) ) {
                     const int intensity = cur.get_field_intensity();
-                    bool inhaled = u.add_env_effect( effect_poison, bodypart_id( "mouth" ), 5, intensity * 1_minutes );
+                    bool inhaled = u.add_env_effect( effect_poison, bodypart_id( "mouth"_id ), 5, intensity * 1_minutes );
                     if( u.has_trait( trait_THRESH_MYCUS ) || u.has_trait( trait_THRESH_MARLOSS ) ||
                         ( ft == fd_insecticidal_gas &&
-                          ( u.get_highest_category() == mutation_category_id( "INSECT" ) ||
-                            u.get_highest_category() == mutation_category_id( "SPIDER" ) ) ) ) {
-                        inhaled |= u.add_env_effect( effect_badpoison, bodypart_id( "mouth" ), 5, intensity * 1_minutes );
+                          ( u.get_highest_category() == mutation_category_id( "INSECT"_id ) ||
+                            u.get_highest_category() == mutation_category_id( "SPIDER"_id ) ) ) ) {
+                        inhaled |= u.add_env_effect( effect_badpoison, bodypart_id( "mouth"_id ), 5, intensity * 1_minutes );
                         u.hurtall( rng( intensity, intensity * 2 ), nullptr );
                         u.add_msg_if_player( m_bad, _( "The %s burns your skin." ), cur.name() );
                     }
@@ -1824,7 +1824,7 @@ void map::monster_in_field( monster &z )
         if( cur_field_type == fd_acid ) {
             if( !z.flies() ) {
                 const int d = rng( cur.get_field_intensity(), cur.get_field_intensity() * 3 );
-                z.deal_damage( nullptr, bodypart_id( "torso" ), damage_instance( damage_type::ACID, d ) );
+                z.deal_damage( nullptr, bodypart_id( "torso"_id ), damage_instance( damage_type::ACID, d ) );
                 z.check_dead_state();
             }
 
@@ -1849,7 +1849,7 @@ void map::monster_in_field( monster &z )
             if( z.made_of_any( Creature::cmat_flesh ) ) {
                 dam += 3;
             }
-            if( z.made_of( material_id( "veggy" ) ) ) {
+            if( z.made_of( material_id( "veggy"_id ) ) ) {
                 dam += 12;
             }
             if( z.made_of( phase_id::LIQUID ) || z.made_of_any( Creature::cmat_flammable ) ) {
@@ -1861,7 +1861,7 @@ void map::monster_in_field( monster &z )
             if( z.flies() ) {
                 dam -= 15;
             }
-            dam -= z.get_armor_type( damage_type::HEAT, bodypart_id( "torso" ) );
+            dam -= z.get_armor_type( damage_type::HEAT, bodypart_id( "torso"_id ) );
 
             if( cur.get_field_intensity() == 1 ) {
                 dam += rng( 2, 6 );
@@ -1889,7 +1889,7 @@ void map::monster_in_field( monster &z )
                     z.moves -= rng( 10, 20 );
                 }
                 // Plants suffer from smoke even worse
-                if( z.made_of( material_id( "veggy" ) ) ) {
+                if( z.made_of( material_id( "veggy"_id ) ) ) {
                     z.moves -= rng( 1, cur.get_field_intensity() * 12 );
                 }
             }
@@ -1906,7 +1906,7 @@ void map::monster_in_field( monster &z )
                 } else {
                     z.add_effect( effect_stunned, rng( 1_turns, 5_turns ) );
                 }
-                if( z.made_of( material_id( "veggy" ) ) ) {
+                if( z.made_of( material_id( "veggy"_id ) ) ) {
                     z.moves -= rng( cur.get_field_intensity() * 5, cur.get_field_intensity() * 12 );
                     dam += cur.get_field_intensity() * rng( 8, 14 );
                 }
@@ -1948,7 +1948,7 @@ void map::monster_in_field( monster &z )
                     z.moves -= rng( 0, 15 );
                     dam += rng( 0, 12 );
                 }
-                if( z.made_of( material_id( "veggy" ) ) ) {
+                if( z.made_of( material_id( "veggy"_id ) ) ) {
                     z.moves -= rng( cur.get_field_intensity() * 5, cur.get_field_intensity() * 12 );
                     dam *= cur.get_field_intensity();
                 }
@@ -1963,7 +1963,7 @@ void map::monster_in_field( monster &z )
             if( z.made_of_any( Creature::cmat_flesh ) ) {
                 dam += 3;
             }
-            if( z.made_of( material_id( "veggy" ) ) ) {
+            if( z.made_of( material_id( "veggy"_id ) ) ) {
                 dam += 12;
             }
             if( z.made_of( phase_id::LIQUID ) || z.made_of_any( Creature::cmat_flammable ) ) {
@@ -1977,7 +1977,7 @@ void map::monster_in_field( monster &z )
         }
         if( cur_field_type == fd_electricity ) {
             // We don't want to increase dam, but deal a separate hit so that it can apply effects
-            z.deal_damage( nullptr, bodypart_id( "torso" ),
+            z.deal_damage( nullptr, bodypart_id( "torso"_id ),
                            damage_instance( damage_type::ELECTRIC, rng( 1, cur.get_field_intensity() * 3 ) ) );
         }
         if( cur_field_type == fd_fatigue ) {
@@ -1994,7 +1994,7 @@ void map::monster_in_field( monster &z )
             if( z.made_of_any( Creature::cmat_flesh ) ) {
                 dam += 3;
             }
-            if( z.made_of( material_id( "veggy" ) ) ) {
+            if( z.made_of( material_id( "veggy"_id ) ) ) {
                 dam += 12;
             }
             if( z.made_of( phase_id::LIQUID ) || z.made_of_any( Creature::cmat_flammable ) ) {
@@ -2047,7 +2047,7 @@ void map::monster_in_field( monster &z )
     }
 
     if( dam > 0 ) {
-        z.apply_damage( nullptr, bodypart_id( "torso" ), dam, true );
+        z.apply_damage( nullptr, bodypart_id( "torso"_id ), dam, true );
         z.check_dead_state();
     }
 }

@@ -48,25 +48,25 @@
 #include "viewer.h"
 #include "vpart_position.h"
 
-static const efftype_id effect_bouldering( "bouldering" );
-static const efftype_id effect_countdown( "countdown" );
-static const efftype_id effect_docile( "docile" );
-static const efftype_id effect_downed( "downed" );
-static const efftype_id effect_dragging( "dragging" );
-static const efftype_id effect_grabbed( "grabbed" );
-static const efftype_id effect_harnessed( "harnessed" );
-static const efftype_id effect_no_sight( "no_sight" );
-static const efftype_id effect_operating( "operating" );
-static const efftype_id effect_pacified( "pacified" );
-static const efftype_id effect_pushed( "pushed" );
-static const efftype_id effect_stunned( "stunned" );
+static const efftype_id effect_bouldering( "bouldering"_id );
+static const efftype_id effect_countdown( "countdown"_id );
+static const efftype_id effect_docile( "docile"_id );
+static const efftype_id effect_downed( "downed"_id );
+static const efftype_id effect_dragging( "dragging"_id );
+static const efftype_id effect_grabbed( "grabbed"_id );
+static const efftype_id effect_harnessed( "harnessed"_id );
+static const efftype_id effect_no_sight( "no_sight"_id );
+static const efftype_id effect_operating( "operating"_id );
+static const efftype_id effect_pacified( "pacified"_id );
+static const efftype_id effect_pushed( "pushed"_id );
+static const efftype_id effect_stunned( "stunned"_id );
 
-static const itype_id itype_pressurized_tank( "pressurized_tank" );
+static const itype_id itype_pressurized_tank( "pressurized_tank"_id );
 
-static const species_id species_FUNGUS( "FUNGUS" );
-static const species_id species_INSECT( "INSECT" );
-static const species_id species_SPIDER( "SPIDER" );
-static const species_id species_ZOMBIE( "ZOMBIE" );
+static const species_id species_FUNGUS( "FUNGUS"_id );
+static const species_id species_INSECT( "INSECT"_id );
+static const species_id species_SPIDER( "SPIDER"_id );
+static const species_id species_ZOMBIE( "ZOMBIE"_id );
 
 static const std::string flag_AUTODOC_COUCH( "AUTODOC_COUCH" );
 static const std::string flag_LIQUID( "LIQUID" );
@@ -493,7 +493,7 @@ void monster::plan()
 
     // Friendly monsters here
     // Avoid for hordes of same-faction stuff or it could get expensive
-    const auto actual_faction = friendly == 0 ? faction : mfaction_str_id( "player" );
+    const auto actual_faction = friendly == 0 ? faction : mfaction_str_id( "player"_id );
     const auto &myfaction_iter = factions.find( actual_faction );
     if( myfaction_iter == factions.end() ) {
         DebugLog( D_ERROR, D_GAME ) << disp_name() << " tried to find faction "
@@ -1630,12 +1630,12 @@ bool monster::move_to( const tripoint &p, bool force, bool step_on_critter,
         const int sharp_damage = rng( 1, 10 );
         const int rough_damage = rng( 1, 2 );
         if( here.has_flag( "SHARP", pos() ) && !one_in( 4 ) &&
-            get_armor_cut( bodypart_id( "torso" ) ) < sharp_damage ) {
-            apply_damage( nullptr, bodypart_id( "torso" ), sharp_damage );
+            get_armor_cut( bodypart_id( "torso"_id ) ) < sharp_damage ) {
+            apply_damage( nullptr, bodypart_id( "torso"_id ), sharp_damage );
         }
         if( here.has_flag( "ROUGH", pos() ) && one_in( 6 ) &&
-            get_armor_cut( bodypart_id( "torso" ) ) < rough_damage ) {
-            apply_damage( nullptr, bodypart_id( "torso" ), rough_damage );
+            get_armor_cut( bodypart_id( "torso"_id ) ) < rough_damage ) {
+            apply_damage( nullptr, bodypart_id( "torso"_id ), rough_damage );
         }
     }
 
@@ -1927,14 +1927,14 @@ void monster::knock_back_to( const tripoint &to )
 
     // First, see if we hit another monster
     if( monster *const z = g->critter_at<monster>( to ) ) {
-        apply_damage( z, bodypart_id( "torso" ), static_cast<float>( z->type->size ) );
+        apply_damage( z, bodypart_id( "torso"_id ), static_cast<float>( z->type->size ) );
         add_effect( effect_stunned, 1_turns );
         if( type->size > 1 + z->type->size ) {
             z->knock_back_from( pos() ); // Chain reaction!
-            z->apply_damage( this, bodypart_id( "torso" ), static_cast<float>( type->size ) );
+            z->apply_damage( this, bodypart_id( "torso"_id ), static_cast<float>( type->size ) );
             z->add_effect( effect_stunned, 1_turns );
         } else if( type->size > z->type->size ) {
-            z->apply_damage( this, bodypart_id( "torso" ), static_cast<float>( type->size ) );
+            z->apply_damage( this, bodypart_id( "torso"_id ), static_cast<float>( type->size ) );
             z->add_effect( effect_stunned, 1_turns );
         }
         z->check_dead_state();
@@ -1947,9 +1947,9 @@ void monster::knock_back_to( const tripoint &to )
     }
 
     if( npc *const p = g->critter_at<npc>( to ) ) {
-        apply_damage( p, bodypart_id( "torso" ), 3 );
+        apply_damage( p, bodypart_id( "torso"_id ), 3 );
         add_effect( effect_stunned, 1_turns );
-        p->deal_damage( this, bodypart_id( "torso" ),
+        p->deal_damage( this, bodypart_id( "torso"_id ),
                         damage_instance( damage_type::BASH, static_cast<float>( type->size ) ) );
         if( u_see ) {
             add_msg( _( "The %1$s bounces off %2$s!" ), name(), p->name );
@@ -1973,7 +1973,7 @@ void monster::knock_back_to( const tripoint &to )
     if( here.impassable( to ) ) {
 
         // It's some kind of wall.
-        apply_damage( nullptr, bodypart_id( "torso" ), static_cast<float>( type->size ) );
+        apply_damage( nullptr, bodypart_id( "torso"_id ), static_cast<float>( type->size ) );
         add_effect( effect_stunned, 2_turns );
         if( u_see ) {
             add_msg( _( "The %1$s bounces off a %2$s." ), name(),

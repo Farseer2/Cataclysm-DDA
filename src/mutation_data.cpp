@@ -192,7 +192,7 @@ const std::map<mutation_category_id, mutation_category_trait> &mutation_category
 const mutation_category_trait &mutation_category_trait::get_category(
     const mutation_category_id &category_id )
 {
-    return mutation_category_traits.find( category_id )->second;
+    return mutation_category_traits.at( category_id );
 }
 
 void mutation_category_trait::reset()
@@ -695,7 +695,7 @@ void mutation_branch::reset_all()
     trait_factory.reset();
     trait_blacklist.clear();
     trait_groups.clear();
-    trait_groups.emplace( trait_group::Trait_group_tag( "EMPTY_GROUP" ),
+    trait_groups.emplace( trait_group::Trait_group_tag( "EMPTY_GROUP"_id ),
                           make_shared_fast<Trait_group_collection>( 100 ) );
 }
 

@@ -16,7 +16,7 @@
 #include "type_id.h"
 #include "weighted_list.h"
 
-static const anatomy_id anatomy_human_anatomy( "human_anatomy" );
+static const anatomy_id anatomy_human_anatomy( "human_anatomy"_id );
 
 namespace
 {

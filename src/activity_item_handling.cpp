@@ -66,65 +66,65 @@
 #include "vpart_position.h"
 #include "weather.h"
 
-static const activity_id ACT_BUILD( "ACT_BUILD" );
-static const activity_id ACT_BUTCHER_FULL( "ACT_BUTCHER_FULL" );
-static const activity_id ACT_CHOP_LOGS( "ACT_CHOP_LOGS" );
-static const activity_id ACT_CHOP_PLANKS( "ACT_CHOP_PLANKS" );
-static const activity_id ACT_CHOP_TREE( "ACT_CHOP_TREE" );
-static const activity_id ACT_CHURN( "ACT_CHURN" );
-static const activity_id ACT_FETCH_REQUIRED( "ACT_FETCH_REQUIRED" );
-static const activity_id ACT_FISH( "ACT_FISH" );
-static const activity_id ACT_JACKHAMMER( "ACT_JACKHAMMER" );
-static const activity_id ACT_MOVE_LOOT( "ACT_MOVE_LOOT" );
-static const activity_id ACT_MULTIPLE_BUTCHER( "ACT_MULTIPLE_BUTCHER" );
-static const activity_id ACT_MULTIPLE_CHOP_PLANKS( "ACT_MULTIPLE_CHOP_PLANKS" );
-static const activity_id ACT_MULTIPLE_CHOP_TREES( "ACT_MULTIPLE_CHOP_TREES" );
-static const activity_id ACT_MULTIPLE_CONSTRUCTION( "ACT_MULTIPLE_CONSTRUCTION" );
-static const activity_id ACT_MULTIPLE_FARM( "ACT_MULTIPLE_FARM" );
-static const activity_id ACT_MULTIPLE_FISH( "ACT_MULTIPLE_FISH" );
-static const activity_id ACT_MULTIPLE_MINE( "ACT_MULTIPLE_MINE" );
-static const activity_id ACT_PICKAXE( "ACT_PICKAXE" );
-static const activity_id ACT_TIDY_UP( "ACT_TIDY_UP" );
-static const activity_id ACT_VEHICLE( "ACT_VEHICLE" );
-static const activity_id ACT_VEHICLE_DECONSTRUCTION( "ACT_VEHICLE_DECONSTRUCTION" );
-static const activity_id ACT_VEHICLE_REPAIR( "ACT_VEHICLE_REPAIR" );
+static const activity_id ACT_BUILD( "ACT_BUILD"_id );
+static const activity_id ACT_BUTCHER_FULL( "ACT_BUTCHER_FULL"_id );
+static const activity_id ACT_CHOP_LOGS( "ACT_CHOP_LOGS"_id );
+static const activity_id ACT_CHOP_PLANKS( "ACT_CHOP_PLANKS"_id );
+static const activity_id ACT_CHOP_TREE( "ACT_CHOP_TREE"_id );
+static const activity_id ACT_CHURN( "ACT_CHURN"_id );
+static const activity_id ACT_FETCH_REQUIRED( "ACT_FETCH_REQUIRED"_id );
+static const activity_id ACT_FISH( "ACT_FISH"_id );
+static const activity_id ACT_JACKHAMMER( "ACT_JACKHAMMER"_id );
+static const activity_id ACT_MOVE_LOOT( "ACT_MOVE_LOOT"_id );
+static const activity_id ACT_MULTIPLE_BUTCHER( "ACT_MULTIPLE_BUTCHER"_id );
+static const activity_id ACT_MULTIPLE_CHOP_PLANKS( "ACT_MULTIPLE_CHOP_PLANKS"_id );
+static const activity_id ACT_MULTIPLE_CHOP_TREES( "ACT_MULTIPLE_CHOP_TREES"_id );
+static const activity_id ACT_MULTIPLE_CONSTRUCTION( "ACT_MULTIPLE_CONSTRUCTION"_id );
+static const activity_id ACT_MULTIPLE_FARM( "ACT_MULTIPLE_FARM"_id );
+static const activity_id ACT_MULTIPLE_FISH( "ACT_MULTIPLE_FISH"_id );
+static const activity_id ACT_MULTIPLE_MINE( "ACT_MULTIPLE_MINE"_id );
+static const activity_id ACT_PICKAXE( "ACT_PICKAXE"_id );
+static const activity_id ACT_TIDY_UP( "ACT_TIDY_UP"_id );
+static const activity_id ACT_VEHICLE( "ACT_VEHICLE"_id );
+static const activity_id ACT_VEHICLE_DECONSTRUCTION( "ACT_VEHICLE_DECONSTRUCTION"_id );
+static const activity_id ACT_VEHICLE_REPAIR( "ACT_VEHICLE_REPAIR"_id );
 
-static const efftype_id effect_incorporeal( "incorporeal" );
+static const efftype_id effect_incorporeal( "incorporeal"_id );
 
-static const itype_id itype_battery( "battery" );
-static const itype_id itype_detergent( "detergent" );
-static const itype_id itype_log( "log" );
-static const itype_id itype_soap( "soap" );
-static const itype_id itype_soldering_iron( "soldering_iron" );
-static const itype_id itype_water( "water" );
-static const itype_id itype_water_clean( "water_clean" );
-static const itype_id itype_welder( "welder" );
+static const itype_id itype_battery( "battery"_id );
+static const itype_id itype_detergent( "detergent"_id );
+static const itype_id itype_log( "log"_id );
+static const itype_id itype_soap( "soap"_id );
+static const itype_id itype_soldering_iron( "soldering_iron"_id );
+static const itype_id itype_water( "water"_id );
+static const itype_id itype_water_clean( "water_clean"_id );
+static const itype_id itype_welder( "welder"_id );
 
-static const trap_str_id tr_firewood_source( "tr_firewood_source" );
-static const trap_str_id tr_unfinished_construction( "tr_unfinished_construction" );
+static const trap_str_id tr_firewood_source( "tr_firewood_source"_id );
+static const trap_str_id tr_unfinished_construction( "tr_unfinished_construction"_id );
 
-static const zone_type_id zone_type_SOURCE_FIREWOOD( "SOURCE_FIREWOOD" );
+static const zone_type_id zone_type_SOURCE_FIREWOOD( "SOURCE_FIREWOOD"_id );
 
-static const zone_type_id zone_type_CHOP_TREES( "CHOP_TREES" );
-static const zone_type_id zone_type_CONSTRUCTION_BLUEPRINT( "CONSTRUCTION_BLUEPRINT" );
-static const zone_type_id zone_type_FARM_PLOT( "FARM_PLOT" );
-static const zone_type_id zone_type_FISHING_SPOT( "FISHING_SPOT" );
-static const zone_type_id zone_type_LOOT_CORPSE( "LOOT_CORPSE" );
-static const zone_type_id zone_type_LOOT_IGNORE( "LOOT_IGNORE" );
-static const zone_type_id zone_type_MINING( "MINING" );
-static const zone_type_id zone_type_LOOT_UNSORTED( "LOOT_UNSORTED" );
-static const zone_type_id zone_type_LOOT_WOOD( "LOOT_WOOD" );
-static const zone_type_id zone_type_VEHICLE_DECONSTRUCT( "VEHICLE_DECONSTRUCT" );
-static const zone_type_id zone_type_VEHICLE_REPAIR( "VEHICLE_REPAIR" );
-static const zone_type_id zone_type_CAMP_STORAGE( "CAMP_STORAGE" );
+static const zone_type_id zone_type_CHOP_TREES( "CHOP_TREES"_id );
+static const zone_type_id zone_type_CONSTRUCTION_BLUEPRINT( "CONSTRUCTION_BLUEPRINT"_id );
+static const zone_type_id zone_type_FARM_PLOT( "FARM_PLOT"_id );
+static const zone_type_id zone_type_FISHING_SPOT( "FISHING_SPOT"_id );
+static const zone_type_id zone_type_LOOT_CORPSE( "LOOT_CORPSE"_id );
+static const zone_type_id zone_type_LOOT_IGNORE( "LOOT_IGNORE"_id );
+static const zone_type_id zone_type_MINING( "MINING"_id );
+static const zone_type_id zone_type_LOOT_UNSORTED( "LOOT_UNSORTED"_id );
+static const zone_type_id zone_type_LOOT_WOOD( "LOOT_WOOD"_id );
+static const zone_type_id zone_type_VEHICLE_DECONSTRUCT( "VEHICLE_DECONSTRUCT"_id );
+static const zone_type_id zone_type_VEHICLE_REPAIR( "VEHICLE_REPAIR"_id );
+static const zone_type_id zone_type_CAMP_STORAGE( "CAMP_STORAGE"_id );
 
-static const quality_id qual_AXE( "AXE" );
-static const quality_id qual_BUTCHER( "BUTCHER" );
-static const quality_id qual_DIG( "DIG" );
-static const quality_id qual_FISHING( "FISHING" );
-static const quality_id qual_SAW_M( "SAW_M" );
-static const quality_id qual_SAW_W( "SAW_W" );
-static const quality_id qual_WELD( "WELD" );
+static const quality_id qual_AXE( "AXE"_id );
+static const quality_id qual_BUTCHER( "BUTCHER"_id );
+static const quality_id qual_DIG( "DIG"_id );
+static const quality_id qual_FISHING( "FISHING"_id );
+static const quality_id qual_SAW_M( "SAW_M"_id );
+static const quality_id qual_SAW_W( "SAW_W"_id );
+static const quality_id qual_WELD( "WELD"_id );
 
 static const std::string flag_BUTCHER_EQ( "BUTCHER_EQ" );
 static const std::string flag_DIG_TOOL( "DIG_TOOL" );
@@ -1322,7 +1322,7 @@ static void add_basecamp_storage_to_loot_zone_list( zone_manager &mgr, const tri
         map &here = get_map();
         if( guy->assigned_camp &&
             mgr.has_near( zone_type_CAMP_STORAGE, here.getabs( src_loc ), ACTIVITY_SEARCH_DISTANCE ) ) {
-            std::unordered_set<tripoint> bc_storage_set = mgr.get_near( zone_type_id( "CAMP_STORAGE" ),
+            std::unordered_set<tripoint> bc_storage_set = mgr.get_near( zone_type_id( "CAMP_STORAGE"_id ),
                     here.getabs( src_loc ), ACTIVITY_SEARCH_DISTANCE );
             for( const tripoint &elem : bc_storage_set ) {
                 loot_zone_spots.push_back( here.getlocal( elem ) );
@@ -2186,7 +2186,7 @@ static void check_npc_revert( player &p )
 static zone_type_id get_zone_for_act( const tripoint &src_loc, const zone_manager &mgr,
                                       const activity_id &act_id )
 {
-    zone_type_id ret = zone_type_id( "" );
+    zone_type_id ret = zone_type_id( ""_id );
     if( act_id == ACT_VEHICLE_DECONSTRUCTION ) {
         ret = zone_type_VEHICLE_DECONSTRUCT;
     }
@@ -2446,7 +2446,7 @@ static requirement_check_result generic_multi_activity_check_requirement( player
             requirement_data::save_requirement( reqs, req_id );
             what_we_need = req_id;
         } else if( reason == do_activity_reason::NEEDS_MINING ) {
-            what_we_need = requirement_id( "mining_standard" );
+            what_we_need = requirement_id( "mining_standard"_id );
         } else if( reason == do_activity_reason::NEEDS_TILLING ||
                    reason == do_activity_reason::NEEDS_PLANTING ||
                    reason == do_activity_reason::NEEDS_CHOPPING ||
@@ -2850,11 +2850,11 @@ int get_auto_consume_moves( player &p, const bool food )
 
     const tripoint pos = p.pos();
     zone_manager &mgr = zone_manager::get_manager();
-    zone_type_id consume_type_zone( "" );
+    zone_type_id consume_type_zone( ""_id );
     if( food ) {
-        consume_type_zone = zone_type_id( "AUTO_EAT" );
+        consume_type_zone = zone_type_id( "AUTO_EAT"_id );
     } else {
-        consume_type_zone = zone_type_id( "AUTO_DRINK" );
+        consume_type_zone = zone_type_id( "AUTO_DRINK"_id );
     }
     map &here = get_map();
     const std::unordered_set<tripoint> &dest_set = mgr.get_near( consume_type_zone, here.getabs( pos ),

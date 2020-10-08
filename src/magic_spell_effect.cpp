@@ -58,7 +58,7 @@
 #include "vehicle.h"
 #include "vpart_position.h"
 
-static const mtype_id mon_generator( "mon_generator" );
+static const mtype_id mon_generator( "mon_generator"_id );
 
 namespace spell_detail
 {
@@ -148,7 +148,7 @@ void spell_effect::pain_split( const spell &sp, Creature &caster, const tripoint
     int total_hp = 0; // total hp among limbs
 
     for( const std::pair<const bodypart_str_id, bodypart> &elem : p->get_body() ) {
-        if( elem.first == bodypart_str_id( "bp_null" ) ) {
+        if( elem.first == bodypart_str_id( "bp_null"_id ) ) {
             continue;
         }
         num_limbs++;
@@ -466,7 +466,7 @@ static void damage_targets( const spell &sp, Creature &caster,
             add_msg( m_good, _( "%s wounds are closing up!" ), cr->disp_name( true ) );
         }
         // TODO: randomize hit location
-        cr->add_damage_over_time( sp.damage_over_time( { bodypart_str_id( "torso" ) } ) );
+        cr->add_damage_over_time( sp.damage_over_time( { bodypart_str_id( "torso"_id ) } ) );
     }
 }
 
@@ -519,7 +519,7 @@ static void magical_polymorph( monster &victim, Creature &caster, const spell &s
                 }
                 if( ( mtypes[iter].id != victim.type->id ) && ( std::abs( mtypes[iter].difficulty - victim_diff )
                         <= difficulty_variance ) ) {
-                    if( !mtypes[iter].in_species( species_id( "HALLUCINATION" ) ) &&
+                    if( !mtypes[iter].in_species( species_id( "HALLUCINATION"_id ) ) &&
                         mtypes[iter].id != mon_generator ) {
                         new_id = mtypes[iter].id;
                         break;

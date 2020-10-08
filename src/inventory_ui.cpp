@@ -1315,10 +1315,10 @@ void inventory_selector::add_character_items( Character &character )
     character.visit_items( [ this, &character ]( item * it ) {
         if( it == &character.weapon ) {
             add_item( own_gear_column, item_location( character, it ),
-                      &item_category_id( "WEAPON_HELD" ).obj() );
+                      &item_category_id( "WEAPON_HELD"_id ).obj() );
         } else if( character.is_worn( *it ) ) {
             add_item( own_gear_column, item_location( character, it ),
-                      &item_category_id( "ITEMS_WORN" ).obj() );
+                      &item_category_id( "ITEMS_WORN"_id ).obj() );
         }
         return VisitResponse::NEXT;
     } );
@@ -2046,10 +2046,10 @@ void inventory_selector::toggle_categorize_contained()
 
             if( parent.get_item() == &u.weapon ) {
                 add_entry( own_gear_column, std::move( entry->locations ),
-                           &item_category_id( "WEAPON_HELD" ).obj() );
+                           &item_category_id( "WEAPON_HELD"_id ).obj() );
             } else {
                 add_entry( own_gear_column, std::move( entry->locations ),
-                           &item_category_id( "ITEMS_WORN" ).obj() );
+                           &item_category_id( "ITEMS_WORN"_id ).obj() );
             }
         }
         own_gear_column.order_by_parent();

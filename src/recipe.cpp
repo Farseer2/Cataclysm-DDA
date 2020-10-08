@@ -36,7 +36,7 @@
 #include "units.h"
 #include "value_ptr.h"
 
-static const itype_id itype_hotplate( "hotplate" );
+static const itype_id itype_hotplate( "hotplate"_id );
 
 recipe::recipe() : skill_used( skill_id::NULL_ID() ) {}
 

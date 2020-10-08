@@ -56,35 +56,35 @@
 #include "vpart_range.h"
 #include "weather.h"
 
-static const activity_id ACT_RELOAD( "ACT_RELOAD" );
-static const activity_id ACT_REPAIR_ITEM( "ACT_REPAIR_ITEM" );
-static const activity_id ACT_START_ENGINES( "ACT_START_ENGINES" );
+static const activity_id ACT_RELOAD( "ACT_RELOAD"_id );
+static const activity_id ACT_REPAIR_ITEM( "ACT_REPAIR_ITEM"_id );
+static const activity_id ACT_START_ENGINES( "ACT_START_ENGINES"_id );
 
-static const itype_id fuel_type_battery( "battery" );
-static const itype_id fuel_type_muscle( "muscle" );
-static const itype_id fuel_type_none( "null" );
-static const itype_id fuel_type_wind( "wind" );
+static const itype_id fuel_type_battery( "battery"_id );
+static const itype_id fuel_type_muscle( "muscle"_id );
+static const itype_id fuel_type_none( "null"_id );
+static const itype_id fuel_type_wind( "wind"_id );
 
-static const itype_id itype_battery( "battery" );
-static const itype_id itype_detergent( "detergent" );
-static const itype_id itype_fungal_seeds( "fungal_seeds" );
-static const itype_id itype_hotplate( "hotplate" );
-static const itype_id itype_marloss_seed( "marloss_seed" );
-static const itype_id itype_water( "water" );
-static const itype_id itype_water_clean( "water_clean" );
-static const itype_id itype_water_purifier( "water_purifier" );
-static const itype_id itype_welder( "welder" );
+static const itype_id itype_battery( "battery"_id );
+static const itype_id itype_detergent( "detergent"_id );
+static const itype_id itype_fungal_seeds( "fungal_seeds"_id );
+static const itype_id itype_hotplate( "hotplate"_id );
+static const itype_id itype_marloss_seed( "marloss_seed"_id );
+static const itype_id itype_water( "water"_id );
+static const itype_id itype_water_clean( "water_clean"_id );
+static const itype_id itype_water_purifier( "water_purifier"_id );
+static const itype_id itype_welder( "welder"_id );
 
-static const efftype_id effect_harnessed( "harnessed" );
-static const efftype_id effect_tied( "tied" );
+static const efftype_id effect_harnessed( "harnessed"_id );
+static const efftype_id effect_tied( "tied"_id );
 
-static const fault_id fault_engine_pump_diesel( "fault_engine_pump_diesel" );
-static const fault_id fault_engine_glow_plug( "fault_engine_glow_plug" );
-static const fault_id fault_engine_immobiliser( "fault_engine_immobiliser" );
-static const fault_id fault_engine_pump_fuel( "fault_engine_pump_fuel" );
-static const fault_id fault_engine_starter( "fault_engine_starter" );
+static const fault_id fault_engine_pump_diesel( "fault_engine_pump_diesel"_id );
+static const fault_id fault_engine_glow_plug( "fault_engine_glow_plug"_id );
+static const fault_id fault_engine_immobiliser( "fault_engine_immobiliser"_id );
+static const fault_id fault_engine_pump_fuel( "fault_engine_pump_fuel"_id );
+static const fault_id fault_engine_starter( "fault_engine_starter"_id );
 
-static const skill_id skill_mechanics( "mechanics" );
+static const skill_id skill_mechanics( "mechanics"_id );
 
 enum change_types : int {
     OPENCURTAINS = 0,
@@ -449,7 +449,7 @@ bool vehicle::interact_vehicle_locked()
     Character &player_character = get_player_character();
     add_msg( _( "You don't find any keys in the %s." ), name );
     const inventory &inv = player_character.crafting_inventory();
-    if( inv.has_quality( quality_id( "SCREW" ) ) ) {
+    if( inv.has_quality( quality_id( "SCREW"_id ) ) ) {
         if( query_yn( _( "You don't find any keys in the %s. Attempt to hotwire vehicle?" ), name ) ) {
             ///\EFFECT_MECHANICS speeds up vehicle hotwiring
             int skill = player_character.get_skill_level( skill_mechanics );
@@ -522,7 +522,7 @@ std::string vehicle::tracking_toggle_string()
 void vehicle::autopilot_patrol_check()
 {
     zone_manager &mgr = zone_manager::get_manager();
-    if( mgr.has_near( zone_type_id( "VEHICLE_PATROL" ), get_map().getabs( global_pos3() ), 60 ) ) {
+    if( mgr.has_near( zone_type_id( "VEHICLE_PATROL"_id ), get_map().getabs( global_pos3() ), 60 ) ) {
         enable_patrol();
     } else {
         g->zones_manager();
@@ -1126,7 +1126,7 @@ void vehicle::honk_horn()
     for( const vpart_reference &vp : get_avail_parts( "HORN" ) ) {
         //Only bicycle horn doesn't need electricity to work
         const vpart_info &horn_type = vp.info();
-        if( ( horn_type.get_id() != vpart_id( "horn_bicycle" ) ) && no_power ) {
+        if( ( horn_type.get_id() != vpart_id( "horn_bicycle"_id ) ) && no_power ) {
             continue;
         }
         if( !honked ) {
@@ -1164,7 +1164,7 @@ void vehicle::reload_seeds( const tripoint &pos )
     } );
 
     auto seed_entries = iexamine::get_seed_entries( seed_inv );
-    seed_entries.emplace( seed_entries.begin(), seed_tuple( itype_id( "null" ), _( "No seed" ), 0 ) );
+    seed_entries.emplace( seed_entries.begin(), seed_tuple( itype_id( "null"_id ), _( "No seed" ), 0 ) );
 
     int seed_index = iexamine::query_seed( seed_entries );
 
@@ -2078,7 +2078,7 @@ void vehicle::interact_with( const tripoint &pos, int interact_part )
         //no initial ammo
         pseudo_magazine.contents.clear_items();
         pseudo.put_in( pseudo_magazine, item_pocket::pocket_type::MAGAZINE_WELL );
-        int capacity = pseudo.ammo_capacity( ammotype( "battery" ) );
+        int capacity = pseudo.ammo_capacity( ammotype( "battery"_id ) );
         int qty = capacity - discharge_battery( capacity );
         pseudo.ammo_set( itype_battery, qty );
         player_character.invoke_item( &pseudo );

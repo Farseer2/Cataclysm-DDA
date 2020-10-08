@@ -57,13 +57,13 @@
 #include "weather.h"
 #include "weather_type.h"
 
-static const trait_id trait_NOPAIN( "NOPAIN" );
-static const trait_id trait_SELFAWARE( "SELFAWARE" );
-static const trait_id trait_THRESH_FELINE( "THRESH_FELINE" );
-static const trait_id trait_THRESH_BIRD( "THRESH_BIRD" );
-static const trait_id trait_THRESH_URSINE( "THRESH_URSINE" );
+static const trait_id trait_NOPAIN( "NOPAIN"_id );
+static const trait_id trait_SELFAWARE( "SELFAWARE"_id );
+static const trait_id trait_THRESH_FELINE( "THRESH_FELINE"_id );
+static const trait_id trait_THRESH_BIRD( "THRESH_BIRD"_id );
+static const trait_id trait_THRESH_URSINE( "THRESH_URSINE"_id );
 
-static const efftype_id effect_got_checked( "got_checked" );
+static const efftype_id effect_got_checked( "got_checked"_id );
 
 // constructor
 window_panel::window_panel(
@@ -465,7 +465,7 @@ static std::string get_temp( const avatar &u )
 {
     std::string temp;
     if( u.has_item_with_flag( "THERMOMETER" ) ||
-        u.has_bionic( bionic_id( "bio_meteorologist" ) ) ) {
+        u.has_bionic( bionic_id( "bio_meteorologist"_id ) ) ) {
         temp = print_temperature( get_weather().get_temperature( u.pos() ) );
     }
     if( temp.empty() ) {
@@ -572,8 +572,8 @@ static std::pair<nc_color, int> morale_stat( const avatar &u )
 
 static std::pair<bodypart_id, bodypart_id> temp_delta( const avatar &u )
 {
-    bodypart_id current_bp_extreme( "torso" );
-    bodypart_id conv_bp_extreme( "torso" );
+    bodypart_id current_bp_extreme( "torso"_id );
+    bodypart_id conv_bp_extreme( "torso"_id );
     for( const bodypart_id &bp : u.get_all_body_parts() ) {
         if( std::abs( u.get_part_temp_cur( bp ) - BODYTEMP_NORM ) >
             std::abs( u.get_part_temp_cur( current_bp_extreme ) - BODYTEMP_NORM ) ) {
@@ -910,7 +910,7 @@ static void draw_limb_health( avatar &u, const catacurses::window &w, bodypart_i
         nc_color color = c_light_red;
 
         if( u.worn_with_flag( "SPLINT",  bp ) ) {
-            static const efftype_id effect_mending( "mending" );
+            static const efftype_id effect_mending( "mending"_id );
             const auto &eff = u.get_effect( effect_mending, bp );
             const int mend_perc = eff.is_null() ? 0.0 : 100 * eff.get_duration() / eff.get_max_duration();
 
@@ -1572,7 +1572,7 @@ static void draw_env_compact( avatar &u, const catacurses::window &w )
     mvwprintz( w, point( text_left, 5 ), get_wind_color( windpower ),
                get_wind_desc( windpower ) + " " + get_wind_arrow( g->weather.winddirection ) );
 
-    if( u.has_item_with_flag( "THERMOMETER" ) || u.has_bionic( bionic_id( "bio_meteorologist" ) ) ) {
+    if( u.has_item_with_flag( "THERMOMETER" ) || u.has_bionic( bionic_id( "bio_meteorologist"_id ) ) ) {
         std::string temp = print_temperature( g->weather.get_temperature( u.pos() ) );
         mvwprintz( w, point( 31 - utf8_width( temp ), 5 ), c_light_gray, temp );
     }
@@ -1733,15 +1733,15 @@ static void draw_armor_padding( const avatar &u, const catacurses::window &w )
     mvwprintz( w, point( 1, 4 ), color, _( "Feet :" ) );
 
     unsigned int max_length = getmaxx( w ) - 8;
-    print_colored_text( w, point( 8, 0 ), color, color, get_armor( u, bodypart_id( "head" ),
+    print_colored_text( w, point( 8, 0 ), color, color, get_armor( u, bodypart_id( "head"_id ),
                         max_length ) );
-    print_colored_text( w, point( 8, 1 ), color, color, get_armor( u, bodypart_id( "torso" ),
+    print_colored_text( w, point( 8, 1 ), color, color, get_armor( u, bodypart_id( "torso"_id ),
                         max_length ) );
-    print_colored_text( w, point( 8, 2 ), color, color, get_armor( u, bodypart_id( "arm_r" ),
+    print_colored_text( w, point( 8, 2 ), color, color, get_armor( u, bodypart_id( "arm_r"_id ),
                         max_length ) );
-    print_colored_text( w, point( 8, 3 ), color, color, get_armor( u, bodypart_id( "leg_r" ),
+    print_colored_text( w, point( 8, 3 ), color, color, get_armor( u, bodypart_id( "leg_r"_id ),
                         max_length ) );
-    print_colored_text( w, point( 8, 4 ), color, color, get_armor( u, bodypart_id( "foot_r" ),
+    print_colored_text( w, point( 8, 4 ), color, color, get_armor( u, bodypart_id( "foot_r"_id ),
                         max_length ) );
     wnoutrefresh( w );
 }
@@ -1758,15 +1758,15 @@ static void draw_armor( const avatar &u, const catacurses::window &w )
     mvwprintz( w, point( 0, 4 ), color, _( "Feet :" ) );
 
     unsigned int max_length = getmaxx( w ) - 7;
-    print_colored_text( w, point( 7, 0 ), color, color, get_armor( u, bodypart_id( "head" ),
+    print_colored_text( w, point( 7, 0 ), color, color, get_armor( u, bodypart_id( "head"_id ),
                         max_length ) );
-    print_colored_text( w, point( 7, 1 ), color, color, get_armor( u, bodypart_id( "torso" ),
+    print_colored_text( w, point( 7, 1 ), color, color, get_armor( u, bodypart_id( "torso"_id ),
                         max_length ) );
-    print_colored_text( w, point( 7, 2 ), color, color, get_armor( u, bodypart_id( "arm_r" ),
+    print_colored_text( w, point( 7, 2 ), color, color, get_armor( u, bodypart_id( "arm_r"_id ),
                         max_length ) );
-    print_colored_text( w, point( 7, 3 ), color, color, get_armor( u, bodypart_id( "leg_r" ),
+    print_colored_text( w, point( 7, 3 ), color, color, get_armor( u, bodypart_id( "leg_r"_id ),
                         max_length ) );
-    print_colored_text( w, point( 7, 4 ), color, color, get_armor( u, bodypart_id( "foot_r" ),
+    print_colored_text( w, point( 7, 4 ), color, color, get_armor( u, bodypart_id( "foot_r"_id ),
                         max_length ) );
     wnoutrefresh( w );
 }
@@ -1993,7 +1993,7 @@ static void draw_time_classic( const avatar &u, const catacurses::window &w )
         mvwprintz( w, point( 15, 0 ), c_light_gray, _( "Time: ???" ) );
     }
 
-    if( u.has_item_with_flag( "THERMOMETER" ) || u.has_bionic( bionic_id( "bio_meteorologist" ) ) ) {
+    if( u.has_item_with_flag( "THERMOMETER" ) || u.has_bionic( bionic_id( "bio_meteorologist"_id ) ) ) {
         std::string temp = print_temperature( get_weather().get_temperature( u.pos() ) );
         mvwprintz( w, point( 31, 0 ), c_light_gray, _( "Temp : " ) + temp );
     }
@@ -2362,7 +2362,7 @@ void panel_manager::deserialize( JsonIn &jsin )
     current_layout_id = joLayouts.get_string( "current_layout_id" );
     for( JsonObject joLayout : joLayouts.get_array( "layouts" ) ) {
         std::string layout_id = joLayout.get_string( "layout_id" );
-        auto &layout = layouts.find( layout_id )->second.panels();
+        auto &layout = layouts.at( layout_id ).panels();
         auto it = layout.begin();
 
         for( JsonObject joPanel : joLayout.get_array( "panels" ) ) {

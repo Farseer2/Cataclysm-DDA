@@ -67,20 +67,20 @@ static auto sfx_time = end_sfx_timestamp - start_sfx_timestamp;
 static activity_id act;
 static std::pair<std::string, std::string> engine_external_id_and_variant;
 
-static const efftype_id effect_alarm_clock( "alarm_clock" );
-static const efftype_id effect_deaf( "deaf" );
-static const efftype_id effect_narcosis( "narcosis" );
-static const efftype_id effect_sleep( "sleep" );
-static const efftype_id effect_slept_through_alarm( "slept_through_alarm" );
+static const efftype_id effect_alarm_clock( "alarm_clock"_id );
+static const efftype_id effect_deaf( "deaf"_id );
+static const efftype_id effect_narcosis( "narcosis"_id );
+static const efftype_id effect_sleep( "sleep"_id );
+static const efftype_id effect_slept_through_alarm( "slept_through_alarm"_id );
 
 static const trait_id trait_HEAVYSLEEPER2( "HEAVYSLEEPER2" );
-static const trait_id trait_HEAVYSLEEPER( "HEAVYSLEEPER" );
+static const trait_id trait_HEAVYSLEEPER( "HEAVYSLEEPER"_id );
 
-static const itype_id fuel_type_muscle( "muscle" );
-static const itype_id fuel_type_wind( "wind" );
-static const itype_id fuel_type_battery( "battery" );
+static const itype_id fuel_type_muscle( "muscle"_id );
+static const itype_id fuel_type_wind( "wind"_id );
+static const itype_id fuel_type_battery( "battery"_id );
 
-static const itype_id itype_weapon_fire_suppressed( "weapon_fire_suppressed" );
+static const itype_id itype_weapon_fire_suppressed( "weapon_fire_suppressed"_id );
 
 struct sound_event {
     int volume;
@@ -400,7 +400,7 @@ void sounds::process_sound_markers( player *p )
             if( is_sound_deafening && !p->is_immune_effect( effect_deaf ) ) {
                 p->add_effect( effect_deaf, std::min( 4_minutes,
                                                       time_duration::from_turns( felt_volume - 130 ) / 8 ) );
-                if( !p->has_trait( trait_id( "NOPAIN" ) ) ) {
+                if( !p->has_trait( trait_id( "NOPAIN"_id ) ) ) {
                     p->add_msg_if_player( m_bad, _( "Your eardrums suddenly ache!" ) );
                     if( p->get_pain() < 10 ) {
                         p->mod_pain( rng( 0, 2 ) );
@@ -485,7 +485,7 @@ void sounds::process_sound_markers( player *p )
         }
 
         if( !p->has_effect( effect_sleep ) && p->has_effect( effect_alarm_clock ) &&
-            !p->has_bionic( bionic_id( "bio_watch" ) ) ) {
+            !p->has_bionic( bionic_id( "bio_watch"_id ) ) ) {
             // if we don't have effect_sleep but we're in_sleep_state, either
             // we were trying to fall asleep for so long our alarm is now going
             // off or something disturbed us while trying to sleep
@@ -1082,9 +1082,9 @@ void sfx::sound_thread::operator()() const
     std::this_thread::sleep_for( std::chrono::milliseconds( rng( 1, 2 ) ) );
     std::string variant_used;
 
-    static const skill_id skill_bashing( "bashing" );
-    static const skill_id skill_cutting( "cutting" );
-    static const skill_id skill_stabbing( "stabbing" );
+    static const skill_id skill_bashing( "bashing"_id );
+    static const skill_id skill_cutting( "cutting"_id );
+    static const skill_id skill_stabbing( "stabbing"_id );
 
     if( weapon_skill == skill_bashing && weapon_volume <= 8 ) {
         variant_used = "small_bash";
@@ -1130,11 +1130,11 @@ void sfx::do_projectile_hit( const Creature &target )
     if( target.is_monster() ) {
         const monster &mon = dynamic_cast<const monster &>( target );
         static const std::set<material_id> fleshy = {
-            material_id( "flesh" ),
-            material_id( "hflesh" ),
-            material_id( "iflesh" ),
-            material_id( "veggy" ),
-            material_id( "bone" ),
+            material_id( "flesh"_id ),
+            material_id( "hflesh"_id ),
+            material_id( "iflesh"_id ),
+            material_id( "veggy"_id ),
+            material_id( "bone"_id ),
         };
         const bool is_fleshy = std::any_of( fleshy.begin(), fleshy.end(), [&mon]( const material_id & m ) {
             return mon.made_of( m );
@@ -1143,10 +1143,10 @@ void sfx::do_projectile_hit( const Creature &target )
         if( is_fleshy ) {
             play_variant_sound( "bullet_hit", "hit_flesh", heard_volume, angle, 0.8, 1.2 );
             return;
-        } else if( mon.made_of( material_id( "stone" ) ) ) {
+        } else if( mon.made_of( material_id( "stone"_id ) ) ) {
             play_variant_sound( "bullet_hit", "hit_wall", heard_volume, angle, 0.8, 1.2 );
             return;
-        } else if( mon.made_of( material_id( "steel" ) ) ) {
+        } else if( mon.made_of( material_id( "steel"_id ) ) ) {
             play_variant_sound( "bullet_hit", "hit_metal", heard_volume, angle, 0.8, 1.2 );
             return;
         } else {
@@ -1309,96 +1309,96 @@ void sfx::do_footstep()
         int heard_volume = sfx::get_heard_volume( player_character.pos() );
         const auto terrain = get_map().ter( player_character.pos() ).id();
         static const std::set<ter_str_id> grass = {
-            ter_str_id( "t_grass" ),
-            ter_str_id( "t_shrub" ),
-            ter_str_id( "t_shrub_peanut" ),
-            ter_str_id( "t_shrub_peanut_harvested" ),
-            ter_str_id( "t_shrub_blueberry" ),
-            ter_str_id( "t_shrub_blueberry_harvested" ),
-            ter_str_id( "t_shrub_strawberry" ),
-            ter_str_id( "t_shrub_strawberry_harvested" ),
-            ter_str_id( "t_shrub_blackberry" ),
-            ter_str_id( "t_shrub_blackberry_harvested" ),
-            ter_str_id( "t_shrub_huckleberry" ),
-            ter_str_id( "t_shrub_huckleberry_harvested" ),
-            ter_str_id( "t_shrub_raspberry" ),
-            ter_str_id( "t_shrub_raspberry_harvested" ),
-            ter_str_id( "t_shrub_grape" ),
-            ter_str_id( "t_shrub_grape_harvested" ),
-            ter_str_id( "t_shrub_rose" ),
-            ter_str_id( "t_shrub_rose_harvested" ),
-            ter_str_id( "t_shrub_hydrangea" ),
-            ter_str_id( "t_shrub_hydrangea_harvested" ),
-            ter_str_id( "t_shrub_lilac" ),
-            ter_str_id( "t_shrub_lilac_harvested" ),
-            ter_str_id( "t_underbrush" ),
-            ter_str_id( "t_underbrush_harvested_spring" ),
-            ter_str_id( "t_underbrush_harvested_summer" ),
-            ter_str_id( "t_underbrush_harvested_autumn" ),
-            ter_str_id( "t_underbrush_harvested_winter" ),
-            ter_str_id( "t_moss" ),
-            ter_str_id( "t_grass_white" ),
-            ter_str_id( "t_grass_long" ),
-            ter_str_id( "t_grass_tall" ),
-            ter_str_id( "t_grass_dead" ),
-            ter_str_id( "t_grass_golf" ),
-            ter_str_id( "t_golf_hole" ),
-            ter_str_id( "t_trunk" ),
-            ter_str_id( "t_stump" ),
+            ter_str_id( "t_grass"_id ),
+            ter_str_id( "t_shrub"_id ),
+            ter_str_id( "t_shrub_peanut"_id ),
+            ter_str_id( "t_shrub_peanut_harvested"_id ),
+            ter_str_id( "t_shrub_blueberry"_id ),
+            ter_str_id( "t_shrub_blueberry_harvested"_id ),
+            ter_str_id( "t_shrub_strawberry"_id ),
+            ter_str_id( "t_shrub_strawberry_harvested"_id ),
+            ter_str_id( "t_shrub_blackberry"_id ),
+            ter_str_id( "t_shrub_blackberry_harvested"_id ),
+            ter_str_id( "t_shrub_huckleberry"_id ),
+            ter_str_id( "t_shrub_huckleberry_harvested"_id ),
+            ter_str_id( "t_shrub_raspberry"_id ),
+            ter_str_id( "t_shrub_raspberry_harvested"_id ),
+            ter_str_id( "t_shrub_grape"_id ),
+            ter_str_id( "t_shrub_grape_harvested"_id ),
+            ter_str_id( "t_shrub_rose"_id ),
+            ter_str_id( "t_shrub_rose_harvested"_id ),
+            ter_str_id( "t_shrub_hydrangea"_id ),
+            ter_str_id( "t_shrub_hydrangea_harvested"_id ),
+            ter_str_id( "t_shrub_lilac"_id ),
+            ter_str_id( "t_shrub_lilac_harvested"_id ),
+            ter_str_id( "t_underbrush"_id ),
+            ter_str_id( "t_underbrush_harvested_spring"_id ),
+            ter_str_id( "t_underbrush_harvested_summer"_id ),
+            ter_str_id( "t_underbrush_harvested_autumn"_id ),
+            ter_str_id( "t_underbrush_harvested_winter"_id ),
+            ter_str_id( "t_moss"_id ),
+            ter_str_id( "t_grass_white"_id ),
+            ter_str_id( "t_grass_long"_id ),
+            ter_str_id( "t_grass_tall"_id ),
+            ter_str_id( "t_grass_dead"_id ),
+            ter_str_id( "t_grass_golf"_id ),
+            ter_str_id( "t_golf_hole"_id ),
+            ter_str_id( "t_trunk"_id ),
+            ter_str_id( "t_stump"_id ),
         };
         static const std::set<ter_str_id> dirt = {
-            ter_str_id( "t_dirt" ),
-            ter_str_id( "t_dirtmound" ),
-            ter_str_id( "t_dirtmoundfloor" ),
-            ter_str_id( "t_sand" ),
-            ter_str_id( "t_clay" ),
-            ter_str_id( "t_dirtfloor" ),
-            ter_str_id( "t_palisade_gate_o" ),
-            ter_str_id( "t_sandbox" ),
-            ter_str_id( "t_claymound" ),
-            ter_str_id( "t_sandmound" ),
-            ter_str_id( "t_rootcellar" ),
-            ter_str_id( "t_railroad_rubble" ),
-            ter_str_id( "t_railroad_track" ),
-            ter_str_id( "t_railroad_track_h" ),
-            ter_str_id( "t_railroad_track_v" ),
-            ter_str_id( "t_railroad_track_d" ),
-            ter_str_id( "t_railroad_track_d1" ),
-            ter_str_id( "t_railroad_track_d2" ),
-            ter_str_id( "t_railroad_tie" ),
-            ter_str_id( "t_railroad_tie_d" ),
-            ter_str_id( "t_railroad_tie_d" ),
-            ter_str_id( "t_railroad_tie_h" ),
-            ter_str_id( "t_railroad_tie_v" ),
-            ter_str_id( "t_railroad_tie_d" ),
-            ter_str_id( "t_railroad_track_on_tie" ),
-            ter_str_id( "t_railroad_track_h_on_tie" ),
-            ter_str_id( "t_railroad_track_v_on_tie" ),
-            ter_str_id( "t_railroad_track_d_on_tie" ),
-            ter_str_id( "t_railroad_tie" ),
-            ter_str_id( "t_railroad_tie_h" ),
-            ter_str_id( "t_railroad_tie_v" ),
-            ter_str_id( "t_railroad_tie_d1" ),
-            ter_str_id( "t_railroad_tie_d2" ),
+            ter_str_id( "t_dirt"_id ),
+            ter_str_id( "t_dirtmound"_id ),
+            ter_str_id( "t_dirtmoundfloor"_id ),
+            ter_str_id( "t_sand"_id ),
+            ter_str_id( "t_clay"_id ),
+            ter_str_id( "t_dirtfloor"_id ),
+            ter_str_id( "t_palisade_gate_o"_id ),
+            ter_str_id( "t_sandbox"_id ),
+            ter_str_id( "t_claymound"_id ),
+            ter_str_id( "t_sandmound"_id ),
+            ter_str_id( "t_rootcellar"_id ),
+            ter_str_id( "t_railroad_rubble"_id ),
+            ter_str_id( "t_railroad_track"_id ),
+            ter_str_id( "t_railroad_track_h"_id ),
+            ter_str_id( "t_railroad_track_v"_id ),
+            ter_str_id( "t_railroad_track_d"_id ),
+            ter_str_id( "t_railroad_track_d1"_id ),
+            ter_str_id( "t_railroad_track_d2"_id ),
+            ter_str_id( "t_railroad_tie"_id ),
+            ter_str_id( "t_railroad_tie_d"_id ),
+            ter_str_id( "t_railroad_tie_d"_id ),
+            ter_str_id( "t_railroad_tie_h"_id ),
+            ter_str_id( "t_railroad_tie_v"_id ),
+            ter_str_id( "t_railroad_tie_d"_id ),
+            ter_str_id( "t_railroad_track_on_tie"_id ),
+            ter_str_id( "t_railroad_track_h_on_tie"_id ),
+            ter_str_id( "t_railroad_track_v_on_tie"_id ),
+            ter_str_id( "t_railroad_track_d_on_tie"_id ),
+            ter_str_id( "t_railroad_tie"_id ),
+            ter_str_id( "t_railroad_tie_h"_id ),
+            ter_str_id( "t_railroad_tie_v"_id ),
+            ter_str_id( "t_railroad_tie_d1"_id ),
+            ter_str_id( "t_railroad_tie_d2"_id ),
         };
         static const std::set<ter_str_id> metal = {
-            ter_str_id( "t_ov_smreb_cage" ),
-            ter_str_id( "t_metal_floor" ),
-            ter_str_id( "t_grate" ),
-            ter_str_id( "t_bridge" ),
-            ter_str_id( "t_elevator" ),
-            ter_str_id( "t_guardrail_bg_dp" ),
-            ter_str_id( "t_slide" ),
-            ter_str_id( "t_conveyor" ),
-            ter_str_id( "t_machinery_light" ),
-            ter_str_id( "t_machinery_heavy" ),
-            ter_str_id( "t_machinery_old" ),
-            ter_str_id( "t_machinery_electronic" ),
+            ter_str_id( "t_ov_smreb_cage"_id ),
+            ter_str_id( "t_metal_floor"_id ),
+            ter_str_id( "t_grate"_id ),
+            ter_str_id( "t_bridge"_id ),
+            ter_str_id( "t_elevator"_id ),
+            ter_str_id( "t_guardrail_bg_dp"_id ),
+            ter_str_id( "t_slide"_id ),
+            ter_str_id( "t_conveyor"_id ),
+            ter_str_id( "t_machinery_light"_id ),
+            ter_str_id( "t_machinery_heavy"_id ),
+            ter_str_id( "t_machinery_old"_id ),
+            ter_str_id( "t_machinery_electronic"_id ),
         };
         static const std::set<ter_str_id> chain_fence = {
-            ter_str_id( "t_chainfence" ),
+            ter_str_id( "t_chainfence"_id ),
         };
-        if( !player_character.wearing_something_on( bodypart_id( "foot_l" ) ) ) {
+        if( !player_character.wearing_something_on( bodypart_id( "foot_l"_id ) ) ) {
             play_variant_sound( "plmove", "walk_barefoot", heard_volume, 0, 0.8, 1.2 );
             start_sfx_timestamp = std::chrono::high_resolution_clock::now();
             return;

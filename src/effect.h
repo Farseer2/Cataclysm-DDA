@@ -158,7 +158,7 @@ class effect_type
 class effect
 {
     public:
-        effect() : eff_type( nullptr ), duration( 0_turns ), bp( bodypart_str_id( "bp_null" ) ),
+        effect() : eff_type( nullptr ), duration( 0_turns ), bp( bodypart_str_id( "bp_null"_id ) ),
             permanent( false ), intensity( 1 ), start_time( calendar::turn_zero ) {
         }
         effect( const effect_type *peff_type, const time_duration &dur, bodypart_str_id part,

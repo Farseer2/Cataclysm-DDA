@@ -22,24 +22,24 @@
 #include "string_id.h"
 #include "units.h"
 
-static const efftype_id effect_bandaged( "bandaged" );
-static const efftype_id effect_beartrap( "beartrap" );
-static const efftype_id effect_crushed( "crushed" );
-static const efftype_id effect_disinfected( "disinfected" );
-static const efftype_id effect_downed( "downed" );
-static const efftype_id effect_grabbed( "grabbed" );
-static const efftype_id effect_heavysnare( "heavysnare" );
-static const efftype_id effect_in_pit( "in_pit" );
-static const efftype_id effect_lightsnare( "lightsnare" );
-static const efftype_id effect_tied( "tied" );
-static const efftype_id effect_webbed( "webbed" );
-static const efftype_id effect_weed_high( "weed_high" );
+static const efftype_id effect_bandaged( "bandaged"_id );
+static const efftype_id effect_beartrap( "beartrap"_id );
+static const efftype_id effect_crushed( "crushed"_id );
+static const efftype_id effect_disinfected( "disinfected"_id );
+static const efftype_id effect_downed( "downed"_id );
+static const efftype_id effect_grabbed( "grabbed"_id );
+static const efftype_id effect_heavysnare( "heavysnare"_id );
+static const efftype_id effect_in_pit( "in_pit"_id );
+static const efftype_id effect_lightsnare( "lightsnare"_id );
+static const efftype_id effect_tied( "tied"_id );
+static const efftype_id effect_webbed( "webbed"_id );
+static const efftype_id effect_weed_high( "weed_high"_id );
 
-static const itype_id itype_holybook_bible( "holybook_bible" );
-static const itype_id itype_money_bundle( "money_bundle" );
+static const itype_id itype_holybook_bible( "holybook_bible"_id );
+static const itype_id itype_money_bundle( "money_bundle"_id );
 
-static const trait_id trait_LACTOSE( "LACTOSE" );
-static const trait_id trait_VEGETARIAN( "VEGETARIAN" );
+static const trait_id trait_LACTOSE( "LACTOSE"_id );
+static const trait_id trait_VEGETARIAN( "VEGETARIAN"_id );
 
 namespace
 {
@@ -556,7 +556,7 @@ std::string effect::disp_name() const
             }
         }
     }
-    if( bp != bodypart_str_id( "bp_null" ) ) {
+    if( bp != bodypart_str_id( "bp_null"_id ) ) {
         ret += string_format( " (%s)", body_part_name( bp.id() ) );
     }
 

@@ -29,7 +29,7 @@ class map;
 struct construction;
 
 using faction_id = string_id<faction>;
-static const faction_id your_fac( "your_followers" );
+static const faction_id your_fac( "your_followers"_id );
 const std::string type_fac_hash_str = "__FAC__";
 
 class zone_type
@@ -245,7 +245,7 @@ class zone_data
 
     public:
         zone_data() {
-            type = zone_type_id( "" );
+            type = zone_type_id( ""_id );
             invert = false;
             enabled = false;
             is_vehicle = false;
@@ -291,7 +291,7 @@ class zone_data
             if( end != std::string::npos && end < hash_type.size() ) {
                 return zone_type_id( hash_type.substr( 0, end ) );
             }
-            return zone_type_id( "" );
+            return zone_type_id( ""_id );
         }
         std::string get_name() const {
             return name;

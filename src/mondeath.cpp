@@ -48,36 +48,36 @@
 #include "value_ptr.h"
 #include "viewer.h"
 
-static const efftype_id effect_amigara( "amigara" );
-static const efftype_id effect_boomered( "boomered" );
-static const efftype_id effect_controlled( "controlled" );
-static const efftype_id effect_darkness( "darkness" );
-static const efftype_id effect_glowing( "glowing" );
-static const efftype_id effect_no_ammo( "no_ammo" );
-static const efftype_id effect_rat( "rat" );
+static const efftype_id effect_amigara( "amigara"_id );
+static const efftype_id effect_boomered( "boomered"_id );
+static const efftype_id effect_controlled( "controlled"_id );
+static const efftype_id effect_darkness( "darkness"_id );
+static const efftype_id effect_glowing( "glowing"_id );
+static const efftype_id effect_no_ammo( "no_ammo"_id );
+static const efftype_id effect_rat( "rat"_id );
 
-static const itype_id itype_processor( "processor" );
+static const itype_id itype_processor( "processor"_id );
 
-static const species_id species_SLIME( "SLIME" );
-static const species_id species_ZOMBIE( "ZOMBIE" );
+static const species_id species_SLIME( "SLIME"_id );
+static const species_id species_ZOMBIE( "ZOMBIE"_id );
 
-static const mtype_id mon_blob( "mon_blob" );
-static const mtype_id mon_blob_brain( "mon_blob_brain" );
-static const mtype_id mon_blob_small( "mon_blob_small" );
-static const mtype_id mon_breather( "mon_breather" );
-static const mtype_id mon_breather_hub( "mon_breather_hub" );
-static const mtype_id mon_creeper_hub( "mon_creeper_hub" );
-static const mtype_id mon_creeper_vine( "mon_creeper_vine" );
-static const mtype_id mon_giant_cockroach_nymph( "mon_giant_cockroach_nymph" );
-static const mtype_id mon_halfworm( "mon_halfworm" );
-static const mtype_id mon_sewer_rat( "mon_sewer_rat" );
-static const mtype_id mon_thing( "mon_thing" );
-static const mtype_id mon_zombie_dancer( "mon_zombie_dancer" );
-static const mtype_id mon_zombie_hulk( "mon_zombie_hulk" );
+static const mtype_id mon_blob( "mon_blob"_id );
+static const mtype_id mon_blob_brain( "mon_blob_brain"_id );
+static const mtype_id mon_blob_small( "mon_blob_small"_id );
+static const mtype_id mon_breather( "mon_breather"_id );
+static const mtype_id mon_breather_hub( "mon_breather_hub"_id );
+static const mtype_id mon_creeper_hub( "mon_creeper_hub"_id );
+static const mtype_id mon_creeper_vine( "mon_creeper_vine"_id );
+static const mtype_id mon_giant_cockroach_nymph( "mon_giant_cockroach_nymph"_id );
+static const mtype_id mon_halfworm( "mon_halfworm"_id );
+static const mtype_id mon_sewer_rat( "mon_sewer_rat"_id );
+static const mtype_id mon_thing( "mon_thing"_id );
+static const mtype_id mon_zombie_dancer( "mon_zombie_dancer"_id );
+static const mtype_id mon_zombie_hulk( "mon_zombie_hulk"_id );
 
-static const trait_id trait_KILLER( "KILLER" );
-static const trait_id trait_PACIFIST( "PACIFIST" );
-static const trait_id trait_PSYCHOPATH( "PSYCHOPATH" );
+static const trait_id trait_KILLER( "KILLER"_id );
+static const trait_id trait_PACIFIST( "PACIFIST"_id );
+static const trait_id trait_PSYCHOPATH( "PSYCHOPATH"_id );
 
 void mdeath::normal( monster &z )
 {
@@ -259,7 +259,7 @@ void mdeath::boomer( monster &z )
 
     Character &player_character = get_player_character();
     if( rl_dist( z.pos(), player_character.pos() ) == 1 ) {
-        player_character.add_env_effect( effect_boomered, bodypart_id( "eyes" ), 2, 24_turns );
+        player_character.add_env_effect( effect_boomered, bodypart_id( "eyes"_id ), 2, 24_turns );
     }
 
     here.propagate_field( z.pos(), fd_bile, 15, 1 );
@@ -278,7 +278,7 @@ void mdeath::boomer_glow( monster &z )
             target->moves -= 250;
         }
         if( Creature *const critter = g->critter_at( dest ) ) {
-            critter->add_env_effect( effect_boomered, bodypart_id( "eyes" ), 5, 25_turns );
+            critter->add_env_effect( effect_boomered, bodypart_id( "eyes"_id ), 5, 25_turns );
             for( int i = 0; i < rng( 2, 4 ); i++ ) {
                 const bodypart_id &bp = critter->random_body_part();
                 critter->add_env_effect( effect_glowing, bp, 4, 4_minutes );
@@ -543,7 +543,7 @@ void mdeath::amigara( monster &z )
         add_msg( _( "Your obsession with the fault fades away…" ) );
     }
 
-    get_map().spawn_artifact( z.pos(), relic_procgen_id( "netherum_tunnels" ) );
+    get_map().spawn_artifact( z.pos(), relic_procgen_id( "netherum_tunnels"_id ) );
 }
 
 void mdeath::thing( monster &z )
@@ -652,7 +652,7 @@ void mdeath::broken( monster &z )
                             std::vector<item> mags;
                             int ammo_count = ammo_entry.second;
                             while( ammo_count > 0 ) {
-                                item mag = item( gun.type->magazine_default.find( item( ammo_entry.first ).ammo_type() )->second );
+                                item mag = item( gun.type->magazine_default.at( item( ammo_entry.first ).ammo_type() ) );
                                 mag.ammo_set( ammo_entry.first,
                                               std::min( ammo_count, mag.type->magazine->capacity ) );
                                 mags.insert( mags.end(), mag );
@@ -702,14 +702,14 @@ void mdeath::gas( monster &z )
 {
     std::string explode = string_format( _( "a %s explode!" ), z.name() );
     sounds::sound( z.pos(), 24, sounds::sound_t::combat, explode, false, "explosion", "small" );
-    get_map().emit_field( z.pos(), emit_id( "emit_toxic_blast" ) );
+    get_map().emit_field( z.pos(), emit_id( "emit_toxic_blast"_id ) );
 }
 
 void mdeath::smokeburst( monster &z )
 {
     std::string explode = string_format( _( "a %s explode!" ), z.name() );
     sounds::sound( z.pos(), 24, sounds::sound_t::combat, explode, false, "explosion", "small" );
-    get_map().emit_field( z.pos(), emit_id( "emit_smoke_blast" ) );
+    get_map().emit_field( z.pos(), emit_id( "emit_smoke_blast"_id ) );
 }
 
 void mdeath::fungalburst( monster &z )
@@ -723,7 +723,7 @@ void mdeath::fungalburst( monster &z )
 
     std::string explode = string_format( _( "a %s explodes!" ), z.name() );
     sounds::sound( z.pos(), 24, sounds::sound_t::combat, explode, false, "explosion", "small" );
-    here.emit_field( z.pos(), emit_id( "emit_fungal_blast" ) );
+    here.emit_field( z.pos(), emit_id( "emit_fungal_blast"_id ) );
 }
 
 void mdeath::jabberwock( monster &z )
@@ -734,14 +734,14 @@ void mdeath::jabberwock( monster &z )
                   ch->weapon.has_flag( "DIAMOND" ) &&
                   ch->weapon.volume() > 750_ml;
 
-    if( vorpal && !ch->weapon.has_technique( matec_id( "VORPAL" ) ) ) {
+    if( vorpal && !ch->weapon.has_technique( matec_id( "VORPAL"_id ) ) ) {
         if( ch->sees( z ) ) {
             ch->add_msg_if_player( m_info,
                                    //~ %s is the possessive form of the monster's name
                                    _( "As the flames in %s eyes die out, your weapon seems to shine slightly brighter." ),
                                    z.disp_name( true ) );
         }
-        ch->weapon.add_technique( matec_id( "VORPAL" ) );
+        ch->weapon.add_technique( matec_id( "VORPAL"_id ) );
     }
 
     mdeath::normal( z );
@@ -750,7 +750,7 @@ void mdeath::jabberwock( monster &z )
 void mdeath::gameover( monster &z )
 {
     add_msg( m_bad, _( "The %s was destroyed!  GAME OVER!" ), z.name() );
-    get_player_character().set_part_hp_cur( bodypart_id( "torso" ), 0 );
+    get_player_character().set_part_hp_cur( bodypart_id( "torso"_id ), 0 );
 }
 
 void mdeath::kill_breathers( monster &/*z*/ )

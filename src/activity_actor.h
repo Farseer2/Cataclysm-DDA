@@ -169,7 +169,7 @@ class aim_activity_actor : public activity_actor
         static aim_activity_actor use_mutation( const item &fake_gun );
 
         activity_id get_type() const override {
-            return activity_id( "ACT_AIM" );
+            return activity_id( "ACT_AIM"_id );
         }
 
         void start( player_activity &act, Character &who ) override;
@@ -235,7 +235,7 @@ class dig_activity_actor : public activity_actor
             byproducts_item_group( dump_item_group ) {}
 
         activity_id get_type() const override {
-            return activity_id( "ACT_DIG" );
+            return activity_id( "ACT_DIG"_id );
         }
 
         void start( player_activity &act, Character & ) override;
@@ -297,7 +297,7 @@ class dig_channel_activity_actor : public activity_actor
             byproducts_item_group( dump_item_group ) {}
 
         activity_id get_type() const override {
-            return activity_id( "ACT_DIG_CHANNEL" );
+            return activity_id( "ACT_DIG_CHANNEL"_id );
         }
 
         void start( player_activity &act, Character & ) override;
@@ -329,7 +329,7 @@ class gunmod_remove_activity_actor : public activity_actor
         ) : moves_total( moves_total ), gun( gun ), gunmod_idx( gunmod_idx ) {};
 
         activity_id get_type() const override {
-            return activity_id( "ACT_GUNMOD_REMOVE" );
+            return activity_id( "ACT_GUNMOD_REMOVE"_id );
         }
 
         void start( player_activity &act, Character & ) override;
@@ -359,7 +359,7 @@ class hacking_activity_actor : public activity_actor
         hacking_activity_actor( use_bionic );
 
         activity_id get_type() const override {
-            return activity_id( "ACT_HACKING" );
+            return activity_id( "ACT_HACKING"_id );
         }
 
         void start( player_activity &act, Character &who ) override;
@@ -395,7 +395,7 @@ class hotwire_car_activity_actor : public activity_actor
             target( target ) {}
 
         activity_id get_type() const override {
-            return activity_id( "ACT_HOTWIRE_CAR" );
+            return activity_id( "ACT_HOTWIRE_CAR"_id );
         }
 
         void start( player_activity &act, Character & ) override;
@@ -425,7 +425,7 @@ class move_items_activity_actor : public activity_actor
             relative_destination( relative_destination ) {}
 
         activity_id get_type() const override {
-            return activity_id( "ACT_MOVE_ITEMS" );
+            return activity_id( "ACT_MOVE_ITEMS"_id );
         }
 
         void start( player_activity &, Character & ) override {}
@@ -462,7 +462,7 @@ class pickup_activity_actor : public activity_actor
             quantities( quantities ), starting_pos( starting_pos ) {}
 
         activity_id get_type() const override {
-            return activity_id( "ACT_PICKUP" );
+            return activity_id( "ACT_PICKUP"_id );
         }
 
         void start( player_activity &, Character & ) override {}
@@ -507,7 +507,7 @@ class lockpick_activity_actor : public activity_actor
         );
 
         activity_id get_type() const override {
-            return activity_id( "ACT_LOCKPICK" );
+            return activity_id( "ACT_LOCKPICK"_id );
         }
 
         void start( player_activity &act, Character & ) override;
@@ -530,7 +530,7 @@ class migration_cancel_activity_actor : public activity_actor
         migration_cancel_activity_actor() = default;
 
         activity_id get_type() const override {
-            return activity_id( "ACT_MIGRATION_CANCEL" );
+            return activity_id( "ACT_MIGRATION_CANCEL"_id );
         }
 
         void start( player_activity &, Character & ) override {}
@@ -564,7 +564,7 @@ class open_gate_activity_actor : public activity_actor
             moves_total( gate_moves ), placement( gate_placement ) {}
 
         activity_id get_type() const override {
-            return activity_id( "ACT_OPEN_GATE" );
+            return activity_id( "ACT_OPEN_GATE"_id );
         }
 
         void start( player_activity &act, Character & ) override;
@@ -612,7 +612,7 @@ class consume_activity_actor : public activity_actor
             consume_item( consume_item ), consume_menu_selections( std::vector<int>() ) {}
 
         activity_id get_type() const override {
-            return activity_id( "ACT_CONSUME" );
+            return activity_id( "ACT_CONSUME"_id );
         }
 
         void start( player_activity &act, Character &guy ) override;
@@ -641,7 +641,7 @@ class try_sleep_activity_actor : public activity_actor
         try_sleep_activity_actor( const time_duration &dur ) : duration( dur ) {}
 
         activity_id get_type() const override {
-            return activity_id( "ACT_TRY_SLEEP" );
+            return activity_id( "ACT_TRY_SLEEP"_id );
         }
 
         void start( player_activity &act, Character &who ) override;
@@ -667,7 +667,7 @@ class unload_mag_activity_actor : public activity_actor
         unload_mag_activity_actor( int moves_total, const item_location &target ) :
             moves_total( moves_total ), target( target ) {}
         activity_id get_type() const override {
-            return activity_id( "ACT_UNLOAD_MAG" );
+            return activity_id( "ACT_UNLOAD_MAG"_id );
         }
 
         bool can_resume_with_internal( const activity_actor &other, const Character & ) const override {
@@ -702,7 +702,7 @@ class craft_activity_actor : public activity_actor
         craft_activity_actor( item_location &it, bool is_long );
 
         activity_id get_type() const override {
-            return activity_id( "ACT_CRAFT" );
+            return activity_id( "ACT_CRAFT"_id );
         }
 
         void start( player_activity &act, Character &crafter ) override;
@@ -729,7 +729,7 @@ class workout_activity_actor : public activity_actor
         time_duration duration;
         tripoint location;
         time_point stop_time; // can resume if time apart is not above
-        activity_id act_id = activity_id( "ACT_WORKOUT_LIGHT" ); // variable activities
+        activity_id act_id = activity_id( "ACT_WORKOUT_LIGHT"_id ); // variable activities
         int intensity_modifier = 1;
         int elapsed = 0;
 
@@ -793,7 +793,7 @@ class drop_activity_actor : public activity_actor
             : items( items ), placement( placement ), force_ground( force_ground ) {}
 
         activity_id get_type() const override {
-            return activity_id( "ACT_DROP" );
+            return activity_id( "ACT_DROP"_id );
         }
 
         void start( player_activity &/*act*/, Character &/*who*/ ) override {}
@@ -824,7 +824,7 @@ class stash_activity_actor: public activity_actor
             : items( items ), placement( placement ) {}
 
         activity_id get_type() const override {
-            return activity_id( "ACT_STASH" );
+            return activity_id( "ACT_STASH"_id );
         }
 
         void start( player_activity &/*act*/, Character &/*who*/ ) override {}

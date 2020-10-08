@@ -33,7 +33,7 @@ struct enum_traits<vitamin_type> {
 class vitamin
 {
     public:
-        vitamin() : id_( vitamin_id( "null" ) ), rate_( 1_hours ) {}
+        vitamin() : id_( vitamin_id( "null"_id ) ), rate_( 1_hours ) {}
 
         const vitamin_id &id() const {
             return id_;
@@ -44,7 +44,7 @@ class vitamin
         }
 
         bool is_null() const {
-            return id_ == vitamin_id( "null" );
+            return id_ == vitamin_id( "null"_id );
         }
 
         std::string name() const {

@@ -377,7 +377,7 @@ void faction_manager::clear()
 
 void faction_manager::remove_faction( const faction_id &id )
 {
-    if( id.str().empty() || id == faction_id( "no_faction" ) ) {
+    if( id.str().empty() || id == faction_id( "no_faction"_id ) ) {
         return;
     }
     for( auto it = factions.cbegin(), next_it = it; it != factions.cend(); it = next_it ) {
@@ -417,7 +417,7 @@ faction *faction_manager::add_new_faction( const std::string &name_new, const fa
 faction *faction_manager::get( const faction_id &id, const bool complain )
 {
     if( id.is_null() ) {
-        return get( faction_id( "no_faction" ) );
+        return get( faction_id( "no_faction"_id ) );
     }
     for( auto &elem : factions ) {
         if( elem.first == id ) {
@@ -831,7 +831,7 @@ void faction_manager::display() const
         }
         valfac.clear();
         for( const auto &elem : g->faction_manager_ptr->all() ) {
-            if( elem.second.known_by_u && elem.second.id != faction_id( "your_followers" ) ) {
+            if( elem.second.known_by_u && elem.second.id != faction_id( "your_followers"_id ) ) {
                 valfac.push_back( &elem.second );
             }
         }

@@ -68,21 +68,21 @@
 #include "vpart_position.h"
 #include "vpart_range.h"
 
-static const itype_id fuel_type_battery( "battery" );
+static const itype_id fuel_type_battery( "battery"_id );
 
-static const itype_id itype_battery( "battery" );
-static const itype_id itype_plut_cell( "plut_cell" );
+static const itype_id itype_battery( "battery"_id );
+static const itype_id itype_plut_cell( "plut_cell"_id );
 
-static const skill_id skill_mechanics( "mechanics" );
+static const skill_id skill_mechanics( "mechanics"_id );
 
-static const quality_id qual_JACK( "JACK" );
-static const quality_id qual_LIFT( "LIFT" );
-static const quality_id qual_HOSE( "HOSE" );
-static const quality_id qual_SELF_JACK( "SELF_JACK" );
+static const quality_id qual_JACK( "JACK"_id );
+static const quality_id qual_LIFT( "LIFT"_id );
+static const quality_id qual_HOSE( "HOSE"_id );
+static const quality_id qual_SELF_JACK( "SELF_JACK"_id );
 
-static const trait_id trait_DEBUG_HS( "DEBUG_HS" );
+static const trait_id trait_DEBUG_HS( "DEBUG_HS"_id );
 
-static const activity_id ACT_VEHICLE( "ACT_VEHICLE" );
+static const activity_id ACT_VEHICLE( "ACT_VEHICLE"_id );
 
 static inline std::string status_color( bool status )
 {
@@ -400,7 +400,7 @@ void veh_interact::do_main_loop()
     if( veh->has_owner() ) {
         owner_fac = g->faction_manager_ptr->get( veh->get_owner() );
     } else {
-        owner_fac = g->faction_manager_ptr->get( faction_id( "no_faction" ) );
+        owner_fac = g->faction_manager_ptr->get( faction_id( "no_faction"_id ) );
     }
 
     shared_ptr_fast<ui_adaptor> current_ui = create_or_get_ui_adaptor();
@@ -1550,7 +1550,7 @@ void veh_interact::calc_overview()
             // always display total battery capacity and percentage charge
             auto details = []( const vehicle_part & pt, const catacurses::window & w, int y ) {
                 int pct = ( static_cast<double>( pt.ammo_remaining() ) / pt.ammo_capacity(
-                                ammotype( "battery" ) ) ) * 100;
+                                ammotype( "battery"_id ) ) ) * 100;
                 int offset = 1;
                 std::string fmtstring = "%i    %3i%%";
                 if( pt.is_leaking() ) {
@@ -1558,7 +1558,7 @@ void veh_interact::calc_overview()
                     offset = 0;
                 }
                 right_print( w, y, offset, item::find_type( pt.ammo_current() )->color,
-                             string_format( fmtstring, pt.ammo_capacity( ammotype( "battery" ) ), pct ) );
+                             string_format( fmtstring, pt.ammo_capacity( ammotype( "battery"_id ) ), pct ) );
             };
             overview_opts.emplace_back( "BATTERY", &vpr.part(), next_hotkey( vpr.part(), hotkey ), details );
         }

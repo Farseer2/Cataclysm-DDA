@@ -60,27 +60,27 @@
 #include "ui.h"
 #include "ui_manager.h"
 
-static const efftype_id effect_amigara( "amigara" );
+static const efftype_id effect_amigara( "amigara"_id );
 
-static const itype_id itype_black_box( "black_box" );
-static const itype_id itype_blood( "blood" );
+static const itype_id itype_black_box( "black_box"_id );
+static const itype_id itype_blood( "blood"_id );
 static const itype_id itype_c4( "c4" );
 static const itype_id itype_cobalt_60( "cobalt_60" );
-static const itype_id itype_mininuke( "mininuke" );
-static const itype_id itype_mininuke_act( "mininuke_act" );
-static const itype_id itype_radio_repeater_mod( "radio_repeater_mod" );
-static const itype_id itype_sarcophagus_access_code( "sarcophagus_access_code" );
-static const itype_id itype_sewage( "sewage" );
-static const itype_id itype_usb_drive( "usb_drive" );
-static const itype_id itype_vacutainer( "vacutainer" );
+static const itype_id itype_mininuke( "mininuke"_id );
+static const itype_id itype_mininuke_act( "mininuke_act"_id );
+static const itype_id itype_radio_repeater_mod( "radio_repeater_mod"_id );
+static const itype_id itype_sarcophagus_access_code( "sarcophagus_access_code"_id );
+static const itype_id itype_sewage( "sewage"_id );
+static const itype_id itype_usb_drive( "usb_drive"_id );
+static const itype_id itype_vacutainer( "vacutainer"_id );
 
-static const skill_id skill_computer( "computer" );
+static const skill_id skill_computer( "computer"_id );
 
-static const species_id species_HUMAN( "HUMAN" );
-static const species_id species_ZOMBIE( "ZOMBIE" );
+static const species_id species_HUMAN( "HUMAN"_id );
+static const species_id species_ZOMBIE( "ZOMBIE"_id );
 
-static const mtype_id mon_manhack( "mon_manhack" );
-static const mtype_id mon_secubot( "mon_secubot" );
+static const mtype_id mon_manhack( "mon_manhack"_id );
+static const mtype_id mon_secubot( "mon_secubot"_id );
 
 static const std::string flag_CONSOLE( "CONSOLE" );
 
@@ -506,7 +506,7 @@ void computer_session::action_portal()
             }
         }
         if( numtowers >= 4 ) {
-            if( here.tr_at( tmp ).id == trap_str_id( "tr_portal" ) ) {
+            if( here.tr_at( tmp ).id == trap_str_id( "tr_portal"_id ) ) {
                 here.remove_trap( tmp );
             } else {
                 here.trap_set( tmp, tr_portal );
@@ -753,7 +753,7 @@ void computer_session::action_amigara_start()
 void computer_session::action_complete_disable_external_power()
 {
     for( mission *miss : get_avatar().get_active_missions() ) {
-        static const mission_type_id commo_2 = mission_type_id( "MISSION_OLD_GUARD_NEC_COMMO_2" );
+        static const mission_type_id commo_2 = mission_type_id( "MISSION_OLD_GUARD_NEC_COMMO_2"_id );
         if( miss->mission_id() == commo_2 ) {
             print_error( _( "--ACCESS GRANTED--" ) );
             print_error( _( "Mission Complete!" ) );
@@ -771,8 +771,8 @@ void computer_session::action_repeater_mod()
     avatar &player_character = get_avatar();
     if( player_character.has_amount( itype_radio_repeater_mod, 1 ) ) {
         for( mission *miss : player_character.get_active_missions() ) {
-            static const mission_type_id commo_3 = mission_type_id( "MISSION_OLD_GUARD_NEC_COMMO_3" ),
-                                         commo_4 = mission_type_id( "MISSION_OLD_GUARD_NEC_COMMO_4" );
+            static const mission_type_id commo_3 = mission_type_id( "MISSION_OLD_GUARD_NEC_COMMO_3"_id ),
+                                         commo_4 = mission_type_id( "MISSION_OLD_GUARD_NEC_COMMO_4"_id );
             if( miss->mission_id() == commo_3 || miss->mission_id() == commo_4 ) {
                 miss->step_complete( 1 );
                 print_error( _( "Repeater mod installed…" ) );
@@ -816,7 +816,7 @@ void computer_session::action_blood_anal()
     player_character.moves -= 70;
     map &here = get_map();
     for( const tripoint &dest : here.points_in_radius( player_character.pos(), 2 ) ) {
-        if( here.furn( dest ) == furn_str_id( "f_centrifuge" ) ) {
+        if( here.furn( dest ) == furn_str_id( "f_centrifuge"_id ) ) {
             map_stack items = here.i_at( dest );
             if( items.empty() ) {
                 print_error( _( "ERROR: Please place sample in centrifuge." ) );
@@ -1323,7 +1323,7 @@ void computer_session::failure_shutdown()
     map &here = get_map();
     for( const tripoint &p : here.points_in_radius( get_player_character().pos(), 1 ) ) {
         if( here.has_flag( flag_CONSOLE, p ) ) {
-            here.furn_set( p, furn_str_id( "f_console_broken" ) );
+            here.furn_set( p, furn_str_id( "f_console_broken"_id ) );
             add_msg( m_bad, _( "The console shuts down." ) );
             found_tile = true;
         }
@@ -1333,7 +1333,7 @@ void computer_session::failure_shutdown()
     }
     for( const tripoint &p : here.points_on_zlevel() ) {
         if( here.has_flag( flag_CONSOLE, p ) ) {
-            here.furn_set( p, furn_str_id( "f_console_broken" ) );
+            here.furn_set( p, furn_str_id( "f_console_broken"_id ) );
             add_msg( m_bad, _( "The console shuts down." ) );
         }
     }
@@ -1448,7 +1448,7 @@ void computer_session::failure_destroy_blood()
     print_error( _( "ERROR: Disruptive Spin" ) );
     map &here = get_map();
     for( const tripoint &dest : here.points_in_radius( get_player_character().pos(), 2 ) ) {
-        if( here.furn( dest ) == furn_str_id( "f_centrifuge" ) ) {
+        if( here.furn( dest ) == furn_str_id( "f_centrifuge"_id ) ) {
             map_stack items = here.i_at( dest );
             if( items.empty() ) {
                 print_error( _( "ERROR: Please place sample in centrifuge." ) );
@@ -1498,7 +1498,7 @@ void computer_session::action_emerg_ref_center()
     reset_terminal();
     print_line( _( "SEARCHING FOR NEAREST REFUGEE CENTER, PLEASE WAIT…" ) );
 
-    const mission_type_id &mission_type = mission_type_id( "MISSION_REACH_REFUGEE_CENTER" );
+    const mission_type_id &mission_type = mission_type_id( "MISSION_REACH_REFUGEE_CENTER"_id );
     tripoint_abs_omt mission_target;
     avatar &player_character = get_avatar();
     // Check completed missions too, so people can't repeatedly get the mission.

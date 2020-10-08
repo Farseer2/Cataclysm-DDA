@@ -22,7 +22,7 @@
 #include "type_id.h"
 #include "value_ptr.h"
 
-static const std::string null_item_id( "null" );
+static const std::string null_item_id( "null"_id );
 
 static const std::string flag_NEEDS_NO_LUBE( "NEEDS_NO_LUBE" );
 static const std::string flag_NON_FOULING( "NON-FOULING" );

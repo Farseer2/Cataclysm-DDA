@@ -79,7 +79,7 @@ class mapgendata
          * refined later:
          * @code
          * void generate_foo( mapgendata &dat ) {
-         *     mapgendata base_dat( dat, oter_id( "forest" ) );
+         *     mapgendata base_dat( dat, oter_id( "forest"_id ) );
          *     generate( base_dat );
          *     ... // refine map some more.
          * }

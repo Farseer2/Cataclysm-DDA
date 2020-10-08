@@ -16,7 +16,7 @@
 #include "vehicle.h"
 #include "vpart_position.h"
 
-static const efftype_id effect_harnessed( "harnessed" );
+static const efftype_id effect_harnessed( "harnessed"_id );
 
 bool game::grabbed_veh_move( const tripoint &dp )
 {

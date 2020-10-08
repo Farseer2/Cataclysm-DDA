@@ -191,73 +191,73 @@ class inventory;
 const int core_version = 6;
 static constexpr int DANGEROUS_PROXIMITY = 5;
 
-static const activity_id ACT_OPERATION( "ACT_OPERATION" );
+static const activity_id ACT_OPERATION( "ACT_OPERATION"_id );
 
-static const mtype_id mon_manhack( "mon_manhack" );
+static const mtype_id mon_manhack( "mon_manhack"_id );
 
-static const skill_id skill_melee( "melee" );
-static const skill_id skill_dodge( "dodge" );
-static const skill_id skill_gun( "gun" );
-static const skill_id skill_firstaid( "firstaid" );
-static const skill_id skill_survival( "survival" );
+static const skill_id skill_melee( "melee"_id );
+static const skill_id skill_dodge( "dodge"_id );
+static const skill_id skill_gun( "gun"_id );
+static const skill_id skill_firstaid( "firstaid"_id );
+static const skill_id skill_survival( "survival"_id );
 
-static const species_id species_PLANT( "PLANT" );
+static const species_id species_PLANT( "PLANT"_id );
 
-static const efftype_id effect_adrenaline_mycus( "adrenaline_mycus" );
-static const efftype_id effect_assisted( "assisted" );
-static const efftype_id effect_blind( "blind" );
-static const efftype_id effect_bouldering( "bouldering" );
-static const efftype_id effect_contacts( "contacts" );
-static const efftype_id effect_controlled( "controlled" );
-static const efftype_id effect_docile( "docile" );
-static const efftype_id effect_downed( "downed" );
-static const efftype_id effect_drunk( "drunk" );
-static const efftype_id effect_flu( "flu" );
-static const efftype_id effect_infected( "infected" );
-static const efftype_id effect_laserlocked( "laserlocked" );
-static const efftype_id effect_no_sight( "no_sight" );
-static const efftype_id effect_npc_suspend( "npc_suspend" );
-static const efftype_id effect_onfire( "onfire" );
-static const efftype_id effect_paid( "paid" );
-static const efftype_id effect_pet( "pet" );
-static const efftype_id effect_ridden( "ridden" );
-static const efftype_id effect_riding( "riding" );
-static const efftype_id effect_sleep( "sleep" );
-static const efftype_id effect_stunned( "stunned" );
-static const efftype_id effect_tetanus( "tetanus" );
-static const efftype_id effect_tied( "tied" );
-static const efftype_id effect_winded( "winded" );
-static const efftype_id effect_fungus( "fungus" );
+static const efftype_id effect_adrenaline_mycus( "adrenaline_mycus"_id );
+static const efftype_id effect_assisted( "assisted"_id );
+static const efftype_id effect_blind( "blind"_id );
+static const efftype_id effect_bouldering( "bouldering"_id );
+static const efftype_id effect_contacts( "contacts"_id );
+static const efftype_id effect_controlled( "controlled"_id );
+static const efftype_id effect_docile( "docile"_id );
+static const efftype_id effect_downed( "downed"_id );
+static const efftype_id effect_drunk( "drunk"_id );
+static const efftype_id effect_flu( "flu"_id );
+static const efftype_id effect_infected( "infected"_id );
+static const efftype_id effect_laserlocked( "laserlocked"_id );
+static const efftype_id effect_no_sight( "no_sight"_id );
+static const efftype_id effect_npc_suspend( "npc_suspend"_id );
+static const efftype_id effect_onfire( "onfire"_id );
+static const efftype_id effect_paid( "paid"_id );
+static const efftype_id effect_pet( "pet"_id );
+static const efftype_id effect_ridden( "ridden"_id );
+static const efftype_id effect_riding( "riding"_id );
+static const efftype_id effect_sleep( "sleep"_id );
+static const efftype_id effect_stunned( "stunned"_id );
+static const efftype_id effect_tetanus( "tetanus"_id );
+static const efftype_id effect_tied( "tied"_id );
+static const efftype_id effect_winded( "winded"_id );
+static const efftype_id effect_fungus( "fungus"_id );
 
-static const bionic_id bio_remote( "bio_remote" );
+static const bionic_id bio_remote( "bio_remote"_id );
 
-static const itype_id itype_battery( "battery" );
-static const itype_id itype_grapnel( "grapnel" );
+static const itype_id itype_battery( "battery"_id );
+static const itype_id itype_grapnel( "grapnel"_id );
 static const itype_id itype_holybook_bible1( "holybook_bible1" );
 static const itype_id itype_holybook_bible2( "holybook_bible2" );
 static const itype_id itype_holybook_bible3( "holybook_bible3" );
-static const itype_id itype_manhole_cover( "manhole_cover" );
-static const itype_id itype_remotevehcontrol( "remotevehcontrol" );
+static const itype_id itype_manhole_cover( "manhole_cover"_id );
+static const itype_id itype_remotevehcontrol( "remotevehcontrol"_id );
 static const itype_id itype_rm13_armor_on( "rm13_armor_on" );
 static const itype_id itype_rope_30( "rope_30" );
-static const itype_id itype_swim_fins( "swim_fins" );
+static const itype_id itype_swim_fins( "swim_fins"_id );
 
-static const trait_id trait_BADKNEES( "BADKNEES" );
-static const trait_id trait_ILLITERATE( "ILLITERATE" );
-static const trait_id trait_INFIMMUNE( "INFIMMUNE" );
-static const trait_id trait_INFRESIST( "INFRESIST" );
-static const trait_id trait_LEG_TENT_BRACE( "LEG_TENT_BRACE" );
-static const trait_id trait_M_IMMUNE( "M_IMMUNE" );
-static const trait_id trait_PARKOUR( "PARKOUR" );
+static const trait_id trait_BADKNEES( "BADKNEES"_id );
+static const trait_id trait_ILLITERATE( "ILLITERATE"_id );
+static const trait_id trait_INFIMMUNE( "INFIMMUNE"_id );
+static const trait_id trait_INFRESIST( "INFRESIST"_id );
+static const trait_id trait_LEG_TENT_BRACE( "LEG_TENT_BRACE"_id );
+static const trait_id trait_M_IMMUNE( "M_IMMUNE"_id );
+static const trait_id trait_PARKOUR( "PARKOUR"_id );
 static const trait_id trait_VINES2( "VINES2" );
 static const trait_id trait_VINES3( "VINES3" );
-static const trait_id trait_THICKSKIN( "THICKSKIN" );
-static const trait_id trait_NPC_STATIC_NPC( "NPC_STATIC_NPC" );
-static const trait_id trait_NPC_STARTING_NPC( "NPC_STARTING_NPC" );
+static const trait_id trait_THICKSKIN( "THICKSKIN"_id );
+static const trait_id trait_NPC_STATIC_NPC( "NPC_STATIC_NPC"_id );
+static const trait_id trait_NPC_STARTING_NPC( "NPC_STARTING_NPC"_id );
 
-static const trap_str_id tr_unfinished_construction( "tr_unfinished_construction" );
+static const trap_str_id tr_unfinished_construction( "tr_unfinished_construction"_id );
 
-static const faction_id faction_your_followers( "your_followers" );
+static const faction_id faction_your_followers( "your_followers"_id );
 
 #if defined(__ANDROID__)
 extern std::map<std::string, std::list<input_event>> quick_shortcuts_map;
@@ -743,7 +743,7 @@ bool game::start_game()
         get_option<bool>( "BLACK_ROAD" ) || get_scenario()->has_flag( "SUR_START" );
     // Surrounded start ones
     if( spawn_near ) {
-        start_loc.surround_with_monsters( omtstart, mongroup_id( "GROUP_ZOMBIE" ), 70 );
+        start_loc.surround_with_monsters( omtstart, mongroup_id( "GROUP_ZOMBIE"_id ), 70 );
     }
 
     m.spawn_monsters( !spawn_near ); // Static monsters
@@ -990,8 +990,8 @@ void game::create_starting_npcs()
     //This sets the NPC mission. This NPC remains in the starting location.
     tmp->mission = NPC_MISSION_SHELTER;
     tmp->chatbin.first_topic = "TALK_SHELTER";
-    tmp->toggle_trait( trait_id( "NPC_STARTING_NPC" ) );
-    tmp->set_fac( faction_id( "no_faction" ) );
+    tmp->toggle_trait( trait_id( "NPC_STARTING_NPC"_id ) );
+    tmp->set_fac( faction_id( "no_faction"_id ) );
     //One random starting NPC mission
     tmp->add_new_mission( mission::reserve_random( ORIGIN_OPENER_NPC, tmp->global_omt_location(),
                           tmp->getID() ) );
@@ -1023,7 +1023,7 @@ bool game::cleanup_at_end()
 
         if( u.has_amount( itype_holybook_bible1, 1 ) || u.has_amount( itype_holybook_bible2, 1 ) ||
             u.has_amount( itype_holybook_bible3, 1 ) ) {
-            if( !( u.has_trait( trait_id( "CANNIBAL" ) ) || u.has_trait( trait_id( "PSYCHOPATH" ) ) ) ) {
+            if( !( u.has_trait( trait_id( "CANNIBAL"_id ) ) || u.has_trait( trait_id( "PSYCHOPATH"_id ) ) ) ) {
                 vRip.emplace_back( "               _______  ___" );
                 vRip.emplace_back( "              <       `/   |" );
                 vRip.emplace_back( "               >  _     _ (" );
@@ -1477,7 +1477,7 @@ bool game::do_turn()
         sfx::do_hearing_loss();
     }
 
-    if( !u.has_effect( efftype_id( "sleep" ) ) || uquit == QUIT_WATCH ) {
+    if( !u.has_effect( efftype_id( "sleep"_id ) ) || uquit == QUIT_WATCH ) {
         if( u.moves > 0 || uquit == QUIT_WATCH ) {
             while( u.moves > 0 || uquit == QUIT_WATCH ) {
                 cleanup_dead();
@@ -1528,7 +1528,7 @@ bool game::do_turn()
 
             // If player is performing a task and a monster is dangerously close, warn them
             // regardless of previous safemode warnings
-            if( u.activity && !u.has_activity( activity_id( "ACT_AIM" ) ) &&
+            if( u.activity && !u.has_activity( activity_id( "ACT_AIM"_id ) ) &&
                 u.activity.moves_left > 0 &&
                 !u.activity.is_distraction_ignored( distraction_type::hostile_spotted_near ) ) {
                 Creature *hostile_critter = is_hostile_very_close();
@@ -1552,8 +1552,8 @@ bool game::do_turn()
     }
 
     // No-scent debug mutation has to be processed here or else it takes time to start working
-    if( !u.has_active_bionic( bionic_id( "bio_scent_mask" ) ) &&
-        !u.has_trait( trait_id( "DEBUG_NOSCENT" ) ) ) {
+    if( !u.has_active_bionic( bionic_id( "bio_scent_mask"_id ) ) &&
+        !u.has_trait( trait_id( "DEBUG_NOSCENT"_id ) ) ) {
         scent.set( u.pos(), u.scent, u.get_type_of_scent() );
         overmap_buffer.set_scent( u.global_omt_location(),  u.scent );
     }
@@ -1729,7 +1729,7 @@ bool game::cancel_activity_or_ignore_query( const distraction_type type, const s
         if( cancel_auto_move( u, text ) ) {
             return true;
         } else {
-            u.set_destination( u.get_auto_move_route(), player_activity( activity_id( "ACT_TRAVELLING" ) ) );
+            u.set_destination( u.get_auto_move_route(), player_activity( activity_id( "ACT_TRAVELLING"_id ) ) );
             return false;
         }
     }
@@ -1778,7 +1778,7 @@ bool game::cancel_activity_query( const std::string &text )
         if( cancel_auto_move( u, text ) ) {
             return true;
         } else {
-            u.set_destination( u.get_auto_move_route(), player_activity( activity_id( "ACT_TRAVELLING" ) ) );
+            u.set_destination( u.get_auto_move_route(), player_activity( activity_id( "ACT_TRAVELLING"_id ) ) );
             return false;
         }
     }
@@ -2991,7 +2991,7 @@ void game::load_world_modfiles( loading_ui &ui )
     if( std::none_of( mods.begin(), mods.end(), []( const mod_id & e ) {
     return e->core;
 } ) ) {
-        mods.insert( mods.begin(), mod_id( "dda" ) );
+        mods.insert( mods.begin(), mod_id( "dda"_id ) );
     }
 
     // this code does not care about mod dependencies,
@@ -3066,7 +3066,7 @@ void game::reset_npc_dispositions()
         npc_to_add->op_of_u.trust = 0;
         npc_to_add->op_of_u.value = 0;
         npc_to_add->op_of_u.owed = 0;
-        npc_to_add->set_fac( faction_id( "no_faction" ) );
+        npc_to_add->set_fac( faction_id( "no_faction"_id ) );
         npc_to_add->add_new_mission( mission::reserve_random( ORIGIN_ANY_NPC,
                                      npc_to_add->global_omt_location(),
                                      npc_to_add->getID() ) );
@@ -4426,7 +4426,7 @@ void game::mon_info_update( )
                 monster &critter = *new_seen_mon.back();
                 cancel_activity_or_ignore_query( distraction_type::hostile_spotted_far,
                                                  string_format( _( "%s spotted!" ), critter.name() ) );
-                if( u.has_trait( trait_id( "M_DEFENDER" ) ) && critter.type->in_species( species_PLANT ) ) {
+                if( u.has_trait( trait_id( "M_DEFENDER"_id ) ) && critter.type->in_species( species_PLANT ) ) {
                     add_msg( m_warning, _( "We have detected a %s - an enemy of the Mycus!" ), critter.name() );
                     if( !u.has_effect( effect_adrenaline_mycus ) ) {
                         u.add_effect( effect_adrenaline_mycus, 30_minutes );
@@ -4556,7 +4556,7 @@ void game::monmove()
         }
 
         if( !critter.is_dead() &&
-            u.has_active_bionic( bionic_id( "bio_alarm" ) ) &&
+            u.has_active_bionic( bionic_id( "bio_alarm"_id ) ) &&
             u.get_power_level() >= 25_kJ &&
             rl_dist( u.pos(), critter.pos() ) <= 5 &&
             !critter.is_hallucination() ) {
@@ -4564,7 +4564,7 @@ void game::monmove()
             add_msg( m_warning, _( "Your motion alarm goes off!" ) );
             cancel_activity_or_ignore_query( distraction_type::motion_alarm,
                                              _( "Your motion alarm goes off!" ) );
-            if( u.has_effect( efftype_id( "sleep" ) ) ) {
+            if( u.has_effect( efftype_id( "sleep"_id ) ) ) {
                 u.wake_up();
             }
         }
@@ -4706,7 +4706,7 @@ void game::knockback( std::vector<tripoint> &traj, int stun, int dam_mult )
                     targ->add_effect( effect_stunned, 1_turns * force_remaining );
                     add_msg( _( "%s was stunned!" ), targ->name() );
                     add_msg( _( "%s slammed into an obstacle!" ), targ->name() );
-                    targ->apply_damage( nullptr, bodypart_id( "torso" ), dam_mult * force_remaining );
+                    targ->apply_damage( nullptr, bodypart_id( "torso"_id ), dam_mult * force_remaining );
                     targ->check_dead_state();
                 }
                 m.bash( traj[i], 2 * dam_mult * force_remaining );
@@ -4767,11 +4767,11 @@ void game::knockback( std::vector<tripoint> &traj, int stun, int dam_mult )
                     }
 
                     std::array<bodypart_id, 8> bps = {{
-                            bodypart_id( "head" ),
-                            bodypart_id( "arm_l" ), bodypart_id( "arm_r" ),
-                            bodypart_id( "hand_l" ), bodypart_id( "hand_r" ),
-                            bodypart_id( "torso" ),
-                            bodypart_id( "leg_l" ), bodypart_id( "leg_r" )
+                            bodypart_id( "head"_id ),
+                            bodypart_id( "arm_l"_id ), bodypart_id( "arm_r"_id ),
+                            bodypart_id( "hand_l"_id ), bodypart_id( "hand_r"_id ),
+                            bodypart_id( "torso"_id ),
+                            bodypart_id( "leg_l"_id ), bodypart_id( "leg_r"_id )
                         }
                     };
                     for( const bodypart_id &bp : bps ) {
@@ -4841,11 +4841,11 @@ void game::knockback( std::vector<tripoint> &traj, int stun, int dam_mult )
                     }
                     u.add_effect( effect_stunned, 1_turns * force_remaining );
                     std::array<bodypart_id, 8> bps = {{
-                            bodypart_id( "head" ),
-                            bodypart_id( "arm_l" ), bodypart_id( "arm_r" ),
-                            bodypart_id( "hand_l" ), bodypart_id( "hand_r" ),
-                            bodypart_id( "torso" ),
-                            bodypart_id( "leg_l" ), bodypart_id( "leg_r" )
+                            bodypart_id( "head"_id ),
+                            bodypart_id( "arm_l"_id ), bodypart_id( "arm_r"_id ),
+                            bodypart_id( "hand_l"_id ), bodypart_id( "hand_r"_id ),
+                            bodypart_id( "torso"_id ),
+                            bodypart_id( "leg_l"_id ), bodypart_id( "leg_r"_id )
                         }
                     };
                     for( const bodypart_id &bp : bps ) {
@@ -4898,7 +4898,7 @@ void game::knockback( std::vector<tripoint> &traj, int stun, int dam_mult )
 
 void game::use_computer( const tripoint &p )
 {
-    if( u.has_trait( trait_id( "ILLITERATE" ) ) ) {
+    if( u.has_trait( trait_id( "ILLITERATE"_id ) ) ) {
         add_msg( m_info, _( "You can not read a computer screen!" ) );
         return;
     }
@@ -4907,8 +4907,8 @@ void game::use_computer( const tripoint &p )
         add_msg( m_info, _( "You can not see a computer screen!" ) );
         return;
     }
-    if( u.has_trait( trait_id( "HYPEROPIC" ) ) && !u.worn_with_flag( "FIX_FARSIGHT" ) &&
-        !u.has_effect( effect_contacts ) && !u.has_bionic( bionic_id( "bio_eye_optic" ) ) ) {
+    if( u.has_trait( trait_id( "HYPEROPIC"_id ) ) && !u.worn_with_flag( "FIX_FARSIGHT" ) &&
+        !u.has_effect( effect_contacts ) && !u.has_bionic( bionic_id( "bio_eye_optic"_id ) ) ) {
         add_msg( m_info, _( "You'll need to put on reading glasses before you can see the screen." ) );
         return;
     }
@@ -5460,7 +5460,7 @@ bool game::forced_door_closing( const tripoint &p, const ter_id &door_type, int 
         if( critter.type->size <= creature_size::small ) {
             critter.die_in_explosion( nullptr );
         } else {
-            critter.apply_damage( nullptr, bodypart_id( "torso" ), bash_dmg );
+            critter.apply_damage( nullptr, bodypart_id( "torso"_id ), bash_dmg );
             critter.check_dead_state();
         }
         if( !critter.is_dead() && critter.type->size >= creature_size::huge ) {
@@ -5514,7 +5514,7 @@ bool game::forced_door_closing( const tripoint &p, const ter_id &door_type, int 
                 it = items.erase( it );
                 continue;
             }
-            if( it->made_of( material_id( "glass" ) ) && one_in( 2 ) ) {
+            if( it->made_of( material_id( "glass"_id ) ) && one_in( 2 ) ) {
                 if( can_see ) {
                     add_msg( m_warning, _( "A %s shatters!" ), it->tname() );
                 } else {
@@ -5567,7 +5567,7 @@ void game::moving_vehicle_dismount( const tripoint &dest_loc )
 
 void game::control_vehicle()
 {
-    static const itype_id fuel_type_animal( "animal" );
+    static const itype_id fuel_type_animal( "animal"_id );
     int veh_part = -1;
     vehicle *veh = remoteveh();
     if( veh == nullptr ) {
@@ -6813,7 +6813,7 @@ void game::zones_manager()
                 as_m.entries.emplace_back( 1, true, '1', _( "Edit name" ) );
                 as_m.entries.emplace_back( 2, true, '2', _( "Edit type" ) );
                 as_m.entries.emplace_back( 3, zone.get_options().has_options(), '3',
-                                           zone.get_type() == zone_type_id( "LOOT_CUSTOM" ) ? _( "Edit filter" ) : _( "Edit options" ) );
+                                           zone.get_type() == zone_type_id( "LOOT_CUSTOM"_id ) ? _( "Edit filter" ) : _( "Edit options" ) );
                 as_m.entries.emplace_back( 4, !zone.get_is_vehicle(), '4', _( "Edit position" ) );
                 as_m.query();
 
@@ -8456,12 +8456,12 @@ static void butcher_submenu( const std::vector<map_stack::iterator> &corpses, in
     };
     const bool enough_light = player_character.fine_detail_vision_mod() <= 4;
 
-    const int factor = player_character.max_quality( quality_id( "BUTCHER" ) );
+    const int factor = player_character.max_quality( quality_id( "BUTCHER"_id ) );
     const std::string msgFactor = factor > INT_MIN
                                   ? string_format( _( "Your best tool has <color_cyan>%d butchering</color>." ), factor )
                                   :  _( "You have no butchering tool." );
 
-    const int factorD = player_character.max_quality( quality_id( "CUT_FINE" ) );
+    const int factorD = player_character.max_quality( quality_id( "CUT_FINE"_id ) );
     const std::string msgFactorD = factorD > INT_MIN
                                    ? string_format( _( "Your best tool has <color_cyan>%d fine cutting</color>." ), factorD )
                                    :  _( "You have no fine cutting tool." );
@@ -8562,25 +8562,25 @@ static void butcher_submenu( const std::vector<map_stack::iterator> &corpses, in
     smenu.query();
     switch( smenu.ret ) {
         case static_cast<int>( butcher_type::QUICK ):
-            player_character.assign_activity( activity_id( "ACT_BUTCHER" ), 0, true );
+            player_character.assign_activity( activity_id( "ACT_BUTCHER"_id ), 0, true );
             break;
         case static_cast<int>( butcher_type::FULL ):
-            player_character.assign_activity( activity_id( "ACT_BUTCHER_FULL" ), 0, true );
+            player_character.assign_activity( activity_id( "ACT_BUTCHER_FULL"_id ), 0, true );
             break;
         case static_cast<int>( butcher_type::FIELD_DRESS ):
-            player_character.assign_activity( activity_id( "ACT_FIELD_DRESS" ), 0, true );
+            player_character.assign_activity( activity_id( "ACT_FIELD_DRESS"_id ), 0, true );
             break;
         case static_cast<int>( butcher_type::SKIN ):
-            player_character.assign_activity( activity_id( "ACT_SKIN" ), 0, true );
+            player_character.assign_activity( activity_id( "ACT_SKIN"_id ), 0, true );
             break;
         case static_cast<int>( butcher_type::QUARTER ):
-            player_character.assign_activity( activity_id( "ACT_QUARTER" ), 0, true );
+            player_character.assign_activity( activity_id( "ACT_QUARTER"_id ), 0, true );
             break;
         case static_cast<int>( butcher_type::DISMEMBER ):
-            player_character.assign_activity( activity_id( "ACT_DISMEMBER" ), 0, true );
+            player_character.assign_activity( activity_id( "ACT_DISMEMBER"_id ), 0, true );
             break;
         case static_cast<int>( butcher_type::DISSECT ):
-            player_character.assign_activity( activity_id( "ACT_DISSECT" ), 0, true );
+            player_character.assign_activity( activity_id( "ACT_DISSECT"_id ), 0, true );
             break;
         default:
             return;
@@ -8595,8 +8595,8 @@ void game::butcher()
         return;
     }
 
-    const int factor = u.max_quality( quality_id( "BUTCHER" ) );
-    const int factorD = u.max_quality( quality_id( "CUT_FINE" ) );
+    const int factor = u.max_quality( quality_id( "BUTCHER"_id ) );
+    const int factorD = u.max_quality( quality_id( "CUT_FINE"_id ) );
     const std::string no_knife_msg = _( "You don't have a butchering tool." );
     const std::string no_corpse_msg = _( "There are no corpses here to butcher." );
 
@@ -8802,7 +8802,7 @@ void game::butcher()
         case BUTCHER_OTHER:
             switch( indexer_index ) {
                 case MULTISALVAGE:
-                    u.assign_activity( activity_id( "ACT_LONGSALVAGE" ), 0, salvage_tool_index );
+                    u.assign_activity( activity_id( "ACT_LONGSALVAGE"_id ), 0, salvage_tool_index );
                     break;
                 case MULTIBUTCHER:
                     butcher_submenu( corpses );
@@ -8920,7 +8920,7 @@ void game::reload( item_location &loc, bool prompt, bool empty )
             moves += 2500;
         }
 
-        u.assign_activity( activity_id( "ACT_RELOAD" ), moves, opt.qty() );
+        u.assign_activity( activity_id( "ACT_RELOAD"_id ), moves, opt.qty() );
         if( use_loc ) {
             u.activity.targets.emplace_back( loc );
         } else {
@@ -9009,7 +9009,7 @@ void game::reload_weapon( bool try_everything )
     if( veh && ( turret = veh->turret_query( u.pos() ) ) && turret.can_reload() ) {
         item::reload_option opt = u.select_ammo( *turret.base(), true );
         if( opt ) {
-            u.assign_activity( activity_id( "ACT_RELOAD" ), opt.moves(), opt.qty() );
+            u.assign_activity( activity_id( "ACT_RELOAD"_id ), opt.moves(), opt.qty() );
             u.activity.targets.emplace_back( turret.base() );
             u.activity.targets.push_back( std::move( opt.ammo ) );
         }
@@ -9146,7 +9146,7 @@ bool game::check_safe_mode_allowed( bool repeat_safe_mode_warnings )
 
     if( u.has_effect( effect_laserlocked ) ) {
         // Automatic and mandatory safemode.  Make BLOODY sure the player notices!
-        if( u.get_int_base() < 5 || u.has_trait( trait_id( "PROF_CHURL" ) ) ) {
+        if( u.get_int_base() < 5 || u.has_trait( trait_id( "PROF_CHURL"_id ) ) ) {
             add_msg( game_message_params{ m_warning, gmf_bypass_cooldown },
                      _( "There's an angry red dot on your body, %s to brush it off." ), msg_ignore );
         } else {
@@ -9306,8 +9306,8 @@ std::vector<std::string> game::get_dangerous_tile( const tripoint &dest_loc ) co
         }
 
         static const std::set< bodypart_id > sharp_bps = {
-            bodypart_id( "eyes" ), bodypart_id( "mouth" ), bodypart_id( "head" ), bodypart_id( "leg_l" ), bodypart_id( "leg_r" ), bodypart_id( "foot_l" ), bodypart_id( "foot_r" ), bodypart_id( "arm_l" ), bodypart_id( "arm_r" ),
-            bodypart_id( "hand_l" ), bodypart_id( "hand_r" ), bodypart_id( "torso" )
+            bodypart_id( "eyes"_id ), bodypart_id( "mouth"_id ), bodypart_id( "head"_id ), bodypart_id( "leg_l"_id ), bodypart_id( "leg_r"_id ), bodypart_id( "foot_l"_id ), bodypart_id( "foot_r"_id ), bodypart_id( "arm_l"_id ), bodypart_id( "arm_r"_id ),
+            bodypart_id( "hand_l"_id ), bodypart_id( "hand_r"_id ), bodypart_id( "torso"_id )
         };
 
         const auto sharp_bp_check = [this]( bodypart_id bp ) {
@@ -9315,8 +9315,8 @@ std::vector<std::string> game::get_dangerous_tile( const tripoint &dest_loc ) co
         };
 
         if( m.has_flag( "ROUGH", dest_loc ) && !m.has_flag( "ROUGH", u.pos() ) && !boardable &&
-            ( u.get_armor_bash( bodypart_id( "foot_l" ) ) < 5 ||
-              u.get_armor_bash( bodypart_id( "foot_r" ) ) < 5 ) ) {
+            ( u.get_armor_bash( bodypart_id( "foot_l"_id ) ) < 5 ||
+              u.get_armor_bash( bodypart_id( "foot_r"_id ) ) < 5 ) ) {
             harmful_stuff.emplace_back( m.name( dest_loc ) );
         } else if( m.has_flag( "SHARP", dest_loc ) && !m.has_flag( "SHARP", u.pos() ) && !( u.in_vehicle ||
                    m.veh_at( dest_loc ) ) &&
@@ -9546,7 +9546,7 @@ bool game::walk_move( const tripoint &dest_loc, const bool via_ramp )
             }
         }
     }
-    if( !u.is_mounted() && u.has_trait( trait_id( "LEG_TENT_BRACE" ) ) &&
+    if( !u.is_mounted() && u.has_trait( trait_id( "LEG_TENT_BRACE"_id ) ) &&
         ( !u.footwear_factor() ||
           ( u.footwear_factor() == .5 && one_in( 2 ) ) ) ) {
         // DX and IN are long suits for Cephalopods,
@@ -9562,13 +9562,13 @@ bool game::walk_move( const tripoint &dest_loc, const bool via_ramp )
         }
     }
 
-    if( !u.has_trait( trait_id( "DEBUG_SILENT" ) ) ) {
+    if( !u.has_trait( trait_id( "DEBUG_SILENT"_id ) ) ) {
         int volume = u.is_stealthy() ? 3 : 6;
         volume *= u.mutation_value( "noise_modifier" );
         if( volume > 0 ) {
             if( u.is_wearing( itype_rm13_armor_on ) ) {
                 volume = 2;
-            } else if( u.has_bionic( bionic_id( "bio_ankles" ) ) ) {
+            } else if( u.has_bionic( bionic_id( "bio_ankles"_id ) ) ) {
                 volume = 12;
             }
 
@@ -9666,17 +9666,17 @@ point game::place_player( const tripoint &dest_loc )
     }
     // TODO: Move the stuff below to a Character method so that NPCs can reuse it
     if( m.has_flag( "ROUGH", dest_loc ) && ( !u.in_vehicle ) && ( !u.is_mounted() ) ) {
-        if( one_in( 5 ) && u.get_armor_bash( bodypart_id( "foot_l" ) ) < rng( 2, 5 ) ) {
+        if( one_in( 5 ) && u.get_armor_bash( bodypart_id( "foot_l"_id ) ) < rng( 2, 5 ) ) {
             add_msg( m_bad, _( "You hurt your left foot on the %s!" ),
                      m.has_flag_ter( "ROUGH", dest_loc ) ? m.tername( dest_loc ) : m.furnname(
                          dest_loc ) );
-            u.deal_damage( nullptr, bodypart_id( "foot_l" ), damage_instance( damage_type::CUT, 1 ) );
+            u.deal_damage( nullptr, bodypart_id( "foot_l"_id ), damage_instance( damage_type::CUT, 1 ) );
         }
-        if( one_in( 5 ) && u.get_armor_bash( bodypart_id( "foot_r" ) ) < rng( 2, 5 ) ) {
+        if( one_in( 5 ) && u.get_armor_bash( bodypart_id( "foot_r"_id ) ) < rng( 2, 5 ) ) {
             add_msg( m_bad, _( "You hurt your right foot on the %s!" ),
                      m.has_flag_ter( "ROUGH", dest_loc ) ? m.tername( dest_loc ) : m.furnname(
                          dest_loc ) );
-            u.deal_damage( nullptr, bodypart_id( "foot_l" ), damage_instance( damage_type::CUT, 1 ) );
+            u.deal_damage( nullptr, bodypart_id( "foot_l"_id ), damage_instance( damage_type::CUT, 1 ) );
         }
     }
     ///\EFFECT_DEX increases chance of avoiding cuts on sharp terrain
@@ -9685,7 +9685,7 @@ point game::place_player( const tripoint &dest_loc )
                 one_in( 4 ) ) && ( u.has_trait( trait_THICKSKIN ) ? !one_in( 8 ) : true ) ) {
         if( u.is_mounted() ) {
             add_msg( _( "Your %s gets cut!" ), u.mounted_creature->get_name() );
-            u.mounted_creature->apply_damage( nullptr, bodypart_id( "torso" ), rng( 1, 10 ) );
+            u.mounted_creature->apply_damage( nullptr, bodypart_id( "torso"_id ), rng( 1, 10 ) );
         } else {
             const bodypart_id bp = u.get_random_body_part();
             if( u.deal_damage( nullptr, bp, damage_instance( damage_type::CUT, rng( 1,
@@ -9821,7 +9821,7 @@ point game::place_player( const tripoint &dest_loc )
         }
 
         const std::string pulp_butcher = get_option<std::string>( "AUTO_PULP_BUTCHER" );
-        if( pulp_butcher == "butcher" && u.max_quality( quality_id( "BUTCHER" ) ) > INT_MIN ) {
+        if( pulp_butcher == "butcher" && u.max_quality( quality_id( "BUTCHER"_id ) ) > INT_MIN ) {
             std::vector<item *> corpses;
 
             for( item &it : m.i_at( u.pos() ) ) {
@@ -9829,7 +9829,7 @@ point game::place_player( const tripoint &dest_loc )
             }
 
             if( !corpses.empty() ) {
-                u.assign_activity( activity_id( "ACT_BUTCHER" ), 0, true );
+                u.assign_activity( activity_id( "ACT_BUTCHER"_id ), 0, true );
                 for( item *it : corpses ) {
                     u.activity.targets.emplace_back( map_cursor( u.pos() ), it );
                 }
@@ -9847,7 +9847,7 @@ point game::place_player( const tripoint &dest_loc )
                             }
                         }
 
-                        u.assign_activity( activity_id( "ACT_PULP" ), calendar::INDEFINITELY_LONG, 0 );
+                        u.assign_activity( activity_id( "ACT_PULP"_id ), calendar::INDEFINITELY_LONG, 0 );
                         u.activity.placement = m.getabs( pos );
                         u.activity.auto_resume = true;
                         u.activity.str_values.push_back( "auto_pulp_no_acid" );
@@ -9889,14 +9889,14 @@ point game::place_player( const tripoint &dest_loc )
     // Drench the player if swimmable
     if( m.has_flag( "SWIMMABLE", u.pos() ) &&
         !( u.is_mounted() || ( u.in_vehicle && vp1->vehicle().can_float() ) ) ) {
-        u.drench( 80, { { bodypart_str_id( "foot_l" ), bodypart_str_id( "foot_r" ), bodypart_str_id( "leg_l" ), bodypart_str_id( "leg_r" ) } },
+        u.drench( 80, { { bodypart_str_id( "foot_l"_id ), bodypart_str_id( "foot_r"_id ), bodypart_str_id( "leg_l"_id ), bodypart_str_id( "leg_r"_id ) } },
         false );
     }
 
     // List items here
     if( !m.has_flag( "SEALED", u.pos() ) ) {
         if( get_option<bool>( "NO_AUTO_PICKUP_ZONES_LIST_ITEMS" ) ||
-            !check_zone( zone_type_id( "NO_AUTO_PICKUP" ), u.pos() ) ) {
+            !check_zone( zone_type_id( "NO_AUTO_PICKUP"_id ), u.pos() ) ) {
             if( u.is_blind() && !m.i_at( u.pos() ).empty() ) {
                 add_msg( _( "There's something here, but you can't see what it is." ) );
             } else if( m.has_items( u.pos() ) ) {
@@ -9972,7 +9972,7 @@ point game::place_player( const tripoint &dest_loc )
     if( ( vp1.part_with_feature( "CONTROL_ANIMAL", true ) ||
           vp1.part_with_feature( "CONTROLS", true ) ) && u.in_vehicle && !u.is_mounted() ) {
         add_msg( _( "There are vehicle controls here." ) );
-        if( !u.has_trait( trait_id( "WAYFARER" ) ) ) {
+        if( !u.has_trait( trait_id( "WAYFARER"_id ) ) ) {
             add_msg( m_info, _( "%s to drive." ), press_x( ACTION_CONTROL_VEHICLE ) );
         }
     } else if( vp1.part_with_feature( "CONTROLS", true ) && u.in_vehicle &&
@@ -10021,7 +10021,7 @@ void game::place_player_overmap( const tripoint_abs_omt &om_dest )
 
 bool game::phasing_move( const tripoint &dest_loc, const bool via_ramp )
 {
-    if( !u.has_active_bionic( bionic_id( "bio_probability_travel" ) ) ||
+    if( !u.has_active_bionic( bionic_id( "bio_probability_travel"_id ) ) ||
         u.get_power_level() < 250_kJ ) {
         return false;
     }
@@ -10303,7 +10303,7 @@ void game::on_move_effects()
             }
         }
 
-        if( u.has_active_bionic( bionic_id( "bio_jointservo" ) ) ) {
+        if( u.has_active_bionic( bionic_id( "bio_jointservo"_id ) ) ) {
             if( u.is_running() ) {
                 u.mod_power_level( -55_J );
             } else {
@@ -10380,9 +10380,9 @@ void game::fling_creature( Creature *c, const int &dir, float flvel, bool contro
             c->impact( damage, pt );
             // Multiply zed damage by 6 because no body parts
             const int zed_damage = std::max( 0,
-                                             ( damage - critter.get_armor_bash( bodypart_id( "torso" ) ) ) * 6 );
+                                             ( damage - critter.get_armor_bash( bodypart_id( "torso"_id ) ) ) * 6 );
             // TODO: Pass the "flinger" here - it's not the flung critter that deals damage
-            critter.apply_damage( c, bodypart_id( "torso" ), zed_damage );
+            critter.apply_damage( c, bodypart_id( "torso"_id ), zed_damage );
             critter.check_dead_state();
             if( !critter.is_dead() ) {
                 thru = false;
@@ -11051,7 +11051,7 @@ cata::optional<tripoint> game::find_or_make_stairs( map &mp, const int z_after, 
         return cata::nullopt;
     }
 
-    if( u.has_trait( trait_id( "WEB_RAPPEL" ) ) ) {
+    if( u.has_trait( trait_id( "WEB_RAPPEL"_id ) ) ) {
         if( query_yn( _( "There is a sheer drop halfway down.  Web-descend?" ) ) ) {
             rope_ladder = true;
             if( ( rng( 4, 8 ) ) < u.get_skill_level( skill_dodge ) ) {
@@ -11069,7 +11069,7 @@ cata::optional<tripoint> game::find_or_make_stairs( map &mp, const int z_after, 
                     rope_ladder = true;
                     add_msg( m_bad, _( "You descend on your vines, though leaving a part of you behind stings." ) );
                     u.mod_pain( 5 );
-                    u.apply_damage( nullptr, bodypart_id( "torso" ), 5 );
+                    u.apply_damage( nullptr, bodypart_id( "torso"_id ), 5 );
                     u.mod_stored_nutr( 10 );
                     u.mod_thirst( 10 );
                 } else {
@@ -11640,8 +11640,8 @@ void game::perhaps_add_random_npc()
     new_fac_id += tmp->name;
     // create a new "lone wolf" faction for this one NPC
     faction *new_solo_fac = faction_manager_ptr->add_new_faction( tmp->name, faction_id( new_fac_id ),
-                            faction_id( "no_faction" ) );
-    tmp->set_fac( new_solo_fac ? new_solo_fac->id : faction_id( "no_faction" ) );
+                            faction_id( "no_faction"_id ) );
+    tmp->set_fac( new_solo_fac ? new_solo_fac->id : faction_id( "no_faction"_id ) );
     // adds the npc to the correct overmap.
     // Only spawn random NPCs on z-level 0
     // TODO: fix point types
@@ -12063,14 +12063,14 @@ bool game::slip_down( bool check_for_traps )
     // Climbing is difficult with wet hands and feet.
     float wet_penalty = 1.0f;
 
-    if( u.get_part_wetness( bodypart_id( "foot_l" ) ) > 0 ||
-        u.get_part_wetness( bodypart_id( "foot_r" ) ) > 0 ) {
+    if( u.get_part_wetness( bodypart_id( "foot_l"_id ) ) > 0 ||
+        u.get_part_wetness( bodypart_id( "foot_r"_id ) ) > 0 ) {
         wet_penalty += .5;
         add_msg( m_info, _( "Your wet feet make it harder to climb." ) );
     }
 
-    if( u.get_part_wetness( bodypart_id( "hand_l" ) ) > 0 ||
-        u.get_part_wetness( bodypart_id( "hand_r" ) ) > 0 ) {
+    if( u.get_part_wetness( bodypart_id( "hand_l"_id ) ) > 0 ||
+        u.get_part_wetness( bodypart_id( "hand_r"_id ) ) > 0 ) {
         wet_penalty += .5;
         add_msg( m_info, _( "Your wet hands make it harder to climb." ) );
     }

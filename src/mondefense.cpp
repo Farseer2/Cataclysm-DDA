@@ -33,8 +33,8 @@
 #include "type_id.h"
 #include "viewer.h"
 
-static const skill_id skill_gun( "gun" );
-static const skill_id skill_rifle( "rifle" );
+static const skill_id skill_gun( "gun"_id );
+static const skill_id skill_rifle( "rifle"_id );
 
 void mdefense::none( monster &, Creature *, const dealt_projectile_attack * )
 {
@@ -55,8 +55,8 @@ void mdefense::zapback( monster &m, Creature *const source,
         // Players/NPCs can avoid the shock if they wear non-conductive gear on their hands
         for( const item &i : foe->worn ) {
             if( !i.conductive()
-                && ( ( i.get_coverage( bodypart_id( "hand_l" ) ) >= 95 ) ||
-                     i.get_coverage( bodypart_id( "hand_r" ) ) >= 95 ) ) {
+                && ( ( i.get_coverage( bodypart_id( "hand_l"_id ) ) >= 95 ) ||
+                     i.get_coverage( bodypart_id( "hand_r"_id ) ) >= 95 ) ) {
                 return;
             }
         }
@@ -84,8 +84,8 @@ void mdefense::zapback( monster &m, Creature *const source,
     const damage_instance shock {
         damage_type::ELECTRIC, static_cast<float>( rng( 1, 5 ) )
     };
-    source->deal_damage( &m, bodypart_id( "arm_l" ), shock );
-    source->deal_damage( &m, bodypart_id( "arm_r" ), shock );
+    source->deal_damage( &m, bodypart_id( "arm_l"_id ), shock );
+    source->deal_damage( &m, bodypart_id( "arm_r"_id ), shock );
 
     source->check_dead_state();
 }
@@ -116,7 +116,7 @@ void mdefense::acidsplash( monster &m, Creature *const source,
                 const damage_instance acid_burn{
                     damage_type::ACID, static_cast<float>( rng( 1, 5 ) )
                 };
-                source->deal_damage( &m, one_in( 2 ) ? bodypart_id( "hand_l" ) : bodypart_id( "hand_r" ),
+                source->deal_damage( &m, one_in( 2 ) ? bodypart_id( "hand_l"_id ) : bodypart_id( "hand_r"_id ),
                                      acid_burn );
                 source->add_msg_if_player( m_bad, _( "Acid covering %s burns your hand!" ), m.disp_name() );
             }
@@ -199,7 +199,7 @@ void mdefense::return_fire( monster &m, Creature *source, const dealt_projectile
             // ...and weapon, everything based on turret's properties
             tmp.weapon = item( gunactor->gun_type ).ammo_set( gunactor->ammo_type,
                          m.ammo[ gunactor->ammo_type ] );
-            const int burst = std::max( tmp.weapon.gun_get_mode( gun_mode_id( "DEFAULT" ) ).qty, 1 );
+            const int burst = std::max( tmp.weapon.gun_get_mode( gun_mode_id( "DEFAULT"_id ) ).qty, 1 );
 
             // Fire the weapon and consume ammo
             m.ammo[ gunactor->ammo_type ] -= tmp.fire_gun( fire_point, burst ) * tmp.weapon.ammo_required();

@@ -21,8 +21,8 @@ template <typename E> struct enum_traits;
 template<typename T>
 class generic_factory;
 
-const weather_type_id WEATHER_NULL( "null" );
-const weather_type_id WEATHER_CLEAR( "clear" );
+const weather_type_id WEATHER_NULL( "null"_id );
+const weather_type_id WEATHER_CLEAR( "clear"_id );
 
 enum class precip_class : int {
     none,

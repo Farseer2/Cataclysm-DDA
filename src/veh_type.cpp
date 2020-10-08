@@ -264,7 +264,7 @@ void vpart_info::load_engine( cata::optional<vpslot_engine> &eptr, const JsonObj
         for( const std::string line : fuel_opts ) {
             e_info.fuel_opts.push_back( itype_id( line ) );
         }
-    } else if( e_info.fuel_opts.empty() && fuel_type != itype_id( "null" ) ) {
+    } else if( e_info.fuel_opts.empty() && fuel_type != itype_id( "null"_id ) ) {
         e_info.fuel_opts.push_back( fuel_type );
     }
     eptr = e_info;
@@ -856,8 +856,8 @@ int vpart_info::format_description( std::string &msg, const nc_color &format_col
     }
 
     // borrowed from item.cpp and adjusted
-    const quality_id quality_jack( "JACK" );
-    const quality_id quality_lift( "LIFT" );
+    const quality_id quality_jack( "JACK"_id );
+    const quality_id quality_lift( "LIFT"_id );
     for( const auto &qual : qualities ) {
         msg += string_format(
                    _( "Has level <color_cyan>%1$d %2$s</color> quality" ), qual.second, qual.first.obj().name );

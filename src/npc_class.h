@@ -76,7 +76,7 @@ class npc_class
         Group_tag weapon_override;
 
         std::map<mutation_category_id, distribution> mutation_rounds;
-        trait_group::Trait_group_tag traits = trait_group::Trait_group_tag( "EMPTY_GROUP" );
+        trait_group::Trait_group_tag traits = trait_group::Trait_group_tag( "EMPTY_GROUP"_id );
         // the int is what level the spell starts at
         std::map<spell_id, int> _starting_spells;
         std::map<bionic_id, int> bionic_list;

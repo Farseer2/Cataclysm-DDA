@@ -36,11 +36,11 @@
 #include "ui_manager.h"
 #include "value_ptr.h"
 
-static const skill_id skill_unarmed( "unarmed" );
+static const skill_id skill_unarmed( "unarmed"_id );
 
-static const bionic_id bio_armor_arms( "bio_armor_arms" );
-static const bionic_id bio_armor_legs( "bio_armor_legs" );
-static const bionic_id bio_cqb( "bio_cqb" );
+static const bionic_id bio_armor_arms( "bio_armor_arms"_id );
+static const bionic_id bio_armor_legs( "bio_armor_legs"_id );
+static const bionic_id bio_cqb( "bio_cqb"_id );
 
 static const std::string flag_UNARMED_WEAPON( "UNARMED_WEAPON" );
 
@@ -269,7 +269,7 @@ void martialart::load( const JsonObject &jo, const std::string & )
         skill_level = stoi( skill_level_string );
         autolearn_skills.emplace_back( skill_name, skill_level );
     }
-    optional( jo, was_loaded, "primary_skill", primary_skill, skill_id( "unarmed" ) );
+    optional( jo, was_loaded, "primary_skill", primary_skill, skill_id( "unarmed"_id ) );
     optional( jo, was_loaded, "learn_difficulty", learn_difficulty );
 
     optional( jo, was_loaded, "static_buffs", static_buffs, ma_buff_reader{} );
@@ -991,8 +991,8 @@ bool character_martial_arts::can_arm_block( const Character &owner ) const
                             skill_unarmed );
 
     // Success conditions.
-    if( !owner.is_limb_broken( bodypart_id( "arm_l" ) ) ||
-        !owner.is_limb_broken( bodypart_id( "arm_r" ) ) ) {
+    if( !owner.is_limb_broken( bodypart_id( "arm_l"_id ) ) ||
+        !owner.is_limb_broken( bodypart_id( "arm_r"_id ) ) ) {
         if( unarmed_skill >= ma.arm_block ) {
             return true;
         } else if( ma.arm_block_with_bio_armor_arms && owner.has_bionic( bio_armor_arms ) ) {

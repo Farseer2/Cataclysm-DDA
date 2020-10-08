@@ -124,12 +124,10 @@ class generic_factory
         // it's incremented when any changes to the inner id containers occur
         // version value corresponds to the string_id::_version,
         // so incrementing the version here effectively invalidates all cached string_id::_cid
-        int64_t  version = 0;
+        int version = 0;
 
         void inc_version() {
-            do {
-                version++;
-            } while( version == INVALID_VERSION );
+            version++;
         }
 
     protected:

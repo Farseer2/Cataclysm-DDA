@@ -41,7 +41,7 @@ bool game::dump_stats( const std::string &what, dump_mode mode,
     try {
         loading_ui ui( false );
         load_core_data( ui );
-        load_packs( _( "Loading content packs" ), { mod_id( "dda" ) }, ui );
+        load_packs( _( "Loading content packs" ), { mod_id( "dda"_id ) }, ui );
         DynamicDataLoader::get_instance().finalize_loaded_data( ui );
     } catch( const std::exception &err ) {
         std::cerr << "Error loading data from json: " << err.what() << std::endl;
@@ -70,10 +70,10 @@ bool game::dump_stats( const std::string &what, dump_mode mode,
                             4, 8, 10, 8, 10 /* DEX 10, PER 10 */ );
 
     std::map<std::string, item> test_items;
-    test_items[ "G1" ] = item( "glock_19" ).ammo_set( itype_id( "9mm" ) );
-    test_items[ "G2" ] = item( "hk_mp5" ).ammo_set( itype_id( "9mm" ) );
-    test_items[ "G3" ] = item( "ar15" ).ammo_set( itype_id( "223" ) );
-    test_items[ "G4" ] = item( "remington_700" ).ammo_set( itype_id( "270" ) );
+    test_items[ "G1" ] = item( "glock_19" ).ammo_set( itype_id( "9mm"_id ) );
+    test_items[ "G2" ] = item( "hk_mp5" ).ammo_set( itype_id( "9mm"_id ) );
+    test_items[ "G3" ] = item( "ar15" ).ammo_set( itype_id( "223"_id ) );
+    test_items[ "G4" ] = item( "remington_700" ).ammo_set( itype_id( "270"_id ) );
     test_items[ "G4" ].put_in( item( "rifle_scope" ), item_pocket::pocket_type::MOD );
 
     if( what == "AMMO" ) {
@@ -106,7 +106,7 @@ bool game::dump_stats( const std::string &what, dump_mode mode,
         header = {
             "Name", "Encumber (fit)", "Warmth", "Weight", "Coverage", "Bash", "Cut", "Bullet", "Acid", "Fire"
         };
-        const bodypart_id bp_null( "bp_null" );
+        const bodypart_id bp_null( "bp_null"_id );
         bodypart_id bp = opts.empty() ? bp_null : bodypart_id( opts.front() );
         auto dump = [&rows, &bp]( const item & obj ) {
             std::vector<std::string> r;

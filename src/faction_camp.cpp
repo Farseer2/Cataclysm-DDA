@@ -87,63 +87,63 @@
 
 class character_id;
 
-static const activity_id ACT_MOVE_LOOT( "ACT_MOVE_LOOT" );
+static const activity_id ACT_MOVE_LOOT( "ACT_MOVE_LOOT"_id );
 
-static const itype_id itype_fungal_seeds( "fungal_seeds" );
-static const itype_id itype_log( "log" );
-static const itype_id itype_marloss_seed( "marloss_seed" );
+static const itype_id itype_fungal_seeds( "fungal_seeds"_id );
+static const itype_id itype_log( "log"_id );
+static const itype_id itype_marloss_seed( "marloss_seed"_id );
 
 static const std::string flag_PLOWABLE( "PLOWABLE" );
 static const std::string flag_TREE( "TREE" );
 
-static const zone_type_id zone_type_CAMP_FOOD( "CAMP_FOOD" );
-static const zone_type_id zone_type_CAMP_STORAGE( "CAMP_STORAGE" );
+static const zone_type_id zone_type_CAMP_FOOD( "CAMP_FOOD"_id );
+static const zone_type_id zone_type_CAMP_STORAGE( "CAMP_STORAGE"_id );
 
-static const skill_id skill_bashing( "bashing" );
-static const skill_id skill_cutting( "cutting" );
-static const skill_id skill_dodge( "dodge" );
-static const skill_id skill_fabrication( "fabrication" );
-static const skill_id skill_gun( "gun" );
-static const skill_id skill_mechanics( "mechanics" );
-static const skill_id skill_melee( "melee" );
-static const skill_id skill_speech( "speech" );
-static const skill_id skill_stabbing( "stabbing" );
-static const skill_id skill_survival( "survival" );
-static const skill_id skill_swimming( "swimming" );
-static const skill_id skill_traps( "traps" );
-static const skill_id skill_unarmed( "unarmed" );
+static const skill_id skill_bashing( "bashing"_id );
+static const skill_id skill_cutting( "cutting"_id );
+static const skill_id skill_dodge( "dodge"_id );
+static const skill_id skill_fabrication( "fabrication"_id );
+static const skill_id skill_gun( "gun"_id );
+static const skill_id skill_mechanics( "mechanics"_id );
+static const skill_id skill_melee( "melee"_id );
+static const skill_id skill_speech( "speech"_id );
+static const skill_id skill_stabbing( "stabbing"_id );
+static const skill_id skill_survival( "survival"_id );
+static const skill_id skill_swimming( "swimming"_id );
+static const skill_id skill_traps( "traps"_id );
+static const skill_id skill_unarmed( "unarmed"_id );
 
-static const mtype_id mon_bear( "mon_bear" );
-static const mtype_id mon_beaver( "mon_beaver" );
-static const mtype_id mon_black_rat( "mon_black_rat" );
-static const mtype_id mon_chicken( "mon_chicken" );
-static const mtype_id mon_chipmunk( "mon_chipmunk" );
-static const mtype_id mon_cockatrice( "mon_cockatrice" );
-static const mtype_id mon_cougar( "mon_cougar" );
-static const mtype_id mon_cow( "mon_cow" );
-static const mtype_id mon_coyote( "mon_coyote" );
-static const mtype_id mon_deer( "mon_deer" );
-static const mtype_id mon_duck( "mon_duck" );
-static const mtype_id mon_fox_gray( "mon_fox_gray" );
-static const mtype_id mon_fox_red( "mon_fox_red" );
-static const mtype_id mon_groundhog( "mon_groundhog" );
-static const mtype_id mon_grouse( "mon_grouse" );
-static const mtype_id mon_hare( "mon_hare" );
-static const mtype_id mon_lemming( "mon_lemming" );
-static const mtype_id mon_mink( "mon_mink" );
-static const mtype_id mon_moose( "mon_moose" );
-static const mtype_id mon_muskrat( "mon_muskrat" );
-static const mtype_id mon_opossum( "mon_opossum" );
-static const mtype_id mon_otter( "mon_otter" );
-static const mtype_id mon_pheasant( "mon_pheasant" );
-static const mtype_id mon_pig( "mon_pig" );
-static const mtype_id mon_rabbit( "mon_rabbit" );
-static const mtype_id mon_squirrel( "mon_squirrel" );
-static const mtype_id mon_turkey( "mon_turkey" );
-static const mtype_id mon_weasel( "mon_weasel" );
-static const mtype_id mon_wolf( "mon_wolf" );
+static const mtype_id mon_bear( "mon_bear"_id );
+static const mtype_id mon_beaver( "mon_beaver"_id );
+static const mtype_id mon_black_rat( "mon_black_rat"_id );
+static const mtype_id mon_chicken( "mon_chicken"_id );
+static const mtype_id mon_chipmunk( "mon_chipmunk"_id );
+static const mtype_id mon_cockatrice( "mon_cockatrice"_id );
+static const mtype_id mon_cougar( "mon_cougar"_id );
+static const mtype_id mon_cow( "mon_cow"_id );
+static const mtype_id mon_coyote( "mon_coyote"_id );
+static const mtype_id mon_deer( "mon_deer"_id );
+static const mtype_id mon_duck( "mon_duck"_id );
+static const mtype_id mon_fox_gray( "mon_fox_gray"_id );
+static const mtype_id mon_fox_red( "mon_fox_red"_id );
+static const mtype_id mon_groundhog( "mon_groundhog"_id );
+static const mtype_id mon_grouse( "mon_grouse"_id );
+static const mtype_id mon_hare( "mon_hare"_id );
+static const mtype_id mon_lemming( "mon_lemming"_id );
+static const mtype_id mon_mink( "mon_mink"_id );
+static const mtype_id mon_moose( "mon_moose"_id );
+static const mtype_id mon_muskrat( "mon_muskrat"_id );
+static const mtype_id mon_opossum( "mon_opossum"_id );
+static const mtype_id mon_otter( "mon_otter"_id );
+static const mtype_id mon_pheasant( "mon_pheasant"_id );
+static const mtype_id mon_pig( "mon_pig"_id );
+static const mtype_id mon_rabbit( "mon_rabbit"_id );
+static const mtype_id mon_squirrel( "mon_squirrel"_id );
+static const mtype_id mon_turkey( "mon_turkey"_id );
+static const mtype_id mon_weasel( "mon_weasel"_id );
+static const mtype_id mon_wolf( "mon_wolf"_id );
 
-static const trait_id trait_DEBUG_HS( "DEBUG_HS" );
+static const trait_id trait_DEBUG_HS( "DEBUG_HS"_id );
 
 struct mass_volume {
     units::mass wgt = 0_gram;
@@ -1920,7 +1920,7 @@ void basecamp::start_cut_logs()
         sample_npc.set_fake( true );
         int tree_est = om_cutdown_trees_est( forest, 50 );
         int tree_young_est = om_harvest_ter_est( sample_npc, forest,
-                             ter_id( "t_tree_young" ), 50 );
+                             ter_id( "t_tree_young"_id ), 50 );
         int dist = rl_dist( forest.xy(), omt_pos.xy() );
         //Very roughly what the player does + 6 hours for prep, clean up, breaks
         time_duration chop_time = 6_hours + 1_hours * tree_est + 7_minutes * tree_young_est;
@@ -1938,7 +1938,7 @@ void basecamp::start_cut_logs()
                                       skill_fabrication, 2 );
         if( comp != nullptr ) {
             om_cutdown_trees_logs( forest, 50 );
-            om_harvest_ter( *comp, forest, ter_id( "t_tree_young" ), 50 );
+            om_harvest_ter( *comp, forest, ter_id( "t_tree_young"_id ), 50 );
             mass_volume harvest = om_harvest_itm( comp, forest, 95 );
             // recalculate trips based on actual load and capacity
             travel_time = companion_travel_time_calc( forest, omt_pos, 0_minutes, 2,
@@ -1950,7 +1950,7 @@ void basecamp::start_cut_logs()
                 const oter_id &omt_trees = overmap_buffer.ter( forest );
                 //Do this for swamps "forest_wet" if we have a swamp without trees...
                 if( omt_trees.id() != "forest_wet" ) {
-                    overmap_buffer.ter_set( forest, oter_id( "field" ) );
+                    overmap_buffer.ter_set( forest, oter_id( "field"_id ) );
                 }
             }
         }
@@ -1967,7 +1967,7 @@ void basecamp::start_clearcut()
         sample_npc.set_fake( true );
         int tree_est = om_cutdown_trees_est( forest, 95 );
         int tree_young_est = om_harvest_ter_est( sample_npc, forest,
-                             ter_id( "t_tree_young" ), 95 );
+                             ter_id( "t_tree_young"_id ), 95 );
         int dist = rl_dist( forest.xy(), omt_pos.xy() );
         //Very roughly what the player does + 6 hours for prep, clean up, breaks
         time_duration chop_time = 6_hours + 1_hours * tree_est + 7_minutes * tree_young_est;
@@ -1983,10 +1983,10 @@ void basecamp::start_clearcut()
                                       skill_fabrication, 1 );
         if( comp != nullptr ) {
             om_cutdown_trees_trunks( forest, 95 );
-            om_harvest_ter_break( *comp, forest, ter_id( "t_tree_young" ), 95 );
+            om_harvest_ter_break( *comp, forest, ter_id( "t_tree_young"_id ), 95 );
             //If we cleared a forest...
             if( om_cutdown_trees_est( forest ) < 5 ) {
-                overmap_buffer.ter_set( forest, oter_id( "field" ) );
+                overmap_buffer.ter_set( forest, oter_id( "field"_id ) );
             }
         }
     }
@@ -3231,7 +3231,7 @@ int om_cutdown_trees( const tripoint_abs_omt &omt_tgt, int chance, bool estimate
     }
     // having cut down the trees, cut the trunks into logs
     for( const tripoint &p : target_bay.points_in_rectangle( mapmin, mapmax ) ) {
-        if( target_bay.ter( p ) == ter_id( "t_trunk" ) ) {
+        if( target_bay.ter( p ) == ter_id( "t_trunk"_id ) ) {
             target_bay.ter_set( p, t_dirt );
             target_bay.spawn_item( p, itype_log, rng( 2, 3 ), 0, calendar::turn );
             harvested++;
@@ -3432,7 +3432,7 @@ bool om_set_hide_site( npc &comp, const tripoint_abs_omt &omt_tgt,
     }
     target_bay.save();
 
-    overmap_buffer.ter_set( omt_tgt, oter_id( "faction_hide_site_0" ) );
+    overmap_buffer.ter_set( omt_tgt, oter_id( "faction_hide_site_0"_id ) );
 
     overmap_buffer.reveal( omt_tgt.xy(), 3, 0 );
     return true;
@@ -3493,7 +3493,7 @@ int om_carry_weight_to_trips( const std::vector<item *> &itms, const npc_ptr &co
     }
     units::mass max_m = comp ? comp->weight_capacity() - comp->weight_carried() : 30_kilogram;
     //Assume an additional pack will be carried in addition to normal gear
-    units::volume sack_v = item( itype_id( "makeshift_sling" ) ).contents.total_container_capacity();
+    units::volume sack_v = item( itype_id( "makeshift_sling"_id ) ).contents.total_container_capacity();
     units::volume max_v = comp ? comp->free_space() : sack_v;
     max_v += sack_v;
     return om_carry_weight_to_trips( total_m, total_v, max_m, max_v );
@@ -3824,7 +3824,7 @@ std::string camp_car_description( vehicle *car )
             const vpart_info &vp = vpr.part().info();
             entry += string_format( ">%s:%*d%%\n", vp.name(), 32 - utf8_width( vp.name() ),
                                     static_cast<int>( 100.0 * vpr.part().ammo_remaining() /
-                                            vpr.part().ammo_capacity( ammotype( "battery" ) ) ) );
+                                            vpr.part().ammo_capacity( ammotype( "battery"_id ) ) ) );
         }
     }
     entry += "\n";

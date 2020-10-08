@@ -21,12 +21,12 @@
 #include "string_formatter.h"
 #include "string_id.h"
 
-static const skill_id skill_traps( "traps" );
+static const skill_id skill_traps( "traps"_id );
 
-static const efftype_id effect_lack_sleep( "lack_sleep" );
+static const efftype_id effect_lack_sleep( "lack_sleep"_id );
 
-static const trait_id trait_PROF_PD_DET( "PROF_PD_DET" );
-static const trait_id trait_PROF_POLICE( "PROF_POLICE" );
+static const trait_id trait_PROF_PD_DET( "PROF_PD_DET"_id );
+static const trait_id trait_PROF_POLICE( "PROF_POLICE"_id );
 
 namespace
 {
@@ -210,7 +210,7 @@ bool trap::detect_trap( const tripoint &pos, const Character &p ) const
     //   noticing a buried landmine if standing right next to it.
     // Effective Perception...
     ///\EFFECT_PER increases chance of detecting a trap
-    return p.per_cur - p.encumb( bodypart_id( "eyes" ) ) / 10 +
+    return p.per_cur - p.encumb( bodypart_id( "eyes"_id ) ) / 10 +
            // ...small bonus from stimulants...
            ( p.get_stim() > 10 ? rng( 1, 2 ) : 0 ) +
            // ...bonus from trap skill...

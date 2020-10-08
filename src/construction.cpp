@@ -60,32 +60,32 @@
 #include "vehicle.h"
 #include "vpart_position.h"
 
-static const activity_id ACT_BUILD( "ACT_BUILD" );
-static const activity_id ACT_MULTIPLE_CONSTRUCTION( "ACT_MULTIPLE_CONSTRUCTION" );
+static const activity_id ACT_BUILD( "ACT_BUILD"_id );
+static const activity_id ACT_MULTIPLE_CONSTRUCTION( "ACT_MULTIPLE_CONSTRUCTION"_id );
 
-static const construction_category_id construction_category_ALL( "ALL" );
-static const construction_category_id construction_category_FILTER( "FILTER" );
-static const construction_category_id construction_category_REPAIR( "REPAIR" );
+static const construction_category_id construction_category_ALL( "ALL"_id );
+static const construction_category_id construction_category_FILTER( "FILTER"_id );
+static const construction_category_id construction_category_REPAIR( "REPAIR"_id );
 
 static const itype_id itype_2x4( "2x4" );
-static const itype_id itype_nail( "nail" );
-static const itype_id itype_sheet( "sheet" );
-static const itype_id itype_stick( "stick" );
+static const itype_id itype_nail( "nail"_id );
+static const itype_id itype_sheet( "sheet"_id );
+static const itype_id itype_stick( "stick"_id );
 static const itype_id itype_string_36( "string_36" );
 
-static const trap_str_id tr_firewood_source( "tr_firewood_source" );
-static const trap_str_id tr_practice_target( "tr_practice_target" );
-static const trap_str_id tr_unfinished_construction( "tr_unfinished_construction" );
+static const trap_str_id tr_firewood_source( "tr_firewood_source"_id );
+static const trap_str_id tr_practice_target( "tr_practice_target"_id );
+static const trap_str_id tr_unfinished_construction( "tr_unfinished_construction"_id );
 
-static const skill_id skill_electronics( "electronics" );
-static const skill_id skill_fabrication( "fabrication" );
+static const skill_id skill_electronics( "electronics"_id );
+static const skill_id skill_fabrication( "fabrication"_id );
 
-static const quality_id qual_CUT( "CUT" );
+static const quality_id qual_CUT( "CUT"_id );
 
-static const trait_id trait_DEBUG_HS( "DEBUG_HS" );
-static const trait_id trait_PAINRESIST_TROGLO( "PAINRESIST_TROGLO" );
-static const trait_id trait_SPIRITUAL( "SPIRITUAL" );
-static const trait_id trait_STOCKY_TROGLO( "STOCKY_TROGLO" );
+static const trait_id trait_DEBUG_HS( "DEBUG_HS"_id );
+static const trait_id trait_PAINRESIST_TROGLO( "PAINRESIST_TROGLO"_id );
+static const trait_id trait_SPIRITUAL( "SPIRITUAL"_id );
+static const trait_id trait_STOCKY_TROGLO( "STOCKY_TROGLO"_id );
 
 static const std::string flag_FLAT( "FLAT" );
 static const std::string flag_INITIAL_PART( "INITIAL_PART" );
@@ -944,7 +944,7 @@ void place_construction( const std::string &desc )
         return;
     }
     std::list<item> used;
-    const construction &con = *valid.find( pnt )->second;
+    const construction &con = *valid.at( pnt );
     // create the partial construction struct
     partial_con pc;
     pc.id = con.id;
@@ -1224,7 +1224,7 @@ static vpart_id vpart_from_item( const itype_id &item_id )
         }
     }
     debugmsg( "item %s used by construction is not base item of any vehicle part!", item_id.c_str() );
-    static const vpart_id frame_id( "frame_vertical_2" );
+    static const vpart_id frame_id( "frame_vertical_2"_id );
     return frame_id;
 }
 
@@ -1239,7 +1239,7 @@ void construct::done_vehicle( const tripoint &p )
     }
 
     map &here = get_map();
-    vehicle *veh = here.add_vehicle( vproto_id( "none" ), p, 270, 0, 0 );
+    vehicle *veh = here.add_vehicle( vproto_id( "none"_id ), p, 270, 0, 0 );
 
     if( !veh ) {
         debugmsg( "error constructing vehicle" );
@@ -1264,17 +1264,17 @@ void construct::done_deconstruct( const tripoint &p )
             return;
         }
         Character &player_character = get_player_character();
-        if( f.id.id() == furn_str_id( "f_console_broken" ) )  {
+        if( f.id.id() == furn_str_id( "f_console_broken"_id ) )  {
             if( player_character.get_skill_level( skill_electronics ) >= 1 ) {
                 player_character.practice( skill_electronics, 20, 4 );
             }
         }
-        if( f.id.id() == furn_str_id( "f_console" ) )  {
+        if( f.id.id() == furn_str_id( "f_console"_id ) )  {
             if( player_character.get_skill_level( skill_electronics ) >= 1 ) {
                 player_character.practice( skill_electronics, 40, 8 );
             }
         }
-        if( f.id.id() == furn_str_id( "f_machinery_electronic" ) )  {
+        if( f.id.id() == furn_str_id( "f_machinery_electronic"_id ) )  {
             if( player_character.get_skill_level( skill_electronics ) >= 1 ) {
                 player_character.practice( skill_electronics, 40, 8 );
             }
@@ -1438,7 +1438,7 @@ void construct::done_mine_upstair( const tripoint &p )
 void construct::done_wood_stairs( const tripoint &p )
 {
     const tripoint top = p + tripoint_above;
-    get_map().ter_set( top, ter_id( "t_wood_stairs_down" ) );
+    get_map().ter_set( top, ter_id( "t_wood_stairs_down"_id ) );
 }
 
 void construct::done_window_curtains( const tripoint & )
@@ -1483,13 +1483,13 @@ void construct::done_mark_practice_target( const tripoint &p )
 void construct::done_ramp_low( const tripoint &p )
 {
     const tripoint top = p + tripoint_above;
-    get_map().ter_set( top, ter_id( "t_ramp_down_low" ) );
+    get_map().ter_set( top, ter_id( "t_ramp_down_low"_id ) );
 }
 
 void construct::done_ramp_high( const tripoint &p )
 {
     const tripoint top = p + tripoint_above;
-    get_map().ter_set( top, ter_id( "t_ramp_down_high" ) );
+    get_map().ter_set( top, ter_id( "t_ramp_down_high"_id ) );
 }
 
 void construct::failure_standard( const tripoint & )
@@ -1510,7 +1510,7 @@ void assign_or_debugmsg( T &dest, const std::string &fun_id,
     if( iter != possible.end() ) {
         dest = iter->second;
     } else {
-        dest = possible.find( "" )->second;
+        dest = possible.at( "" );
         const std::string list_available = enumerate_as_string( possible.begin(), possible.end(),
         []( const std::pair<std::string, T> &pr ) {
             return pr.first;

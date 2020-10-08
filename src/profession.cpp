@@ -29,7 +29,7 @@
 namespace
 {
 generic_factory<profession> all_profs( "profession" );
-const string_id<profession> generic_profession_id( "unemployed" );
+const string_id<profession> generic_profession_id( "unemployed"_id );
 } // namespace
 
 static class json_item_substitution

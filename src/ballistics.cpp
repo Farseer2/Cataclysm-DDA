@@ -35,7 +35,7 @@
 #include "visitable.h"
 #include "vpart_position.h"
 
-static const efftype_id effect_bounced( "bounced" );
+static const efftype_id effect_bounced( "bounced"_id );
 
 static const std::string flag_LIQUID( "LIQUID" );
 
@@ -276,7 +276,7 @@ dealt_projectile_attack projectile_attack( const projectile &proj_arg, const tri
     // Add the first point to the trajectory
     trajectory.insert( trajectory.begin(), source );
 
-    static emit_id muzzle_smoke( "emit_smaller_smoke_plume" );
+    static emit_id muzzle_smoke( "emit_smaller_smoke_plume"_id );
     if( proj_effects.count( "MUZZLE_SMOKE" ) ) {
         here.emit_field( trajectory.front(), muzzle_smoke );
     }

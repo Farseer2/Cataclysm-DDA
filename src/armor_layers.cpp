@@ -28,7 +28,7 @@
 #include "ui_manager.h"
 #include "units_utility.h"
 
-static const activity_id ACT_ARMOR_LAYERS( "ACT_ARMOR_LAYERS" );
+static const activity_id ACT_ARMOR_LAYERS( "ACT_ARMOR_LAYERS"_id );
 
 static const std::string flag_AURA( "AURA" );
 static const std::string flag_BELTED( "BELTED" );
@@ -91,7 +91,7 @@ item_penalties get_item_penalties( std::list<item>::const_iterator worn_item_it,
     std::vector<std::set<std::string>> lists_of_bad_items_within;
 
     for( const bodypart_id &bp : c.get_all_body_parts() ) {
-        if( bp != _bp && _bp != bodypart_id( "bp_null" ) ) {
+        if( bp != _bp && _bp != bodypart_id( "bp_null"_id ) ) {
             continue;
         }
         if( !worn_item_it->covers( bp ) ) {
@@ -301,9 +301,9 @@ std::vector<std::string> clothing_properties(
 
     const std::string space = "  ";
 
-    const int coverage = bp == bodypart_id( "bp_null" ) ? worn_item.get_avg_coverage() :
+    const int coverage = bp == bodypart_id( "bp_null"_id ) ? worn_item.get_avg_coverage() :
                          worn_item.get_coverage( bp );
-    const int encumbrance = bp == bodypart_id( "bp_null" ) ? worn_item.get_avg_encumber(
+    const int encumbrance = bp == bodypart_id( "bp_null"_id ) ? worn_item.get_avg_encumber(
                                 c ) : worn_item.get_encumber( c, bp );
     props.push_back( string_format( "<color_c_green>[%s]</color>", _( "Properties" ) ) );
     props.push_back( name_and_value( space + _( "Coverage:" ),
@@ -456,7 +456,7 @@ void player::sort_armor()
     for( const bodypart_id &it : get_all_body_parts() ) {
         armor_cat.insert( it );
     }
-    armor_cat.insert( bodypart_id( "bp_null" ) );
+    armor_cat.insert( bodypart_id( "bp_null"_id ) );
     const int num_of_parts = get_all_body_parts().size();
     int req_right_h = 3 + 1 + 2 + num_of_parts + 1;
     for( const bodypart_id &cover : armor_cat ) {
@@ -561,7 +561,7 @@ void player::sort_armor()
         // Create ptr list of items to display
         tmp_worn.clear();
         const bodypart_id &bp = armor_cat[ tabindex ];
-        if( bp == bodypart_id( "bp_null" ) ) {
+        if( bp == bodypart_id( "bp_null"_id ) ) {
             // All
             for( auto it = worn.begin(); it != worn.end(); ++it ) {
                 tmp_worn.push_back( it );
@@ -589,7 +589,7 @@ void player::sort_armor()
 
         // top bar
         wprintz( w_sort_cat, c_white, _( "Sort Armor" ) );
-        std::string temp = bp != bodypart_id( "bp_null" ) ? body_part_name_as_heading( bp, 1 ) : _( "All" );
+        std::string temp = bp != bodypart_id( "bp_null"_id ) ? body_part_name_as_heading( bp, 1 ) : _( "All" );
         wprintz( w_sort_cat, c_yellow, "  << %s >>", temp );
         right_print( w_sort_cat, 0, 0, c_white, string_format(
                          _( "Press [<color_yellow>%s</color>] for help.  "
@@ -682,7 +682,7 @@ void player::sort_armor()
         }
         int pos = 1, curr = 0;
         for( const bodypart_id cover : rl ) {
-            if( cover == bodypart_id( "bp_null" ) ) {
+            if( cover == bodypart_id( "bp_null"_id ) ) {
                 continue;
             }
             if( curr >= rightListOffset && pos <= rightListLines ) {

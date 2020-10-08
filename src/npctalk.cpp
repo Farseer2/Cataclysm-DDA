@@ -72,24 +72,24 @@
 #include "vpart_position.h"
 #include "vpart_range.h"
 
-static const activity_id ACT_AIM( "ACT_AIM" );
-static const activity_id ACT_SOCIALIZE( "ACT_SOCIALIZE" );
-static const activity_id ACT_TRAIN( "ACT_TRAIN" );
-static const activity_id ACT_WAIT_NPC( "ACT_WAIT_NPC" );
+static const activity_id ACT_AIM( "ACT_AIM"_id );
+static const activity_id ACT_SOCIALIZE( "ACT_SOCIALIZE"_id );
+static const activity_id ACT_TRAIN( "ACT_TRAIN"_id );
+static const activity_id ACT_WAIT_NPC( "ACT_WAIT_NPC"_id );
 
-static const efftype_id effect_narcosis( "narcosis" );
-static const efftype_id effect_riding( "riding" );
-static const efftype_id effect_under_operation( "under_operation" );
+static const efftype_id effect_narcosis( "narcosis"_id );
+static const efftype_id effect_riding( "riding"_id );
+static const efftype_id effect_under_operation( "under_operation"_id );
 
-static const itype_id fuel_type_animal( "animal" );
+static const itype_id fuel_type_animal( "animal"_id );
 
-static const zone_type_id zone_type_NPC_INVESTIGATE_ONLY( "NPC_INVESTIGATE_ONLY" );
-static const zone_type_id zone_type_NPC_NO_INVESTIGATE( "NPC_NO_INVESTIGATE" );
+static const zone_type_id zone_type_NPC_INVESTIGATE_ONLY( "NPC_INVESTIGATE_ONLY"_id );
+static const zone_type_id zone_type_NPC_NO_INVESTIGATE( "NPC_NO_INVESTIGATE"_id );
 
-static const skill_id skill_speech( "speech" );
+static const skill_id skill_speech( "speech"_id );
 
-static const trait_id trait_DEBUG_MIND_CONTROL( "DEBUG_MIND_CONTROL" );
-static const trait_id trait_PROF_FOODP( "PROF_FOODP" );
+static const trait_id trait_DEBUG_MIND_CONTROL( "DEBUG_MIND_CONTROL"_id );
+static const trait_id trait_PROF_FOODP( "PROF_FOODP"_id );
 
 static std::map<std::string, json_talk_topic> json_talk_topics;
 
@@ -410,8 +410,8 @@ void game::chat()
     const int guard_count = guards.size();
 
     if( player_character.has_trait( trait_PROF_FOODP ) &&
-        !( player_character.is_wearing( itype_id( "foodperson_mask" ) ) ||
-           player_character.is_wearing( itype_id( "foodperson_mask_on" ) ) ) ) {
+        !( player_character.is_wearing( itype_id( "foodperson_mask"_id ) ) ||
+           player_character.is_wearing( itype_id( "foodperson_mask_on"_id ) ) ) ) {
         add_msg( m_warning, _( "You can't speak without your face!" ) );
         return;
     }
@@ -812,7 +812,7 @@ std::string dialogue::dynamic_line( const talk_topic &the_topic ) const
                                  "medication or sedation wears off.\nYou estimate it will wear "
                                  "off in %2$s." ),
                               beta->disp_name(),
-                              to_string_approx( player_character.estimate_effect_dur( skill_id( "firstaid" ),
+                              to_string_approx( player_character.estimate_effect_dur( skill_id( "firstaid"_id ),
                                                 effect_narcosis, 15_minutes, 6,
                                                 *beta->get_npc() ) ) );
     }

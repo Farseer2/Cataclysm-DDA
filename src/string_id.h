@@ -14,6 +14,47 @@ class int_id;
 template<typename T>
 class generic_factory;
 
+namespace Hash {
+    namespace CompileTime {
+        constexpr uint64_t fnv1a_64(const char* byte_data, size_t length)
+        {
+            return length ? (fnv1a_64(byte_data, length - 1) * 1099511628211ull) ^ byte_data[length - 1]
+                          : 14695981039346656037ull;
+        }
+    }
+
+    namespace RunTime {
+        // MSVC doesn't optimize compile time fnv1a_64 well, so have a runtime variation as well:
+        inline uint64_t fnv1a_64(const void* data, size_t length)
+        {
+            auto byte_data = reinterpret_cast<const char*>(data);
+            uint64_t hash = 14695981039346656037ull;
+            for (int i = 0; i < length; i++) {
+                hash *= 1099511628211ull;
+                hash ^= byte_data[i];
+            }
+            return hash;
+        }
+    }
+}
+
+struct compile_time_id {
+    uint64_t hash;
+    const char * string;
+
+    explicit operator std::string() const {
+        return string;
+    }
+};
+
+constexpr compile_time_id operator"" _id(const char* str, size_t count)
+{
+    // This allows us to compute the hash of all compiled IDs in compile time.
+    // However, since constexpr doesn't allow us to create a collection of all precompiled strings
+    // we have to save both the string and its hash, so cached_strings will have a copy of the correct string.
+    return { Hash::CompileTime::fnv1a_64(str, count), str };
+}
+
 /**
  * This represents an identifier (implemented as std::string) of some object.
  * It can be used for all type of objects, one just needs to specify a type as
@@ -71,41 +112,62 @@ class string_id
     public:
         using This = string_id<T>;
 
-        /**
-         * Forwarding constructor, forwards any parameter to the std::string
-         * constructor to create the id string. This allows plain C-strings,
-         * and std::strings to be used.
-         */
-        // Beautiful C++11: enable_if makes sure that S is always something that can be used to constructor
-        // a std::string, otherwise a "no matching function to call..." error is generated.
+        constexpr string_id(compile_time_id cti) : _hash(cti.hash), _is_char_ptr(true), _char_ptr(cti.string) {}
+
         template<typename S, class = typename
-                 std::enable_if< std::is_convertible<S, std::string >::value>::type >
-        explicit string_id( S &&
-                            id ) : _id( std::forward<S>( id ) ), _cid( INVALID_CID ), _version( INVALID_VERSION ) {}
+            std::enable_if< std::is_convertible< S, std::string >::value>::type >
+        explicit string_id(S && id) {
+            auto str = std::make_unique<std::string>(std::forward<S>(id));
+            uint64_t hash = Hash::RunTime::fnv1a_64(str->c_str(), str->size());
+            _hash = hash;
+
+            auto insertion = cached_strings().try_emplace(hash, std::move(str));
+            auto cached_string = insertion.first->second.get();
+
+            // Verify we don't have hash collisions
+            //assert(insertion.second || *cached_string == id);
+
+            _string = cached_string;
+        }
+
+        /* TODO Something in the likes of this can be done to optimize string_id copies:
+         * template<typename S>
+         * string_id(const string_id<S>& other) : _hash(other.hash()), _string(&other.str()) {}
+         */
+
         /**
          * Default constructor constructs an empty id string.
          * Note that this id class does not enforce empty id strings (or any specific string at all)
          * to be special. Every string (including the empty one) may be a valid id.
          */
-        string_id() : _cid( INVALID_CID ), _version( INVALID_VERSION ) {}
+        constexpr string_id() : string_id(""_id) {};
         /**
          * Comparison, only useful when the id is used in std::map or std::set as key. Compares
          * the string id as with the strings comparison.
          */
         bool operator<( const This &rhs ) const {
-            return _id < rhs._id;
+            //return _hash < rhs._hash;
+            // Not str() compares to prevent needless tier ups to std::string
+            return strcmp(c_str(), rhs.c_str()) < 0;
         }
         /**
          * The usual comparator, compares the string id as usual.
          */
         bool operator==( const This &rhs ) const {
-            bool can_compare_cid = ( _cid != INVALID_CID || rhs._cid != INVALID_CID ) &&
-                                   _version == rhs._version && _version != INVALID_VERSION;
-            return ( can_compare_cid && _cid == rhs._cid ) ||
-                   ( !can_compare_cid && _id == rhs._id );
-            // else returns false, when:
-            //      can_compare_cid && _cid != rhs._cid
-            //  OR  !can_compare_cid && _id != rhs._id
+            return _hash == rhs._hash;
+        }
+        /**
+         * Allows to quickly compare hashes, when caching the hash would be faster
+         */
+        bool operator==(uint64_t hash) const {
+            return _hash == hash;
+        }
+        /**
+         * The comparator for the _id user defined literal.
+         * Allows for fast compares using a precalculated hash.
+         */
+        bool operator==(compile_time_id cti) const {
+            return _hash == cti.hash;
         }
         /**
          * The usual comparator, compares the string id as usual.
@@ -119,7 +181,7 @@ class string_id
          * to be included in the format string, e.g. debugmsg("invalid id: %s", id.c_str())
          */
         const char *c_str() const {
-            return _id.c_str();
+            return _is_char_ptr ? _char_ptr : str().c_str();
         }
         /**
          * Returns the identifier as plain std::string. Use with care, the plain string does not
@@ -127,11 +189,19 @@ class string_id
          * the class).
          */
         const std::string &str() const {
-            return _id;
+            if (_is_char_ptr) {
+                // We don't want to break the constness of str(), and this change is 100% internal with
+                // observable side effects, therefore we break the constness of this to cache the string.
+                auto wthis = const_cast<This*>(this);
+                auto string = std::make_unique<std::string>(_char_ptr);
+                wthis->_string = cached_strings().try_emplace(_hash, std::move(string)).first->second.get();
+                wthis->_is_char_ptr = false;
+            }
+            return *_string;
         }
 
         explicit operator std::string() const {
-            return _id;
+            return str();
         }
 
         // Those are optional, you need to implement them on your own if you want to use them.
@@ -170,7 +240,8 @@ class string_id
          * keep consistency with the rest is_.. functions
          */
         bool is_empty() const {
-            return _id.empty();
+            // Alternatively: return _is_char_ptr ? _char_ptr[0] : str().empty();
+            return ""_id.hash == _hash;
         }
         /**
          * Returns a null id whose `string_id<T>::is_null()` must always return true. See @ref is_null.
@@ -208,14 +279,31 @@ class string_id
             return !is_null();
         }
 
-    private:
-        std::string _id;
-        // cached int_id counterpart of this string_id
-        mutable int _cid;
-        // generic_factory version that corresponds to the _cid
-        mutable int64_t _version;
+        uint64_t hash() const {
+            return _hash;
+        }
 
-        inline void set_cid_version( int cid, int64_t version ) const {
+    private:
+        std::map < uint64_t, std::unique_ptr< std::string > >& cached_strings() const {
+            static std::map < uint64_t, std::unique_ptr< std::string > > cached_strings_{};
+            return cached_strings_;
+        }
+
+        uint64_t _hash = ""_id.hash;
+
+        union {
+            std::string* _string;
+            const char* _char_ptr;
+        };
+
+        // cached int_id counterpart of this string_id
+        mutable int _cid = INVALID_CID;
+        // generic_factory version that corresponds to the _cid
+        mutable int _version = INVALID_VERSION;
+        // To save these extra 8 bytes, move the bool into the MSb of _string
+        bool _is_char_ptr = false;
+
+        inline void set_cid_version( int cid, int version ) const {
             _cid = cid;
             _version = version;
         }
@@ -229,7 +317,7 @@ namespace std
 template<typename T>
 struct hash< string_id<T> > {
     std::size_t operator()( const string_id<T> &v ) const noexcept {
-        return hash<std::string>()( v.str() );
+        return static_cast<size_t>( v.hash() );
     }
 };
 } // namespace std

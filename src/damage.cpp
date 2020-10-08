@@ -194,7 +194,7 @@ void damage_instance::deserialize( JsonIn &jsin )
 dealt_damage_instance::dealt_damage_instance()
 {
     dealt_dams.fill( 0 );
-    bp_hit  = bodypart_id( "torso" );
+    bp_hit  = bodypart_id( "torso"_id );
 }
 
 void dealt_damage_instance::set_damage( damage_type dt, int amount )
@@ -309,9 +309,9 @@ std::string name_by_dt( const damage_type &dt )
 
 const skill_id &skill_by_dt( damage_type dt )
 {
-    static skill_id skill_bashing( "bashing" );
-    static skill_id skill_cutting( "cutting" );
-    static skill_id skill_stabbing( "stabbing" );
+    static skill_id skill_bashing( "bashing"_id );
+    static skill_id skill_cutting( "cutting"_id );
+    static skill_id skill_stabbing( "stabbing"_id );
 
     switch( dt ) {
         case damage_type::BASH:

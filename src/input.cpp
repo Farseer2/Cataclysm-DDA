@@ -38,7 +38,7 @@
 using std::min; // from <algorithm>
 using std::max;
 
-static const std::string default_context_id( "default" );
+static const std::string default_context_id( "default"_id );
 
 template <class T1, class T2>
 struct ContainsPredicate {

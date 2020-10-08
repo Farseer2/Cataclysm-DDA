@@ -60,114 +60,114 @@
 #include "viewer.h"
 #include "weather.h"
 
-static const efftype_id effect_badpoison( "badpoison" );
-static const efftype_id effect_beartrap( "beartrap" );
-static const efftype_id effect_bleed( "bleed" );
-static const efftype_id effect_blind( "blind" );
-static const efftype_id effect_bouldering( "bouldering" );
-static const efftype_id effect_crushed( "crushed" );
-static const efftype_id effect_deaf( "deaf" );
-static const efftype_id effect_docile( "docile" );
-static const efftype_id effect_downed( "downed" );
-static const efftype_id effect_emp( "emp" );
-static const efftype_id effect_grabbed( "grabbed" );
-static const efftype_id effect_grabbing( "grabbing" );
-static const efftype_id effect_heavysnare( "heavysnare" );
-static const efftype_id effect_hit_by_player( "hit_by_player" );
-static const efftype_id effect_in_pit( "in_pit" );
-static const efftype_id effect_lightsnare( "lightsnare" );
-static const efftype_id effect_monster_armor( "monster_armor" );
-static const efftype_id effect_no_sight( "no_sight" );
-static const efftype_id effect_onfire( "onfire" );
-static const efftype_id effect_pacified( "pacified" );
-static const efftype_id effect_paralyzepoison( "paralyzepoison" );
-static const efftype_id effect_poison( "poison" );
-static const efftype_id effect_ridden( "ridden" );
-static const efftype_id effect_run( "run" );
-static const efftype_id effect_stunned( "stunned" );
-static const efftype_id effect_supercharged( "supercharged" );
-static const efftype_id effect_tied( "tied" );
-static const efftype_id effect_webbed( "webbed" );
+static const efftype_id effect_badpoison( "badpoison"_id );
+static const efftype_id effect_beartrap( "beartrap"_id );
+static const efftype_id effect_bleed( "bleed"_id );
+static const efftype_id effect_blind( "blind"_id );
+static const efftype_id effect_bouldering( "bouldering"_id );
+static const efftype_id effect_crushed( "crushed"_id );
+static const efftype_id effect_deaf( "deaf"_id );
+static const efftype_id effect_docile( "docile"_id );
+static const efftype_id effect_downed( "downed"_id );
+static const efftype_id effect_emp( "emp"_id );
+static const efftype_id effect_grabbed( "grabbed"_id );
+static const efftype_id effect_grabbing( "grabbing"_id );
+static const efftype_id effect_heavysnare( "heavysnare"_id );
+static const efftype_id effect_hit_by_player( "hit_by_player"_id );
+static const efftype_id effect_in_pit( "in_pit"_id );
+static const efftype_id effect_lightsnare( "lightsnare"_id );
+static const efftype_id effect_monster_armor( "monster_armor"_id );
+static const efftype_id effect_no_sight( "no_sight"_id );
+static const efftype_id effect_onfire( "onfire"_id );
+static const efftype_id effect_pacified( "pacified"_id );
+static const efftype_id effect_paralyzepoison( "paralyzepoison"_id );
+static const efftype_id effect_poison( "poison"_id );
+static const efftype_id effect_ridden( "ridden"_id );
+static const efftype_id effect_run( "run"_id );
+static const efftype_id effect_stunned( "stunned"_id );
+static const efftype_id effect_supercharged( "supercharged"_id );
+static const efftype_id effect_tied( "tied"_id );
+static const efftype_id effect_webbed( "webbed"_id );
 
-static const itype_id itype_corpse( "corpse" );
-static const itype_id itype_milk( "milk" );
-static const itype_id itype_milk_raw( "milk_raw" );
+static const itype_id itype_corpse( "corpse"_id );
+static const itype_id itype_milk( "milk"_id );
+static const itype_id itype_milk_raw( "milk_raw"_id );
 
-static const species_id species_FISH( "FISH" );
-static const species_id species_FUNGUS( "FUNGUS" );
-static const species_id species_INSECT( "INSECT" );
-static const species_id species_MAMMAL( "MAMMAL" );
-static const species_id species_MOLLUSK( "MOLLUSK" );
-static const species_id species_ROBOT( "ROBOT" );
-static const species_id species_SPIDER( "SPIDER" );
-static const species_id species_ZOMBIE( "ZOMBIE" );
+static const species_id species_FISH( "FISH"_id );
+static const species_id species_FUNGUS( "FUNGUS"_id );
+static const species_id species_INSECT( "INSECT"_id );
+static const species_id species_MAMMAL( "MAMMAL"_id );
+static const species_id species_MOLLUSK( "MOLLUSK"_id );
+static const species_id species_ROBOT( "ROBOT"_id );
+static const species_id species_SPIDER( "SPIDER"_id );
+static const species_id species_ZOMBIE( "ZOMBIE"_id );
 
-static const trait_id trait_ANIMALDISCORD( "ANIMALDISCORD" );
+static const trait_id trait_ANIMALDISCORD( "ANIMALDISCORD"_id );
 static const trait_id trait_ANIMALDISCORD2( "ANIMALDISCORD2" );
-static const trait_id trait_ANIMALEMPATH( "ANIMALEMPATH" );
+static const trait_id trait_ANIMALEMPATH( "ANIMALEMPATH"_id );
 static const trait_id trait_ANIMALEMPATH2( "ANIMALEMPATH2" );
-static const trait_id trait_BEE( "BEE" );
-static const trait_id trait_FLOWERS( "FLOWERS" );
-static const trait_id trait_KILLER( "KILLER" );
-static const trait_id trait_MYCUS_FRIEND( "MYCUS_FRIEND" );
-static const trait_id trait_PACIFIST( "PACIFIST" );
-static const trait_id trait_PHEROMONE_INSECT( "PHEROMONE_INSECT" );
-static const trait_id trait_PHEROMONE_MAMMAL( "PHEROMONE_MAMMAL" );
-static const trait_id trait_TERRIFYING( "TERRIFYING" );
-static const trait_id trait_THRESH_MYCUS( "THRESH_MYCUS" );
+static const trait_id trait_BEE( "BEE"_id );
+static const trait_id trait_FLOWERS( "FLOWERS"_id );
+static const trait_id trait_KILLER( "KILLER"_id );
+static const trait_id trait_MYCUS_FRIEND( "MYCUS_FRIEND"_id );
+static const trait_id trait_PACIFIST( "PACIFIST"_id );
+static const trait_id trait_PHEROMONE_INSECT( "PHEROMONE_INSECT"_id );
+static const trait_id trait_PHEROMONE_MAMMAL( "PHEROMONE_MAMMAL"_id );
+static const trait_id trait_TERRIFYING( "TERRIFYING"_id );
+static const trait_id trait_THRESH_MYCUS( "THRESH_MYCUS"_id );
 
-static const mtype_id mon_ant( "mon_ant" );
-static const mtype_id mon_ant_fungus( "mon_ant_fungus" );
-static const mtype_id mon_ant_queen( "mon_ant_queen" );
-static const mtype_id mon_ant_soldier( "mon_ant_soldier" );
-static const mtype_id mon_beekeeper( "mon_beekeeper" );
-static const mtype_id mon_boomer( "mon_boomer" );
-static const mtype_id mon_boomer_fungus( "mon_boomer_fungus" );
-static const mtype_id mon_boomer_huge( "mon_boomer_huge" );
-static const mtype_id mon_fungaloid( "mon_fungaloid" );
-static const mtype_id mon_skeleton_brute( "mon_skeleton_brute" );
-static const mtype_id mon_skeleton_hulk( "mon_skeleton_hulk" );
-static const mtype_id mon_skeleton_hulk_fungus( "mon_skeleton_hulk_fungus" );
-static const mtype_id mon_spider_fungus( "mon_spider_fungus" );
-static const mtype_id mon_triffid( "mon_triffid" );
-static const mtype_id mon_triffid_queen( "mon_triffid_queen" );
-static const mtype_id mon_triffid_young( "mon_triffid_young" );
-static const mtype_id mon_zombie( "mon_zombie" );
-static const mtype_id mon_zombie_anklebiter( "mon_zombie_anklebiter" );
-static const mtype_id mon_zombie_bio_op( "mon_zombie_bio_op" );
-static const mtype_id mon_zombie_brute( "mon_zombie_brute" );
-static const mtype_id mon_zombie_brute_shocker( "mon_zombie_brute_shocker" );
-static const mtype_id mon_zombie_child( "mon_zombie_child" );
-static const mtype_id mon_zombie_child_fungus( "mon_zombie_child_fungus" );
-static const mtype_id mon_zombie_cop( "mon_zombie_cop" );
-static const mtype_id mon_zombie_creepy( "mon_zombie_creepy" );
-static const mtype_id mon_zombie_electric( "mon_zombie_electric" );
-static const mtype_id mon_zombie_fat( "mon_zombie_fat" );
-static const mtype_id mon_zombie_fireman( "mon_zombie_fireman" );
-static const mtype_id mon_zombie_fungus( "mon_zombie_fungus" );
-static const mtype_id mon_zombie_gasbag( "mon_zombie_gasbag" );
-static const mtype_id mon_zombie_gasbag_fungus( "mon_zombie_gasbag_fungus" );
-static const mtype_id mon_zombie_grabber( "mon_zombie_grabber" );
-static const mtype_id mon_zombie_hazmat( "mon_zombie_hazmat" );
-static const mtype_id mon_zombie_hulk( "mon_zombie_hulk" );
-static const mtype_id mon_zombie_hunter( "mon_zombie_hunter" );
-static const mtype_id mon_zombie_master( "mon_zombie_master" );
-static const mtype_id mon_zombie_necro( "mon_zombie_necro" );
-static const mtype_id mon_zombie_rot( "mon_zombie_rot" );
-static const mtype_id mon_zombie_scientist( "mon_zombie_scientist" );
-static const mtype_id mon_zombie_shrieker( "mon_zombie_shrieker" );
-static const mtype_id mon_zombie_shriekling( "mon_zombie_shriekling" );
-static const mtype_id mon_zombie_smoker( "mon_zombie_smoker" );
-static const mtype_id mon_zombie_smoker_fungus( "mon_zombie_smoker_fungus" );
-static const mtype_id mon_zombie_snotgobbler( "mon_zombie_snotgobbler" );
-static const mtype_id mon_zombie_soldier( "mon_zombie_soldier" );
-static const mtype_id mon_zombie_spitter( "mon_zombie_spitter" );
-static const mtype_id mon_zombie_sproglodyte( "mon_zombie_sproglodyte" );
-static const mtype_id mon_zombie_survivor( "mon_zombie_survivor" );
-static const mtype_id mon_zombie_swimmer( "mon_zombie_swimmer" );
-static const mtype_id mon_zombie_technician( "mon_zombie_technician" );
-static const mtype_id mon_zombie_tough( "mon_zombie_tough" );
-static const mtype_id mon_zombie_waif( "mon_zombie_waif" );
+static const mtype_id mon_ant( "mon_ant"_id );
+static const mtype_id mon_ant_fungus( "mon_ant_fungus"_id );
+static const mtype_id mon_ant_queen( "mon_ant_queen"_id );
+static const mtype_id mon_ant_soldier( "mon_ant_soldier"_id );
+static const mtype_id mon_beekeeper( "mon_beekeeper"_id );
+static const mtype_id mon_boomer( "mon_boomer"_id );
+static const mtype_id mon_boomer_fungus( "mon_boomer_fungus"_id );
+static const mtype_id mon_boomer_huge( "mon_boomer_huge"_id );
+static const mtype_id mon_fungaloid( "mon_fungaloid"_id );
+static const mtype_id mon_skeleton_brute( "mon_skeleton_brute"_id );
+static const mtype_id mon_skeleton_hulk( "mon_skeleton_hulk"_id );
+static const mtype_id mon_skeleton_hulk_fungus( "mon_skeleton_hulk_fungus"_id );
+static const mtype_id mon_spider_fungus( "mon_spider_fungus"_id );
+static const mtype_id mon_triffid( "mon_triffid"_id );
+static const mtype_id mon_triffid_queen( "mon_triffid_queen"_id );
+static const mtype_id mon_triffid_young( "mon_triffid_young"_id );
+static const mtype_id mon_zombie( "mon_zombie"_id );
+static const mtype_id mon_zombie_anklebiter( "mon_zombie_anklebiter"_id );
+static const mtype_id mon_zombie_bio_op( "mon_zombie_bio_op"_id );
+static const mtype_id mon_zombie_brute( "mon_zombie_brute"_id );
+static const mtype_id mon_zombie_brute_shocker( "mon_zombie_brute_shocker"_id );
+static const mtype_id mon_zombie_child( "mon_zombie_child"_id );
+static const mtype_id mon_zombie_child_fungus( "mon_zombie_child_fungus"_id );
+static const mtype_id mon_zombie_cop( "mon_zombie_cop"_id );
+static const mtype_id mon_zombie_creepy( "mon_zombie_creepy"_id );
+static const mtype_id mon_zombie_electric( "mon_zombie_electric"_id );
+static const mtype_id mon_zombie_fat( "mon_zombie_fat"_id );
+static const mtype_id mon_zombie_fireman( "mon_zombie_fireman"_id );
+static const mtype_id mon_zombie_fungus( "mon_zombie_fungus"_id );
+static const mtype_id mon_zombie_gasbag( "mon_zombie_gasbag"_id );
+static const mtype_id mon_zombie_gasbag_fungus( "mon_zombie_gasbag_fungus"_id );
+static const mtype_id mon_zombie_grabber( "mon_zombie_grabber"_id );
+static const mtype_id mon_zombie_hazmat( "mon_zombie_hazmat"_id );
+static const mtype_id mon_zombie_hulk( "mon_zombie_hulk"_id );
+static const mtype_id mon_zombie_hunter( "mon_zombie_hunter"_id );
+static const mtype_id mon_zombie_master( "mon_zombie_master"_id );
+static const mtype_id mon_zombie_necro( "mon_zombie_necro"_id );
+static const mtype_id mon_zombie_rot( "mon_zombie_rot"_id );
+static const mtype_id mon_zombie_scientist( "mon_zombie_scientist"_id );
+static const mtype_id mon_zombie_shrieker( "mon_zombie_shrieker"_id );
+static const mtype_id mon_zombie_shriekling( "mon_zombie_shriekling"_id );
+static const mtype_id mon_zombie_smoker( "mon_zombie_smoker"_id );
+static const mtype_id mon_zombie_smoker_fungus( "mon_zombie_smoker_fungus"_id );
+static const mtype_id mon_zombie_snotgobbler( "mon_zombie_snotgobbler"_id );
+static const mtype_id mon_zombie_soldier( "mon_zombie_soldier"_id );
+static const mtype_id mon_zombie_spitter( "mon_zombie_spitter"_id );
+static const mtype_id mon_zombie_sproglodyte( "mon_zombie_sproglodyte"_id );
+static const mtype_id mon_zombie_survivor( "mon_zombie_survivor"_id );
+static const mtype_id mon_zombie_swimmer( "mon_zombie_swimmer"_id );
+static const mtype_id mon_zombie_technician( "mon_zombie_technician"_id );
+static const mtype_id mon_zombie_tough( "mon_zombie_tough"_id );
+static const mtype_id mon_zombie_waif( "mon_zombie_waif"_id );
 
 struct pathfinding_settings;
 
@@ -220,7 +220,7 @@ monster::monster()
     biosig_timer = -1;
     udder_timer = calendar::turn;
     horde_attraction = MHA_NULL;
-    set_anatomy( anatomy_id( "default_anatomy" ) );
+    set_anatomy( anatomy_id( "default_anatomy"_id ) );
     set_body();
 }
 
@@ -562,14 +562,14 @@ std::string monster::name_with_armor() const
     std::string ret;
     if( type->in_species( species_INSECT ) ) {
         ret = _( "carapace" );
-    } else if( made_of( material_id( "veggy" ) ) ) {
+    } else if( made_of( material_id( "veggy"_id ) ) ) {
         ret = _( "thick bark" );
-    } else if( made_of( material_id( "bone" ) ) ) {
+    } else if( made_of( material_id( "bone"_id ) ) ) {
         ret = _( "exoskeleton" );
-    } else if( made_of( material_id( "flesh" ) ) || made_of( material_id( "hflesh" ) ) ||
-               made_of( material_id( "iflesh" ) ) ) {
+    } else if( made_of( material_id( "flesh"_id ) ) || made_of( material_id( "hflesh"_id ) ) ||
+               made_of( material_id( "iflesh"_id ) ) ) {
         ret = _( "thick hide" );
-    } else if( made_of( material_id( "iron" ) ) || made_of( material_id( "steel" ) ) ) {
+    } else if( made_of( material_id( "iron"_id ) ) || made_of( material_id( "steel"_id ) ) ) {
         ret = _( "armor plating" );
     } else if( made_of( phase_id::LIQUID ) ) {
         ret = _( "dense jelly mass" );
@@ -1168,7 +1168,7 @@ monster_attitude monster::attitude( const Character *u ) const
 
 int monster::hp_percentage() const
 {
-    return get_hp( bodypart_id( "torso" ) ) * 100 / get_hp_max();
+    return get_hp( bodypart_id( "torso"_id ) ) * 100 / get_hp_max();
 }
 
 void monster::process_triggers()
@@ -1279,14 +1279,14 @@ bool monster::is_immune_effect( const efftype_id &effect ) const
 
     if( effect == effect_bleed ) {
         return !has_flag( MF_WARM ) ||
-               !made_of( material_id( "flesh" ) );
+               !made_of( material_id( "flesh"_id ) );
     }
 
     if( effect == effect_paralyzepoison ||
         effect == effect_badpoison ||
         effect == effect_poison ) {
         return !has_flag( MF_WARM ) ||
-               ( !made_of( material_id( "flesh" ) ) && !made_of( material_id( "iflesh" ) ) );
+               ( !made_of( material_id( "flesh"_id ) ) && !made_of( material_id( "iflesh"_id ) ) );
     }
 
     if( effect == effect_stunned ) {
@@ -1316,7 +1316,7 @@ bool monster::is_immune_damage( const damage_type dt ) const
             return false;
         case damage_type::HEAT:
             // Ugly hardcode - remove later
-            return made_of( material_id( "steel" ) ) || made_of( material_id( "stone" ) );
+            return made_of( material_id( "steel"_id ) ) || made_of( material_id( "stone"_id ) );
         case damage_type::COLD:
             return false;
         case damage_type::ELECTRIC:
@@ -1550,7 +1550,7 @@ void monster::deal_projectile_attack( Creature *source, dealt_projectile_attack 
 
     if( !is_hallucination() && attack.hit_critter == this ) {
         // Maybe TODO: Get difficulty from projectile speed/size/missed_by
-        on_hit( source, bodypart_id( "torso" ), INT_MIN, &attack );
+        on_hit( source, bodypart_id( "torso"_id ), INT_MIN, &attack );
     }
 }
 
@@ -1998,13 +1998,13 @@ int monster::impact( const int force, const tripoint &p )
     const float mod = fall_damage_mod();
     int total_dealt = 0;
     if( get_map().has_flag( TFLAG_SHARP, p ) ) {
-        const int cut_damage = std::max( 0.0f, 10 * mod - get_armor_cut( bodypart_id( "torso" ) ) );
-        apply_damage( nullptr, bodypart_id( "torso" ), cut_damage );
+        const int cut_damage = std::max( 0.0f, 10 * mod - get_armor_cut( bodypart_id( "torso"_id ) ) );
+        apply_damage( nullptr, bodypart_id( "torso"_id ), cut_damage );
         total_dealt += 10 * mod;
     }
 
-    const int bash_damage = std::max( 0.0f, force * mod - get_armor_bash( bodypart_id( "torso" ) ) );
-    apply_damage( nullptr, bodypart_id( "torso" ), bash_damage );
+    const int bash_damage = std::max( 0.0f, force * mod - get_armor_bash( bodypart_id( "torso"_id ) ) );
+    apply_damage( nullptr, bodypart_id( "torso"_id ), bash_damage );
     total_dealt += force * mod;
 
     add_effect( effect_downed, time_duration::from_turns( rng( 0, mod * 3 + 1 ) ) );
@@ -2085,11 +2085,11 @@ void monster::process_turn()
                 continue;
             }
             const emit_id emid = e.first;
-            if( emid == emit_id( "emit_shock_cloud" ) ) {
+            if( emid == emit_id( "emit_shock_cloud"_id ) ) {
                 if( has_effect( effect_emp ) ) {
                     continue; // don't emit electricity while EMPed
                 } else if( has_effect( effect_supercharged ) ) {
-                    here.emit_field( pos(), emit_id( "emit_shock_cloud_big" ) );
+                    here.emit_field( pos(), emit_id( "emit_shock_cloud_big"_id ) );
                     continue;
                 }
             }
@@ -2143,7 +2143,7 @@ void monster::process_turn()
                     explosion_handler::emp_blast( zap ); // Fries electronics due to the intensity of the field
                 }
                 const auto t = here.ter( zap );
-                if( t == ter_str_id( "t_gas_pump" ) || t == ter_str_id( "t_gas_pump_a" ) ) {
+                if( t == ter_str_id( "t_gas_pump"_id ) || t == ter_str_id( "t_gas_pump_a"_id ) ) {
                     if( one_in( 4 ) ) {
                         explosion_handler::explosion( pos(), 40, 0.8, true );
                         add_msg_if_player_sees( zap, m_warning, _( "The %s explodes in a fiery inferno!" ),
@@ -2412,7 +2412,7 @@ void monster::process_one_effect( effect &it, bool is_new )
     int val = get_effect( "HURT", reduced );
     if( val > 0 ) {
         if( is_new || it.activated( calendar::turn, "HURT", val, reduced, 1 ) ) {
-            apply_damage( nullptr, bodypart_id( "torso" ), val );
+            apply_damage( nullptr, bodypart_id( "torso"_id ), val );
         }
     }
 
@@ -2422,15 +2422,15 @@ void monster::process_one_effect( effect &it, bool is_new )
         effect_cache[MOVEMENT_IMPAIRED] = true;
     } else if( id == effect_onfire ) {
         int dam = 0;
-        if( made_of( material_id( "veggy" ) ) ) {
+        if( made_of( material_id( "veggy"_id ) ) ) {
             dam = rng( 10, 20 );
-        } else if( made_of( material_id( "flesh" ) ) || made_of( material_id( "iflesh" ) ) ) {
+        } else if( made_of( material_id( "flesh"_id ) ) || made_of( material_id( "iflesh"_id ) ) ) {
             dam = rng( 5, 10 );
         }
 
-        dam -= get_armor_type( damage_type::HEAT, bodypart_id( "torso" ) );
+        dam -= get_armor_type( damage_type::HEAT, bodypart_id( "torso"_id ) );
         if( dam > 0 ) {
-            apply_damage( nullptr, bodypart_id( "torso" ), dam );
+            apply_damage( nullptr, bodypart_id( "torso"_id ), dam );
         } else {
             it.set_duration( 0_turns );
         }
@@ -2440,7 +2440,7 @@ void monster::process_one_effect( effect &it, bool is_new )
         effect_cache[VISION_IMPAIRED] = true;
     } else if( id == effect_bleed && x_in_y( it.get_intensity(), it.get_max_intensity() ) ) {
         // monsters are simplified so they just take damage from bleeding
-        apply_damage( nullptr, bodypart_id( "torso" ), 1 );
+        apply_damage( nullptr, bodypart_id( "torso"_id ), 1 );
         // this is for balance only
         it.mod_duration( -rng( 1_turns, it.get_int_dur_factor() / 2 ) );
         bleed();
@@ -2509,7 +2509,7 @@ void monster::process_effects()
     // If this critter dies in sunlight, check & assess damage.
     if( has_flag( MF_SUNDEATH ) && g->is_in_sunlight( pos() ) ) {
         add_msg_if_player_sees( *this, m_good, _( "The %s burns horribly in the sunlight!" ), name() );
-        apply_damage( nullptr, bodypart_id( "torso" ), 100 );
+        apply_damage( nullptr, bodypart_id( "torso"_id ), 100 );
         if( hp < 0 ) {
             hp = 0;
         }
@@ -2528,9 +2528,9 @@ bool monster::make_fungus()
     if( type->in_species( species_FUNGUS ) ) { // No friendly-fungalizing ;-)
         return true;
     }
-    if( !made_of( material_id( "flesh" ) ) && !made_of( material_id( "hflesh" ) ) &&
-        !made_of( material_id( "veggy" ) ) && !made_of( material_id( "iflesh" ) ) &&
-        !made_of( material_id( "bone" ) ) ) {
+    if( !made_of( material_id( "flesh"_id ) ) && !made_of( material_id( "hflesh"_id ) ) &&
+        !made_of( material_id( "veggy"_id ) ) && !made_of( material_id( "iflesh"_id ) ) &&
+        !made_of( material_id( "bone"_id ) ) ) {
         // No fungalizing robots or weird stuff (mi-gos are technically fungi, blobs are goo)
         return true;
     }
@@ -2957,7 +2957,7 @@ void monster::on_load()
     if( regen <= 0 ) {
         if( has_flag( MF_REVIVES ) ) {
             regen = 1.0f / to_turns<int>( 1_hours );
-        } else if( made_of( material_id( "flesh" ) ) || made_of( material_id( "veggy" ) ) ) {
+        } else if( made_of( material_id( "flesh"_id ) ) || made_of( material_id( "veggy"_id ) ) ) {
             // Most living stuff here
             regen = 0.25f / to_turns<int>( 1_hours );
         }

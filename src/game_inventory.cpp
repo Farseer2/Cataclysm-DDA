@@ -56,21 +56,21 @@
 #include "units_utility.h"
 #include "value_ptr.h"
 
-static const activity_id ACT_EAT_MENU( "ACT_EAT_MENU" );
-static const activity_id ACT_CONSUME_FOOD_MENU( "ACT_CONSUME_FOOD_MENU" );
-static const activity_id ACT_CONSUME_DRINK_MENU( "ACT_CONSUME_DRINK_MENU" );
-static const activity_id ACT_CONSUME_MEDS_MENU( "ACT_CONSUME_MEDS_MENU" );
+static const activity_id ACT_EAT_MENU( "ACT_EAT_MENU"_id );
+static const activity_id ACT_CONSUME_FOOD_MENU( "ACT_CONSUME_FOOD_MENU"_id );
+static const activity_id ACT_CONSUME_DRINK_MENU( "ACT_CONSUME_DRINK_MENU"_id );
+static const activity_id ACT_CONSUME_MEDS_MENU( "ACT_CONSUME_MEDS_MENU"_id );
 
-static const fault_id fault_bionic_salvaged( "fault_bionic_salvaged" );
+static const fault_id fault_bionic_salvaged( "fault_bionic_salvaged"_id );
 
-static const quality_id qual_ANESTHESIA( "ANESTHESIA" );
+static const quality_id qual_ANESTHESIA( "ANESTHESIA"_id );
 
-static const bionic_id bio_painkiller( "bio_painkiller" );
+static const bionic_id bio_painkiller( "bio_painkiller"_id );
 
-static const trait_id trait_DEBUG_BIONICS( "DEBUG_BIONICS" );
-static const trait_id trait_NOPAIN( "NOPAIN" );
-static const trait_id trait_SAPROPHAGE( "SAPROPHAGE" );
-static const trait_id trait_SAPROVORE( "SAPROVORE" );
+static const trait_id trait_DEBUG_BIONICS( "DEBUG_BIONICS"_id );
+static const trait_id trait_NOPAIN( "NOPAIN"_id );
+static const trait_id trait_SAPROPHAGE( "SAPROPHAGE"_id );
+static const trait_id trait_SAPROVORE( "SAPROVORE"_id );
 
 static const std::string flag_ALLOWS_REMOTE_USE( "ALLOWS_REMOTE_USE" );
 static const std::string flag_FILTHY( "FILTHY" );
@@ -1749,7 +1749,7 @@ class bionic_install_preset: public inventory_selector_preset
             } else if( it->has_flag( flag_NO_STERILE ) ) {
                 // NOLINTNEXTLINE(cata-text-style): single space after the period for symmetry
                 return _( "/!\\ CBM is not sterile. /!\\ Please use autoclave to sterilize." );
-            } else if( it->has_fault( fault_id( "fault_bionic_salvaged" ) ) ) {
+            } else if( it->has_fault( fault_id( "fault_bionic_salvaged"_id ) ) ) {
                 return _( "CBM already deployed.  Please reset to factory state." );
             } else if( pa.has_bionic( bid ) ) {
                 return _( "CBM already installed" );
@@ -1771,7 +1771,7 @@ class bionic_install_preset: public inventory_selector_preset
             } else if( !p.has_enough_anesth( *itemtype, pa ) ) {
                 const int weight = units::to_kilogram( pa.bodyweight() ) / 10;
                 const int duration = loc.get_item()->type->bionic->difficulty * 2;
-                const requirement_data req_anesth = *requirement_id( "anesthetic" ) *
+                const requirement_data req_anesth = *requirement_id( "anesthetic"_id ) *
                                                     duration * weight;
                 return string_format( _( "%i mL" ), req_anesth.get_tools().front().front().count );
             }
@@ -1811,7 +1811,7 @@ class bionic_install_preset: public inventory_selector_preset
 
             const int weight = units::to_kilogram( pa.bodyweight() ) / 10;
             const int duration = loc.get_item()->type->bionic->difficulty * 2;
-            const requirement_data req_anesth = *requirement_id( "anesthetic" ) *
+            const requirement_data req_anesth = *requirement_id( "anesthetic"_id ) *
                                                 duration * weight;
             int count = 0;
             if( !req_anesth.get_tools().empty() && !req_anesth.get_tools().front().empty() ) {
@@ -1945,7 +1945,7 @@ class bionic_uninstall_preset : public inventory_selector_preset
             if( !p.has_enough_anesth( *itemtype, pa ) ) {
                 const int weight = units::to_kilogram( pa.bodyweight() ) / 10;
                 const int duration = loc.get_item()->type->bionic->difficulty * 2;
-                const requirement_data req_anesth = *requirement_id( "anesthetic" ) *
+                const requirement_data req_anesth = *requirement_id( "anesthetic"_id ) *
                                                     duration * weight;
                 return string_format( _( "%i mL" ), req_anesth.get_tools().front().front().count );
             }
@@ -1986,7 +1986,7 @@ class bionic_uninstall_preset : public inventory_selector_preset
 
             const int weight = units::to_kilogram( pa.bodyweight() ) / 10;
             const int duration = loc.get_item()->type->bionic->difficulty * 2;
-            const requirement_data req_anesth = *requirement_id( "anesthetic" ) *
+            const requirement_data req_anesth = *requirement_id( "anesthetic"_id ) *
                                                 duration * weight;
             int count = 0;
             if( !req_anesth.get_tools().empty() && !req_anesth.get_tools().front().empty() ) {
@@ -2022,7 +2022,7 @@ class bionic_sterilize_preset : public inventory_selector_preset
         }
 
         std::string get_denial( const item_location &loc ) const override {
-            requirement_data reqs = *requirement_id( "autoclave_item" );
+            requirement_data reqs = *requirement_id( "autoclave_item"_id );
             if( loc.get_item()->has_flag( flag_FILTHY ) ) {
                 return  _( "CBM is filthy.  Wash it first." );
             }

@@ -33,18 +33,18 @@
 #include "type_id.h"
 #include "weather.h"
 
-static const itype_id itype_cig( "cig" );
-static const itype_id itype_codeine( "codeine" );
-static const itype_id itype_flashlight( "flashlight" );
-static const itype_id itype_grenade_act( "grenade_act" );
-static const itype_id itype_water( "water" );
+static const itype_id itype_cig( "cig"_id );
+static const itype_id itype_codeine( "codeine"_id );
+static const itype_id itype_flashlight( "flashlight"_id );
+static const itype_id itype_grenade_act( "grenade_act"_id );
+static const itype_id itype_water( "water"_id );
 
-static const skill_id skill_gun( "gun" );
-static const skill_id skill_melee( "melee" );
+static const skill_id skill_gun( "gun"_id );
+static const skill_id skill_melee( "melee"_id );
 
-static const trait_id trait_QUICK( "QUICK" );
+static const trait_id trait_QUICK( "QUICK"_id );
 
-static const mtype_id mon_zombie( "mon_zombie" );
+static const mtype_id mon_zombie( "mon_zombie"_id );
 
 namespace io
 {
@@ -123,7 +123,7 @@ bool tutorial_game::init()
 
     player_character.set_all_parts_hp_to_max();
 
-    const oter_id rock( "rock" );
+    const oter_id rock( "rock"_id );
     //~ default name for the tutorial
     player_character.name = _( "John Smith" );
     player_character.prof = profession::generic();
@@ -140,8 +140,8 @@ bool tutorial_game::init()
             starting_om.seen( p ) = true;
         }
     }
-    starting_om.ter_set( lp, oter_id( "tutorial" ) );
-    starting_om.ter_set( lp + tripoint_below, oter_id( "tutorial" ) );
+    starting_om.ter_set( lp, oter_id( "tutorial"_id ) );
+    starting_om.ter_set( lp + tripoint_below, oter_id( "tutorial"_id ) );
     starting_om.clear_mon_groups();
 
     player_character.toggle_trait( trait_QUICK );
@@ -261,7 +261,7 @@ void tutorial_game::post_action( action_id act )
             }
             map &here = get_map();
             for( const tripoint &dest : here.points_in_radius( player_character.pos(), 1 ) ) {
-                if( here.tr_at( dest ).id == trap_str_id( "tr_bubblewrap" ) ) {
+                if( here.tr_at( dest ).id == trap_str_id( "tr_bubblewrap"_id ) ) {
                     add_message( tut_lesson::LESSON_ACT_BUBBLEWRAP );
                 }
             }

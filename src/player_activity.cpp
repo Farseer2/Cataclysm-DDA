@@ -24,19 +24,19 @@
 #include "units_fwd.h"
 #include "value_ptr.h"
 
-static const activity_id ACT_ATM( "ACT_ATM" );
-static const activity_id ACT_FIRSTAID( "ACT_FIRSTAID" );
-static const activity_id ACT_FISH( "ACT_FISH" );
-static const activity_id ACT_GAME( "ACT_GAME" );
-static const activity_id ACT_GUNMOD_ADD( "ACT_GUNMOD_ADD" );
-static const activity_id ACT_HAND_CRANK( "ACT_HAND_CRANK" );
-static const activity_id ACT_OXYTORCH( "ACT_OXYTORCH" );
-static const activity_id ACT_PICKAXE( "ACT_PICKAXE" );
-static const activity_id ACT_START_FIRE( "ACT_START_FIRE" );
-static const activity_id ACT_TRAVELLING( "ACT_TRAVELLING" );
-static const activity_id ACT_VIBE( "ACT_VIBE" );
+static const activity_id ACT_ATM( "ACT_ATM"_id );
+static const activity_id ACT_FIRSTAID( "ACT_FIRSTAID"_id );
+static const activity_id ACT_FISH( "ACT_FISH"_id );
+static const activity_id ACT_GAME( "ACT_GAME"_id );
+static const activity_id ACT_GUNMOD_ADD( "ACT_GUNMOD_ADD"_id );
+static const activity_id ACT_HAND_CRANK( "ACT_HAND_CRANK"_id );
+static const activity_id ACT_OXYTORCH( "ACT_OXYTORCH"_id );
+static const activity_id ACT_PICKAXE( "ACT_PICKAXE"_id );
+static const activity_id ACT_START_FIRE( "ACT_START_FIRE"_id );
+static const activity_id ACT_TRAVELLING( "ACT_TRAVELLING"_id );
+static const activity_id ACT_VIBE( "ACT_VIBE"_id );
 
-static const efftype_id effect_nausea( "nausea" );
+static const efftype_id effect_nausea( "nausea"_id );
 
 player_activity::player_activity() : type( activity_id::NULL_ID() ) { }
 
@@ -122,23 +122,23 @@ std::string player_activity::get_str_value( size_t index, const std::string &def
 
 cata::optional<std::string> player_activity::get_progress_message( const avatar &u ) const
 {
-    if( type == activity_id( "ACT_NULL" ) || get_verb().empty() ) {
+    if( type == activity_id( "ACT_NULL"_id ) || get_verb().empty() ) {
         return cata::optional<std::string>();
     }
 
-    if( type == activity_id( "ACT_ADV_INVENTORY" ) ||
-        type == activity_id( "ACT_AIM" ) ||
-        type == activity_id( "ACT_ARMOR_LAYERS" ) ||
-        type == activity_id( "ACT_ATM" ) ||
-        type == activity_id( "ACT_CONSUME_DRINK_MENU" ) ||
-        type == activity_id( "ACT_CONSUME_FOOD_MENU" ) ||
-        type == activity_id( "ACT_CONSUME_MEDS_MENU" ) ||
-        type == activity_id( "ACT_EAT_MENU" ) ) {
+    if( type == activity_id( "ACT_ADV_INVENTORY"_id ) ||
+        type == activity_id( "ACT_AIM"_id ) ||
+        type == activity_id( "ACT_ARMOR_LAYERS"_id ) ||
+        type == activity_id( "ACT_ATM"_id ) ||
+        type == activity_id( "ACT_CONSUME_DRINK_MENU"_id ) ||
+        type == activity_id( "ACT_CONSUME_FOOD_MENU"_id ) ||
+        type == activity_id( "ACT_CONSUME_MEDS_MENU"_id ) ||
+        type == activity_id( "ACT_EAT_MENU"_id ) ) {
         return cata::nullopt;
     }
 
     std::string extra_info;
-    if( type == activity_id( "ACT_READ" ) ) {
+    if( type == activity_id( "ACT_READ"_id ) ) {
         if( const item *book = targets.front().get_item() ) {
             if( const auto &reading = book->type->book ) {
                 const skill_id &skill = reading->skill;
@@ -155,23 +155,23 @@ cata::optional<std::string> player_activity::get_progress_message( const avatar 
             }
         }
     } else if( moves_total > 0 ) {
-        if( type == activity_id( "ACT_BURROW" ) ||
-            type == activity_id( "ACT_HACKSAW" ) ||
-            type == activity_id( "ACT_JACKHAMMER" ) ||
-            type == activity_id( "ACT_PICKAXE" ) ||
-            type == activity_id( "ACT_DISASSEMBLE" ) ||
-            type == activity_id( "ACT_VEHICLE" ) ||
-            type == activity_id( "ACT_FILL_PIT" ) ||
-            type == activity_id( "ACT_CHOP_TREE" ) ||
-            type == activity_id( "ACT_CHOP_LOGS" ) ||
-            type == activity_id( "ACT_CHOP_PLANKS" )
+        if( type == activity_id( "ACT_BURROW"_id ) ||
+            type == activity_id( "ACT_HACKSAW"_id ) ||
+            type == activity_id( "ACT_JACKHAMMER"_id ) ||
+            type == activity_id( "ACT_PICKAXE"_id ) ||
+            type == activity_id( "ACT_DISASSEMBLE"_id ) ||
+            type == activity_id( "ACT_VEHICLE"_id ) ||
+            type == activity_id( "ACT_FILL_PIT"_id ) ||
+            type == activity_id( "ACT_CHOP_TREE"_id ) ||
+            type == activity_id( "ACT_CHOP_LOGS"_id ) ||
+            type == activity_id( "ACT_CHOP_PLANKS"_id )
           ) {
             const int percentage = ( ( moves_total - moves_left ) * 100 ) / moves_total;
 
             extra_info = string_format( "%d%%", percentage );
         }
 
-        if( type == activity_id( "ACT_BUILD" ) ) {
+        if( type == activity_id( "ACT_BUILD"_id ) ) {
             partial_con *pc = get_map().partial_con_at( get_map().getlocal( u.activity.placement ) );
             if( pc ) {
                 int counter = std::min( pc->counter, 10000000 );
@@ -207,7 +207,7 @@ void player_activity::do_turn( player &p )
 {
     // Specifically call the do turn function for the cancellation activity early
     // This is because the game can get stuck trying to fuel a fire when it's not...
-    if( type == activity_id( "ACT_MIGRATION_CANCEL" ) ) {
+    if( type == activity_id( "ACT_MIGRATION_CANCEL"_id ) ) {
         actor->do_turn( *this, p );
         return;
     }
@@ -286,17 +286,17 @@ void player_activity::do_turn( player &p )
     // this is to ensure that resting will occur when traveling overburdened
     const int adjusted_stamina = travel_activity ? p.get_stamina() - 1 : p.get_stamina();
     activity_id act_id = actor ? actor->get_type() : type;
-    bool excluded = act_id == activity_id( "ACT_WORKOUT_HARD" ) ||
-                    act_id == activity_id( "ACT_WORKOUT_ACTIVE" ) ||
-                    act_id == activity_id( "ACT_WORKOUT_MODERATE" ) ||
-                    act_id == activity_id( "ACT_WORKOUT_LIGHT" );
+    bool excluded = act_id == activity_id( "ACT_WORKOUT_HARD"_id ) ||
+                    act_id == activity_id( "ACT_WORKOUT_ACTIVE"_id ) ||
+                    act_id == activity_id( "ACT_WORKOUT_MODERATE"_id ) ||
+                    act_id == activity_id( "ACT_WORKOUT_LIGHT"_id );
     if( !excluded && adjusted_stamina < previous_stamina &&
         p.get_stamina() < p.get_stamina_max() / 3 ) {
         if( one_in( 50 ) ) {
             p.add_msg_if_player( _( "You pause for a moment to catch your breath." ) );
         }
         auto_resume = true;
-        player_activity new_act( activity_id( "ACT_WAIT_STAMINA" ), to_moves<int>( 1_minutes ) );
+        player_activity new_act( activity_id( "ACT_WAIT_STAMINA"_id ), to_moves<int>( 1_minutes ) );
         new_act.values.push_back( 200 + p.get_stamina_max() / 3 );
         p.assign_activity( new_act );
         return;
@@ -373,11 +373,11 @@ bool player_activity::can_resume_with( const player_activity &other, const Chara
         return actor->can_resume_with( *other.actor, who );
     }
 
-    if( id() == activity_id( "ACT_CLEAR_RUBBLE" ) ) {
+    if( id() == activity_id( "ACT_CLEAR_RUBBLE"_id ) ) {
         if( other.coords.empty() || other.coords[0] != coords[0] ) {
             return false;
         }
-    } else if( id() == activity_id( "ACT_READ" ) ) {
+    } else if( id() == activity_id( "ACT_READ"_id ) ) {
         // Return false if any NPCs joined or left the study session
         // the vector {1, 2} != {2, 1}, so we'll have to check manually
         if( values.size() != other.values.size() ) {
@@ -391,7 +391,7 @@ bool player_activity::can_resume_with( const player_activity &other, const Chara
         if( targets.empty() || other.targets.empty() || targets[0] != other.targets[0] ) {
             return false;
         }
-    } else if( id() == activity_id( "ACT_VEHICLE" ) ) {
+    } else if( id() == activity_id( "ACT_VEHICLE"_id ) ) {
         if( values != other.values || str_values != other.str_values ) {
             return false;
         }

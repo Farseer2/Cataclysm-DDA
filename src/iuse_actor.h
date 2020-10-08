@@ -494,25 +494,25 @@ class salvage_actor : public iuse_actor
 
         /** Materials it can cut */
         std::set<material_id> material_whitelist = {
-            material_id( "acidchitin" ),
-            material_id( "alien_resin" ),
-            material_id( "bone" ),
-            material_id( "chitin" ),
-            material_id( "cotton" ),
-            material_id( "faux_fur" ),
-            material_id( "fur" ),
-            material_id( "kevlar" ),
-            material_id( "kevlar_layered" ),
-            material_id( "kevlar_rigid" ),
-            material_id( "leather" ),
-            material_id( "lycra" ),
-            material_id( "neoprene" ),
-            material_id( "nomex" ),
-            material_id( "nylon" ),
-            material_id( "plastic" ),
-            material_id( "rubber" ),
-            material_id( "wood" ),
-            material_id( "wool" )
+            material_id( "acidchitin"_id ),
+            material_id( "alien_resin"_id ),
+            material_id( "bone"_id ),
+            material_id( "chitin"_id ),
+            material_id( "cotton"_id ),
+            material_id( "faux_fur"_id ),
+            material_id( "fur"_id ),
+            material_id( "kevlar"_id ),
+            material_id( "kevlar_layered"_id ),
+            material_id( "kevlar_rigid"_id ),
+            material_id( "leather"_id ),
+            material_id( "lycra"_id ),
+            material_id( "neoprene"_id ),
+            material_id( "nomex"_id ),
+            material_id( "nylon"_id ),
+            material_id( "plastic"_id ),
+            material_id( "rubber"_id ),
+            material_id( "wood"_id ),
+            material_id( "wool"_id )
         };
 
         bool try_to_cut_up( player &p, item &it ) const;
@@ -543,14 +543,14 @@ class inscribe_actor : public iuse_actor
 
         // Materials it can write on
         std::set<material_id> material_whitelist = {
-            material_id( "wood" ),
-            material_id( "plastic" ),
-            material_id( "glass" ),
-            material_id( "chitin" ),
-            material_id( "iron" ),
-            material_id( "steel" ),
-            material_id( "silver" ),
-            material_id( "bone" )
+            material_id( "wood"_id ),
+            material_id( "plastic"_id ),
+            material_id( "glass"_id ),
+            material_id( "chitin"_id ),
+            material_id( "iron"_id ),
+            material_id( "steel"_id ),
+            material_id( "silver"_id ),
+            material_id( "bone"_id )
         };
 
         // How will the inscription be described

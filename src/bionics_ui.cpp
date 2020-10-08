@@ -203,7 +203,7 @@ static void draw_bionics_titlebar( const catacurses::window &window, avatar *p,
             found_fuel = true;
             const item temp_fuel( fuel );
             if( temp_fuel.has_flag( flag_PERPETUAL ) ) {
-                if( fuel == itype_id( "sunlight" ) && !g->is_in_sunlight( p->pos() ) ) {
+                if( fuel == "sunlight"_id && !g->is_in_sunlight( p->pos() ) ) {
                     continue;
                 }
                 fuel_string += colorize( temp_fuel.tname(), c_green ) + " ";

@@ -19,7 +19,7 @@ class character_martial_arts
 {
     private:
         std::vector<matype_id> ma_styles;
-        matype_id style_selected = matype_id( "style_none" );
+        matype_id style_selected = matype_id( "style_none"_id );
         bool keep_hands_free = false;
     public:
         character_martial_arts();

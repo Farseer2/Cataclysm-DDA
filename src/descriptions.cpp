@@ -18,9 +18,9 @@
 #include "ui_manager.h"
 #include "viewer.h"
 
-static const skill_id skill_survival( "survival" );
+static const skill_id skill_survival( "survival"_id );
 
-static const trait_id trait_ILLITERATE( "ILLITERATE" );
+static const trait_id trait_ILLITERATE( "ILLITERATE"_id );
 
 enum class description_target : int {
     creature,

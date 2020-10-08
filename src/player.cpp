@@ -82,95 +82,95 @@
 #include "vpart_position.h"
 #include "weather.h"
 
-static const efftype_id effect_adrenaline( "adrenaline" );
-static const efftype_id effect_bite( "bite" );
-static const efftype_id effect_bleed( "bleed" );
-static const efftype_id effect_bloodworms( "bloodworms" );
-static const efftype_id effect_brainworms( "brainworms" );
-static const efftype_id effect_darkness( "darkness" );
-static const efftype_id effect_dermatik( "dermatik" );
-static const efftype_id effect_downed( "downed" );
-static const efftype_id effect_fungus( "fungus" );
-static const efftype_id effect_incorporeal( "incorporeal" );
-static const efftype_id effect_infected( "infected" );
-static const efftype_id effect_masked_scent( "masked_scent" );
-static const efftype_id effect_meth( "meth" );
-static const efftype_id effect_narcosis( "narcosis" );
-static const efftype_id effect_nausea( "nausea" );
-static const efftype_id effect_onfire( "onfire" );
-static const efftype_id effect_paincysts( "paincysts" );
-static const efftype_id effect_recover( "recover" );
-static const efftype_id effect_sleep( "sleep" );
-static const efftype_id effect_stunned( "stunned" );
-static const efftype_id effect_tapeworm( "tapeworm" );
-static const efftype_id effect_weed_high( "weed_high" );
+static const efftype_id effect_adrenaline( "adrenaline"_id );
+static const efftype_id effect_bite( "bite"_id );
+static const efftype_id effect_bleed( "bleed"_id );
+static const efftype_id effect_bloodworms( "bloodworms"_id );
+static const efftype_id effect_brainworms( "brainworms"_id );
+static const efftype_id effect_darkness( "darkness"_id );
+static const efftype_id effect_dermatik( "dermatik"_id );
+static const efftype_id effect_downed( "downed"_id );
+static const efftype_id effect_fungus( "fungus"_id );
+static const efftype_id effect_incorporeal( "incorporeal"_id );
+static const efftype_id effect_infected( "infected"_id );
+static const efftype_id effect_masked_scent( "masked_scent"_id );
+static const efftype_id effect_meth( "meth"_id );
+static const efftype_id effect_narcosis( "narcosis"_id );
+static const efftype_id effect_nausea( "nausea"_id );
+static const efftype_id effect_onfire( "onfire"_id );
+static const efftype_id effect_paincysts( "paincysts"_id );
+static const efftype_id effect_recover( "recover"_id );
+static const efftype_id effect_sleep( "sleep"_id );
+static const efftype_id effect_stunned( "stunned"_id );
+static const efftype_id effect_tapeworm( "tapeworm"_id );
+static const efftype_id effect_weed_high( "weed_high"_id );
 
-static const itype_id itype_adv_UPS_off( "adv_UPS_off" );
-static const itype_id itype_battery( "battery" );
-static const itype_id itype_cookbook_human( "cookbook_human" );
-static const itype_id itype_large_repairkit( "large_repairkit" );
-static const itype_id itype_small_repairkit( "small_repairkit" );
-static const itype_id itype_UPS( "UPS" );
-static const itype_id itype_UPS_off( "UPS_off" );
+static const itype_id itype_adv_UPS_off( "adv_UPS_off"_id );
+static const itype_id itype_battery( "battery"_id );
+static const itype_id itype_cookbook_human( "cookbook_human"_id );
+static const itype_id itype_large_repairkit( "large_repairkit"_id );
+static const itype_id itype_small_repairkit( "small_repairkit"_id );
+static const itype_id itype_UPS( "UPS"_id );
+static const itype_id itype_UPS_off( "UPS_off"_id );
 
-static const trait_id trait_ACIDBLOOD( "ACIDBLOOD" );
-static const trait_id trait_DEBUG_NODMG( "DEBUG_NODMG" );
-static const trait_id trait_CANNIBAL( "CANNIBAL" );
-static const trait_id trait_CENOBITE( "CENOBITE" );
-static const trait_id trait_CHLOROMORPH( "CHLOROMORPH" );
-static const trait_id trait_CLUMSY( "CLUMSY" );
+static const trait_id trait_ACIDBLOOD( "ACIDBLOOD"_id );
+static const trait_id trait_DEBUG_NODMG( "DEBUG_NODMG"_id );
+static const trait_id trait_CANNIBAL( "CANNIBAL"_id );
+static const trait_id trait_CENOBITE( "CENOBITE"_id );
+static const trait_id trait_CHLOROMORPH( "CHLOROMORPH"_id );
+static const trait_id trait_CLUMSY( "CLUMSY"_id );
 static const trait_id trait_COLDBLOOD4( "COLDBLOOD4" );
-static const trait_id trait_DEBUG_BIONIC_POWER( "DEBUG_BIONIC_POWER" );
-static const trait_id trait_DEBUG_HS( "DEBUG_HS" );
-static const trait_id trait_EASYSLEEPER( "EASYSLEEPER" );
+static const trait_id trait_DEBUG_BIONIC_POWER( "DEBUG_BIONIC_POWER"_id );
+static const trait_id trait_DEBUG_HS( "DEBUG_HS"_id );
+static const trait_id trait_EASYSLEEPER( "EASYSLEEPER"_id );
 static const trait_id trait_EASYSLEEPER2( "EASYSLEEPER2" );
-static const trait_id trait_EATHEALTH( "EATHEALTH" );
-static const trait_id trait_FAT( "FAT" );
-static const trait_id trait_HATES_BOOKS( "HATES_BOOKS" );
-static const trait_id trait_INFIMMUNE( "INFIMMUNE" );
-static const trait_id trait_INSOMNIA( "INSOMNIA" );
-static const trait_id trait_INT_SLIME( "INT_SLIME" );
-static const trait_id trait_LIGHTSTEP( "LIGHTSTEP" );
-static const trait_id trait_LOVES_BOOKS( "LOVES_BOOKS" );
-static const trait_id trait_M_IMMUNE( "M_IMMUNE" );
+static const trait_id trait_EATHEALTH( "EATHEALTH"_id );
+static const trait_id trait_FAT( "FAT"_id );
+static const trait_id trait_HATES_BOOKS( "HATES_BOOKS"_id );
+static const trait_id trait_INFIMMUNE( "INFIMMUNE"_id );
+static const trait_id trait_INSOMNIA( "INSOMNIA"_id );
+static const trait_id trait_INT_SLIME( "INT_SLIME"_id );
+static const trait_id trait_LIGHTSTEP( "LIGHTSTEP"_id );
+static const trait_id trait_LOVES_BOOKS( "LOVES_BOOKS"_id );
+static const trait_id trait_M_IMMUNE( "M_IMMUNE"_id );
 static const trait_id trait_M_SKIN3( "M_SKIN3" );
-static const trait_id trait_MORE_PAIN( "MORE_PAIN" );
+static const trait_id trait_MORE_PAIN( "MORE_PAIN"_id );
 static const trait_id trait_MORE_PAIN2( "MORE_PAIN2" );
 static const trait_id trait_MORE_PAIN3( "MORE_PAIN3" );
-static const trait_id trait_NAUSEA( "NAUSEA" );
-static const trait_id trait_NOMAD( "NOMAD" );
+static const trait_id trait_NAUSEA( "NAUSEA"_id );
+static const trait_id trait_NOMAD( "NOMAD"_id );
 static const trait_id trait_NOMAD2( "NOMAD2" );
 static const trait_id trait_NOMAD3( "NOMAD3" );
-static const trait_id trait_NOPAIN( "NOPAIN" );
-static const trait_id trait_PAINRESIST( "PAINRESIST" );
-static const trait_id trait_PAINRESIST_TROGLO( "PAINRESIST_TROGLO" );
-static const trait_id trait_PARAIMMUNE( "PARAIMMUNE" );
-static const trait_id trait_PARKOUR( "PARKOUR" );
-static const trait_id trait_PSYCHOPATH( "PSYCHOPATH" );
-static const trait_id trait_SAPIOVORE( "SAPIOVORE" );
+static const trait_id trait_NOPAIN( "NOPAIN"_id );
+static const trait_id trait_PAINRESIST( "PAINRESIST"_id );
+static const trait_id trait_PAINRESIST_TROGLO( "PAINRESIST_TROGLO"_id );
+static const trait_id trait_PARAIMMUNE( "PARAIMMUNE"_id );
+static const trait_id trait_PARKOUR( "PARKOUR"_id );
+static const trait_id trait_PSYCHOPATH( "PSYCHOPATH"_id );
+static const trait_id trait_SAPIOVORE( "SAPIOVORE"_id );
 static const trait_id trait_SHELL2( "SHELL2" );
-static const trait_id trait_SPIRITUAL( "SPIRITUAL" );
-static const trait_id trait_STRONGSTOMACH( "STRONGSTOMACH" );
-static const trait_id trait_SUNLIGHT_DEPENDENT( "SUNLIGHT_DEPENDENT" );
-static const trait_id trait_THRESH_SPIDER( "THRESH_SPIDER" );
-static const trait_id trait_VOMITOUS( "VOMITOUS" );
-static const trait_id trait_WATERSLEEP( "WATERSLEEP" );
-static const trait_id trait_WEAKSTOMACH( "WEAKSTOMACH" );
-static const trait_id trait_WEB_SPINNER( "WEB_SPINNER" );
-static const trait_id trait_WEB_WALKER( "WEB_WALKER" );
-static const trait_id trait_WEB_WEAVER( "WEB_WEAVER" );
+static const trait_id trait_SPIRITUAL( "SPIRITUAL"_id );
+static const trait_id trait_STRONGSTOMACH( "STRONGSTOMACH"_id );
+static const trait_id trait_SUNLIGHT_DEPENDENT( "SUNLIGHT_DEPENDENT"_id );
+static const trait_id trait_THRESH_SPIDER( "THRESH_SPIDER"_id );
+static const trait_id trait_VOMITOUS( "VOMITOUS"_id );
+static const trait_id trait_WATERSLEEP( "WATERSLEEP"_id );
+static const trait_id trait_WEAKSTOMACH( "WEAKSTOMACH"_id );
+static const trait_id trait_WEB_SPINNER( "WEB_SPINNER"_id );
+static const trait_id trait_WEB_WALKER( "WEB_WALKER"_id );
+static const trait_id trait_WEB_WEAVER( "WEB_WEAVER"_id );
 
 static const std::string flag_SPLINT( "SPLINT" );
 
-static const skill_id skill_dodge( "dodge" );
-static const skill_id skill_firstaid( "firstaid" );
-static const skill_id skill_gun( "gun" );
-static const skill_id skill_swimming( "swimming" );
+static const skill_id skill_dodge( "dodge"_id );
+static const skill_id skill_firstaid( "firstaid"_id );
+static const skill_id skill_gun( "gun"_id );
+static const skill_id skill_swimming( "swimming"_id );
 
-static const bionic_id bio_cqb( "bio_cqb" );
-static const bionic_id bio_ground_sonar( "bio_ground_sonar" );
-static const bionic_id bio_soporific( "bio_soporific" );
-static const bionic_id bio_speed( "bio_speed" );
+static const bionic_id bio_cqb( "bio_cqb"_id );
+static const bionic_id bio_ground_sonar( "bio_ground_sonar"_id );
+static const bionic_id bio_soporific( "bio_soporific"_id );
+static const bionic_id bio_speed( "bio_speed"_id );
 
 stat_mod player::get_pain_penalty() const
 {
@@ -225,7 +225,7 @@ player::player()
     prof = profession::has_initialized() ? profession::generic() :
            nullptr; //workaround for a potential structural limitation, see player::create
 
-    start_location = start_location_id( "sloc_shelter" );
+    start_location = start_location_id( "sloc_shelter"_id );
     moves = 100;
     movecounter = 0;
     oxygen = 0;
@@ -234,10 +234,10 @@ player::player()
     grab_point = tripoint_zero;
     hauling = false;
     focus_pool = 100;
-    last_item = itype_id( "null" );
+    last_item = itype_id( "null"_id );
     sight_max = 9999;
     last_batch = 0;
-    lastconsumed = itype_id( "null" );
+    lastconsumed = itype_id( "null"_id );
     death_drops = true;
 
     nv_cached = false;
@@ -284,7 +284,7 @@ void player::process_turn()
     }
     process_items();
     // Didn't just pick something up
-    last_item = itype_id( "null" );
+    last_item = itype_id( "null"_id );
 
     if( !is_npc() && has_trait( trait_DEBUG_BIONIC_POWER ) ) {
         mod_power_level( get_max_power_level() );
@@ -628,22 +628,22 @@ void player::pause()
         if( underwater ) {
             practice( skill_swimming, 1 );
             drench( 100, { {
-                    bodypart_str_id( "leg_l" ), bodypart_str_id( "leg_r" ), bodypart_str_id( "torso" ), bodypart_str_id( "arm_l" ),
-                    bodypart_str_id( "arm_r" ), bodypart_str_id( "head" ), bodypart_str_id( "eyes" ), bodypart_str_id( "mouth" ),
-                    bodypart_str_id( "foot_l" ), bodypart_str_id( "foot_r" ), bodypart_str_id( "hand_l" ), bodypart_str_id( "hand_r" )
+                    bodypart_str_id( "leg_l"_id ), bodypart_str_id( "leg_r"_id ), bodypart_str_id( "torso"_id ), bodypart_str_id( "arm_l"_id ),
+                    bodypart_str_id( "arm_r"_id ), bodypart_str_id( "head"_id ), bodypart_str_id( "eyes"_id ), bodypart_str_id( "mouth"_id ),
+                    bodypart_str_id( "foot_l"_id ), bodypart_str_id( "foot_r"_id ), bodypart_str_id( "hand_l"_id ), bodypart_str_id( "hand_r"_id )
                 }
             }, true );
         } else if( here.has_flag( TFLAG_DEEP_WATER, pos() ) ) {
             practice( skill_swimming, 1 );
             // Same as above, except no head/eyes/mouth
             drench( 100, { {
-                    bodypart_str_id( "leg_l" ), bodypart_str_id( "leg_r" ), bodypart_str_id( "torso" ), bodypart_str_id( "arm_l" ),
-                    bodypart_str_id( "arm_r" ), bodypart_str_id( "foot_l" ), bodypart_str_id( "foot_r" ), bodypart_str_id( "hand_l" ),
-                    bodypart_str_id( "hand_r" )
+                    bodypart_str_id( "leg_l"_id ), bodypart_str_id( "leg_r"_id ), bodypart_str_id( "torso"_id ), bodypart_str_id( "arm_l"_id ),
+                    bodypart_str_id( "arm_r"_id ), bodypart_str_id( "foot_l"_id ), bodypart_str_id( "foot_r"_id ), bodypart_str_id( "hand_l"_id ),
+                    bodypart_str_id( "hand_r"_id )
                 }
             }, true );
         } else if( here.has_flag( "SWIMMABLE", pos() ) ) {
-            drench( 80, { { bodypart_str_id( "foot_l" ), bodypart_str_id( "foot_r" ), bodypart_str_id( "leg_l" ), bodypart_str_id( "leg_r" ) } },
+            drench( 80, { { bodypart_str_id( "foot_l"_id ), bodypart_str_id( "foot_r"_id ), bodypart_str_id( "leg_l"_id ), bodypart_str_id( "leg_r"_id ) } },
             false );
         }
     }
@@ -690,11 +690,11 @@ void player::pause()
             }
         }
         effect &e = get_effect( effect_bleed, bp_id );
-        time_duration penalty = 1_turns * ( encumb( bodypart_id( "hand_r" ) ) + encumb(
-                                                bodypart_id( "hand_l" ) ) );
+        time_duration penalty = 1_turns * ( encumb( bodypart_id( "hand_r"_id ) ) + encumb(
+                                                bodypart_id( "hand_l"_id ) ) );
         time_duration benefit = 5_turns + 10_turns * get_skill_level( skill_firstaid );
 
-        if( is_limb_broken( bodypart_id( "arm_l" ) ) || is_limb_broken( bodypart_id( "arm_r" ) ) ) {
+        if( is_limb_broken( bodypart_id( "arm_l"_id ) ) || is_limb_broken( bodypart_id( "arm_r"_id ) ) ) {
             add_msg_player_or_npc( m_warning,
                                    _( "Your broken limb significantly hampers your efforts to puting pressure on the bleeding wound!" ),
                                    _( "<npcname>'s broken limb significantly hampers efforts of putting pressure on the bleeding wound!" ) );
@@ -733,7 +733,7 @@ void player::pause()
                 if( exp_temp - experience > 0 && x_in_y( exp_temp - experience, 1.0 ) ) {
                     experience++;
                 }
-                practice( skill_id( "driving" ), experience );
+                practice( skill_id( "driving"_id ), experience );
                 break;
             }
         }
@@ -873,9 +873,9 @@ float player::fall_damage_mod() const
     /** @EFFECT_DODGE decreases damage from falling */
     float dex_dodge = dex_cur / 2.0 + get_skill_level( skill_dodge );
     // Penalize for wearing heavy stuff
-    const float average_leg_encumb = ( encumb( bodypart_id( "leg_l" ) ) + encumb(
-                                           bodypart_id( "leg_r" ) ) ) / 2.0;
-    dex_dodge -= ( average_leg_encumb + encumb( bodypart_id( "torso" ) ) ) / 10;
+    const float average_leg_encumb = ( encumb( bodypart_id( "leg_l"_id ) ) + encumb(
+                                           bodypart_id( "leg_r"_id ) ) ) / 2.0;
+    dex_dodge -= ( average_leg_encumb + encumb( bodypart_id( "torso"_id ) ) ) / 10;
     // But prevent it from increasing damage
     dex_dodge = std::max( 0.0f, dex_dodge );
     // 100% damage at 0, 75% at 10, 50% at 20 and so on
@@ -908,7 +908,7 @@ int player::impact( const int force, const tripoint &p )
     // TODO: Make cushioned items like bike helmets help more
     float armor_eff = 1.0f;
     // Shock Absorber CBM heavily reduces damage
-    const bool shock_absorbers = has_active_bionic( bionic_id( "bio_shock_absorber" ) );
+    const bool shock_absorbers = has_active_bionic( bionic_id( "bio_shock_absorber"_id ) );
 
     // Being slammed against things rather than landing means we can't
     // control the impact as well
@@ -1040,16 +1040,16 @@ void player::knock_back_to( const tripoint &to )
 
     // First, see if we hit a monster
     if( monster *const critter = g->critter_at<monster>( to ) ) {
-        deal_damage( critter, bodypart_id( "torso" ), damage_instance( damage_type::BASH,
+        deal_damage( critter, bodypart_id( "torso"_id ), damage_instance( damage_type::BASH,
                      static_cast<float>( critter->type->size ) ) );
         add_effect( effect_stunned, 1_turns );
         /** @EFFECT_STR_MAX allows knocked back player to knock back, damage, stun some monsters */
         if( ( str_max - 6 ) / 4 > critter->type->size ) {
             critter->knock_back_from( pos() ); // Chain reaction!
-            critter->apply_damage( this, bodypart_id( "torso" ), ( str_max - 6 ) / 4 );
+            critter->apply_damage( this, bodypart_id( "torso"_id ), ( str_max - 6 ) / 4 );
             critter->add_effect( effect_stunned, 1_turns );
         } else if( ( str_max - 6 ) / 4 == critter->type->size ) {
-            critter->apply_damage( this, bodypart_id( "torso" ), ( str_max - 6 ) / 4 );
+            critter->apply_damage( this, bodypart_id( "torso"_id ), ( str_max - 6 ) / 4 );
             critter->add_effect( effect_stunned, 1_turns );
         }
         critter->check_dead_state();
@@ -1060,10 +1060,10 @@ void player::knock_back_to( const tripoint &to )
     }
 
     if( npc *const np = g->critter_at<npc>( to ) ) {
-        deal_damage( np, bodypart_id( "torso" ),
+        deal_damage( np, bodypart_id( "torso"_id ),
                      damage_instance( damage_type::BASH, static_cast<float>( np->get_size() ) ) );
         add_effect( effect_stunned, 1_turns );
-        np->deal_damage( this, bodypart_id( "torso" ), damage_instance( damage_type::BASH, 3 ) );
+        np->deal_damage( this, bodypart_id( "torso"_id ), damage_instance( damage_type::BASH, 3 ) );
         add_msg_player_or_npc( _( "You bounce off %s!" ), _( "<npcname> bounces off %s!" ),
                                np->name );
         np->check_dead_state();
@@ -1081,7 +1081,7 @@ void player::knock_back_to( const tripoint &to )
 
         // It's some kind of wall.
         // TODO: who knocked us back? Maybe that creature should be the source of the damage?
-        apply_damage( nullptr, bodypart_id( "torso" ), 3 );
+        apply_damage( nullptr, bodypart_id( "torso"_id ), 3 );
         add_effect( effect_stunned, 2_turns );
         add_msg_player_or_npc( _( "You bounce off a %s!" ), _( "<npcname> bounces off a %s!" ),
                                here.obstacle_name( to ) );
@@ -1093,8 +1093,8 @@ void player::knock_back_to( const tripoint &to )
 
 int player::hp_percentage() const
 {
-    const bodypart_id head_id = bodypart_id( "head" );
-    const bodypart_id torso_id = bodypart_id( "torso" );
+    const bodypart_id head_id = bodypart_id( "head"_id );
+    const bodypart_id torso_id = bodypart_id( "torso"_id );
     int total_cur = 0;
     int total_max = 0;
     // Head and torso HP are weighted 3x and 2x, respectively
@@ -1131,7 +1131,7 @@ void player::add_pain_msg( int val, const bodypart_id &bp ) const
     if( has_trait( trait_NOPAIN ) ) {
         return;
     }
-    if( bp == bodypart_id( "bp_null" ) ) {
+    if( bp == bodypart_id( "bp_null"_id ) ) {
         if( val > 20 ) {
             add_msg_if_player( _( "Your body is wracked with excruciating pain!" ) );
         } else if( val > 10 ) {
@@ -1306,13 +1306,13 @@ void player::process_one_effect( effect &it, bool is_new )
             }
         }
         if( is_new || it.activated( calendar::turn, "HURT", val, reduced, mod ) ) {
-            if( bp == bodypart_id( "bp_null" ) ) {
+            if( bp == bodypart_id( "bp_null"_id ) ) {
                 if( val > 5 ) {
-                    add_msg_if_player( _( "Your %s HURTS!" ), body_part_name_accusative( bodypart_id( "torso" ) ) );
+                    add_msg_if_player( _( "Your %s HURTS!" ), body_part_name_accusative( bodypart_id( "torso"_id ) ) );
                 } else {
-                    add_msg_if_player( _( "Your %s hurts!" ), body_part_name_accusative( bodypart_id( "torso" ) ) );
+                    add_msg_if_player( _( "Your %s hurts!" ), body_part_name_accusative( bodypart_id( "torso"_id ) ) );
                 }
-                apply_damage( nullptr, bodypart_id( "torso" ), val, true );
+                apply_damage( nullptr, bodypart_id( "torso"_id ), val, true );
             } else {
                 if( val > 5 ) {
                     add_msg_if_player( _( "Your %s HURTS!" ), body_part_name_accusative( bp ) );
@@ -1329,7 +1329,7 @@ void player::process_one_effect( effect &it, bool is_new )
     if( val != 0 ) {
         mod = 1;
         if( ( is_new || it.activated( calendar::turn, "SLEEP", val, reduced, mod ) ) &&
-            !has_effect( efftype_id( "sleep" ) ) ) {
+            !has_effect( efftype_id( "sleep"_id ) ) ) {
             add_msg_if_player( _( "You pass out!" ) );
             fall_asleep( time_duration::from_turns( val ) );
         }
@@ -1485,7 +1485,7 @@ void player::process_items()
     if( update_required ) {
         calc_encumbrance();
     }
-    if( has_active_bionic( bionic_id( "bio_ups" ) ) ) {
+    if( has_active_bionic( bionic_id( "bio_ups"_id ) ) ) {
         ch_UPS += units::to_kilojoule( get_power_level() );
     }
     int ch_UPS_used = 0;
@@ -1506,7 +1506,7 @@ void player::process_items()
                      it->ammo_required() > ch_UPS - ch_UPS_used ) ) {
             it->deactivate();
         } else if( ch_UPS_used < ch_UPS &&
-                   it->ammo_remaining() < it->ammo_capacity( ammotype( "battery" ) ) ) {
+                   it->ammo_remaining() < it->ammo_capacity( ammotype( "battery"_id ) ) ) {
             ch_UPS_used++;
             it->ammo_set( itype_battery, it->ammo_remaining() + 1 );
         }
@@ -1561,7 +1561,7 @@ bool player::add_faction_warning( const faction_id &id )
         warning_record[id] = std::make_pair( 1, calendar::turn );
     }
     faction *fac = g->faction_manager_ptr->get( id );
-    if( fac != nullptr && is_player() && fac->id != faction_id( "no_faction" ) ) {
+    if( fac != nullptr && is_player() && fac->id != faction_id( "no_faction"_id ) ) {
         fac->likes_u -= 1;
         fac->respects_u -= 1;
     }
@@ -2149,7 +2149,7 @@ void player::mend_item( item_location &&obj, bool interactive )
         }
 
         const mending_method &method = opt.method;
-        assign_activity( activity_id( "ACT_MEND_ITEM" ), to_moves<int>( method.time ) );
+        assign_activity( activity_id( "ACT_MEND_ITEM"_id ), to_moves<int>( method.time ) );
         activity.name = opt.fault.str();
         activity.str_values.emplace_back( method.id );
         activity.targets.push_back( std::move( obj ) );
@@ -2297,9 +2297,9 @@ bool player::can_lift( const T &obj ) const
         str = mons->mech_str_addition() == 0 ? str : mons->mech_str_addition();
     }
     const int npc_str = get_lift_assist();
-    if( has_trait( trait_id( "STRONGBACK" ) ) ) {
+    if( has_trait( trait_id( "STRONGBACK"_id ) ) ) {
         str *= 1.35;
-    } else if( has_trait( trait_id( "BADBACK" ) ) ) {
+    } else if( has_trait( trait_id( "BADBACK"_id ) ) ) {
         str /= 1.35;
     }
     return str + npc_str >= obj.lift_strength();
@@ -2800,7 +2800,7 @@ void player::gunmod_add( item &gun, item &mod )
 
     const int moves = !has_trait( trait_DEBUG_HS ) ? mod.type->gunmod->install_time : 0;
 
-    assign_activity( activity_id( "ACT_GUNMOD_ADD" ), moves, -1, 0, tool );
+    assign_activity( activity_id( "ACT_GUNMOD_ADD"_id ), moves, -1, 0, tool );
     activity.targets.push_back( item_location( *this, &gun ) );
     activity.targets.push_back( item_location( *this, &mod ) );
     activity.values.push_back( 0 ); // dummy value
@@ -2827,7 +2827,7 @@ void player::toolmod_add( item_location tool, item_location mod )
         return; // player canceled installation
     }
 
-    assign_activity( activity_id( "ACT_TOOLMOD_ADD" ), 1, -1 );
+    assign_activity( activity_id( "ACT_TOOLMOD_ADD"_id ), 1, -1 );
     activity.targets.emplace_back( std::move( tool ) );
     activity.targets.emplace_back( std::move( mod ) );
 }

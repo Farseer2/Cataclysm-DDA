@@ -96,9 +96,9 @@ void projectile::unset_custom_explosion()
 static void foamcrete_build( const tripoint &p )
 {
     map &here = get_map();
-    const ter_str_id floor = ter_str_id( "t_foamcrete_floor" );
-    const ter_str_id wall = ter_str_id( "t_foamcrete_wall" );
-    const field_type_str_id field_fd_foamcrete( "fd_foamcrete" );
+    const ter_str_id floor = ter_str_id( "t_foamcrete_floor"_id );
+    const ter_str_id wall = ter_str_id( "t_foamcrete_wall"_id );
+    const field_type_str_id field_fd_foamcrete( "fd_foamcrete"_id );
 
     if( !( wall.is_valid() && floor.is_valid() && field_fd_foamcrete.is_valid() ) ) {
         debugmsg( "Foamcrete terrains or fields are missing" );

@@ -34,16 +34,16 @@
 #include "vehicle.h"
 #include "vehicle_selector.h"
 
-static const itype_id itype_apparatus( "apparatus" );
-static const itype_id itype_adv_UPS_off( "adv_UPS_off" );
-static const itype_id itype_toolset( "toolset" );
-static const itype_id itype_UPS( "UPS" );
-static const itype_id itype_UPS_off( "UPS_off" );
+static const itype_id itype_apparatus( "apparatus"_id );
+static const itype_id itype_adv_UPS_off( "adv_UPS_off"_id );
+static const itype_id itype_toolset( "toolset"_id );
+static const itype_id itype_UPS( "UPS"_id );
+static const itype_id itype_UPS_off( "UPS_off"_id );
 
-static const quality_id qual_BUTCHER( "BUTCHER" );
+static const quality_id qual_BUTCHER( "BUTCHER"_id );
 
-static const bionic_id bio_tools( "bio_tools" );
-static const bionic_id bio_ups( "bio_ups" );
+static const bionic_id bio_tools( "bio_tools"_id );
+static const bionic_id bio_ups( "bio_ups"_id );
 
 /** @relates visitable */
 template <typename T>
@@ -936,7 +936,7 @@ int visitable<inventory>::amount_of( const itype_id &what, bool pseudo, int limi
 {
     const auto &binned = static_cast<const inventory *>( this )->get_binned_items();
     const auto iter = binned.find( what );
-    if( iter == binned.end() && what != itype_id( "any" ) ) {
+    if( iter == binned.end() && what != itype_id( "any"_id ) ) {
         return 0;
     }
 
@@ -970,7 +970,7 @@ int visitable<Character>::amount_of( const itype_id &what, bool pseudo, int limi
     if( what == itype_apparatus && pseudo ) {
         int qty = 0;
         visit_items( [&qty, &limit, &filter]( const item * e ) {
-            if( e->get_quality( quality_id( "SMOKE_PIPE" ) ) >= 1 && filter( *e ) ) {
+            if( e->get_quality( quality_id( "SMOKE_PIPE"_id ) ) >= 1 && filter( *e ) ) {
                 qty = sum_no_wrap( qty, 1 );
             }
             return qty < limit ? VisitResponse::SKIP : VisitResponse::ABORT;
