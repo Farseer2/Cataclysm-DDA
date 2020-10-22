@@ -1428,11 +1428,6 @@ int item_pocket::obtain_cost( const item &it ) const
     return 0;
 }
 
-bool item_pocket::is_type( pocket_type ptype ) const
-{
-    return ptype == data->type;
-}
-
 bool item_pocket::is_valid() const
 {
     return data != nullptr;

@@ -413,4 +413,8 @@ struct ret_val<item_pocket::contain_code>::default_success
     : public std::integral_constant<item_pocket::contain_code,
       item_pocket::contain_code::SUCCESS> {};
 
+inline bool item_pocket::is_type( pocket_type ptype ) const
+{
+    return ptype == data->type;
+}
 #endif // CATA_SRC_ITEM_POCKET_H
