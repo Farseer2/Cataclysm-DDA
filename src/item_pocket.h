@@ -261,7 +261,7 @@ class item_pocket
         bool can_unload_liquid() const;
 
         // only available to help with migration from previous usage of std::list<item>
-        std::list<item> &edit_contents();
+        std::vector<item> &edit_contents();
 
         // cost of getting an item from this pocket
         // @TODO: make move cost vary based on other contained items
@@ -299,7 +299,7 @@ class item_pocket
         bool _saved_sealed = false;
         const pocket_data *data = nullptr;
         // the items inside the pocket
-        std::list<item> contents;
+        std::vector<item> contents;
         bool _sealed = false;
 };
 

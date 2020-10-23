@@ -559,7 +559,7 @@ int item_pocket::ammo_consume( int qty )
 {
     int need = qty;
     int used = 0;
-    std::list<item>::iterator it;
+    std::vector<item>::iterator it;
     for( it = contents.begin(); it != contents.end(); ) {
         if( it->has_flag( "CASING" ) ) {
             it++;
@@ -1136,7 +1136,7 @@ cata::optional<item> item_pocket::remove_item( const item &it )
 {
     item ret( it );
     const size_t sz = contents.size();
-    contents.remove_if( [&it]( const item & rhs ) {
+    std::remove_if( contents.begin(), contents.end(), [&it]( const item & rhs ) {
         return &rhs == &it;
     } );
     if( sz == contents.size() ) {
@@ -1151,7 +1151,8 @@ bool item_pocket::remove_internal( const std::function<bool( item & )> &filter,
 {
     for( auto it = contents.begin(); it != contents.end(); ) {
         if( filter( *it ) ) {
-            res.splice( res.end(), contents, it++ );
+            res.push_back( *it );
+            contents.erase( it++ );
             if( --count == 0 ) {
                 return true;
             }
@@ -1233,21 +1234,21 @@ void item_pocket::overflow( const tripoint &pos )
     }
 
     if( remaining_volume() < 0_ml ) {
-        contents.sort( []( const item & left, const item & right ) {
-            return left.volume() > right.volume();
+        std::sort( contents.begin(), contents.end(), []( const item & left, const item & right ) {
+            return left.volume() < right.volume();
         } );
         while( remaining_volume() < 0_ml && !contents.empty() ) {
             here.add_item_or_charges( pos, contents.front() );
-            contents.pop_front();
+            contents.pop_back();
         }
     }
     if( remaining_weight() < 0_gram ) {
-        contents.sort( []( const item & left, const item & right ) {
+        std::sort( contents.begin(), contents.end(), []( const item & left, const item & right ) {
             return left.weight() > right.weight();
         } );
         while( remaining_weight() < 0_gram && !contents.empty() ) {
             here.add_item_or_charges( pos, contents.front() );
-            contents.pop_front();
+            contents.pop_back();
         }
     }
 }
@@ -1304,7 +1305,7 @@ item *item_pocket::get_item_with( const std::function<bool( const item & )> &fil
 
 void item_pocket::remove_items_if( const std::function<bool( item & )> &filter )
 {
-    contents.remove_if( filter );
+    std::remove_if( contents.begin(), contents.end(), filter );
     on_contents_changed();
 }
 
@@ -1404,7 +1405,7 @@ bool item_pocket::can_unload_liquid() const
     return will_spill() || !cts_is_frozen_liquid;
 }
 
-std::list<item> &item_pocket::edit_contents()
+std::vector<item> &item_pocket::edit_contents()
 {
     return contents;
 }

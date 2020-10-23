@@ -287,7 +287,7 @@ class item_contents
         //called by all_items_ptr to recursively get all items without duplicating items in nested pockets
         std::list<item *> all_items_top_recursive( item_pocket::pocket_type pk_type );
 
-        std::list<item_pocket> contents;
+        std::vector<item_pocket> contents;
 
         struct item_contents_helper;
 
