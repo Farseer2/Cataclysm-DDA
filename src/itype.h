@@ -839,7 +839,7 @@ class islot_milling
 struct itype {
         friend class Item_factory;
 
-        using FlagsSetType = std::set<flag_id>;
+        using FlagsSetType = std::unordered_set<flag_id>;
 
         /**
          * Slots for various item type properties. Each slot may contain a valid pointer or null, check
