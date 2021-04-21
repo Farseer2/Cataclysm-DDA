@@ -4045,6 +4045,14 @@ std::vector<std::string> Character::get_overlay_ids() const
     int order;
     std::string overlay_id;
 
+    rval.reserve( effects->size() +
+                  my_mutations.size() +
+                  my_bionics->size() +
+                  mutation_sorting.size() +
+                  worn.size() +
+                  is_armed() +
+                  is_walking() ); // Kind of lengthy - but otherwise there are a ton of reallocs here.
+
     // first get effects
     for( const auto &eff_pr : *effects ) {
         rval.push_back( "effect_" + eff_pr.first.str() );

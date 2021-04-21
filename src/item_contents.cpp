@@ -40,11 +40,11 @@ static const std::vector<item_pocket::pocket_type> avail_types{
 class pocket_favorite_callback : public uilist_callback
 {
     private:
-        std::list<item_pocket> *pockets = nullptr;
+        std::vector<item_pocket> *pockets = nullptr;
         // whitelist or blacklist, for interactions
         bool whitelist = true;
     public:
-        explicit pocket_favorite_callback( std::list<item_pocket> *pockets ) : pockets( pockets ) {}
+        explicit pocket_favorite_callback( std::vector<item_pocket> *pockets ) : pockets( pockets ) {}
         void refresh( uilist *menu ) override;
         bool key( const input_context &, const input_event &event, int entnum, uilist *menu ) override;
 };
@@ -1212,8 +1212,9 @@ void item_contents::update_modified_pockets(
     const cata::optional<const pocket_data *> &mag_or_mag_well,
     std::vector<const pocket_data *> container_pockets )
 {
-    for( auto pocket_iter = contents.begin(); pocket_iter != contents.end(); ) {
-        item_pocket &pocket = *pocket_iter;
+    for( uint32_t i = 0; i < contents.size(); ) {
+        item_pocket &pocket = contents[i];
+        bool erase = false;
         if( pocket.is_type( item_pocket::pocket_type::CONTAINER ) ) {
 
             const pocket_data *current = pocket.get_pocket_data();
@@ -1238,9 +1239,7 @@ void item_contents::update_modified_pockets(
                     // in case the debugmsg wasn't clear, this should never happen
                     debugmsg( "Oops!  deleted some items when updating pockets that were added via toolmods" );
                 }
-                pocket_iter = contents.erase( pocket_iter );
-            } else {
-                ++pocket_iter;
+                erase = true;
             }
 
         } else if( pocket.is_type( item_pocket::pocket_type::MAGAZINE ) ||
@@ -1252,16 +1251,18 @@ void item_contents::update_modified_pockets(
                         debugmsg( "Oops!  deleted some items when updating pockets that were added via toolmods" );
                     }
                     contents.push_back( item_pocket( *mag_or_mag_well ) );
-                    pocket_iter = contents.erase( pocket_iter );
-                } else {
-                    ++pocket_iter;
+                    erase = true;
                 }
             } else {
                 // no mag or mag well, so it needs to be erased
-                pocket_iter = contents.erase( pocket_iter );
+                erase = true;
             }
+        }
+
+        if( erase ) {
+            contents.erase( contents.begin() + i );
         } else {
-            ++pocket_iter;
+            i++;
         }
     }
 
@@ -1616,15 +1617,14 @@ void item_contents::info( std::vector<iteminfo> &info, const iteminfo_query *par
 void item_contents::favorite_settings_menu( const std::string &item_name )
 {
     pocket_favorite_callback cb( &contents );
-    int num_container_pockets = 0;
-    std::map<int, std::string> pocket_name;
+    std::vector<std::string> pocket_name;
     for( const item_pocket &pocket : contents ) {
         if( pocket.is_type( item_pocket::pocket_type::CONTAINER ) ) {
-            pocket_name[num_container_pockets] =
+            pocket_name.push_back(
                 string_format( "%s/%s",
                                vol_to_info( "", "", pocket.contains_volume() ).sValue,
-                               vol_to_info( "", "", pocket.max_contains_volume() ).sValue );
-            num_container_pockets++;
+                               vol_to_info( "", "", pocket.max_contains_volume() ).sValue )
+            );
         }
     }
     uilist pocket_selector;
@@ -1642,7 +1642,7 @@ void item_contents::favorite_settings_menu( const std::string &item_name )
     pocket_selector.w_height_setup = []() {
         return TERMY;
     };
-    for( int i = 1; i <= num_container_pockets; i++ ) {
+    for( int i = 1; i <= pocket_name.size(); i++ ) {
         pocket_selector.addentry( string_format( "%d - %s", i, pocket_name[i - 1] ) );
     }
 

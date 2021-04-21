@@ -447,14 +447,18 @@ static std::vector<tripoint> shrapnel( const tripoint &src, int power,
             if( total_hits > 0 && player_character.sees( *critter ) ) {
                 // Building a phrase to summarize the fragment effects.
                 // Target, Number of impacts, total amount of damage, proportion of deflected fragments.
-                std::map<int, std::string> impact_count_descriptions = {
-                    { 1, _( "a" ) }, { 2, _( "several" ) }, { 5, _( "many" ) },
-                    { 20, _( "a large number of" ) }, { 100, _( "a huge number of" ) },
-                    { std::numeric_limits<int>::max(), _( "an immense number of" ) }
+                using impact_p = std::pair<int, std::string>;
+                static std::array<const impact_p, 6> impact_count_descriptions = {
+                    impact_p { 1, _( "a" ) },
+                    impact_p { 2, _( "several" ) },
+                    impact_p { 5, _( "many" ) },
+                    impact_p { 20, _( "a large number of" ) },
+                    impact_p { 100, _( "a huge number of" ) },
+                    impact_p { std::numeric_limits<int>::max(), _( "an immense number of" ) }
                 };
                 std::string impact_count = std::find_if(
                                                impact_count_descriptions.begin(), impact_count_descriptions.end(),
-                [total_hits]( const std::pair<int, std::string> &desc ) {
+                [total_hits]( const impact_p & desc ) {
                     return desc.first >= total_hits;
                 } )->second;
                 std::string damage_description = ( damage_taken > 0 ) ?

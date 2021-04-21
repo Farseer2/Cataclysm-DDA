@@ -417,10 +417,12 @@ void mdeath::guilt( monster &z )
     // different message as we kill more of the same monster
     std::string msg = _( "You feel guilty for killing %s." ); // default guilt message
     game_message_type msgtype = m_bad; // default guilt message type
-    std::map<int, std::string> guilt_tresholds;
-    guilt_tresholds[75] = _( "You feel ashamed for killing %s." );
-    guilt_tresholds[50] = _( "You regret killing %s." );
-    guilt_tresholds[25] = _( "You feel remorse for killing %s." );
+    using guilt_p = std::pair<int, std::string>;
+    static std::array<guilt_p, 3> guilt_tresholds{ {
+            guilt_p( 75, _( "You feel ashamed for killing %s." ) ),
+            guilt_p( 50, _( "You regret killing %s." ) ),
+            guilt_p( 25, _( "You feel remorse for killing %s." ) )
+        } };
 
     Character &player_character = get_player_character();
     if( player_character.has_trait( trait_PSYCHOPATH ) ||
