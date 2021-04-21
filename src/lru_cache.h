@@ -19,6 +19,9 @@ class lru_cache
     public:
         using Pair = std::pair<Key, Value>;
 
+        lru_cache( size_t size_hint = 100 ) {
+            map.reserve( size_hint );
+        }
         void insert( int limit, const Key &, const Value & );
         Value get( const Key &, const Value &default_ ) const;
         void remove( const Key & );

@@ -140,7 +140,8 @@ units::volume map_stack::max_volume() const
 
 // Map class methods.
 
-map::map( int mapsize, bool zlev )
+map::map( int mapsize, bool zlev ) :
+    skew_vision_cache( 100000 )
 {
     my_MAPSIZE = mapsize;
     zlevels = zlev;

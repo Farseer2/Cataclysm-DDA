@@ -5631,14 +5631,14 @@ int item::get_quality( const quality_id &id ) const
     /**
      * EXCEPTION: Items with quality BOIL only count as such if they are empty.
      */
-    if( id == quality_id( "BOIL" ) && !contents.empty_container() ) {
+    static quality_id BOIL = quality_id( "BOIL" );
+    if( id == BOIL && !contents.empty_container() ) {
         return INT_MIN;
     }
 
-    for( const std::pair<const quality_id, int> &quality : type->qualities ) {
-        if( quality.first == id ) {
-            return_quality = quality.second;
-        }
+    auto quality_it = type->qualities.find( id );
+    if( quality_it != type->qualities.end() ) {
+        return_quality = quality_it->second;
     }
     return_quality = std::max( return_quality, contents.best_quality( id ) );
 
