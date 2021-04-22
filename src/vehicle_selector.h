@@ -27,8 +27,8 @@ class vehicle_cursor : public visitable
         int max_quality( const quality_id &qual ) const override;
         VisitResponse visit_items( const std::function<VisitResponse( item *, item * )> &func ) const
         override;
-        std::list<item> remove_items_with( const std::function<bool( const item & )> &filter,
-                                           int count = INT_MAX ) override;
+        std::vector<item> remove_items_with( const std::function<bool( const item & )> &filter,
+                                             int count = INT_MAX ) override;
 };
 
 class vehicle_selector : public visitable
@@ -104,8 +104,8 @@ class vehicle_selector : public visitable
         int max_quality( const quality_id &qual ) const override;
         VisitResponse visit_items( const std::function<VisitResponse( item *, item * )> &func ) const
         override;
-        std::list<item> remove_items_with( const std::function<bool( const item & )> &filter,
-                                           int count = INT_MAX ) override;
+        std::vector<item> remove_items_with( const std::function<bool( const item & )> &filter,
+                                             int count = INT_MAX ) override;
 
     private:
         std::vector<value_type> data;

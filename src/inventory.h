@@ -236,8 +236,8 @@ class inventory : public visitable
         bool has_quality( const quality_id &qual, int level = 1, int qty = 1 ) const override;
         VisitResponse visit_items( const std::function<VisitResponse( item *, item * )> &func ) const
         override;
-        std::list<item> remove_items_with( const std::function<bool( const item & )> &filter,
-                                           int count = INT_MAX ) override;
+        std::vector<item> remove_items_with( const std::function<bool( const item & )> &filter,
+                                             int count = INT_MAX ) override;
         int charges_of( const itype_id &what, int limit = INT_MAX,
                         const std::function<bool( const item & )> &filter = return_true<item>,
                         const std::function<void( int )> &visitor = nullptr ) const override;

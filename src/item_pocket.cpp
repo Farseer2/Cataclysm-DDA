@@ -350,46 +350,48 @@ bool item_pocket::is_funnel_container( units::volume &bigger_than ) const
     return false;
 }
 
-std::list<item *> item_pocket::all_items_top()
+std::vector<item *> item_pocket::all_items_top()
 {
-    std::list<item *> items;
+    std::vector<item *> items;
+    items.reserve( contents.size() );
     for( item &it : contents ) {
         items.push_back( &it );
     }
     return items;
 }
 
-std::list<const item *> item_pocket::all_items_top() const
+std::vector<const item *> item_pocket::all_items_top() const
 {
-    std::list<const item *> items;
+    std::vector<const item *> items;
+    items.reserve( contents.size() );
     for( const item &it : contents ) {
         items.push_back( &it );
     }
     return items;
 }
 
-std::list<item *> item_pocket::all_items_ptr( item_pocket::pocket_type pk_type )
+std::vector<item *> item_pocket::all_items_ptr( item_pocket::pocket_type pk_type )
 {
     if( !is_type( pk_type ) ) {
-        return std::list<item *>();
+        return std::vector<item *>();
     }
-    std::list<item *> all_items_top_level{ all_items_top() };
+    std::vector<item *> all_items_top_level{ all_items_top() };
     for( item *it : all_items_top_level ) {
-        std::list<item *> all_items_internal{ it->contents.all_items_ptr( pk_type ) };
+        std::vector<item *> all_items_internal{ it->contents.all_items_ptr( pk_type ) };
         all_items_top_level.insert( all_items_top_level.end(), all_items_internal.begin(),
                                     all_items_internal.end() );
     }
     return all_items_top_level;
 }
 
-std::list<const item *> item_pocket::all_items_ptr( item_pocket::pocket_type pk_type ) const
+std::vector<const item *> item_pocket::all_items_ptr( item_pocket::pocket_type pk_type ) const
 {
     if( !is_type( pk_type ) ) {
-        return std::list<const item *>();
+        return std::vector<const item *>();
     }
-    std::list<const item *> all_items_top_level{ all_items_top() };
+    std::vector<const item *> all_items_top_level{ all_items_top() };
     for( const item *it : all_items_top_level ) {
-        std::list<const item *> all_items_internal{ it->contents.all_items_ptr( pk_type ) };
+        std::vector<const item *> all_items_internal{ it->contents.all_items_ptr( pk_type ) };
         all_items_top_level.insert( all_items_top_level.end(), all_items_internal.begin(),
                                     all_items_internal.end() );
     }
@@ -569,7 +571,7 @@ int item_pocket::ammo_consume( int qty )
 {
     int need = qty;
     int used = 0;
-    std::list<item>::iterator it;
+    std::vector<item>::iterator it;
     for( it = contents.begin(); it != contents.end(); ) {
         if( it->has_flag( flag_CASING ) ) {
             it++;
@@ -1149,7 +1151,7 @@ cata::optional<item> item_pocket::remove_item( const item &it )
 {
     item ret( it );
     const size_t sz = contents.size();
-    contents.remove_if( [&it]( const item & rhs ) {
+    std::remove_if( contents.begin(), contents.end(), [&it]( const item & rhs ) {
         return &rhs == &it;
     } );
     if( sz == contents.size() ) {
@@ -1160,11 +1162,12 @@ cata::optional<item> item_pocket::remove_item( const item &it )
 }
 
 bool item_pocket::remove_internal( const std::function<bool( item & )> &filter,
-                                   int &count, std::list<item> &res )
+                                   int &count, std::vector<item> &res )
 {
     for( auto it = contents.begin(); it != contents.end(); ) {
         if( filter( *it ) ) {
-            res.splice( res.end(), contents, it++ );
+            res.push_back( std::move( *it ) );
+            it = contents.erase( it );
             if( --count == 0 ) {
                 return true;
             }
@@ -1251,21 +1254,21 @@ void item_pocket::overflow( const tripoint &pos )
     }
 
     if( remaining_volume() < 0_ml ) {
-        contents.sort( []( const item & left, const item & right ) {
-            return left.volume() > right.volume();
+        std::sort( contents.begin(), contents.end(), []( const item & left, const item & right ) {
+            return left.volume() < right.volume();
         } );
         while( remaining_volume() < 0_ml && !contents.empty() ) {
             here.add_item_or_charges( pos, contents.front() );
-            contents.pop_front();
+            contents.pop_back();
         }
     }
     if( remaining_weight() < 0_gram ) {
-        contents.sort( []( const item & left, const item & right ) {
-            return left.weight() > right.weight();
+        std::sort( contents.begin(), contents.end(), []( const item & left, const item & right ) {
+            return left.weight() < right.weight();
         } );
         while( remaining_weight() < 0_gram && !contents.empty() ) {
             here.add_item_or_charges( pos, contents.front() );
-            contents.pop_front();
+            contents.pop_back();
         }
     }
 }
@@ -1322,7 +1325,7 @@ item *item_pocket::get_item_with( const std::function<bool( const item & )> &fil
 
 void item_pocket::remove_items_if( const std::function<bool( item & )> &filter )
 {
-    contents.remove_if( filter );
+    std::remove_if( contents.begin(), contents.end(), filter );
     on_contents_changed();
 }
 
@@ -1417,7 +1420,7 @@ bool item_pocket::can_unload_liquid() const
     return will_spill() || !cts_is_frozen_liquid;
 }
 
-std::list<item> &item_pocket::edit_contents()
+std::vector<item> &item_pocket::edit_contents()
 {
     return contents;
 }

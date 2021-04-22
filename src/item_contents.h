@@ -66,25 +66,25 @@ class item_contents
         size_t size() const;
 
         /** returns a list of pointers to all top-level items */
-        std::list<item *> all_items_top( item_pocket::pocket_type pk_type );
+        std::vector<item *> all_items_top( item_pocket::pocket_type pk_type );
         /** returns a list of pointers to all top-level items */
-        std::list<const item *> all_items_top( item_pocket::pocket_type pk_type ) const;
+        std::vector<const item *> all_items_top( item_pocket::pocket_type pk_type ) const;
 
         // returns a list of pointers to all top level items that pass is_standard_type
-        std::list<const item *> all_standard_items_top() const;
+        std::vector<const item *> all_standard_items_top() const;
 
         /** returns a list of pointers to all top-level items that are not mods */
-        std::list<item *> all_items_top();
+        std::vector<item *> all_items_top();
         /** returns a list of pointers to all top-level items that are not mods */
-        std::list<const item *> all_items_top() const;
+        std::vector<const item *> all_items_top() const;
 
         // returns a list of pointers to all items inside recursively
-        std::list<item *> all_items_ptr( item_pocket::pocket_type pk_type );
+        std::vector<item *> all_items_ptr( item_pocket::pocket_type pk_type );
         // returns a list of pointers to all items inside recursively
-        std::list<const item *> all_items_ptr( item_pocket::pocket_type pk_type ) const;
+        std::vector<const item *> all_items_ptr( item_pocket::pocket_type pk_type ) const;
         // returns a list of pointers to all items inside recursively
         // includes mods.  used for item_location::unpack()
-        std::list<const item *> all_items_ptr() const;
+        std::vector<const item *> all_items_ptr() const;
 
         /** gets all gunmods in the item */
         std::vector<item *> gunmods();
@@ -263,7 +263,7 @@ class item_contents
         VisitResponse visit_contents( const std::function<VisitResponse( item *, item * )> &func,
                                       item *parent = nullptr );
         void remove_internal( const std::function<bool( item & )> &filter,
-                              int &count, std::list<item> &res );
+                              int &count, std::vector<item> &res );
 
         void info( std::vector<iteminfo> &info, const iteminfo_query *parts ) const;
 
@@ -284,9 +284,9 @@ class item_contents
                 item_pocket::pocket_type pk_type = item_pocket::pocket_type::CONTAINER ) const;
 
         //called by all_items_ptr to recursively get all items without duplicating items in nested pockets
-        std::list<const item *> all_items_top_recursive( item_pocket::pocket_type pk_type ) const;
+        std::vector<const item *> all_items_top_recursive( item_pocket::pocket_type pk_type ) const;
         //called by all_items_ptr to recursively get all items without duplicating items in nested pockets
-        std::list<item *> all_items_top_recursive( item_pocket::pocket_type pk_type );
+        std::vector<item *> all_items_top_recursive( item_pocket::pocket_type pk_type );
 
         std::vector<item_pocket> contents;
 

@@ -94,7 +94,7 @@ TEST_CASE( "visitable_remove", "[visitable]" )
         REQUIRE( count_items( p, liquid_id ) == count );
 
         WHEN( "all the bottles are removed" ) {
-            std::list<item> del = p.remove_items_with( [&container_id]( const item & e ) {
+            std::vector<item> del = p.remove_items_with( [&container_id]( const item & e ) {
                 return e.typeId() == container_id;
             } );
 
@@ -121,7 +121,7 @@ TEST_CASE( "visitable_remove", "[visitable]" )
         }
 
         WHEN( "one of the bottles is removed" ) {
-            std::list<item> del = p.remove_items_with( [&container_id]( const item & e ) {
+            std::vector<item> del = p.remove_items_with( [&container_id]( const item & e ) {
                 return e.typeId() == container_id;
             }, 1 );
 
@@ -154,7 +154,7 @@ TEST_CASE( "visitable_remove", "[visitable]" )
             REQUIRE( count_items( p, liquid_id ) == count );
 
             AND_WHEN( "all the bottles are removed" ) {
-                std::list<item> del = p.remove_items_with( [&container_id]( const item & e ) {
+                std::vector<item> del = p.remove_items_with( [&container_id]( const item & e ) {
                     return e.typeId() == container_id;
                 } );
 
@@ -184,7 +184,7 @@ TEST_CASE( "visitable_remove", "[visitable]" )
             }
 
             AND_WHEN( "all but one of the bottles is removed" ) {
-                std::list<item> del = p.remove_items_with( [&container_id]( const item & e ) {
+                std::vector<item> del = p.remove_items_with( [&container_id]( const item & e ) {
                     return e.typeId() == container_id;
                 }, count - 1 );
 
@@ -230,7 +230,7 @@ TEST_CASE( "visitable_remove", "[visitable]" )
             REQUIRE( count_items( p, liquid_id ) == count + 1 );
 
             AND_WHEN( "all but one of the water is removed" ) {
-                std::list<item> del = p.remove_items_with( [&liquid_id]( const item & e ) {
+                std::vector<item> del = p.remove_items_with( [&liquid_id]( const item & e ) {
                     return e.typeId() == liquid_id;
                 }, count );
 
@@ -271,7 +271,7 @@ TEST_CASE( "visitable_remove", "[visitable]" )
                 }
 
                 AND_WHEN( "the final water is removed" ) {
-                    std::list<item> del = p.remove_items_with( [&liquid_id]( const item & e ) {
+                    std::vector<item> del = p.remove_items_with( [&liquid_id]( const item & e ) {
                         return e.typeId() == liquid_id;
                     }, 1 );
 
@@ -327,7 +327,7 @@ TEST_CASE( "visitable_remove", "[visitable]" )
         REQUIRE( count_items( cur, liquid_id ) == our );
 
         WHEN( "all the bottles are removed" ) {
-            std::list<item> del = sel.remove_items_with( [&container_id]( const item & e ) {
+            std::vector<item> del = sel.remove_items_with( [&container_id]( const item & e ) {
                 return e.typeId() == container_id;
             } );
 
@@ -354,7 +354,7 @@ TEST_CASE( "visitable_remove", "[visitable]" )
         }
 
         WHEN( "one of the bottles is removed" ) {
-            std::list<item> del = sel.remove_items_with( [&container_id]( const item & e ) {
+            std::vector<item> del = sel.remove_items_with( [&container_id]( const item & e ) {
                 return e.typeId() == container_id;
             }, 1 );
 
@@ -381,7 +381,7 @@ TEST_CASE( "visitable_remove", "[visitable]" )
         }
 
         WHEN( "all of the bottles on the player tile are removed" ) {
-            std::list<item> del = cur.remove_items_with( [&container_id]( const item & e ) {
+            std::vector<item> del = cur.remove_items_with( [&container_id]( const item & e ) {
                 return e.typeId() == container_id;
             }, our );
 
@@ -441,7 +441,7 @@ TEST_CASE( "visitable_remove", "[visitable]" )
         REQUIRE( count_items( sel, liquid_id ) == count );
 
         WHEN( "all the bottles are removed" ) {
-            std::list<item> del = sel.remove_items_with( [&container_id]( const item & e ) {
+            std::vector<item> del = sel.remove_items_with( [&container_id]( const item & e ) {
                 return e.typeId() == container_id;
             } );
 
@@ -468,7 +468,7 @@ TEST_CASE( "visitable_remove", "[visitable]" )
         }
 
         WHEN( "one of the bottles is removed" ) {
-            std::list<item> del = sel.remove_items_with( [&container_id]( const item & e ) {
+            std::vector<item> del = sel.remove_items_with( [&container_id]( const item & e ) {
                 return e.typeId() == container_id;
             }, 1 );
 

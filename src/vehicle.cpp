@@ -2471,8 +2471,10 @@ std::vector<int> vehicle::parts_at_relative( const point &dp,
         const bool use_cache ) const
 {
     if( !use_cache ) {
+        auto parts = get_all_parts();
         std::vector<int> res;
-        for( const vpart_reference &vp : get_all_parts() ) {
+        res.reserve( parts.part_count() );
+        for( const vpart_reference &vp : parts ) {
             if( vp.mount() == dp && !vp.part().removed ) {
                 res.push_back( static_cast<int>( vp.part_index() ) );
             }

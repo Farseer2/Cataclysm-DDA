@@ -499,10 +499,10 @@ item visitable::remove_item( item &it )
 }
 
 /** @relates visitable */
-std::list<item> item::remove_items_with( const std::function<bool( const item &e )>
+std::vector<item> item::remove_items_with( const std::function<bool( const item &e )>
         &filter, int count )
 {
-    std::list<item> res;
+    std::vector<item> res;
 
     if( count <= 0 ) {
         // nothing to do
@@ -514,10 +514,10 @@ std::list<item> item::remove_items_with( const std::function<bool( const item &e
 }
 
 /** @relates visitable */
-std::list<item> inventory::remove_items_with( const
+std::vector<item> inventory::remove_items_with( const
         std::function<bool( const item &e )> &filter, int count )
 {
-    std::list<item> res;
+    std::vector<item> res;
 
     if( count <= 0 ) {
         // nothing to do
@@ -531,7 +531,8 @@ std::list<item> inventory::remove_items_with( const
         for( auto istack_iter = istack.begin(); istack_iter != istack.end() && count > 0; ) {
             if( filter( *istack_iter ) ) {
                 count--;
-                res.splice( res.end(), istack, istack_iter++ );
+                res.push_back( std::move( *istack_iter ) );
+                istack_iter = istack.erase( istack_iter );
                 // The non-first items of a stack may have different invlets, the code
                 // in inventory only ever checks the invlet of the first item. This
                 // ensures that the first item of a stack always has the same invlet, even
@@ -560,10 +561,10 @@ std::list<item> inventory::remove_items_with( const
 }
 
 /** @relates visitable */
-std::list<item> Character::remove_items_with( const
+std::vector<item> Character::remove_items_with( const
         std::function<bool( const item &e )> &filter, int count )
 {
-    std::list<item> res;
+    std::vector<item> res;
 
     if( count <= 0 ) {
         // nothing to do
@@ -581,7 +582,8 @@ std::list<item> Character::remove_items_with( const
     for( auto iter = worn.begin(); iter != worn.end(); ) {
         if( filter( *iter ) ) {
             iter->on_takeoff( *this );
-            res.splice( res.end(), worn, iter++ );
+            res.push_back( std::move( *iter ) );
+            iter = worn.erase( iter );
             if( --count == 0 ) {
                 return res;
             }
@@ -606,10 +608,10 @@ std::list<item> Character::remove_items_with( const
 }
 
 /** @relates visitable */
-std::list<item> map_cursor::remove_items_with( const
+std::vector<item> map_cursor::remove_items_with( const
         std::function<bool( const item &e )> &filter, int count )
 {
-    std::list<item> res;
+    std::vector<item> res;
 
     if( count <= 0 ) {
         // nothing to do
@@ -636,7 +638,7 @@ std::list<item> map_cursor::remove_items_with( const
             sub->update_lum_rem( offset, *iter );
 
             // finally remove the item
-            res.push_back( *iter );
+            res.push_back( std::move( *iter ) );
             iter = stack.erase( iter );
 
             if( --count == 0 ) {
@@ -655,25 +657,26 @@ std::list<item> map_cursor::remove_items_with( const
 }
 
 /** @relates visitable */
-std::list<item> map_selector::remove_items_with( const
+std::vector<item> map_selector::remove_items_with( const
         std::function<bool( const item &e )> &filter, int count )
 {
-    std::list<item> res;
+    std::vector<item> res;
 
     for( auto &cursor : *this ) {
-        std::list<item> out = cursor.remove_items_with( filter, count );
+        std::vector<item> out = cursor.remove_items_with( filter, count );
         count -= out.size();
-        res.splice( res.end(), out );
+        res.reserve( res.size() + out.size() );
+        std::move( out.begin(), out.end(), res.end() );
     }
 
     return res;
 }
 
 /** @relates visitable */
-std::list<item> vehicle_cursor::remove_items_with( const
+std::vector<item> vehicle_cursor::remove_items_with( const
         std::function<bool( const item &e )> &filter, int count )
 {
-    std::list<item> res;
+    std::vector<item> res;
 
     if( count <= 0 ) {
         // nothing to do
@@ -691,7 +694,7 @@ std::list<item> vehicle_cursor::remove_items_with( const
             // remove from the active items cache (if it isn't there does nothing)
             veh.active_items.remove( &*iter );
 
-            res.push_back( *iter );
+            res.push_back( std::move( *iter ) );
             iter = p.items.erase( iter );
 
             if( --count == 0 ) {
@@ -715,15 +718,16 @@ std::list<item> vehicle_cursor::remove_items_with( const
 }
 
 /** @relates visitable */
-std::list<item> vehicle_selector::remove_items_with( const
+std::vector<item> vehicle_selector::remove_items_with( const
         std::function<bool( const item &e )> &filter, int count )
 {
-    std::list<item> res;
+    std::vector<item> res;
 
     for( auto &cursor : *this ) {
-        std::list<item> out = cursor.remove_items_with( filter, count );
+        std::vector<item> out = cursor.remove_items_with( filter, count );
         count -= out.size();
-        res.splice( res.end(), out );
+        res.reserve( res.size() + out.size() );
+        std::move( out.begin(), out.end(), res.end() );
     }
 
     return res;

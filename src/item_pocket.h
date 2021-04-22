@@ -132,10 +132,10 @@ class item_pocket
 
         const pocket_data *get_pocket_data() const;
 
-        std::list<item *> all_items_top();
-        std::list<const item *> all_items_top() const;
-        std::list<item *> all_items_ptr( pocket_type pk_type );
-        std::list<const item *> all_items_ptr( pocket_type pk_type ) const;
+        std::vector<item *> all_items_top();
+        std::vector<const item *> all_items_top() const;
+        std::vector<item *> all_items_ptr( pocket_type pk_type );
+        std::vector<const item *> all_items_ptr( pocket_type pk_type ) const;
 
         item &back();
         const item &back() const;
@@ -266,7 +266,7 @@ class item_pocket
         bool can_unload_liquid() const;
 
         // only available to help with migration from previous usage of std::list<item>
-        std::list<item> &edit_contents();
+        std::vector<item> &edit_contents();
 
         // cost of getting an item from this pocket
         // @TODO: make move cost vary based on other contained items
@@ -274,7 +274,7 @@ class item_pocket
 
         // this is used for the visitable interface. returns true if no further visiting is required
         bool remove_internal( const std::function<bool( item & )> &filter,
-                              int &count, std::list<item> &res );
+                              int &count, std::vector<item> &res );
         // @relates visitable
         VisitResponse visit_contents( const std::function<VisitResponse( item *, item * )> &func,
                                       item *parent = nullptr );
@@ -312,7 +312,7 @@ class item_pocket
         bool _saved_sealed = false;
         const pocket_data *data = nullptr;
         // the items inside the pocket
-        std::list<item> contents;
+        std::vector<item> contents;
         bool _sealed = false;
 };
 

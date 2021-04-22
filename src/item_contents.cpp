@@ -198,7 +198,7 @@ bool pocket_favorite_callback::key( const input_context &, const input_event &ev
 
 item_contents::item_contents( const std::vector<pocket_data> &pockets )
 {
-
+    contents.reserve( pockets.size() );
     for( const pocket_data &data : pockets ) {
         contents.push_back( item_pocket( &data ) );
     }
@@ -1009,12 +1009,12 @@ void item_contents::remove_items_if( const std::function<bool( item & )> &filter
     }
 }
 
-std::list<item *> item_contents::all_items_top( item_pocket::pocket_type pk_type )
+std::vector<item *> item_contents::all_items_top( item_pocket::pocket_type pk_type )
 {
-    std::list<item *> all_items_internal;
+    std::vector<item *> all_items_internal;
     for( item_pocket &pocket : contents ) {
         if( pocket.is_type( pk_type ) ) {
-            std::list<item *> contained_items = pocket.all_items_top();
+            std::vector<item *> contained_items = pocket.all_items_top();
             all_items_internal.insert( all_items_internal.end(), contained_items.begin(),
                                        contained_items.end() );
         }
@@ -1022,12 +1022,12 @@ std::list<item *> item_contents::all_items_top( item_pocket::pocket_type pk_type
     return all_items_internal;
 }
 
-std::list<const item *> item_contents::all_items_top( item_pocket::pocket_type pk_type ) const
+std::vector<const item *> item_contents::all_items_top( item_pocket::pocket_type pk_type ) const
 {
-    std::list<const item *> all_items_internal;
+    std::vector<const item *> all_items_internal;
     for( const item_pocket &pocket : contents ) {
         if( pocket.is_type( pk_type ) ) {
-            std::list<const item *> contained_items = pocket.all_items_top();
+            std::vector<const item *> contained_items = pocket.all_items_top();
             all_items_internal.insert( all_items_internal.end(), contained_items.begin(),
                                        contained_items.end() );
         }
@@ -1035,12 +1035,12 @@ std::list<const item *> item_contents::all_items_top( item_pocket::pocket_type p
     return all_items_internal;
 }
 
-std::list<const item *> item_contents::all_standard_items_top() const
+std::vector<const item *> item_contents::all_standard_items_top() const
 {
-    std::list<const item *> all_items_internal;
+    std::vector<const item *> all_items_internal;
     for( const item_pocket &pocket : contents ) {
         if( pocket.is_standard_type() ) {
-            std::list<const item *> contained_items = pocket.all_items_top();
+            std::vector<const item *> contained_items = pocket.all_items_top();
             all_items_internal.insert( all_items_internal.end(), contained_items.begin(),
                                        contained_items.end() );
         }
@@ -1048,57 +1048,57 @@ std::list<const item *> item_contents::all_standard_items_top() const
     return all_items_internal;
 }
 
-std::list<item *> item_contents::all_items_top()
+std::vector<item *> item_contents::all_items_top()
 {
-    std::list<item *> ret;
+    std::vector<item *> ret;
     for( const item_pocket::pocket_type pk_type : avail_types ) {
-        std::list<item *> top{ all_items_top( pk_type ) };
+        std::vector<item *> top{ all_items_top( pk_type ) };
         ret.insert( ret.end(), top.begin(), top.end() );
     }
     return ret;
 }
 
-std::list<const item *> item_contents::all_items_top() const
+std::vector<const item *> item_contents::all_items_top() const
 {
-    std::list<const item *> ret;
+    std::vector<const item *> ret;
     for( const item_pocket::pocket_type pk_type : avail_types ) {
-        std::list<const item *> top{ all_items_top( pk_type ) };
+        std::vector<const item *> top{ all_items_top( pk_type ) };
         ret.insert( ret.end(), top.begin(), top.end() );
     }
     return ret;
 }
 
-std::list<item *> item_contents::all_items_ptr( item_pocket::pocket_type pk_type )
+std::vector<item *> item_contents::all_items_ptr( item_pocket::pocket_type pk_type )
 {
     return all_items_top_recursive( pk_type );
 }
 
-std::list<const item *> item_contents::all_items_ptr( item_pocket::pocket_type pk_type ) const
+std::vector<const item *> item_contents::all_items_ptr( item_pocket::pocket_type pk_type ) const
 {
     return all_items_top_recursive( pk_type );
 }
 
-std::list<const item *> item_contents::all_items_ptr() const
+std::vector<const item *> item_contents::all_items_ptr() const
 {
-    std::list<const item *> all_items_internal;
+    std::vector<const item *> all_items_internal;
     for( int i = static_cast<int>( item_pocket::pocket_type::CONTAINER );
          i < static_cast<int>( item_pocket::pocket_type::LAST ); i++ ) {
-        std::list<const item *> inserted{ all_items_top_recursive( static_cast<item_pocket::pocket_type>( i ) ) };
+        std::vector<const item *> inserted{ all_items_top_recursive( static_cast<item_pocket::pocket_type>( i ) ) };
         all_items_internal.insert( all_items_internal.end(), inserted.begin(), inserted.end() );
     }
     return all_items_internal;
 }
 
-std::list<const item *> item_contents::all_items_top_recursive( item_pocket::pocket_type pk_type )
+std::vector<const item *> item_contents::all_items_top_recursive( item_pocket::pocket_type pk_type )
 const
 {
-    std::list<const item *> all_items_internal;
+    std::vector<const item *> all_items_internal;
     for( const item_pocket &pocket : contents ) {
         if( pocket.is_type( pk_type ) ) {
-            std::list<const item *> contained_items = pocket.all_items_top();
+            std::vector<const item *> contained_items = pocket.all_items_top();
             all_items_internal.insert( all_items_internal.end(), contained_items.begin(),
                                        contained_items.end() );
-            std::list<const item *> recursion_items;
+            std::vector<const item *> recursion_items;
             for( const item *it : contained_items ) {
                 recursion_items = it->contents.all_items_top_recursive( pk_type );
                 all_items_internal.insert( all_items_internal.end(), recursion_items.begin(),
@@ -1110,15 +1110,15 @@ const
     return all_items_internal;
 }
 
-std::list<item *> item_contents::all_items_top_recursive( item_pocket::pocket_type pk_type )
+std::vector<item *> item_contents::all_items_top_recursive( item_pocket::pocket_type pk_type )
 {
-    std::list< item *> all_items_internal;
+    std::vector< item *> all_items_internal;
     for( item_pocket &pocket : contents ) {
         if( pocket.is_type( pk_type ) ) {
-            std::list< item *> contained_items = pocket.all_items_top();
+            std::vector< item *> contained_items = pocket.all_items_top();
             all_items_internal.insert( all_items_internal.end(), contained_items.begin(),
                                        contained_items.end() );
-            std::list< item *> recursion_items;
+            std::vector< item *> recursion_items;
             for( item *it : contained_items ) {
                 recursion_items = it->contents.all_items_top_recursive( pk_type );
                 all_items_internal.insert( all_items_internal.end(), recursion_items.begin(),
@@ -1447,7 +1447,7 @@ units::volume item_contents::get_nested_content_volume_recursive( const
 }
 
 void item_contents::remove_internal( const std::function<bool( item & )> &filter,
-                                     int &count, std::list<item> &res )
+                                     int &count, std::vector<item> &res )
 {
     for( item_pocket &pocket : contents ) {
         if( pocket.remove_internal( filter, count, res ) ) {

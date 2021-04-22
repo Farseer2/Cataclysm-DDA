@@ -181,7 +181,7 @@ struct bash_params {
 class map
 {
         friend class editmap;
-        friend std::list<item> map_cursor::remove_items_with( const std::function<bool( const item & )> &,
+        friend std::vector<item> map_cursor::remove_items_with( const std::function<bool( const item & )> &,
                 int );
 
         //FIXME some field processor use private methods

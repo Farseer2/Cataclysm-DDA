@@ -2216,8 +2216,8 @@ class item : public visitable
         // inherited from visitable
         VisitResponse visit_items( const std::function<VisitResponse( item *, item * )> &func ) const
         override;
-        std::list<item> remove_items_with( const std::function<bool( const item & )> &filter,
-                                           int count = INT_MAX ) override;
+        std::vector<item> remove_items_with( const std::function<bool( const item & )> &filter,
+                                             int count = INT_MAX ) override;
 
     private:
         /** migrates an item into this item. */

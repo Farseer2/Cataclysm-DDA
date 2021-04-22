@@ -2390,8 +2390,8 @@ cata::optional<int> holster_actor::use( player &p, item &it, bool, const tripoin
     std::string prompt = holster_prompt.empty() ? _( "Holster item" ) : holster_prompt.translated();
     opts.push_back( prompt );
     pos = -1;
-    std::list<item *> all_items = it.contents.all_items_top(
-                                      item_pocket::pocket_type::CONTAINER );
+    std::vector<item *> all_items = it.contents.all_items_top(
+                                        item_pocket::pocket_type::CONTAINER );
     std::transform( all_items.begin(), all_items.end(), std::back_inserter( opts ),
     []( const item * elem ) {
         return string_format( _( "Draw %s" ), elem->display_name() );

@@ -92,7 +92,7 @@ bool advanced_inventory_pane::is_filtered( const item &it ) const
 
 /** converts a raw list of items to "stacks" - items that are not count_by_charges that otherwise stack go into one stack */
 static std::vector<std::vector<item_location>> item_list_to_stack(
-            const item_location &parent, std::list<item *> item_list )
+            const item_location &parent, std::vector<item *> item_list )
 {
     std::vector<std::vector<item_location>> ret;
     for( auto iter_outer = item_list.begin(); iter_outer != item_list.end(); ++iter_outer ) {
