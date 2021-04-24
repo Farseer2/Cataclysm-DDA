@@ -102,6 +102,148 @@ struct json_source_location {
     int offset = 0;
 };
 
+class json_buffer
+{
+    public:
+        json_buffer( std::istream &s ) {
+            auto starting_pos = s.tellg();
+            backing_store = std::string( std::istreambuf_iterator<char>( s ),
+                                         std::istreambuf_iterator<char>() );
+            s.seekg( starting_pos );
+            if( length() == 0 ) {
+                __debugbreak();
+            }
+        }
+
+        char peek() const {
+            if( pos >= length() ) {
+                return EOF;
+            }
+            return buffer()[pos];
+        }
+
+        void advance( int count = 1 ) {
+            pos += count;
+            if( pos >= length() ) {
+                state |= std::ios::eofbit;
+            }
+        }
+
+        void ignore() {
+            advance();
+        }
+
+        char get() {
+            if( pos >= length() ) {
+                state |= std::ios::failbit;
+                return EOF;
+            }
+
+            char out = buffer()[pos];
+            advance();
+            return out;
+        }
+
+        void get( char &output ) {
+            output = get();
+        }
+
+        void get( char *output, size_t n, char delim = '\n' ) {
+            if( n == 0 ) {
+                return;
+            }
+
+            size_t len = n;
+            for( int i = 0; i < n - 1; i++ ) {
+                if( buffer()[pos + i] == delim ) {
+                    len = i;
+                    break;
+                }
+            }
+
+            cata_assert( len <= length() - pos );
+
+            memcpy( output, buffer() + pos, len - 1 );
+            output[len - 1] = '\0';
+
+            advance( len - 1 );
+        }
+
+        void unget() {
+            cata_assert( pos != 0 );
+            pos--;
+        }
+
+        size_t tellg() const {
+            return pos;
+        }
+
+        void seekg( std::ios::off_type new_pos, std::ios::seekdir dir = std::ios::beg ) {
+            switch( dir ) {
+                case std::ios::beg:
+                    pos = new_pos;
+                    break;
+                case std::ios::cur:
+                    pos += new_pos;
+                    break;
+                case std::ios::end:
+                    pos = length() - new_pos;
+                    break;
+            }
+
+            if( pos > length() ) {
+                pos = length();
+                state |= std::ios::eofbit;
+            } else {
+                state &= ~std::ios::eofbit;
+            }
+        }
+
+        void read( char *obuf, size_t olen ) {
+            memcpy( obuf,
+                    buffer() + pos,
+                    std::min( olen, length() - pos ) );
+            advance( olen );
+        }
+
+        void clear( std::ios::iostate new_state = std::ios::goodbit ) {
+            state = new_state;
+        }
+
+        bool good() const {
+            return state == std::ios::goodbit;
+        }
+
+        bool eof() const {
+            return state == std::ios::eofbit;
+        }
+
+        bool fail() const {
+            return false;
+        }
+
+        bool bad() const {
+            return false;
+        }
+
+        operator bool () const {
+            return true;
+        }
+
+    private:
+        const char *buffer() const {
+            return reinterpret_cast<const char *>( backing_store.data() );
+        }
+
+        size_t length() const {
+            return backing_store.size();
+        }
+
+        std::string backing_store;
+        size_t pos = 0;
+        std::ios::iostate state = std::ios::goodbit;
+};
+
 /* JsonIn
  * ======
  *
@@ -185,7 +327,7 @@ struct json_source_location {
 class JsonIn
 {
     private:
-        std::istream *stream;
+        json_buffer stream;
         shared_ptr_fast<std::string> path;
         bool ate_separator = false;
 
@@ -194,11 +336,11 @@ class JsonIn
         void end_value();
 
     public:
-        explicit JsonIn( std::istream &s ) : stream( &s ) {}
+        explicit JsonIn( std::istream &s ) : stream( s ) {}
         JsonIn( std::istream &s, const std::string &path )
-            : stream( &s ), path( make_shared_fast<std::string>( path ) ) {}
+            : stream( s ), path( make_shared_fast<std::string>( path ) ) {}
         JsonIn( std::istream &s, const json_source_location &loc )
-            : stream( &s ), path( loc.path ) {
+            : stream( s ), path( loc.path ) {
             seek( loc.offset );
         }
         JsonIn( const JsonIn & ) = delete;
