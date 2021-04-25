@@ -484,6 +484,7 @@ std::u32string utf8_to_utf32( const std::string &str )
 std::vector<std::string> utf8_display_split( const std::string &s )
 {
     std::vector<std::string> result;
+    result.reserve( s.length() + 1 ); // Conservative
     std::string current_glyph;
     const char *pos = s.c_str();
     int len = s.length();

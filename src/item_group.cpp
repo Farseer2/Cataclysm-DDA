@@ -218,6 +218,7 @@ Item_spawn_data::ItemList Single_item_creator::create(
                       modifier_count.first, modifier_count.second );
         }
     }
+    result.reserve( cnt );
     float spawn_rate = get_option<float>( "ITEM_SPAWNRATE" );
     for( ; cnt > 0; cnt-- ) {
         if( type == S_ITEM ) {
@@ -248,7 +249,9 @@ Item_spawn_data::ItemList Single_item_creator::create(
                     modifier->modify( elem, "modifier for " + context() );
                 }
             }
-            result.insert( result.end(), tmplist.begin(), tmplist.end() );
+            result.reserve( result.size() + tmplist.size() );
+            std::move( tmplist.begin(), tmplist.end(), std::back_inserter( result ) );
+            //result.insert( result.end(), tmplist.begin(), tmplist.end() );
         }
     }
     if( artifact ) {

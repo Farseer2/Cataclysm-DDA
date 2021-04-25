@@ -41,11 +41,11 @@ class ret_val
         ret_val() = delete;
 
         static ret_val make_success( T val = default_success::value ) {
-            return make_success( val, std::string() );
+            return make_success( std::forward<T>( val ), std::string() );
         }
 
         static ret_val make_failure( T val = default_failure::value ) {
-            return make_failure( val, std::string() );
+            return make_failure( std::forward<T>( val ), std::string() );
         }
 
         template<class... A, typename S = std::string, typename = is_convertible_to_string<S>>

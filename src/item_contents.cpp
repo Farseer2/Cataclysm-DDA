@@ -1310,36 +1310,34 @@ units::mass item_contents::total_container_weight_capacity() const
 ret_val<std::vector<const item_pocket *>> item_contents::get_all_contained_pockets() const
 {
     std::vector<const item_pocket *> pockets;
-    bool found = false;
+    pockets.reserve( contents.size() ); // Conservative
 
     for( const item_pocket &pocket : contents ) {
         if( pocket.is_type( item_pocket::pocket_type::CONTAINER ) ) {
-            found = true;
             pockets.push_back( &pocket );
         }
     }
-    if( found ) {
-        return ret_val<std::vector<const item_pocket *>>::make_success( pockets );
+    if( pockets.size() ) {
+        return ret_val<std::vector<const item_pocket *>>::make_success( std::move( pockets ) );
     } else {
-        return ret_val<std::vector<const item_pocket *>>::make_failure( pockets );
+        return ret_val<std::vector<const item_pocket *>>::make_failure( std::move( pockets ) );
     }
 }
 
 ret_val<std::vector<item_pocket *>> item_contents::get_all_contained_pockets()
 {
     std::vector<item_pocket *> pockets;
-    bool found = false;
+    pockets.reserve( contents.size() ); // Conservative
 
     for( item_pocket &pocket : contents ) {
         if( pocket.is_type( item_pocket::pocket_type::CONTAINER ) ) {
-            found = true;
             pockets.push_back( &pocket );
         }
     }
-    if( found ) {
-        return ret_val<std::vector<item_pocket *>>::make_success( pockets );
+    if( pockets.size() ) {
+        return ret_val<std::vector<item_pocket *>>::make_success( std::move( pockets ) );
     } else {
-        return ret_val<std::vector<item_pocket *>>::make_failure( pockets );
+        return ret_val<std::vector<item_pocket *>>::make_failure( std::move( pockets ) );
     }
 }
 

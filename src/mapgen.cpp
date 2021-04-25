@@ -2494,7 +2494,9 @@ bool mapgen_function_json_base::setup_common( const JsonObject &jo )
         for( int c = m_offset.y; c < expected_dim.y; c++ ) {
             const std::string row = parray.get_string( c );
             std::vector<map_key> row_keys;
-            for( const std::string &key : utf8_display_split( row ) ) {
+            DynamicDataLoader::str_vec display_split = utf8_display_split( row );
+            row_keys.reserve( display_split.size() );
+            for( const std::string &key : display_split ) {
                 row_keys.emplace_back( key );
             }
             if( row_keys.size() < static_cast<size_t>( expected_dim.x ) ) {
