@@ -903,8 +903,6 @@ static bool are_requirements_nearby( const std::vector<tripoint> &loot_spots,
 {
     zone_manager &mgr = zone_manager::get_manager();
     temp_crafting_inventory temp_inv;
-    units::volume volume_allowed = p.volume_capacity() - p.volume_carried();
-    units::mass weight_allowed = p.weight_capacity() - p.weight_carried();
     static const auto check_weight_if = []( const activity_id & id ) {
         return id == ACT_MULTIPLE_FARM ||
                id == ACT_MULTIPLE_CHOP_PLANKS ||
@@ -917,6 +915,13 @@ static bool are_requirements_nearby( const std::vector<tripoint> &loot_spots,
     };
     const bool check_weight = check_weight_if( activity_to_restore ) || ( !p.backlog.empty() &&
                               check_weight_if( p.backlog.front().id() ) );
+    units::volume volume_allowed;
+    units::mass weight_allowed;
+    if( check_weight ) {
+        volume_allowed = p.volume_capacity() - p.volume_carried();
+        weight_allowed = p.weight_capacity() - p.weight_carried();
+    }
+
     bool found_welder = false;
     for( item *elem : p.inv_dump() ) {
         if( elem->has_quality( qual_WELD ) ) {
