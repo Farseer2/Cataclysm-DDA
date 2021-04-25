@@ -4526,12 +4526,10 @@ item map::water_from( const tripoint &p )
         return ret;
     }
 
-    item ret( "water", calendar::turn, item::INFINITE_CHARGES );
-    ret.set_item_temperature( temp_to_kelvin( std::max( g->weather.get_temperature( p ),
-                              temperatures::cold ) ) );
     // iexamine::water_source requires a valid liquid from this function.
+    bool has_water_source = false;
+    int poison_chance = 0;
     if( terrain_id->has_examine( iexamine::water_source ) ) {
-        int poison_chance = 0;
         if( terrain_id.obj().has_flag( TFLAG_DEEP_WATER ) ) {
             if( terrain_id.obj().has_flag( TFLAG_CURRENT ) ) {
                 poison_chance = 20;
@@ -4545,15 +4543,22 @@ item map::water_from( const tripoint &p )
                 poison_chance = 3;
             }
         }
-        if( one_in( poison_chance ) ) {
-            ret.poison = rng( 1, 4 );
-        }
-        return ret;
+    } else if( furn( p )->has_examine( iexamine::water_source ) ) {
+        has_water_source = true;
     }
-    if( furn( p )->has_examine( iexamine::water_source ) ) {
-        return ret;
+
+    if( !has_water_source ) {
+        return item();
     }
-    return item();
+
+
+    item ret( "water", calendar::turn, item::INFINITE_CHARGES );
+    ret.set_item_temperature( temp_to_kelvin( std::max( g->weather.get_temperature( p ),
+                              temperatures::cold ) ) );
+    if( one_in( poison_chance ) ) {
+        ret.poison = rng( 1, 4 );
+    }
+    return ret;
 }
 
 void map::make_active( item_location &loc )
