@@ -24,7 +24,7 @@ struct level_cache {
         level_cache( const level_cache &other ) = default;
 
         std::bitset<MAPSIZE *MAPSIZE> transparency_cache_dirty;
-        bool outside_cache_dirty = false;
+        bool outside_cache_dirty = true;
         bool floor_cache_dirty = false;
         bool seen_cache_dirty = false;
         // This is a single value indicating that the entire level is floored.
