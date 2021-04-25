@@ -107,12 +107,15 @@ class json_buffer
     public:
         json_buffer( std::istream &s ) {
             auto starting_pos = s.tellg();
-            backing_store = std::string( std::istreambuf_iterator<char>( s ),
-                                         std::istreambuf_iterator<char>() );
+
+            s.seekg( 0, std::ios::end );
+            size_t size_hint = s.tellg() - starting_pos;
+
             s.seekg( starting_pos );
-            if( length() == 0 ) {
-                __debugbreak();
-            }
+            backing_store.reserve( size_hint );
+            backing_store.append( std::istreambuf_iterator<char>( s ), std::istreambuf_iterator<char>() );
+
+            s.seekg( starting_pos );
         }
 
         char peek() const {
